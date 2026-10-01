@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101010">
+  <title>Core Multinicho V2.6 — Painel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-booting">
+  <div id="adminLoader" class="admin-loader"><div class="admin-loader__spinner"></div><strong>Conectando ao painel...</strong><span>Carregando sua conta e a vitrine.</span></div>
+  <aside class="sidebar">
+    <a class="admin-brand" href="#visao-geral"><span id="adminBrandMark">FA</span><div><strong id="adminBrandName">Forno Alto</strong><small>PAINEL DO NEGÓCIO</small></div></a>
+    <nav class="side-nav">
+      <a href="#visao-geral" class="is-active">⌂ <span>Visão geral</span></a>
+      <a href="#atendimentos">⇄ <span>Pedidos & Leads</span></a>
+      <a href="#aparencia">🛠️ <span>Negócio</span></a>
+      <a href="#produtos"><span id="catalogNavIcon">🏷️</span> <span id="catalogNavLabel">Produtos</span></a>
+      <a href="#categorias">🏷️ <span>Categorias</span></a>
+      <a href="#horarios" data-hours-nav>◷ <span>Horários</span></a>
+      <a href="#backup">⇅ <span>Backup</span></a>
+    </nav>
+    <div class="sidebar-foot">
+      <label class="business-switcher-label">Negócio<select id="restaurantSwitcher" aria-label="Trocar negócio"></select></label>
+      <div class="cloud-sync-pill" id="cloudSyncPill"><i></i><span id="cloudSyncText">Preparando...</span></div>
+      <div class="admin-account"><div><strong id="adminUserName">Administrador</strong><small id="adminUserEmail">Modo demonstração</small></div><button id="logoutBtn" type="button" hidden>Sair</button></div>
+      <a id="previewLink" class="preview-link" href="../index.html" target="_blank">Ver vitrine <span>↗</span></a>
+      <small id="versionLabel">Core Multinicho V2.6</small>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <header class="mobile-head">
+      <a class="admin-brand" href="#visao-geral"><span id="mobileBrandMark">FA</span><div><strong>Painel</strong><small id="mobileBrandName">FORNO ALTO</small></div></a>
+      <a id="mobilePreviewLink" href="../index.html" target="_blank">Ver vitrine ↗</a>
+    </header>
+    <nav class="mobile-admin-nav" aria-label="Navegação do painel">
+      <a href="#visao-geral" class="is-active">Visão geral</a>
+      <a href="#atendimentos">Pedidos & Leads</a>
+      <a href="#aparencia">Negócio</a>
+      <a href="#produtos" id="mobileCatalogNavLabel">Produtos</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#horarios" data-hours-nav>Horários</a>
+      <a href="#backup">Backup</a>
+    </nav>
+
+    <section id="visao-geral" class="admin-section">
+      <div class="section-intro">
+        <span class="eyebrow">PAINEL ADMINISTRATIVO</span>
+        <h1>Uma plataforma. Vários tipos de negócio.</h1>
+        <p>Gerencie identidade, produtos e conversão em uma única base. O mesmo core atende alimentação, varejo, veículos e serviços com experiências próprias.</p>
+      </div>
+      <article class="dashboard-business-card">
+        <div class="dashboard-business-main">
+          <div class="dashboard-business-mark" id="dashboardBusinessMark">FA</div>
+          <div class="dashboard-business-copy">
+            <div class="dashboard-business-meta"><span id="dashboardEngineBadge">Alimentação</span><span id="dashboardConversionBadge">Pedido pelo WhatsApp</span></div>
+            <h2 id="dashboardBusinessName">Forno Alto</h2>
+            <p id="dashboardBusinessSubtitle">Pizzaria • Vitrine em demonstração</p>
+          </div>
+        </div>
+        <div class="dashboard-business-actions">
+          <a class="secondary-btn" href="#aparencia">Personalizar</a>
+          <a class="secondary-btn" href="#produtos" id="dashboardCatalogAction">Gerenciar produtos</a>
+          <a class="primary-btn" id="dashboardPreviewLink" href="../index.html" target="_blank">Abrir vitrine ↗</a>
+        </div>
+      </article>
+
+      <div class="dashboard-section-label"><div><span class="eyebrow">VISÃO RÁPIDA</span><strong>Saúde da vitrine</strong></div><small id="dashboardReadinessText">Configurando...</small></div>
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-card__top"><span id="statItemsLabel">Produtos</span><i>🏷️</i></div><strong id="statProducts">0</strong><small id="statItemsSuffix">cadastrados</small></article>
+        <article class="stat-card"><div class="stat-card__top"><span>Disponíveis</span><i>●</i></div><strong id="statAvailable">0</strong><small>visíveis ao cliente</small></article>
+        <article class="stat-card"><div class="stat-card__top"><span>Destaques</span><i>🛠️</i></div><strong id="statHighlights">0</strong><small>na vitrine</small></article>
+        <article class="stat-card"><div class="stat-card__top"><span>Categorias</span><i>≡</i></div><strong id="statCategories">0</strong><small>ativas</small></article>
+      </div>
+      <a class="dashboard-operations-card" href="#atendimentos"><div><span class="eyebrow">OPERAÇÃO AGORA</span><strong>Pedidos e leads que precisam de atenção</strong><small>Acompanhe a jornada desde o início da conversa no WhatsApp.</small></div><div class="dashboard-operations-metrics"><span><strong id="dashboardOpsNew">0</strong><small>novos</small></span><span><strong id="dashboardOpsProgress">0</strong><small>em andamento</small></span><b>Ver central →</b></div></a>
+      <div class="dashboard-section-label engines-label"><div><span class="eyebrow">MOTORES</span><strong>Um Core, experiências diferentes</strong></div><small>Explore os modelos sem sair do painel</small></div>
+      <div class="engine-preview-grid" aria-label="Motores disponíveis no Core">
+        <article class="engine-preview-card" data-engine-card="food"><span>🍕</span><div><strong>Alimentação</strong><small>Pedido + entrega + adicionais</small></div><div class="engine-preview-actions"><a href="index.html?demo=1&template=food#produtos">Gerenciar</a><a href="../index.html?template=food" target="_blank">Vitrine ↗</a></div></article>
+        <article class="engine-preview-card" data-engine-card="retail"><span>👗</span><div><strong>Varejo</strong><small>Sacola + variações + WhatsApp</small></div><div class="engine-preview-actions"><a href="index.html?demo=1&template=retail#produtos">Gerenciar</a><a href="../index.html?template=retail" target="_blank">Vitrine ↗</a></div></article>
+        <article class="engine-preview-card" data-engine-card="automotive"><span>🚗</span><div><strong>Automotivo</strong><small>Ficha técnica + lead</small></div><div class="engine-preview-actions"><a href="index.html?demo=1&template=automotive#produtos">Gerenciar</a><a href="../index.html?template=automotive" target="_blank">Vitrine ↗</a></div></article>
+        <article class="engine-preview-card" data-engine-card="services"><span>🛠️</span><div><strong>Serviços</strong><small>Preço + orçamento + avaliação</small></div><div class="engine-preview-actions"><a href="index.html?demo=1&template=services#produtos">Gerenciar</a><a href="../index.html?template=services" target="_blank">Vitrine ↗</a></div></article>
+      </div>
+      <div class="readiness-card">
+        <div class="readiness-head"><div><span class="eyebrow">CHECKLIST DO NEGÓCIO</span><h3>Pronto para receber clientes?</h3></div><div class="readiness-score"><strong id="readinessScore">0%</strong><span>completo</span></div></div>
+        <div class="readiness-progress"><i id="readinessProgress"></i></div>
+        <div class="readiness-grid">
+          <a href="#aparencia" data-readiness="identity"><i>✓</i><span><strong>Identidade</strong><small>Nome, segmento e hero</small></span></a>
+          <a href="#produtos" data-readiness="catalog"><i>✓</i><span><strong>Catálogo</strong><small>Itens publicados</small></span></a>
+          <a href="#categorias" data-readiness="categories"><i>✓</i><span><strong>Organização</strong><small>Categorias ativas</small></span></a>
+          <a href="#aparencia" data-readiness="contact"><i>✓</i><span><strong>Conversão</strong><small>WhatsApp configurado</small></span></a>
+        </div>
+      </div>
+      <div class="notice-card v6-notice" id="cloudNotice">
+        <div class="notice-icon">☁</div>
+        <div><strong id="cloudNoticeTitle">Core Multinicho em desenvolvimento.</strong><p id="cloudNoticeText">Com o Supabase configurado, login, dados, produtos e imagens ficam sincronizados entre dispositivos. Sem as chaves, o projeto continua abrindo em modo demonstração local.</p></div>
+      </div>
+    </section>
+
+
+    <section id="atendimentos" class="admin-section operations-section">
+      <div class="section-intro operations-intro">
+        <span class="eyebrow">OPERAÇÃO</span>
+        <h2>Pedidos e leads em um só lugar.</h2>
+        <p>O Core transforma cada início de conversa pelo WhatsApp em um registro operacional. Acompanhe pedidos, interesses e solicitações sem perder o contexto de cada cliente.</p>
+      </div>
+      <div class="operations-summary-grid">
+        <article class="operation-stat"><span>Total</span><strong id="opStatTotal">0</strong><small>registros recentes</small></article>
+        <article class="operation-stat is-new"><span>Novos</span><strong id="opStatNew">0</strong><small>pedem atenção</small></article>
+        <article class="operation-stat is-progress"><span>Em andamento</span><strong id="opStatProgress">0</strong><small>em atendimento</small></article>
+        <article class="operation-stat is-done"><span>Concluídos</span><strong id="opStatDone">0</strong><small>finalizados</small></article>
+      </div>
+      <div class="operations-toolbar panel-card">
+        <div class="admin-search"><span>⌕</span><input id="operationSearch" type="search" placeholder="Buscar cliente, item ou contexto..."></div>
+        <select id="operationTypeFilter" aria-label="Filtrar tipo"><option value="">Pedidos e leads</option><option value="order">Pedidos</option><option value="lead">Leads</option></select>
+        <select id="operationStatusFilter" aria-label="Filtrar status"><option value="">Todos os status</option><option value="new">Novos</option><option value="in_progress">Em andamento</option><option value="done">Concluídos</option><option value="cancelled">Cancelados / perdidos</option></select>
+      </div>
+      <div id="operationsList" class="operations-list"></div>
+      <div id="operationsEmpty" class="empty-state" hidden>Nenhum pedido ou lead encontrado.</div>
+      <div class="operations-note"><span>i</span><p><strong>WhatsApp como canal:</strong> o registro é criado quando o cliente inicia a conversa. Nesta fase, a plataforma não consegue confirmar se a mensagem foi efetivamente enviada dentro do WhatsApp.</p></div>
+    </section>
+
+    <section id="aparencia" class="admin-section">
+      <div class="section-intro">
+        <span class="eyebrow">NEGÓCIO</span>
+        <h2>Identidade, segmento e conversão.</h2>
+        <p>Escolha o segmento e o core adapta linguagem, recursos e chamada principal sem transformar tudo em uma skin genérica.</p>
+      </div>
+      <form id="settingsForm" class="panel-card form-card">
+        <div class="form-grid cols-2">
+          <label>Nome do negócio<input name="businessName" required></label>
+          <label>Segmento<select name="businessType"><option value="food">Alimentação</option><option value="retail">Varejo / Moda / Produtos</option><option value="automotive">Automotivo / Veículos</option><option value="services">Serviços / Orçamentos</option></select></label>
+          <label>Tipo / especialidade<input name="businessSubtype" placeholder="Ex.: PIZZARIA, MODA FEMININA, REVENDA"></label>
+          <label>Conversão principal<select name="conversionMode"><option value="order_whatsapp">Pedido pelo WhatsApp</option><option value="cart_whatsapp">Sacola / consulta pelo WhatsApp</option><option value="lead_whatsapp">Lead / interesse pelo WhatsApp</option><option value="service_quote">Serviço / orçamento / avaliação</option></select></label>
+          <label>Logo (URL)<input name="logoImage" type="url" placeholder="https://.../logo.png"></label>
+          <label class="upload-field">Enviar logo<input id="logoUploadInput" type="file" accept="image/jpeg,image/png,image/webp"><span>JPG, PNG ou WebP • até 8 MB</span></label>
+          <label>WhatsApp<input name="whatsapp" inputmode="numeric" placeholder="5511999999999"></label>
+          <label>Fuso horário<input name="timeZone" placeholder="America/Sao_Paulo"></label>
+          <label id="deliveryFeeField">Taxa de entrega (R$)<input name="deliveryFee" type="number" min="0" step="0.01"></label>
+          <label id="freeDeliveryField">Frete grátis acima de (R$)<input name="freeDeliveryThreshold" type="number" min="0" step="0.01"></label>
+          <label>Cor principal<input name="accent" type="color"></label>
+          <label>Cor de apoio<input name="accent2" type="color"></label>
+        </div>
+        <div class="form-divider"></div>
+        <div class="form-grid cols-2">
+          <label>Tag do hero<input name="heroKicker"></label>
+          <label>Imagem do hero (URL)<input name="heroImage" type="url"></label>
+          <label class="upload-field">Enviar imagem do hero<input id="heroUploadInput" type="file" accept="image/jpeg,image/png,image/webp"><span>JPG, PNG ou WebP • até 8 MB</span></label>
+          <label>Título principal<input name="heroTitle"></label>
+          <label>Trecho em destaque<input name="heroHighlight"></label>
+          <label class="span-2">Texto do hero<textarea name="heroCopy" rows="3"></textarea></label>
+        </div>
+        <div class="form-actions"><button id="applyTemplateBtn" class="secondary-btn" type="button">Aplicar modelo do segmento</button><span id="settingsSaved" class="save-status"></span><button class="primary-btn" type="submit">Salvar alterações</button></div>
+      </form>
+    </section>
+
+    <section id="produtos" class="admin-section">
+      <div class="section-intro">
+        <span class="eyebrow">CATÁLOGO</span>
+        <h2 id="catalogTitle">Produtos e disponibilidade.</h2>
+        <p id="catalogCopy">Cadastre produtos, veículos ou serviços, com campos e atributos específicos conforme o segmento.</p>
+      </div>
+      <div class="toolbar panel-card">
+        <div class="admin-search"><span>⌕</span><input id="productSearch" type="search" placeholder="Buscar produto..."></div>
+        <select id="productCategoryFilter" aria-label="Filtrar categoria"><option value="">Todas as categorias</option></select>
+        <button id="newProductBtn" class="primary-btn" type="button">+ Novo produto</button>
+      </div>
+      <div id="productList" class="product-admin-list"></div>
+      <div id="productListEmpty" class="empty-state" hidden>Nenhum produto encontrado.</div>
+    </section>
+
+    <section id="categorias" class="admin-section">
+      <div class="section-intro">
+        <span class="eyebrow">ORGANIZAÇÃO</span>
+        <h2>Categorias da vitrine.</h2>
+        <p>Altere nome, ícone e visibilidade das seções exibidas para o cliente.</p>
+      </div>
+      <div class="panel-card">
+        <div id="categoryList" class="category-list"></div>
+        <button id="addCategoryBtn" class="secondary-btn" type="button">+ Adicionar categoria</button>
+      </div>
+    </section>
+
+    <section id="horarios" class="admin-section">
+      <div class="section-intro">
+        <span class="eyebrow">FUNCIONAMENTO</span>
+        <h2>Status aberto ou fechado automático.</h2>
+        <p>Usado automaticamente quando o segmento possui status de funcionamento, como alimentação.</p>
+      </div>
+      <form id="hoursForm" class="panel-card">
+        <div id="hoursList" class="hours-list"></div>
+        <div class="form-actions"><span id="hoursSaved" class="save-status"></span><button class="primary-btn" type="submit">Salvar horários</button></div>
+      </form>
+    </section>
+
+    <section id="backup" class="admin-section">
+      <div class="section-intro">
+        <span class="eyebrow">SEGURANÇA DOS DADOS</span>
+        <h2>Backup, importação e restauração.</h2>
+        <p>Exporte a configuração completa antes de grandes mudanças ou importe um backup salvo.</p>
+      </div>
+      <div class="backup-grid">
+        <article class="panel-card backup-card"><span>↓</span><h3>Exportar backup</h3><p>Baixa um arquivo com todas as configurações, categorias e produtos.</p><button id="exportBtn" class="secondary-btn" type="button">Baixar JSON</button></article>
+        <article class="panel-card backup-card"><span>↑</span><h3>Importar backup</h3><p>Restaura um arquivo JSON exportado anteriormente.</p><label class="file-btn">Selecionar JSON<input id="importInput" type="file" accept="application/json,.json"></label></article>
+        <article class="panel-card backup-card danger-card"><span>↺</span><h3>Restaurar demonstração</h3><p>Apaga as alterações do painel e retorna ao template inicial do segmento atual.</p><button id="resetBtn" class="danger-btn" type="button">Restaurar padrão</button></article>
+      </div>
+    </section>
+  </main>
+
+
+  <div id="operationModalOverlay" class="modal-overlay operation-modal-overlay" hidden>
+    <section class="operation-modal" role="dialog" aria-modal="true" aria-labelledby="operationModalTitle">
+      <header class="editor-head"><div><span class="eyebrow" id="operationModalEyebrow">ATENDIMENTO</span><h2 id="operationModalTitle">Detalhes</h2></div><button id="closeOperationModal" class="icon-btn" type="button">×</button></header>
+      <div class="operation-modal-scroll">
+        <div class="operation-detail-head"><div><span id="operationDetailType" class="operation-type-pill">Pedido</span><strong id="operationDetailCustomer">Cliente</strong><small id="operationDetailDate"></small></div><label>Status<select id="operationDetailStatus"><option value="new">Novo</option><option value="in_progress">Em andamento</option><option value="done">Concluído</option><option value="cancelled">Cancelado / perdido</option></select></label></div>
+        <div class="operation-detail-grid"><div><small>Valor / referência</small><strong id="operationDetailAmount">R$ 0,00</strong></div><div><small>Canal</small><strong>WhatsApp</strong></div></div>
+        <div class="operation-detail-block"><span class="eyebrow">ITENS / INTERESSE</span><div id="operationDetailItems" class="operation-detail-items"></div></div>
+        <div class="operation-detail-block"><span class="eyebrow">CONTEXTO</span><div id="operationDetailMetadata" class="operation-detail-metadata"></div></div>
+        <div class="operation-detail-foot"><small id="operationDetailId"></small><button id="copyOperationSummary" class="secondary-btn" type="button">Copiar resumo</button></div>
+      </div>
+    </section>
+  </div>
+
+  <div id="productModalOverlay" class="modal-overlay" hidden>
+    <section class="editor-modal" role="dialog" aria-modal="true" aria-labelledby="editorTitle">
+      <header class="editor-head"><div><span class="eyebrow" id="editorEyebrow">EDITOR DE PRODUTO</span><h2 id="editorTitle">Novo produto</h2></div><button id="closeProductEditor" class="icon-btn" type="button">×</button></header>
+      <form id="productForm" class="editor-scroll">
+        <input type="hidden" name="originalId">
+        <div class="form-grid cols-2">
+          <label>Nome<input name="name" required></label>
+          <label>Categoria<select name="section" required></select></label>
+          <label>Preço base (R$)<input name="price" type="number" min="0" step="0.01" required></label>
+          <label>URL da foto<input name="image" type="url" required></label>
+          <label class="upload-field">Enviar foto<input id="productUploadInput" type="file" accept="image/jpeg,image/png,image/webp"><span>JPG, PNG ou WebP • até 8 MB</span></label>
+          <label class="span-2">Descrição<textarea name="description" rows="3" required></textarea></label>
+        </div>
+        <div class="switch-grid">
+          <label class="switch-card"><input name="available" type="checkbox"><span></span><div><strong>Disponível</strong><small>Visível e disponível ao cliente</small></div></label>
+          <label class="switch-card"><input name="highlight" type="checkbox"><span></span><div><strong>Em destaque</strong><small>Aparece na área principal da vitrine</small></div></label>
+          <label class="switch-card"><input name="badgeMais" type="checkbox"><span></span><div><strong>Mais pedido</strong><small>Selo vermelho</small></div></label>
+          <label class="switch-card"><input name="badgeNovidade" type="checkbox"><span></span><div><strong>Novidade</strong><small>Selo verde</small></div></label>
+          <label class="switch-card"><input name="badgePromocao" type="checkbox"><span></span><div><strong>Promoção</strong><small>Selo amarelo</small></div></label>
+        </div>
+
+        <div class="editor-block" id="variantsBlock">
+          <div class="block-title"><div><strong>Variações</strong><small>Ex.: tamanho, cor, acabamento ou versão</small></div><button id="addVariantBtn" type="button" class="text-btn">+ Adicionar</button></div>
+          <div id="variantRows" class="repeat-list"></div>
+        </div>
+        <div class="editor-block" id="addonsBlock">
+          <div class="block-title"><div><strong>Adicionais</strong><small>Ex.: borda, complemento ou item extra</small></div><button id="addAddonBtn" type="button" class="text-btn">+ Adicionar</button></div>
+          <div id="addonRows" class="repeat-list"></div>
+        </div>
+        <div class="editor-block" id="attributesBlock">
+          <div class="block-title"><div><strong>Atributos</strong><small>Ex.: Ano / 2024, Câmbio / Automático, Material / Linho</small></div><button id="addAttributeBtn" type="button" class="text-btn">+ Adicionar</button></div>
+          <div id="attributeRows" class="repeat-list"></div>
+        </div>
+        <div class="editor-block" id="serviceFieldsBlock" hidden>
+          <div class="block-title"><div><strong>Configuração do serviço</strong><small>Defina como o valor e a intenção de contato aparecem para o cliente.</small></div></div>
+          <div class="form-grid cols-3 service-admin-fields">
+            <label>Modelo de preço<select name="priceMode"><option value="fixed">Preço fixo</option><option value="from">A partir de</option><option value="quote">Sob avaliação</option></select></label>
+            <label>Duração estimada<input name="serviceDuration" placeholder="Ex.: 2–3 horas"></label>
+            <label>Fluxo preferencial<select name="serviceLeadMode"><option value="quote">Solicitar orçamento</option><option value="schedule">Agendar avaliação</option></select></label>
+          </div>
+        </div>
+
+        <div class="editor-actions"><button id="deleteProductBtn" class="danger-link" type="button">Excluir produto</button><div><button id="cancelProductEditor" class="secondary-btn" type="button">Cancelar</button><button id="saveProductBtn" class="primary-btn" type="submit">Salvar produto</button></div></div>
+      </form>
+    </section>
+  </div>
+
+  <div id="onboardingOverlay" class="onboarding-overlay" hidden>
+    <section class="onboarding-card" role="dialog" aria-modal="true" aria-labelledby="onboardingTitle">
+      <span class="eyebrow">PRIMEIRO ACESSO</span>
+      <h2 id="onboardingTitle">Crie seu primeiro negócio.</h2>
+      <p>Sua conta já está autenticada. Escolha um segmento e o Core Multinicho cria a estrutura inicial adequada para esse negócio, inclusive produtos, veículos ou serviços.</p>
+      <form id="onboardingForm" class="onboarding-form">
+        <label>Nome do negócio<input name="name" required value="Meu Negócio"></label>
+        <label>Endereço da vitrine<input name="slug" required value="meu-negocio" pattern="[a-z0-9-]+"><small>Ex.: meu-negocio → ?b=meu-negocio</small></label>
+        <label>Segmento<select name="businessType"><option value="food">Alimentação</option><option value="retail">Varejo / Moda</option><option value="automotive">Automotivo</option><option value="services">Serviços</option></select></label><label>Tipo / especialidade<input name="businessSubtype" placeholder="Ex.: PIZZARIA"></label>
+        <label class="seed-check"><input name="seedDemo" type="checkbox" checked> <span>Carregar produtos de demonstração</span></label>
+        <button id="createRestaurantBtn" class="primary-btn" type="submit">Criar negócio na nuvem</button>
+        <small id="onboardingError" class="onboarding-error"></small>
+      </form>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="../data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../supabase-config.js"></script>
+  <script src="../supabase-client.js"></script>
+  <script src="../backend.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

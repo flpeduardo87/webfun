@@ -1,0 +1,6 @@
+const $=(q,s=document)=>s.querySelector(q), $$=(q,s=document)=>[...s.querySelectorAll(q)], D=window.VITTA_DATA;
+function toast(m){const t=$('.toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+$$('.side-nav button[data-view]').forEach(b=>b.onclick=()=>{$$('.side-nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');$$('.app-section').forEach(s=>s.classList.remove('active'));$('#'+b.dataset.view).classList.add('active');$('.topbar h2').textContent=b.textContent.trim()});
+function render(list=D.consultas){const body=$('#consultTable');if(!body)return;body.innerHTML=list.map(c=>`<tr><td><b>${c.data}</b></td><td>${c.paciente}</td><td>${c.especialidade}</td><td>${c.profissional}</td><td><span class="status-pill ${c.status==='Confirmada'?'status-green':c.status==='Retorno'?'status-blue':'status-amber'}">${c.status}</span></td></tr>`).join('')}
+render();$('#searchConsult')?.addEventListener('input',e=>{const q=e.target.value.toLowerCase();render(D.consultas.filter(c=>Object.values(c).join(' ').toLowerCase().includes(q)))});
+$$('[data-admin-action]').forEach(b=>b.onclick=()=>toast(b.dataset.adminAction||'Ação registrada na demonstração.'));

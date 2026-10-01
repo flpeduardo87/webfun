@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0d0d0d">
+  <title>Vitrine Digital — Core Multinicho</title>
+  <meta name="description" content="Vitrine digital multinichos com catálogo e conversão pelo WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+<style>.wf-lead-float{position:fixed;right:18px;bottom:18px;z-index:9999;display:inline-flex;align-items:center;gap:9px;background:#1fae57;color:#fff!important;text-decoration:none;font:600 14px/1 Manrope,system-ui,sans-serif;padding:15px 20px 15px 16px;border-radius:999px;box-shadow:0 12px 28px rgba(15,40,25,.3);transition:transform .15s,box-shadow .15s,background .15s}.wf-lead-float:hover{background:#178c46;transform:translateY(-2px)}.wf-lead-float svg{width:19px;height:19px;flex:none}@media(max-width:600px){.wf-lead-float{padding:14px;border-radius:50%;bottom:max(78px,env(safe-area-inset-bottom))}.wf-lead-float span{display:none}}</style></head>
+<body class="app-loading">
+  <div id="appLoader" class="app-loader"><div class="app-loader__spinner"></div><strong>Carregando vitrine...</strong><span>Buscando produtos e configurações.</span></div>
+  <div id="appError" class="app-error" hidden><strong>Não foi possível carregar a vitrine.</strong><span id="appErrorText"></span><button type="button" onclick="location.reload()">Tentar novamente</button></div>
+  <header class="hero" id="topo">
+    <img id="heroImage" class="hero__image" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1800&q=88" alt="" aria-hidden="true">
+    <div class="hero__overlay"></div>
+    <div class="container hero__inner">
+      <div class="topbar">
+        <a class="brand" href="#topo" aria-label="Forno Alto - início">
+          <span id="brandMark" class="brand__mark">FA</span>
+          <span class="brand__text"><strong id="restaurantName">Forno Alto</strong><small id="restaurantType">PIZZARIA</small></span>
+        </a>
+
+        <div class="topbar__actions">
+          <div id="dataSourceBadge" class="data-source-badge" title="Origem dos dados">V6</div>
+          <div class="status-card">
+            <span id="openStatus" class="status status--closed">Verificando...</span>
+            <small id="hoursText"></small>
+          </div>
+          <button id="topCartBtn" class="top-action" type="button" aria-label="Abrir meu pedido">
+            <span class="top-action__icon">🛒</span>
+            <span class="top-action__label">Meu pedido</span>
+            <span id="topCartCount" class="top-action__badge">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="hero__content">
+        <p id="heroKicker" class="hero__kicker">SABOR QUE AQUECE</p>
+        <h1><span id="heroTitle" class="hero-title-main">Pizzas artesanais</span><br><span id="heroHighlight">feitas no forno a lenha.</span></h1>
+        <p id="heroCopy" class="hero__copy">Massa de longa fermentação, ingredientes selecionados e aquele sabor que faz todo mundo querer mais uma fatia.</p>
+        <div class="hero__actions">
+          <a class="primary-cta" href="#destaques"><span>🛒</span> Fazer pedido</a>
+          <a class="secondary-cta" href="#pizzas">Ver cardápio</a>
+        </div>
+      </div>
+
+      <div class="search-shell">
+        <span aria-hidden="true">⌕</span>
+        <input id="menuSearch" type="search" autocomplete="off" placeholder="Buscar pizza, bebida, sobremesa..." aria-label="Buscar no cardápio">
+        <button id="clearSearch" type="button" hidden>Limpar</button>
+      </div>
+    </div>
+  </header>
+
+  <section id="trustStrip" class="trust-strip" hidden aria-label="Diferenciais do negócio">
+    <div id="trustItems" class="container trust-strip__grid"></div>
+  </section>
+
+  <div class="category-sticky">
+    <nav class="container category-nav" aria-label="Categorias da vitrine">
+      <div id="sectionNav" class="category-nav__scroll"></div>
+    </nav>
+  </div>
+
+  <main>
+    <section class="container section-block highlights-block" id="destaques">
+      <div class="section-heading">
+        <span class="section-kicker">AS PREFERIDAS</span>
+        <h2>Destaques da casa</h2>
+        <p>Os pedidos que mais conquistam nossos clientes.</p>
+      </div>
+      <div id="highlightsGrid" class="product-grid product-grid--highlight"></div>
+    </section>
+
+    <div id="menuSections"></div>
+    <div id="noResults" class="container no-results" hidden>
+      <span>🔎</span>
+      <h2>Nenhum item encontrado</h2>
+      <p>Tente buscar por outro nome ou categoria.</p>
+      <button id="resetSearch" type="button">Ver cardápio completo</button>
+    </div>
+  </main>
+
+  <button id="cartFab" class="cart-fab" type="button" aria-label="Abrir carrinho">
+    <span class="cart-fab__icon-wrap"><span class="cart-fab__icon">🛒</span><b id="cartCount">0</b></span>
+    <span class="cart-fab__copy"><strong id="cartFabLabel">Seu pedido</strong><small>Ver detalhes do carrinho</small></span>
+    <span class="cart-fab__price"><small>Total</small><strong id="cartFabTotal">R$ 0,00</strong></span>
+    <span class="cart-fab__button">Ver pedido</span>
+  </button>
+
+  <div id="cartOverlay" class="cart-overlay" hidden></div>
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-label="Carrinho">
+    <div class="cart-drawer__head">
+      <div>
+        <span class="section-kicker">SEU PEDIDO</span>
+        <h2>Carrinho</h2>
+      </div>
+      <button id="closeCart" class="icon-btn" type="button" aria-label="Fechar carrinho">×</button>
+    </div>
+
+    <div class="cart-scroll">
+      <div id="cartItems" class="cart-items"></div>
+      <div id="cartEmpty" class="cart-empty">
+        <div class="cart-empty__icon">🍕</div>
+        <h3>Seu carrinho está vazio</h3>
+        <p>Adicione algo gostoso para começar.</p>
+      </div>
+
+      <div id="upsellBlock" class="upsell-block" hidden>
+        <div class="upsell-title"><span>Complete seu pedido</span><small>Combina muito bem 👇</small></div>
+        <div id="upsellItems" class="upsell-items"></div>
+      </div>
+
+      <div class="order-config">
+        <span class="config-title">Como você quer receber?</span>
+        <div id="fulfillmentTabs" class="fulfillment-tabs">
+          <button type="button" data-type="pickup">🏪 Retirar</button>
+          <button type="button" data-type="delivery">🛵 Entrega</button>
+        </div>
+
+        <div id="freeDeliveryProgress" class="free-delivery" hidden>
+          <div class="free-delivery__text"><span id="freeDeliveryText"></span><strong>Frete grátis</strong></div>
+          <div class="free-delivery__track"><i id="freeDeliveryBar"></i></div>
+        </div>
+
+        <label class="field-label">Seu nome
+          <input id="customerName" data-order-field="customerName" type="text" placeholder="Ex.: Felipe">
+        </label>
+
+        <div id="deliveryFields" class="delivery-fields" hidden>
+          <label class="field-label">Rua / Avenida
+            <input id="street" data-order-field="street" type="text" placeholder="Ex.: Rua das Flores">
+          </label>
+          <div class="field-grid">
+            <label class="field-label">Número
+              <input id="number" data-order-field="number" inputmode="numeric" placeholder="123">
+            </label>
+            <label class="field-label">Complemento
+              <input id="complement" data-order-field="complement" placeholder="Apto 12">
+            </label>
+          </div>
+          <label class="field-label">Bairro
+            <input id="neighborhood" data-order-field="neighborhood" placeholder="Centro">
+          </label>
+        </div>
+
+        <label class="obs-label" for="orderNotes">Observações do pedido</label>
+        <textarea id="orderNotes" data-order-field="notes" rows="3" placeholder="Ex.: sem cebola, tocar o interfone..."></textarea>
+      </div>
+    </div>
+
+    <div class="cart-bottom">
+      <div class="summary-row"><span>Subtotal</span><strong id="cartSubtotal">R$ 0,00</strong></div>
+      <div id="deliveryRow" class="summary-row"><span>Taxa de entrega</span><strong id="deliveryFee">R$ 0,00</strong></div>
+      <div class="total-row"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div>
+      <button id="checkoutBtn" class="checkout-btn" type="button">Fechar pedido no WhatsApp <span>→</span></button>
+      <small class="checkout-note">O WhatsApp abrirá com seu pedido completo e pronto para enviar.</small>
+    </div>
+  </aside>
+
+  <div id="productModalOverlay" class="modal-overlay" hidden>
+    <section id="productModal" class="product-modal" role="dialog" aria-modal="true" aria-label="Personalizar produto">
+      <button id="closeProductModal" class="icon-btn modal-close" type="button" aria-label="Fechar">×</button>
+      <div id="productModalBody"></div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="backend.js"></script>
+  <script src="app.js"></script>
+<a class="wf-lead-float" href="https://wa.me/5547997618824?text=Ol%C3%A1%2C%20Webfun!%20Vi%20o%20modelo%20Prisma%20e%20quero%20saber%20mais." target="_blank" rel="noreferrer" aria-label="Falar com a Webfun no WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Quero saber mais</span></a></body>
+</html>

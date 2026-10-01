@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <main id="conteudo" className="v4-not-found"><div className="shell"><span className="v4-tag v788-section-tag">404 · Página não encontrada</span><h1>Essa página ficou<br/>pelo caminho.</h1><p>O endereço pode ter mudado, sido removido ou nunca existido. Volte ao início e continue explorando a Webfun.</p><Link href="/" className="v4-primary-button">Voltar ao início</Link></div></main>}

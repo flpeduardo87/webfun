@@ -1,0 +1,32 @@
+SUPABASE — CORE MULTINICHO V1
+==============================
+
+PROJETO NOVO
+1) Execute schema.sql no SQL Editor.
+2) Configure ../supabase-config.js.
+3) Abra admin/login.html via servidor HTTP.
+4) Crie a conta e o primeiro negócio.
+
+PROJETO QUE JÁ USA O V6.2
+1) FAÇA BACKUP.
+2) Execute migration-v6.2-to-core-v1.sql.
+3) Execute schema.sql.
+4) Confirme o bucket catalog-images.
+
+O NOVO SCHEMA CRIA
+• businesses
+• business_members
+• products
+• atributos JSON por produto
+• media JSON preparado para galerias
+• RLS multinégocio
+• RPC create_business_for_current_user
+• bucket público catalog-images com escrita protegida por membership
+
+A MIGRAÇÃO PRESERVA
+• restaurantes existentes
+• vínculos de usuários
+• produtos
+• configurações
+
+Nunca use a service_role key no frontend.

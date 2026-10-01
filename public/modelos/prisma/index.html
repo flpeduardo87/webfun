@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0d0d0d">
+  <title>Prisma — Um motor, vários negócios</title>
+  <meta name="description" content="Prisma: o mesmo motor de pedidos e leads atendendo alimentação, varejo, automotivo e serviços. Escolha um modelo para explorar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#0d0d0d;color:#f2f1ee;font:16px/1.55 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+    .container{width:min(1180px,calc(100% - 48px));margin:0 auto}
+    a{color:inherit;text-decoration:none}
+    .top{padding:40px 0 8px}
+    .brand{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:15px;letter-spacing:.02em}
+    .brand__mark{width:30px;height:30px;border-radius:9px;background:conic-gradient(from 200deg,#6a63c2,#f2d675,#6a63c2);display:grid;place-items:center;font-size:13px;font-weight:800;color:#0d0d0d}
+    .intro{position:relative;padding:26px 0 46px}
+    .intro__grid{display:grid;grid-template-columns:minmax(0,640px) 1fr;gap:32px;align-items:center}
+    .intro .eyebrow,.intro h1,.intro p{position:relative;z-index:1}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#c6bdf0}
+    .eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:#8f86e6;box-shadow:0 0 0 5px rgba(143,134,230,.18)}
+    h1{font-size:clamp(34px,5.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin:16px 0 14px;font-weight:800;max-width:660px;text-wrap:balance}
+    h1 em{font-style:normal;background:linear-gradient(90deg,#a79cf0,#f2d675);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .intro p{margin:0;color:#a9a6a0;font-size:16px;max-width:520px}
+    .intro__visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:500px}
+    .intro__orbs{position:absolute;inset:0;pointer-events:none;z-index:0}
+    .intro__orbs span{position:absolute;display:block;border-radius:50%;filter:blur(34px);mix-blend-mode:screen}
+    .orb-food{width:150px;height:150px;top:20px;left:60%;background:#f3b088;opacity:.55}
+    .orb-retail{width:110px;height:110px;top:56%;left:6%;background:#d6d2c8;opacity:.28}
+    .orb-automotive{width:180px;height:180px;top:40%;left:58%;background:#a9c1f5;opacity:.5}
+    .orb-services{width:100px;height:100px;top:4%;left:14%;background:#e8c988;opacity:.5}
+    .orb-reservas{width:130px;height:130px;top:64%;left:44%;background:#ff9c85;opacity:.5}
+    .intro__phone{position:relative;z-index:1;width:100%;max-width:560px;height:auto;filter:drop-shadow(0 30px 50px rgba(0,0,0,.55))}
+    @media(max-width:900px){.intro__grid{grid-template-columns:1fr}.intro__visual{min-height:0;margin-top:8px}.intro__phone{max-width:280px}}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding-bottom:64px}
+    .card{position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.09);min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;transition:transform .25s ease,border-color .25s ease}
+    .card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.22)}
+    .card:hover .card__cta i{transform:translate(3px,-3px)}
+    .card__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.86) brightness(.62)}
+    .card:hover .card__img{filter:saturate(.95) brightness(.5)}
+    .card__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,12,.05) 0%,rgba(10,10,12,.55) 55%,rgba(10,10,12,.92) 100%)}
+    .card__body{position:relative;padding:24px;display:flex;flex-direction:column;gap:10px}
+    .card__tag{display:inline-flex;align-self:flex-start;padding:5px 11px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;backdrop-filter:blur(6px)}
+    .card__name{font-size:26px;font-weight:800;letter-spacing:-.01em;margin:0}
+    .card__sub{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin:-6px 0 0}
+    .card__pitch{margin:0;font-size:14px;color:rgba(255,255,255,.82);max-width:38ch}
+    .card__actions{display:flex;align-items:center;gap:16px;margin-top:10px;flex-wrap:wrap}
+    .card__cta{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:#fff;text-decoration:none}
+    .card__cta i{width:16px;height:16px;transition:transform .2s ease}
+    .card__cta i svg{width:100%;height:100%}
+    .card:hover .card__cta i{transform:translate(3px,-3px)}
+    .card__panel{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:rgba(255,255,255,.62);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.22);padding-bottom:1px;transition:color .18s ease,border-color .18s ease}
+    .card__panel:hover{color:#fff;border-color:#fff}
+    .card__panel svg{width:14px;height:14px}
+    .tag-food{background:rgba(224,120,74,.22);color:#f3b088}
+    .tag-retail{background:rgba(255,255,255,.14);color:#f2f1ee}
+    .tag-automotive{background:rgba(90,130,220,.22);color:#a9c1f5}
+    .tag-services{background:rgba(217,169,79,.22);color:#e8c988}
+    .tag-reservas{background:rgba(255,90,60,.22);color:#ff9c85}
+    .card--wide{grid-column:1/-1;min-height:240px}
+    .card--wide .card__body{max-width:640px}
+    .foot{padding:0 0 90px;color:#726f6a;font-size:12px}
+    .foot a{text-decoration:underline;text-underline-offset:2px}
+    @media(max-width:820px){.grid{grid-template-columns:1fr}.card--wide{min-height:300px}}
+    .wf-lead-float{position:fixed;right:18px;bottom:18px;z-index:9999;display:inline-flex;align-items:center;gap:9px;background:#1fae57;color:#fff!important;text-decoration:none;font:600 14px/1 Manrope,system-ui,sans-serif;padding:15px 20px 15px 16px;border-radius:999px;box-shadow:0 12px 28px rgba(15,40,25,.3);transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+    .wf-lead-float:hover{background:#178c46;transform:translateY(-2px);box-shadow:0 16px 34px rgba(15,40,25,.36)}
+    .wf-lead-float svg{width:19px;height:19px;flex:none}
+    .wf-lead-float span{white-space:nowrap}
+    @media(max-width:600px){.wf-lead-float{padding:14px;border-radius:50%;bottom:max(18px,env(safe-area-inset-bottom));right:max(18px,env(safe-area-inset-right))}.wf-lead-float span{display:none}}
+  </style>
+</head>
+<body>
+  <div class="container top">
+    <span class="brand"><span class="brand__mark">P</span>Prisma</span>
+  </div>
+
+  <div class="container intro">
+    <div class="intro__grid">
+      <div class="intro__copy">
+        <span class="eyebrow">Produto próprio · Webfun</span>
+        <h1>Um motor.<br><em>Negócios diferentes</em><br>de verdade.</h1>
+        <p>Alimentação, varejo, automotivo, serviços e reservas — o mesmo núcleo de catálogo, pedidos e leads muda de identidade e de fluxo de conversão conforme o negócio.</p>
+        <p style="margin-top:12px">Cada modelo tem <strong style="color:#e8e5e0">a vitrine e o painel administrativo</strong> — a mesma base gerencia todos, com dados isolados por negócio.</p>
+      </div>
+      <div class="intro__visual">
+        <div class="intro__orbs" aria-hidden="true">
+          <span class="orb-services"></span>
+          <span class="orb-retail"></span>
+          <span class="orb-food"></span>
+          <span class="orb-automotive"></span>
+          <span class="orb-reservas"></span>
+        </div>
+        <img class="intro__phone" src="hero-mockup.webp" alt="Celular na mão mostrando a vitrine da Áurea Store, um dos modelos do Prisma">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="grid">
+      <div class="card">
+        <img class="card__img" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=80" alt="" aria-hidden="true">
+        <div class="card__overlay"></div>
+        <div class="card__body">
+          <span class="card__tag tag-food">Alimentação</span>
+          <p class="card__sub">Pizzaria</p>
+          <h2 class="card__name">Forno Alto</h2>
+          <p class="card__pitch">Cardápio, carrinho, variações e fechamento direto no WhatsApp.</p>
+          <div class="card__actions"><a class="card__cta" href="vitrine.html?template=food">Explorar vitrine <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></i></a><a class="card__panel" href="admin/index.html?demo=1&template=food">Ver painel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></a></div></div></div>
+
+      <div class="card">
+        <img class="card__img" src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=900&q=80" alt="" aria-hidden="true">
+        <div class="card__overlay"></div>
+        <div class="card__body">
+          <span class="card__tag tag-retail">Varejo</span>
+          <p class="card__sub">Moda feminina</p>
+          <h2 class="card__name">Áurea Store</h2>
+          <p class="card__pitch">Catálogo, variações de tamanho/cor e sacola com checkout via WhatsApp.</p>
+          <div class="card__actions"><a class="card__cta" href="vitrine.html?template=retail">Explorar vitrine <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></i></a><a class="card__panel" href="admin/index.html?demo=1&template=retail">Ver painel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></a></div></div></div>
+
+      <div class="card">
+        <img class="card__img" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80" alt="" aria-hidden="true">
+        <div class="card__overlay"></div>
+        <div class="card__body">
+          <span class="card__tag tag-automotive">Automotivo</span>
+          <p class="card__sub">Revenda de veículos</p>
+          <h2 class="card__name">Nova Motors</h2>
+          <p class="card__pitch">Listagem, ficha técnica completa e captação de lead por veículo.</p>
+          <div class="card__actions"><a class="card__cta" href="vitrine.html?template=automotive">Explorar vitrine <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></i></a><a class="card__panel" href="admin/index.html?demo=1&template=automotive">Ver painel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></a></div></div></div>
+
+      <div class="card">
+        <img class="card__img" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=80" alt="" aria-hidden="true">
+        <div class="card__overlay"></div>
+        <div class="card__body">
+          <span class="card__tag tag-services">Serviços</span>
+          <p class="card__sub">Barbearia</p>
+          <h2 class="card__name">Barbearia Norte</h2>
+          <p class="card__pitch">Catálogo de serviços com preço e duração, agendamento e orçamento pelo WhatsApp.</p>
+          <div class="card__actions"><a class="card__cta" href="vitrine.html?template=services">Explorar vitrine <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></i></a><a class="card__panel" href="admin/index.html?demo=1&template=services">Ver painel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></a></div></div></div>
+
+      <div class="card card--wide">
+        <img class="card__img" src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?auto=format&fit=crop&w=1400&q=80" alt="" aria-hidden="true">
+        <div class="card__overlay"></div>
+        <div class="card__body">
+          <span class="card__tag tag-reservas">Agenda &amp; Reservas</span>
+          <p class="card__sub">Beach tennis &amp; padel</p>
+          <h2 class="card__name">Arena Nove</h2>
+          <p class="card__pitch">Sem catálogo de produto: aqui o cliente reserva uma quadra por horário. Escolhe o dia, o slot e confirma no WhatsApp.</p>
+          <div class="card__actions"><a class="card__cta" href="vitrine.html?template=reservas">Explorar vitrine <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></i></a><a class="card__panel" href="admin/index.html?demo=1&template=reservas">Ver painel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></a></div></div></div>
+    </div>
+
+    <p class="foot">Projeto conceito para portfólio · Webfun — nomes, produtos e dados de cada vitrine são fictícios.</p>
+  </div>
+
+  <a class="wf-lead-float" href="https://wa.me/5547997618824?text=Ol%C3%A1%2C%20Webfun!%20Vi%20o%20modelo%20Prisma%20e%20quero%20saber%20mais." target="_blank" rel="noreferrer" aria-label="Falar com a Webfun no WhatsApp sobre o modelo Prisma"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Quero saber mais</span></a>
+</body>
+</html>
