@@ -1,117 +1,237 @@
 'use client';
 
 import Link from 'next/link';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { whatsappHref } from '../lib/data';
 
 const ease = [0.16, 1, 0.3, 1];
+const CYCLE_MS = 4400;
 
-const heroSlides = [
-  { name: 'Nexo', image: '/media/hero-mockups/nexo.webp' },
-  { name: 'Com Cristo Kids', image: '/media/hero-mockups/com-cristo-kids.webp' },
-  { name: 'Forno Alto', image: '/media/hero-mockups/forno-alto.webp' },
-  { name: 'Noma', image: '/media/hero-mockups/noma.webp' },
-  { name: 'Match', image: '/media/hero-mockups/match.webp' },
-  { name: 'Aura', image: '/media/hero-mockups/aura.webp' },
-  { name: 'Lume', image: '/media/hero-mockups/lume.webp' },
+const tabs = [
+  { id: 'site',     label: 'Site',      icon: '🌐' },
+  { id: 'loja',     label: 'Loja',      icon: '🛍️' },
+  { id: 'sistemas', label: 'Sistemas',  icon: '⚙️' },
+  { id: 'ia',       label: 'IA',        icon: '✨' },
 ];
 
-export default function HomeHero(){
+function SitePanel() {
+  return (
+    <div className="wf-panel wf-panel--site">
+      <div className="wf-panel-nav">
+        <div className="wf-panel-logo" />
+        <div className="wf-panel-nav-links"><span /><span /><span /><span /></div>
+        <div className="wf-panel-nav-cta" />
+      </div>
+      <div className="wf-panel-hero-row">
+        <div className="wf-panel-headline">
+          <div className="wf-panel-line wf-panel-line--h" />
+          <div className="wf-panel-line wf-panel-line--h wf-panel-line--short" />
+          <div className="wf-panel-btn" />
+        </div>
+        <div className="wf-panel-img-box" />
+      </div>
+      <div className="wf-panel-cards">
+        {[1, 2, 3].map(i => (
+          <div key={i} className="wf-panel-card">
+            <div className="wf-panel-card-icon" />
+            <div className="wf-panel-line" />
+            <div className="wf-panel-line wf-panel-line--short" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function LojaPanel() {
+  return (
+    <div className="wf-panel wf-panel--loja">
+      <div className="wf-panel-shop-header">
+        <div className="wf-panel-logo" />
+        <div className="wf-panel-cart">🛒 <span>3</span></div>
+      </div>
+      <div className="wf-panel-products">
+        {[['👟','Tênis Urban'],['👜','Bolsa Couro'],['🌿','Kit Natural'],['💎','Joia Fina']].map(([emoji, name]) => (
+          <div key={name} className="wf-panel-product">
+            <div className="wf-panel-product-img">{emoji}</div>
+            <div className="wf-panel-product-name">{name}</div>
+            <div className="wf-panel-product-price" />
+            <div className="wf-panel-product-btn" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SistemasPanel() {
+  return (
+    <div className="wf-panel wf-panel--sistemas">
+      <div className="wf-panel-sys-head">
+        <div className="wf-panel-line wf-panel-line--sm" />
+        <div className="wf-panel-sys-badge">Ativo</div>
+      </div>
+      <div className="wf-panel-stats3">
+        {[['847','Pedidos'],['94%','Satisfação'],['R$38k','Receita']].map(([v, l]) => (
+          <div key={l} className="wf-panel-stat"><b>{v}</b><span>{l}</span></div>
+        ))}
+      </div>
+      <div className="wf-panel-tasks">
+        {['Faturamento gerado','Pedidos em aberto','Clientes novos','Tarefas pendentes'].map((t, i) => (
+          <div key={t} className={`wf-panel-task${i < 2 ? ' is-done' : ''}`}>
+            <span className="wf-panel-task-dot" />
+            <span className="wf-panel-task-label">{t}</span>
+            <span className="wf-panel-task-val" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function IAPanel() {
+  return (
+    <div className="wf-panel wf-panel--ia">
+      <div className="wf-panel-ia-top">
+        <div className="wf-panel-ia-avatar">✨</div>
+        <div className="wf-panel-ia-status">
+          <div className="wf-panel-line wf-panel-line--sm" />
+          <div className="wf-panel-ia-dot" />
+        </div>
+      </div>
+      <div className="wf-panel-chat">
+        <div className="wf-panel-chat-msg wf-panel-chat-msg--in">Tem pedidos novos hoje?</div>
+        <div className="wf-panel-chat-msg wf-panel-chat-msg--out">✅ Sim! 12 pedidos. Faturamento: R$ 4.280</div>
+        <div className="wf-panel-chat-msg wf-panel-chat-msg--in">Alguém aguardando resposta?</div>
+        <div className="wf-panel-chat-msg wf-panel-chat-msg--out wf-chat-typing"><span/><span/><span/></div>
+      </div>
+      <div className="wf-panel-ia-chips">
+        {['📊 Relatório diário','📦 Ver pedidos','📩 Responder'].map(c => (
+          <button key={c} type="button" className="wf-panel-ia-chip">{c}</button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const panels = [SitePanel, LojaPanel, SistemasPanel, IAPanel];
+
+export default function HomeHero() {
   const reduce = useReducedMotion();
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const total = heroSlides.length;
-  const touchStart = useRef(null);
-  const touchDelta = useRef(0);
-  const prev = () => setActive((current) => (current - 1 + total) % total);
-  const next = () => setActive((current) => (current + 1) % total);
-  const onTouchStart = (event) => { touchStart.current = event.touches[0]?.clientX ?? null; touchDelta.current = 0; setPaused(true); };
-  const onTouchMove = (event) => { if (touchStart.current === null) return; touchDelta.current = (event.touches[0]?.clientX ?? touchStart.current) - touchStart.current; };
-  const onTouchEnd = () => {
-    const delta = touchDelta.current;
-    touchStart.current = null; touchDelta.current = 0; setPaused(false);
-    if (Math.abs(delta) < 42) return;
-    if (delta < 0) next(); else prev();
-  };
+  const [progress, setProgress] = useState(0);
+  const pausedRef = useRef(false);
+  const startRef = useRef(null);
+  const rafRef = useRef(null);
+  const total = tabs.length;
 
   useEffect(() => {
-    if (reduce || paused) return undefined;
-    const timer = setInterval(() => setActive((current) => (current + 1) % total), 5000);
-    return () => clearInterval(timer);
-  }, [reduce, paused, total]);
+    if (reduce) return;
+    const tick = (ts) => {
+      if (!pausedRef.current) {
+        if (startRef.current === null) startRef.current = ts;
+        const p = Math.min((ts - startRef.current) / CYCLE_MS, 1);
+        setProgress(p);
+        if (p >= 1) {
+          setActive(a => (a + 1) % total);
+          setProgress(0);
+          startRef.current = null;
+        }
+      } else {
+        startRef.current = null;
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [reduce, total]);
 
-  const slide = useMemo(() => heroSlides[active], [active]);
+  const Panel = panels[active];
 
   return (
-    <section className="v5-hero v53-hero-carousel-section">
-      <div className="shell v5-hero-shell">
-        <div className="v5-hero-grid v53-hero-carousel-grid">
-          <motion.div className="v5-hero-copy" initial={reduce ? false : { opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduce ? 0 : 0.7, ease }}>
+    <section className="wf-hero2">
+      <div className="shell wf-hero2-shell">
+        <div className="wf-hero2-grid">
+
+          {/* Left: copy */}
+          <motion.div
+            className="wf-hero2-copy"
+            initial={reduce ? false : { opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: reduce ? 0 : 0.7, ease }}
+          >
             <span className="v4-tag v788-section-tag v51-hero-tag">Webfun | Serviços Digitais</span>
-            <h1 className="v54-hero-headline">
+            <h1 className="wf-hero2-h1">
               <span>Seu negócio</span>
-              <span>merece mais</span>
+              <span>merece{' '}<span className="wf-stamp">mais</span></span>
               <span>do que um site.</span>
             </h1>
-            <p>Criamos sites, lojas e sistemas para ajudar seu negócio a <strong>vender mais</strong> e trabalhar melhor.</p>
-            <div className="v53-hero-cta-row">
-              <a href={whatsappHref('Olá, Webfun! Quero conversar sobre um projeto.')} target="_blank" rel="noreferrer" className="v5-hero-cta">Falar sobre meu projeto</a>
-              <Link href="/projetos" className="v53-hero-secondary">Ver projetos</Link>
+            <p>Criamos sites, lojas e sistemas para ajudar seu negócio a <strong>vender mais</strong> e trabalhar melhor — com design que comunica e tecnologia que entrega.</p>
+            <div className="wf-hero2-cta-row">
+              <a
+                href={whatsappHref('Olá, Webfun! Quero conversar sobre um projeto.')}
+                target="_blank"
+                rel="noreferrer"
+                className="v5-hero-cta wf-hero2-cta-primary"
+              >
+                <i aria-hidden="true">→</i>
+                Falar sobre meu projeto
+              </a>
+              <Link href="/projetos" className="wf-hero2-secondary">Ver projetos →</Link>
+            </div>
+            <div className="wf-hero2-proof">
+              <div className="wf-hero2-faces">
+                <span style={{ background: '#c9ff42', color: '#1e2700' }}>E</span>
+                <span style={{ background: '#3b5bdb' }}>F</span>
+                <span style={{ background: '#25292e' }}>G</span>
+                <span style={{ background: '#2d6a4f' }}>H</span>
+              </div>
+              <span><strong>+50 projetos entregues</strong><br/><small>para negócios em todo o mundo</small></span>
             </div>
           </motion.div>
 
+          {/* Right: service window */}
           <motion.div
-            className="v53-hero-carousel v63-hero-carousel"
+            className="wf-hero2-window"
             initial={reduce ? false : { opacity: 0, x: 28 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: reduce ? 0 : 0.85, delay: reduce ? 0 : 0.08, ease }}
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-            onFocusCapture={() => setPaused(true)}
-            onBlurCapture={() => setPaused(false)}
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
-            onTouchCancel={()=>{touchStart.current=null;touchDelta.current=0;setPaused(false)}}
-            aria-roledescription="carrossel"
-            aria-label="Projetos em destaque"
+            onMouseEnter={() => { pausedRef.current = true; }}
+            onMouseLeave={() => { pausedRef.current = false; startRef.current = null; }}
           >
-            <div className="v63-carousel-stage">
-              <div className="v63-carousel-viewport" aria-live="off" aria-atomic="true">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.img
-                    key={slide.image}
-                    src={slide.image}
-                    alt={`${slide.name} em versões desktop e mobile`}
-                    className="v63-carousel-image"
-                    initial={reduce ? false : { opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={reduce ? undefined : { opacity: 0 }}
-                    transition={{ duration: reduce ? 0 : 0.32, ease: 'easeOut' }}
-                    loading={active === 0 ? 'eager' : 'lazy'}
-                    fetchPriority={active === 0 ? 'high' : 'auto'}
-                    decoding="async"
-                  />
-                </AnimatePresence>
-              </div>
-
-              <div className="wf-carousel-pagination" role="group" aria-label="Selecionar projeto do hero">
-                {heroSlides.map((item, index) => (
-                  <button
-                    key={item.name}
-                    type="button"
-                    className={`wf-carousel-pagination__button ${index === active ? 'is-active' : ''}`}
-                    onClick={() => setActive(index)}
-                    aria-label={`Mostrar projeto ${item.name}`}
-                    aria-pressed={index === active}
-                  >
-                    <span className="wf-carousel-pagination__mark" aria-hidden="true" />
-                  </button>
-                ))}
-              </div>
+            <div className="wf-win-bar">
+              <span className="wf-win-dots"><i/><i/><i/></span>
+              <span className="wf-win-url">webfun.com.br/projeto</span>
             </div>
+
+            <div className="wf-win-tabs" role="tablist" aria-label="Tipo de projeto">
+              {tabs.map((tab, i) => (
+                <button
+                  key={tab.id}
+                  role="tab"
+                  aria-selected={i === active}
+                  className={`wf-win-tab${i === active ? ' is-active' : ''}`}
+                  onClick={() => { setActive(i); setProgress(0); startRef.current = null; }}
+                  type="button"
+                >
+                  <span className="wf-win-tab-icon" aria-hidden="true">{tab.icon}</span>
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="wf-win-body" role="tabpanel">
+              <Panel />
+            </div>
+
+            {!reduce && (
+              <div className="wf-win-progress" aria-hidden="true">
+                <div className="wf-win-progress-bar" style={{ width: `${progress * 100}%` }} />
+              </div>
+            )}
           </motion.div>
+
         </div>
       </div>
     </section>
