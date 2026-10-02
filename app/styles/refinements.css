@@ -478,3 +478,66 @@ html[data-theme="dark"] .wf-service-card{border-color:#2a3340}
 /* === FitSection: destaque no <em> do título === */
 html body #conteudo .v4-fit-copy h2 em{color:var(--acid)!important;font-weight:520!important}
 html[data-theme="dark"] body #conteudo .v4-fit-copy h2 em{color:#7fa8ff!important}
+
+/* === Faixa de logos de clientes === */
+.wf-clients-section{
+  padding:40px 0 44px;
+  background:#f0efeb;
+  border-bottom:1px solid rgba(22,25,28,.07);
+}
+html[data-theme="dark"] .wf-clients-section{
+  background:#13181d;
+  border-bottom-color:rgba(255,255,255,.06);
+}
+.wf-clients-label{
+  text-align:center;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.10em;
+  color:#9da3a8;
+  text-transform:uppercase;
+  margin:0 0 28px;
+}
+.wf-clients-row{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:8px 32px;
+}
+.wf-client-logo{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:.5;
+  filter:grayscale(1);
+  transition:opacity .22s,filter .22s;
+}
+.wf-client-logo:hover{opacity:.85;filter:grayscale(0)}
+.wf-client-logo img{height:36px;width:auto;max-width:130px;object-fit:contain}
+.wf-client-placeholder{
+  display:inline-flex;
+  align-items:center;
+  height:36px;
+  padding:0 18px;
+  border-radius:8px;
+  background:rgba(22,25,28,.08);
+  font-size:12px;
+  font-weight:600;
+  color:#7a8087;
+  white-space:nowrap;
+}
+html[data-theme="dark"] .wf-client-placeholder{
+  background:rgba(255,255,255,.07);
+  color:#6a737b;
+}
+@media(max-width:600px){
+  .wf-clients-row{gap:8px 20px}
+  .wf-client-placeholder{font-size:11px;padding:0 12px;height:32px}
+}
+
+/* Orçamento Rápido: texto à esquerda no mobile */
+@media(max-width:899px){
+  .wf-orc2-header{text-align:left!important;margin-left:0!important;margin-right:0!important}
+  .wf-orc2-header .wf-orc2-pills{justify-content:flex-start!important}
+}

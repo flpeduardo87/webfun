@@ -1,5 +1,6 @@
 import ServiceStrip from '../components/ServiceStrip';
 import HomeHero from '../components/HomeHero';
+import ClientLogos from '../components/ClientLogos';
 import OrcamentoRapido from '../components/OrcamentoRapido';
 import SectionIntro from '../components/SectionIntro';
 import ServicesExperience from '../components/ServicesExperience';
@@ -18,7 +19,7 @@ export default function Home(){
 
   <ServiceStrip/>
 
-  <OrcamentoRapido/>
+  <ClientLogos/>
 
   <section id="servicos-home" className="v4-section v4-services-section"><div className="shell"><SectionIntro tag="Serviços" title={<>Como podemos te ajudar agora?</>} subtitle="Site, loja, sistema ou automação: começamos pelo que precisa melhorar no seu negócio."/><Reveal className="v42-reveal-block"><ServicesExperience/></Reveal></div></section>
 
@@ -27,6 +28,8 @@ export default function Home(){
   <section className="v4-section v4-work-section"><div className="shell"><SectionIntro tag="Referências & conceitos" title={<>Cada segmento tem o seu jeito de crescer.</>} subtitle="Referências visuais e de produto por nicho — para ver como uma solução pode tomar forma no seu mercado."/><Reveal className="v42-reveal-block"><FeaturedProjects/></Reveal></div></section>
 
   <Reveal className="v42-reveal-block"><TestimonialsSection/></Reveal>
+
+  <OrcamentoRapido/>
 
   <section className="v4-section v41-human-section"><div className="shell"><Reveal className="v42-reveal-block"><HumanExperience/></Reveal></div></section>
 
