@@ -1,5 +1,6 @@
 import ServiceStrip from '../components/ServiceStrip';
 import HomeHero from '../components/HomeHero';
+import OrcamentoRapido from '../components/OrcamentoRapido';
 import SectionIntro from '../components/SectionIntro';
 import ServicesExperience from '../components/ServicesExperience';
 import FeaturedProjects from '../components/FeaturedProjects';
@@ -16,6 +17,8 @@ export default function Home(){
   <HomeHero/>
 
   <ServiceStrip/>
+
+  <OrcamentoRapido/>
 
   <section id="servicos-home" className="v4-section v4-services-section"><div className="shell"><SectionIntro tag="SERVIÇOS" title={<>Como podemos te ajudar agora?</>} subtitle="Site, loja, sistema ou automação: começamos pelo que precisa melhorar no seu negócio."/><Reveal className="v42-reveal-block"><ServicesExperience/></Reveal></div></section>
 
