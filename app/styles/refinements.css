@@ -394,6 +394,42 @@ html body #conteudo .wf-service-cta{background:none!important;border:none!import
 /* stronger h3 */
 #conteudo .wf-service-body h3{font-weight:800!important;letter-spacing:-.045em!important;font-size:clamp(20px,1.9vw,27px)!important}
 
+/* ============================================================
+   CAPABILITIES GRID — linha icons com cores, tint por card
+   ============================================================ */
+
+/* remove caixa azul do ícone */
+html body #conteudo .v745-capability-grid article i{background:none!important;border:none!important;box-shadow:none!important;padding:0!important;width:auto!important;height:auto!important;border-radius:0!important;margin-bottom:18px!important}
+html body #conteudo .v745-capability-grid article i svg{width:28px!important;height:28px!important}
+
+/* cores dos ícones — rotação da paleta */
+html body #conteudo .v745-capability-grid article:nth-child(4n+1) i{color:#3b82f6}
+html body #conteudo .v745-capability-grid article:nth-child(4n+2) i{color:#10b981}
+html body #conteudo .v745-capability-grid article:nth-child(4n+3) i{color:#8b5cf6}
+html body #conteudo .v745-capability-grid article:nth-child(4n+0) i{color:#ec4899}
+
+/* tint de fundo por card — light */
+html body #conteudo .v745-capability-grid article:nth-child(4n+1){background:linear-gradient(145deg,#eff6ff 0%,#fff 65%)!important;border-color:#bfdbfe!important}
+html body #conteudo .v745-capability-grid article:nth-child(4n+2){background:linear-gradient(145deg,#f0fdf9 0%,#fff 65%)!important;border-color:#a7f3d0!important}
+html body #conteudo .v745-capability-grid article:nth-child(4n+3){background:linear-gradient(145deg,#f5f3ff 0%,#fff 65%)!important;border-color:#ddd6fe!important}
+html body #conteudo .v745-capability-grid article:nth-child(4n+0){background:linear-gradient(145deg,#fdf2f8 0%,#fff 65%)!important;border-color:#fbcfe8!important}
+
+/* tint de fundo por card — dark */
+html[data-theme="dark"] body #conteudo .v745-capability-grid article:nth-child(4n+1){background:linear-gradient(145deg,#172035 0%,#181c21 65%)!important;border-color:#1e3a5f!important}
+html[data-theme="dark"] body #conteudo .v745-capability-grid article:nth-child(4n+2){background:linear-gradient(145deg,#0d2820 0%,#181c21 65%)!important;border-color:#064e3b!important}
+html[data-theme="dark"] body #conteudo .v745-capability-grid article:nth-child(4n+3){background:linear-gradient(145deg,#1e1438 0%,#181c21 65%)!important;border-color:#2e1d5c!important}
+html[data-theme="dark"] body #conteudo .v745-capability-grid article:nth-child(4n+0){background:linear-gradient(145deg,#2d1020 0%,#181c21 65%)!important;border-color:#4d1a34!important}
+
+/* texto completo também no mobile */
+@media(max-width:760px){
+  .wf-resource-full{display:inline!important}
+  .wf-resource-compact{display:none!important}
+  html body #conteudo .v745-capability-grid article h3{min-height:0!important}
+}
+
+/* menos espaço entre título da seção e grid */
+.v745-capabilities-section .v42-reveal-block{margin-top:-8px}
+
 /* colored top-border accent per card */
 .wf-service-card:has(.wf-art-sites-e-experiencias-digitais){border-top:3px solid #60a5fa!important}
 .wf-service-card:has(.wf-art-e-commerce){border-top:3px solid #34d399!important}
