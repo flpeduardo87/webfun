@@ -392,7 +392,7 @@ html body #conteudo .wf-service-cta{background:none!important;border:none!import
 }
 
 /* tags em sentence case (só primeira letra maiúscula) */
-html body .v4-tag,html body .v788-section-tag{text-transform:none!important;letter-spacing:.04em!important}
+html body #conteudo :is(.v4-tag,.v788-section-tag,.v742-project-card-tags span,.v4-project-tags span,.v723-service-tags span,.v4-service-row-tags i,.v740-project-topline em){text-transform:none!important;letter-spacing:.04em!important}
 
 /* stronger h3 */
 #conteudo .wf-service-body h3{font-weight:800!important;letter-spacing:-.045em!important;font-size:clamp(20px,1.9vw,27px)!important}
@@ -471,3 +471,10 @@ html[data-theme="dark"] .wf-service-card{border-color:#2a3340}
   .wf-orc2-card{margin:0}
 }
 
+
+/* === Depoimentos: estrelas em âmbar (padrão de confiança) === */
+.v771-testimonial-stars{color:#f59e0b!important}
+
+/* === FitSection: destaque no <em> do título === */
+html body #conteudo .v4-fit-copy h2 em{color:var(--acid)!important;font-weight:520!important}
+html[data-theme="dark"] body #conteudo .v4-fit-copy h2 em{color:#7fa8ff!important}
