@@ -290,7 +290,7 @@ html body #conteudo .wf-service-cta{background:#2563eb;border-color:#2563eb;colo
 .wf-orc2-section{padding:96px 0;background:var(--paper)}
 .wf-orc2-header{max-width:640px;margin:0 auto 48px;text-align:center}
 .wf-orc2-header .v4-tag{margin-bottom:16px}
-.wf-orc2-title{font-size:clamp(32px,3.8vw,54px);line-height:.96;letter-spacing:-.05em;font-weight:800;margin:0 0 14px;color:var(--ink)}
+.wf-orc2-title{font-size:clamp(40px,4.4vw,64px)!important;line-height:.96!important;letter-spacing:-.052em!important;font-weight:780!important;margin:0 0 14px;color:var(--ink)}
 .wf-orc2-title span{color:var(--acid)}
 .wf-orc2-sub{font-size:15px;color:var(--muted);line-height:1.65;margin:0 0 20px}
 .wf-orc2-pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
@@ -467,7 +467,7 @@ html[data-theme="dark"] .wf-service-card{border-color:#2a3340}
   .wf-orc2-layout{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:72px;align-items:start}
   .wf-orc2-header{max-width:none;margin:0;text-align:left}
   .wf-orc2-header .wf-orc2-pills{justify-content:flex-start}
-  .wf-orc2-title{font-size:clamp(36px,3.6vw,56px)}
+  .wf-orc2-title{font-size:clamp(40px,4.4vw,64px)!important}
   .wf-orc2-card{margin:0}
 }
 
@@ -695,25 +695,31 @@ html body #conteudo .v4-section{
   padding-bottom:clamp(88px,9vw,128px)!important;
 }
 
-/* ── 2. SectionIntro: hierarquia mais forte ── */
-html body #conteudo .v4-section-intro{margin-bottom:52px!important}
-html body #conteudo .v4-section-intro h2{
-  font-size:clamp(38px,4.6vw,68px)!important;
-  font-weight:780!important;
-  letter-spacing:-.052em!important;
-  line-height:.96!important;
-  color:var(--ink)!important;
+/* ── 2. TIPOGRAFIA GLOBAL — todas as seções padronizadas ── */
+
+/* H2 de seção: UMA regra, cobre tudo */
+html body #conteudo h2 {
+  font-size: clamp(40px, 4.4vw, 64px) !important;
+  font-weight: 780 !important;
+  letter-spacing: -.052em !important;
+  line-height: .96 !important;
+  color: var(--ink) !important;
 }
-html body #conteudo .v4-section-intro h2 em{
-  font-style:normal!important;font-weight:780!important;color:var(--muted)!important;
+html body #conteudo h2 em {
+  font-style: normal !important;
+  font-weight: 780 !important;
 }
-html body #conteudo .v4-section-intro p{
-  font-size:clamp(15px,1.1vw,17px)!important;
-  line-height:1.74!important;
-  color:var(--muted)!important;
-  max-width:58ch!important;
-  margin-top:16px!important;
+
+/* Parágrafo de apoio nas seções */
+html body #conteudo .v4-section-intro p,
+html body #conteudo .v4-section-intro > p {
+  font-size: clamp(15px, 1.05vw, 17px) !important;
+  line-height: 1.74 !important;
+  color: var(--muted) !important;
+  max-width: 56ch !important;
+  margin-top: 16px !important;
 }
+html body #conteudo .v4-section-intro { margin-bottom: 52px !important; }
 
 /* Tag: ponto colorido antes do label */
 html body #conteudo .v4-tag.v788-section-tag{
@@ -815,9 +821,7 @@ html body #conteudo .v41-human-signals article span{font-size:12.5px!important;c
 html[data-theme="dark"] body #conteudo .v41-human-signals article{background:var(--paper)!important;border-color:var(--line)!important}
 html[data-theme="dark"] body #conteudo .v41-human-signals article i{background:rgba(59,91,219,.18)!important}
 
-/* ── 8. FitSection: títulos com peso ── */
-html body #conteudo .v4-fit-copy h2{font-weight:780!important;letter-spacing:-.056em!important}
-html body #conteudo .v4-fit-copy h2 em{font-style:normal!important;font-weight:780!important;color:#adb2b6!important}
+/* ── 8. FitSection ── */
 html body #conteudo .v4-fit-cards h3{font-weight:780!important;letter-spacing:-.048em!important}
 
 /* ── 9. Testimonials: profundidade nos cards ── */
