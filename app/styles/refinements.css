@@ -286,49 +286,46 @@ html body #conteudo .wf-service-cta{background:#2563eb;border-color:#2563eb;colo
 /* ============================================================
    ORÇAMENTO RÁPIDO
    ============================================================ */
-.wf-orc-section{padding:80px 0;background:var(--paper)}
-.wf-orc-header{text-align:center;max-width:600px;margin:0 auto 48px}
-.wf-orc-header .v4-tag{margin-bottom:16px}
-.wf-orc-title{font-size:clamp(32px,3.5vw,52px);line-height:.96;letter-spacing:-.05em;font-weight:800;margin:0 0 16px;color:var(--ink)}
-.wf-orc-header p{font-size:15px;color:var(--muted);line-height:1.65;margin:0}
-.wf-orc-body{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
-.wf-orc-step{display:flex;flex-direction:column;gap:14px}
-.wf-orc-step-label{display:flex;align-items:center;gap:12px}
-.wf-orc-step-label h3{font-size:18px;font-weight:700;margin:0;color:var(--ink)}
-.wf-orc-step-num{font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--acid);background:rgba(59,91,219,.12);min-width:30px;height:30px;border-radius:8px;display:grid;place-items:center;flex-shrink:0}
-.wf-orc-svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.wf-orc-svc-card,.wf-orc-extra-card{position:relative;display:flex;flex-direction:column;align-items:center;gap:7px;padding:18px 10px;border-radius:14px;background:var(--paper-2);border:2px solid var(--line);cursor:pointer;transition:border-color .2s,background .2s;font-family:inherit;text-align:center}
-.wf-orc-svc-card:hover,.wf-orc-extra-card:hover{border-color:var(--acid)}
-.wf-orc-svc-card.is-active,.wf-orc-extra-card.is-active{border-color:var(--acid);background:rgba(59,91,219,.09)}
-.wf-orc-card-icon{font-size:26px}
-.wf-orc-card-label{font-size:12px;font-weight:700;color:var(--ink);line-height:1.3}
-.wf-orc-check{position:absolute;top:7px;right:7px;width:16px;height:16px;border-radius:50%;background:var(--acid);color:#fff;font-size:9px;font-weight:800;display:grid;place-items:center}
-.wf-orc-extras-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-.wf-orc-extra-card{padding:14px 8px;border-radius:12px}
-.wf-orc-extra-price{font-size:10px;color:var(--muted)}
-.wf-orc-result{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--dark);border-radius:18px;padding:24px 28px;flex-wrap:wrap}
-.wf-orc-result-info{display:flex;flex-direction:column;gap:3px}
-.wf-orc-result-label{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.42);font-weight:600}
-.wf-orc-result-price{font-size:clamp(28px,3vw,40px);font-weight:800;color:var(--acid);line-height:1;letter-spacing:-.04em}
-.wf-orc-result-note{font-size:11px;color:rgba(255,255,255,.32)}
-.wf-orc-result-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:999px;background:var(--acid);color:#fff;font-size:14px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s;white-space:nowrap}
-.wf-orc-result-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(59,91,219,.28)}
+/* Orçamento v2 */
+.wf-orc2-section{padding:96px 0;background:var(--paper)}
+.wf-orc2-header{max-width:640px;margin:0 auto 48px;text-align:center}
+.wf-orc2-header .v4-tag{margin-bottom:16px}
+.wf-orc2-title{font-size:clamp(32px,3.8vw,54px);line-height:.96;letter-spacing:-.05em;font-weight:800;margin:0 0 14px;color:var(--ink)}
+.wf-orc2-title span{color:var(--acid)}
+.wf-orc2-sub{font-size:15px;color:var(--muted);line-height:1.65;margin:0 0 20px}
+.wf-orc2-pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.wf-orc2-pill{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 14px}
+.wf-orc2-card{max-width:720px;margin:0 auto;background:var(--paper-2);border:1px solid var(--line);border-radius:24px;padding:36px;display:flex;flex-direction:column;gap:32px}
+.wf-orc2-step{display:flex;flex-direction:column;gap:14px}
+.wf-orc2-step-label{font-size:10px;font-weight:800;letter-spacing:.1em;color:var(--acid);text-transform:uppercase}
+.wf-orc2-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.wf-orc2-opt{position:relative;display:flex;align-items:center;gap:10px;padding:13px 16px;border-radius:12px;background:var(--paper);border:1.5px solid var(--line);cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);text-align:left;transition:border-color .18s,background .18s,color .18s}
+.wf-orc2-opt:hover{border-color:var(--acid);color:var(--acid)}
+.wf-orc2-opt.is-active{border-color:var(--acid);background:rgba(59,91,219,.07);color:var(--acid)}
+.wf-orc2-opt svg{flex-shrink:0;opacity:.7}
+.wf-orc2-opt.is-active svg{opacity:1}
+.wf-orc2-check{margin-left:auto;font-size:11px;font-weight:800}
+.wf-orc2-result{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--dark);border-radius:16px;padding:22px 26px;flex-wrap:wrap}
+.wf-orc2-result-info{display:flex;flex-direction:column;gap:4px}
+.wf-orc2-result-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);font-weight:700}
+.wf-orc2-result-price{font-size:clamp(22px,2.8vw,34px);font-weight:800;color:#fff;line-height:1;letter-spacing:-.04em}
+.wf-orc2-result-note{font-size:11px;color:rgba(255,255,255,.3)}
+.wf-orc2-cta{display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;border-radius:999px;background:var(--acid);color:#fff;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;transition:transform .2s,box-shadow .2s}
+.wf-orc2-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(59,91,219,.30)}
 
-/* Orçamento dark mode */
-[data-theme="dark"] .wf-orc-section{background:#1a1d22}
-[data-theme="dark"] .wf-orc-title{color:#f1f2ef}
-[data-theme="dark"] .wf-orc-header p,[data-theme="dark"] .wf-orc-extra-price{color:#a7afb6}
-[data-theme="dark"] .wf-orc-step-label h3{color:#f1f2ef}
-[data-theme="dark"] .wf-orc-svc-card,[data-theme="dark"] .wf-orc-extra-card{background:#22262b;border-color:rgba(255,255,255,.08)}
-[data-theme="dark"] .wf-orc-svc-card.is-active,[data-theme="dark"] .wf-orc-extra-card.is-active{background:rgba(59,91,219,.10);border-color:var(--acid)}
-[data-theme="dark"] .wf-orc-card-label{color:#f1f2ef}
-[data-theme="dark"] .wf-orc-step-num{background:rgba(59,91,219,.15)}
+/* dark mode */
+[data-theme="dark"] .wf-orc2-section{background:#15171b}
+[data-theme="dark"] .wf-orc2-title{color:#f1f2ef}
+[data-theme="dark"] .wf-orc2-sub{color:#a7afb6}
+[data-theme="dark"] .wf-orc2-pill{border-color:rgba(255,255,255,.1);color:#a7afb6}
+[data-theme="dark"] .wf-orc2-card{background:#1e2126;border-color:rgba(255,255,255,.08)}
+[data-theme="dark"] .wf-orc2-opt{background:#15171b;border-color:rgba(255,255,255,.09);color:#d8dde2}
+[data-theme="dark"] .wf-orc2-opt:hover,[data-theme="dark"] .wf-orc2-opt.is-active{border-color:var(--acid);color:var(--acid);background:rgba(59,91,219,.10)}
 
-/* Orçamento responsive */
-@media(max-width:700px){
-  .wf-orc-svc-grid{grid-template-columns:repeat(2,1fr)}
-  .wf-orc-extras-grid{grid-template-columns:repeat(3,1fr)}
-  .wf-orc-result{flex-direction:column;align-items:stretch}
+/* responsive */
+@media(max-width:600px){
+  .wf-orc2-card{padding:24px 18px;gap:24px}
+  .wf-orc2-result{flex-direction:column;align-items:stretch;text-align:center}
+  .wf-orc2-cta{width:100%;justify-content:center}
 }
-@media(max-width:440px){.wf-orc-extras-grid{grid-template-columns:repeat(2,1fr)}}
 
