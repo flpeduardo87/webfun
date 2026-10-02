@@ -24,7 +24,7 @@ export default function Home(){
 
   <section className="v4-section v745-capabilities-section"><div className="shell"><div className="v745-capabilities-panel"><SectionIntro tag="RECURSOS" title={<>Seu site pode vender, atender e operar melhor.</>} subtitle="O projeto é desenhado em torno da jornada real do cliente e do time interno — e não em torno de um template."/><Reveal className="v42-reveal-block"><CapabilitiesGrid/></Reveal></div></div></section>
 
-  <section className="v4-section v4-work-section"><div className="shell"><SectionIntro tag="PROJETOS" title={<>Veja o que isso vira na prática.</>} subtitle="Uma seleção de sites, sistemas e produtos digitais em diferentes segmentos."/><Reveal className="v42-reveal-block"><FeaturedProjects/></Reveal></div></section>
+  <section className="v4-section v4-work-section"><div className="shell"><SectionIntro tag="REFERÊNCIAS & CONCEITOS" title={<>Cada segmento tem o seu jeito de crescer.</>} subtitle="Referências visuais e de produto por nicho — para ver como uma solução pode tomar forma no seu mercado."/><Reveal className="v42-reveal-block"><FeaturedProjects/></Reveal></div></section>
 
   <Reveal className="v42-reveal-block"><TestimonialsSection/></Reveal>
 
