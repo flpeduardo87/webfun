@@ -167,7 +167,7 @@ export default function HomeHero() {
               <span>merece{' '}<span className="wf-stamp">mais</span></span>
               <span>do que um site.</span>
             </h1>
-            <p>Criamos sites, lojas e sistemas para ajudar seu negócio a <strong>vender mais</strong> e trabalhar melhor.</p>
+            <p>Criamos sites, lojas e sistemas para ajudar seu negócio a <strong>vender mais</strong> e trabalhar melhor — com design que comunica e tecnologia que entrega.</p>
             <div className="wf-hero2-cta-row">
               <a
                 href={whatsappHref('Olá, Webfun! Quero conversar sobre um projeto.')}
@@ -186,7 +186,7 @@ export default function HomeHero() {
                 <span style={{ background: '#25292e' }}>G</span>
                 <span style={{ background: '#2d6a4f' }}>H</span>
               </div>
-              <span>+50 projetos entregues</span>
+              <span><strong>+50 projetos entregues</strong><br/><small>para negócios em SC e Brasil</small></span>
             </div>
           </motion.div>
 
