@@ -170,8 +170,11 @@ html body #conteudo .wf-service-cta{background:#2563eb;border-color:#2563eb;colo
 .wf-stamp{display:inline-block;background:var(--acid);color:#fff;border-radius:8px;padding:0 12px 3px;transform:rotate(-1.5deg);font-style:normal;text-decoration:none;line-height:1.05}
 .wf-hero2-copy p{font-size:16px;line-height:1.72;color:var(--muted);max-width:480px;margin:24px 0 22px}
 .wf-hero2-cta-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.wf-hero2-secondary{font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:0 4px;border-bottom:2px solid var(--line);min-height:52px;transition:border-color .2s}
-.wf-hero2-secondary:hover{border-color:var(--acid)}
+.wf-hero2-cta-primary{background:var(--acid)!important;box-shadow:0 14px 30px rgba(59,91,219,.22)!important}
+.wf-hero2-cta-primary i{background:rgba(255,255,255,.18)!important;color:#fff!important}
+.wf-hero2-cta-primary:hover{box-shadow:0 19px 40px rgba(59,91,219,.32)!important}
+.wf-hero2-secondary{font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:0 22px;border:2px solid var(--line);border-radius:999px;min-height:52px;transition:border-color .2s,background .2s,color .2s}
+.wf-hero2-secondary:hover{border-color:var(--acid);color:var(--acid)}
 .wf-hero2-proof{display:flex;align-items:center;gap:10px;margin-top:24px;font-size:13px;color:var(--muted);font-weight:500}
 .wf-hero2-faces{display:flex}
 .wf-hero2-faces span{width:28px;height:28px;border-radius:50%;border:2px solid var(--paper-2);color:#fff;display:grid;place-items:center;font-size:10px;font-weight:800;margin-left:-6px;flex-shrink:0}
@@ -254,7 +257,8 @@ html body #conteudo .wf-service-cta{background:#2563eb;border-color:#2563eb;colo
 [data-theme="dark"] .wf-hero2{background:#171a1e;color:#f1f2ef}
 [data-theme="dark"] .wf-hero2-h1{color:#f1f2ef}
 [data-theme="dark"] .wf-hero2-copy p{color:#a7afb6}
-[data-theme="dark"] .wf-hero2-secondary{color:#f1f2ef;border-color:rgba(255,255,255,.12)}
+[data-theme="dark"] .wf-hero2-secondary{color:#f1f2ef;border-color:rgba(255,255,255,.18)}
+[data-theme="dark"] .wf-hero2-secondary:hover{border-color:var(--acid);color:var(--acid)}
 [data-theme="dark"] .wf-hero2-proof{color:#a7afb6}
 [data-theme="dark"] .wf-hero2-faces span{border-color:#171a1e}
 [data-theme="dark"] .wf-stamp{color:#fff}

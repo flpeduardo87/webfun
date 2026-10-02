@@ -173,11 +173,12 @@ export default function HomeHero() {
                 href={whatsappHref('Olá, Webfun! Quero conversar sobre um projeto.')}
                 target="_blank"
                 rel="noreferrer"
-                className="v5-hero-cta"
+                className="v5-hero-cta wf-hero2-cta-primary"
               >
+                <i aria-hidden="true">→</i>
                 Falar sobre meu projeto
               </a>
-              <Link href="/projetos" className="wf-hero2-secondary">Ver projetos</Link>
+              <Link href="/projetos" className="wf-hero2-secondary">Ver projetos →</Link>
             </div>
             <div className="wf-hero2-proof">
               <div className="wf-hero2-faces">
@@ -186,7 +187,7 @@ export default function HomeHero() {
                 <span style={{ background: '#25292e' }}>G</span>
                 <span style={{ background: '#2d6a4f' }}>H</span>
               </div>
-              <span><strong>+50 projetos entregues</strong><br/><small>para negócios em SC e Brasil</small></span>
+              <span><strong>+50 projetos entregues</strong><br/><small>para negócios em SC, Brasil e Irlanda</small></span>
             </div>
           </motion.div>
 
