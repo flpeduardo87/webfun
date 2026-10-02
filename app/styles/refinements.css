@@ -907,11 +907,11 @@ html body #conteudo .v4-faq-answer p{font-size:15px!important;line-height:1.7!im
 .wf2-h1-l { display:block; }
 .wf2-stamp {
   display:inline-block;
-  background:#fff;color:var(--acid);
-  border-radius:9px;padding:0 14px 4px;
+  background:#fff;color:#3b5bdb!important;
+  border-radius:9px;padding:2px 16px 5px;
   transform:rotate(-1.5deg);
   font-style:normal;text-decoration:none;line-height:1.05;
-  box-shadow:0 4px 20px rgba(0,0,0,.12);
+  box-shadow:0 4px 20px rgba(0,0,0,.14);
 }
 .wf2-lead {
   font-size:17px;line-height:1.72;
@@ -1042,7 +1042,7 @@ html body #conteudo .v4-faq-answer p{font-size:15px!important;line-height:1.7!im
 /* ────────────────────────────────────────
    SITE PANEL
    ──────────────────────────────────────── */
-.wf2-panel-site { gap:10px;justify-content:space-between; }
+.wf2-panel-site { gap:10px; }
 .wf2-ps-nav {
   display:flex;align-items:center;gap:10px;
   padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07);
@@ -1051,7 +1051,7 @@ html body #conteudo .v4-faq-answer p{font-size:15px!important;line-height:1.7!im
 .wf2-ps-links { display:flex;gap:7px;flex:1; }
 .wf2-ps-links span { height:6px;border-radius:3px;background:rgba(255,255,255,.13);width:30px; }
 .wf2-ps-cta-pill { width:56px;height:22px;border-radius:11px;background:var(--acid);opacity:.6; }
-.wf2-ps-hero { display:flex;gap:14px;align-items:flex-start; }
+.wf2-ps-hero { display:flex;gap:14px;align-items:flex-start;flex:1; }
 .wf2-ps-copy { flex:1;display:flex;flex-direction:column;gap:6px; }
 .wf2-ps-eyebrow {
   font-size:8px;font-weight:700;letter-spacing:.12em;
@@ -1072,8 +1072,9 @@ html body #conteudo .v4-faq-answer p{font-size:15px!important;line-height:1.7!im
   border-radius:99px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.55);
 }
 .wf2-ps-img {
-  width:86px;height:76px;flex-shrink:0;
-  border-radius:9px;background:rgba(255,255,255,.07);
+  width:90px;flex-shrink:0;align-self:stretch;
+  border-radius:9px;background:linear-gradient(145deg,rgba(59,91,219,.22),rgba(255,255,255,.05));
+  border:1px solid rgba(59,91,219,.18);
 }
 .wf2-ps-cards {
   display:grid;grid-template-columns:repeat(3,1fr);gap:7px;
