@@ -398,6 +398,28 @@ html body #conteudo :is(.v742-project-card-tags span,.v4-project-tags span,.v740
 #conteudo .wf-service-body h3{font-weight:800!important;letter-spacing:-.045em!important;font-size:clamp(20px,1.9vw,27px)!important}
 
 /* ============================================================
+   RECURSOS — dark band (sempre escuro, light e dark mode)
+   ============================================================ */
+html body .v745-capabilities-section { background: #13151a !important; }
+html body #conteudo .v745-capabilities-panel {
+  background: rgba(255,255,255,.04) !important;
+  border-color: rgba(255,255,255,.07) !important;
+  box-shadow: none !important;
+}
+html body #conteudo .v745-capabilities-section .v4-section-intro p { color: rgba(255,255,255,.52) !important; }
+html body #conteudo .v745-capabilities-section .v4-tag { color: #6f9aff !important; background: rgba(111,154,255,.1) !important; border-color: rgba(111,154,255,.2) !important; }
+/* cards — dark tints */
+html body #conteudo .v745-capabilities-section .v745-capability-grid article { color: #eef1f3 !important; }
+html body #conteudo .v745-capabilities-section .v745-capability-grid article p { color: rgba(255,255,255,.52) !important; }
+html body #conteudo .v745-capabilities-section .v745-capability-grid article h3 { color: #fff !important; }
+html body #conteudo .v745-capabilities-section .v745-capability-grid article:nth-child(4n+1){background:linear-gradient(145deg,#172035 0%,#181c21 65%)!important;border-color:#1e3a5f!important}
+html body #conteudo .v745-capabilities-section .v745-capability-grid article:nth-child(4n+2){background:linear-gradient(145deg,#0d2820 0%,#181c21 65%)!important;border-color:#064e3b!important}
+html body #conteudo .v745-capabilities-section .v745-capability-grid article:nth-child(4n+3){background:linear-gradient(145deg,#1e1438 0%,#181c21 65%)!important;border-color:#2e1d5c!important}
+html body #conteudo .v745-capabilities-section .v745-capability-grid article:nth-child(4n+0){background:linear-gradient(145deg,#2d1020 0%,#181c21 65%)!important;border-color:#4d1a34!important}
+/* botão CTA dentro da seção escura */
+html body #conteudo .v745-capabilities-section .wf-capabilities-action .v4-primary-button { background: #3b5bdb !important; color: #fff !important; }
+
+/* ============================================================
    CAPABILITIES GRID — linha icons com cores, tint por card
    ============================================================ */
 
@@ -703,8 +725,12 @@ html body #conteudo h2 {
   font-weight: 780 !important;
   letter-spacing: -.052em !important;
   line-height: .96 !important;
-  color: var(--ink) !important;
 }
+
+/* Seções sempre escuras (light + dark) precisam de texto branco */
+html body #conteudo .v4-signal-strip h2,
+html body #conteudo .v771-testimonials h2,
+html body #conteudo .v745-capabilities-section h2 { color: #fff !important; }
 html body #conteudo h2 em {
   font-style: normal !important;
   font-weight: 780 !important;
@@ -903,7 +929,7 @@ html body #conteudo .v4-faq-answer p{font-size:15px!important;line-height:1.7!im
 }
 .wf2-h1 {
   display:flex;flex-direction:column;gap:2px;
-  font-size:clamp(52px,5.2vw,84px);font-weight:820;
+  font-size:clamp(52px,5.2vw,84px);font-weight:820!important;
   letter-spacing:-.056em;line-height:.96;
   color:var(--ink);margin:0 0 24px;
   text-wrap:balance;
