@@ -683,3 +683,161 @@ html body #conteudo .v4-process-section .v773-process-step::before{background:#2
 .wf-panel-task-card .wf-panel-task-num{font-size:14px;font-weight:800;color:#fff;line-height:1}
 /* IA: keep space-between */
 .wf-panel--ia{justify-content:space-between!important}
+
+/* ════════════════════════════════════════════
+   DESIGN SYSTEM v1 — Refinamentos globais
+   Aplicado em cima do legado de site.css
+   ════════════════════════════════════════════ */
+
+/* ── 1. Seções: espaçamento generoso e consistente ── */
+html body #conteudo .v4-section{
+  padding-top:clamp(88px,9vw,128px)!important;
+  padding-bottom:clamp(88px,9vw,128px)!important;
+}
+
+/* ── 2. SectionIntro: hierarquia mais forte ── */
+html body #conteudo .v4-section-intro{margin-bottom:52px!important}
+html body #conteudo .v4-section-intro h2{
+  font-size:clamp(38px,4.6vw,68px)!important;
+  font-weight:780!important;
+  letter-spacing:-.052em!important;
+  line-height:.96!important;
+  color:var(--ink)!important;
+}
+html body #conteudo .v4-section-intro h2 em{
+  font-style:normal!important;font-weight:780!important;color:var(--muted)!important;
+}
+html body #conteudo .v4-section-intro p{
+  font-size:clamp(15px,1.1vw,17px)!important;
+  line-height:1.74!important;
+  color:var(--muted)!important;
+  max-width:58ch!important;
+  margin-top:16px!important;
+}
+
+/* Tag: ponto colorido antes do label */
+html body #conteudo .v4-tag.v788-section-tag{
+  display:inline-flex!important;align-items:center!important;gap:7px!important;
+  color:var(--acid)!important;font-weight:700!important;
+}
+html body #conteudo .v4-tag.v788-section-tag::before{
+  content:'';flex-shrink:0;width:5px;height:5px;
+  border-radius:50%;background:var(--acid);
+}
+
+/* ── 3. Primary button: azul com sombra ── */
+html body #conteudo .v4-primary-button,
+html body #conteudo .wf-capabilities-action .v4-primary-button{
+  background:var(--acid)!important;
+  color:#fff!important;
+  box-shadow:0 4px 18px rgba(59,91,219,.30)!important;
+  transition:background .22s,box-shadow .22s,transform .16s!important;
+}
+html body #conteudo .v4-primary-button:hover,
+html body #conteudo .wf-capabilities-action .v4-primary-button:hover{
+  background:#2a4abf!important;
+  box-shadow:0 9px 28px rgba(59,91,219,.44)!important;
+  transform:translateY(-2px)!important;
+}
+html[data-theme="dark"] body #conteudo .v4-primary-button{
+  background:var(--acid)!important;
+  color:#fff!important;
+}
+
+/* ── 4. StatsBar: números de impacto ── */
+.wf-stats-bar{
+  padding:clamp(36px,4vw,56px) 0!important;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.wf-stats-row{
+  display:grid!important;
+  grid-template-columns:repeat(3,1fr)!important;
+  gap:0!important;
+}
+.wf-stat{
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  gap:6px!important;padding:16px 20px!important;position:relative!important;
+  text-align:center!important;
+}
+.wf-stat+.wf-stat::before{
+  content:'';position:absolute;left:0;top:15%;bottom:15%;
+  width:1px;background:var(--line);
+}
+.wf-stat-value{
+  font-size:clamp(44px,5.5vw,72px)!important;
+  font-weight:860!important;
+  letter-spacing:-.055em!important;
+  line-height:1!important;
+  color:var(--acid)!important;
+  font-variant-numeric:tabular-nums!important;
+}
+.wf-stat-label{
+  font-size:13px!important;font-weight:500!important;
+  color:var(--muted)!important;letter-spacing:.01em!important;
+}
+
+/* ── 5. ServiceStrip: mais elegante ── */
+html body .v4-signal-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+html body .v59-signal-track span{font-size:13px!important;font-weight:600!important;letter-spacing:.02em!important;color:var(--ink)!important}
+
+/* ── 6. ClientLogos: placeholder tratado ── */
+.wf-clients-section{padding:clamp(28px,3vw,44px) 0}
+.wf-clients-label{font-size:11px!important;font-weight:700!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:var(--muted)!important;text-align:center!important;margin-bottom:22px!important}
+.wf-client-logo{
+  padding:10px 22px!important;border:1px solid var(--line)!important;
+  border-radius:10px!important;
+  opacity:.65!important;transition:opacity .2s,border-color .2s!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+}
+.wf-client-logo:hover{opacity:1!important;border-color:var(--acid)!important}
+.wf-client-placeholder{font-size:11px!important;font-weight:700!important;letter-spacing:.05em!important;color:var(--muted)!important;text-transform:uppercase!important;white-space:nowrap!important}
+
+/* ── 7. HumanExperience: signals com card ── */
+html body #conteudo .v41-human-signals{display:flex!important;flex-direction:column!important;gap:10px!important;margin-top:28px!important}
+html body #conteudo .v41-human-signals article{
+  display:flex!important;align-items:flex-start!important;gap:14px!important;
+  padding:14px 16px!important;
+  background:var(--paper)!important;
+  border:1px solid var(--line)!important;
+  border-radius:14px!important;
+  transition:border-color .2s!important;
+}
+html body #conteudo .v41-human-signals article:hover{border-color:rgba(59,91,219,.3)!important}
+html body #conteudo .v41-human-signals article i{
+  width:38px!important;height:38px!important;
+  border-radius:10px!important;flex-shrink:0!important;
+  background:rgba(59,91,219,.09)!important;color:var(--acid)!important;
+  display:grid!important;place-items:center!important;font-style:normal!important;
+}
+html body #conteudo .v41-human-signals article b{font-size:14px!important;font-weight:700!important;color:var(--ink)!important;display:block!important;margin-bottom:2px!important}
+html body #conteudo .v41-human-signals article span{font-size:12.5px!important;color:var(--muted)!important;line-height:1.5!important}
+html[data-theme="dark"] body #conteudo .v41-human-signals article{background:var(--paper)!important;border-color:var(--line)!important}
+html[data-theme="dark"] body #conteudo .v41-human-signals article i{background:rgba(59,91,219,.18)!important}
+
+/* ── 8. FitSection: títulos com peso ── */
+html body #conteudo .v4-fit-copy h2{font-weight:780!important;letter-spacing:-.056em!important}
+html body #conteudo .v4-fit-copy h2 em{font-style:normal!important;font-weight:780!important;color:#adb2b6!important}
+html body #conteudo .v4-fit-cards h3{font-weight:780!important;letter-spacing:-.048em!important}
+
+/* ── 9. Testimonials: profundidade nos cards ── */
+html body #conteudo .v771-testimonial-card{
+  border-radius:20px!important;
+  border:1px solid var(--line)!important;
+  box-shadow:0 2px 12px rgba(0,0,0,.06)!important;
+  transition:box-shadow .25s!important;
+}
+html body #conteudo .v771-testimonial-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.1)!important}
+html body #conteudo .v771-testimonial-card.is-featured{box-shadow:0 6px 28px rgba(0,0,0,.1)!important}
+html body #conteudo .v771-testimonial-card blockquote{font-size:clamp(15px,1.1vw,17px)!important;line-height:1.7!important}
+html[data-theme="dark"] body #conteudo .v771-testimonial-card{box-shadow:0 2px 14px rgba(0,0,0,.22)!important}
+
+/* ── 10. FAQ: perguntas mais legíveis ── */
+html body #conteudo .v4-faq-list button>b{
+  font-size:clamp(16px,1.2vw,19px)!important;
+  font-weight:700!important;
+  letter-spacing:-.025em!important;
+  line-height:1.3!important;
+}
+html body #conteudo .v4-faq-list article.is-open button>b{color:var(--acid)!important}
+html body #conteudo .v4-faq-answer p{font-size:15px!important;line-height:1.7!important;color:var(--muted)!important}
