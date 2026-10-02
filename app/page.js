@@ -1,5 +1,6 @@
 import ServiceStrip from '../components/ServiceStrip';
 import HomeHero from '../components/HomeHero';
+import ClientLogos from '../components/ClientLogos';
 import OrcamentoRapido from '../components/OrcamentoRapido';
 import SectionIntro from '../components/SectionIntro';
 import ServicesExperience from '../components/ServicesExperience';
@@ -17,6 +18,8 @@ export default function Home(){
   <HomeHero/>
 
   <ServiceStrip/>
+
+  <ClientLogos/>
 
   <OrcamentoRapido/>
 
