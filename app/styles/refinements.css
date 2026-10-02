@@ -170,9 +170,9 @@ html body #conteudo .wf-service-cta{background:#2563eb;border-color:#2563eb;colo
 .wf-stamp{display:inline-block;background:var(--acid);color:#fff;border-radius:8px;padding:0 12px 3px;transform:rotate(-1.5deg);font-style:normal;text-decoration:none;line-height:1.05}
 .wf-hero2-copy p{font-size:16px;line-height:1.72;color:var(--muted);max-width:480px;margin:24px 0 22px}
 .wf-hero2-cta-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.wf-hero2-cta-primary{background:#16191c!important;box-shadow:0 14px 30px rgba(0,0,0,.18)!important}
-.wf-hero2-cta-primary i{background:rgba(255,255,255,.12)!important;color:#fff!important}
-.wf-hero2-cta-primary:hover{box-shadow:0 19px 40px rgba(0,0,0,.26)!important}
+.wf-hero2-cta-primary{background:#fff!important;color:#16191c!important;box-shadow:0 8px 24px rgba(0,0,0,.14)!important}
+.wf-hero2-cta-primary i{background:#16191c!important;color:#fff!important}
+.wf-hero2-cta-primary:hover{box-shadow:0 14px 34px rgba(0,0,0,.22)!important}
 .wf-hero2-secondary{font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:0 22px;border:2px solid var(--line);border-radius:999px;min-height:52px;transition:border-color .2s,background .2s,color .2s}
 .wf-hero2-secondary:hover{border-color:var(--acid);color:var(--acid)}
 .wf-hero2-proof{display:flex;align-items:center;gap:10px;margin-top:24px;font-size:13px;color:var(--muted);font-weight:500}
@@ -635,22 +635,24 @@ html body #conteudo .v4-process-section .v773-process-step::before{background:#2
   html body #conteudo .v4-process-section .v773-process-step.is-active::before{background:#2563eb!important}
 }
 
-/* Hero2: icon on right, proper circle (no grey square) */
-.wf-hero2-cta-primary{display:inline-flex!important;flex-direction:row!important}
+/* Hero2: white pill, dark filled circle on right with lucide ArrowRight */
+.wf-hero2-cta-primary{display:inline-flex!important;align-items:center!important;flex-direction:row!important;gap:12px!important;padding-right:6px!important}
 .wf-hero2-cta-primary i{
-  width:30px!important;height:30px!important;
+  width:36px!important;height:36px!important;
   border-radius:50%!important;
-  background:rgba(255,255,255,.16)!important;
+  background:#16191c!important;
   color:#fff!important;
   display:grid!important;place-items:center!important;
   font-style:normal!important;flex-shrink:0!important;
-  font-size:15px!important;line-height:1!important;
+  line-height:1!important;
   order:2!important;
 }
+.wf-hero2-cta-primary i svg{display:block!important}
 
-/* Dark mode: primary CTA azul */
+/* Dark mode: primary CTA azul, circle branco translúcido */
 [data-theme="dark"] .wf-hero2-cta-primary{
   background:var(--acid)!important;
+  color:#fff!important;
   box-shadow:0 14px 30px rgba(37,99,235,.32)!important;
 }
 [data-theme="dark"] .wf-hero2-cta-primary:hover{
@@ -658,6 +660,7 @@ html body #conteudo .v4-process-section .v773-process-step::before{background:#2
 }
 [data-theme="dark"] .wf-hero2-cta-primary i{
   background:rgba(255,255,255,.22)!important;
+  color:#fff!important;
 }
 
 /* H1 hero +4px desktop e mobile */

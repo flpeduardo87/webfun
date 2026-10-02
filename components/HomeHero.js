@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 import { whatsappHref } from '../lib/data';
 
 const ease = [0.16, 1, 0.3, 1];
@@ -179,7 +180,7 @@ export default function HomeHero() {
                 className="v5-hero-cta wf-hero2-cta-primary"
               >
                 Falar sobre meu projeto
-                <i aria-hidden="true">→</i>
+                <i aria-hidden="true"><ArrowRight size={16}/></i>
               </a>
               <Link href="/projetos" className="wf-hero2-secondary">Ver projetos</Link>
             </div>
