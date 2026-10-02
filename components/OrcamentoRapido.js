@@ -1,27 +1,30 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { LayoutTemplate, ShoppingBag, Layers, Zap, HelpCircle, Search, CalendarCheck, CreditCard, Plug, MessageSquare } from 'lucide-react';
 import { whatsappHref } from '../lib/data';
 
-const services = [
-  { id: 'site',    icon: '🌐', label: 'Site',           price: 2800 },
-  { id: 'loja',    icon: '🛍️', label: 'Loja Virtual',   price: 4500 },
-  { id: 'sistema', icon: '⚙️', label: 'Sistema',        price: 6000 },
-  { id: 'ia',      icon: '✨', label: 'Automação & IA', price: 3800 },
+const solutions = [
+  { id: 'landing',      icon: LayoutTemplate, label: 'Landing page',        price: 1800 },
+  { id: 'site',         icon: LayoutTemplate, label: 'Site institucional',   price: 2800 },
+  { id: 'loja',         icon: ShoppingBag,    label: 'Loja virtual',         price: 4500 },
+  { id: 'sistema',      icon: Layers,         label: 'Sistema sob medida',   price: 6000 },
+  { id: 'ia',           icon: Zap,            label: 'Automação & IA',       price: 3800 },
+  { id: 'naosei',       icon: HelpCircle,     label: 'Ainda não sei',        price: 0    },
 ];
 
 const extras = [
-  { id: 'blog',  icon: '✍️', label: 'Blog',              price: 800 },
-  { id: 'chat',  icon: '💬', label: 'Chat / WhatsApp',   price: 400 },
-  { id: 'admin', icon: '🛠️', label: 'Painel admin',      price: 900 },
-  { id: 'pay',   icon: '💳', label: 'Pagamento online',  price: 500 },
-  { id: 'lang',  icon: '🌍', label: 'Multi-idiomas',     price: 600 },
+  { id: 'seo',      icon: Search,        label: 'SEO',               price: 600  },
+  { id: 'agenda',   icon: CalendarCheck, label: 'Agendamento',       price: 500  },
+  { id: 'pay',      icon: CreditCard,    label: 'Pagamento online',  price: 500  },
+  { id: 'integra',  icon: Plug,          label: 'Integrações',       price: 400  },
+  { id: 'chat',     icon: MessageSquare, label: 'Chat / WhatsApp',   price: 400  },
 ];
 
 const fmt = (n) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
 
 export default function OrcamentoRapido() {
-  const [svc, setSvc] = useState(null);
+  const [sol, setSol] = useState(null);
   const [exSet, setExSet] = useState(new Set());
 
   const toggleExtra = (id) => {
@@ -32,76 +35,88 @@ export default function OrcamentoRapido() {
     });
   };
 
-  const total = useMemo(() => {
-    const base = services.find(s => s.id === svc)?.price ?? 0;
-    const ex = extras.filter(e => exSet.has(e.id)).reduce((a, e) => a + e.price, 0);
-    return base + ex;
-  }, [svc, exSet]);
+  const base = solutions.find(s => s.id === sol)?.price ?? 0;
+  const extrasTotal = extras.filter(e => exSet.has(e.id)).reduce((a, e) => a + e.price, 0);
+  const total = base + extrasTotal;
+  const isNaoSei = sol === 'naosei';
 
-  const waMsg = svc
-    ? `Olá, Webfun! Tenho interesse em: ${services.find(s => s.id === svc)?.label}${exSet.size ? ` + extras: ${extras.filter(e => exSet.has(e.id)).map(e => e.label).join(', ')}` : ''}. Estimativa: ${fmt(total)}.`
-    : 'Olá, Webfun! Quero um orçamento para meu projeto.';
+  const waMsg = sol
+    ? isNaoSei
+      ? 'Olá, Webfun! Ainda não sei exatamente o que preciso, mas quero conversar sobre meu projeto.'
+      : `Olá, Webfun! Tenho interesse em: ${solutions.find(s => s.id === sol)?.label}${exSet.size ? ` + ${extras.filter(e => exSet.has(e.id)).map(e => e.label).join(', ')}` : ''}. Referência: a partir de ${fmt(total)}.`
+    : 'Olá, Webfun! Quero conversar sobre meu projeto.';
 
   return (
-    <section className="wf-orc-section">
+    <section className="wf-orc2-section">
       <div className="shell">
-        <div className="wf-orc-header">
+        <div className="wf-orc2-header">
           <span className="v4-tag">ORÇAMENTO</span>
-          <h2 className="wf-orc-title">Quanto custa o meu projeto?</h2>
-          <p>Selecione o tipo de projeto e os recursos extras para ter uma estimativa de investimento.</p>
+          <h2 className="wf-orc2-title">
+            Já sabe o que precisa?<br/>
+            <span>Vamos dar um norte.</span>
+          </h2>
+          <p className="wf-orc2-sub">Escolha uma solução e alguns recursos para ter uma referência inicial. O próximo passo já sai pronto para o WhatsApp.</p>
+          <div className="wf-orc2-pills">
+            {['Sem formulário gigante','Sem compromisso','Conversa direta'].map(p => (
+              <span key={p} className="wf-orc2-pill">{p}</span>
+            ))}
+          </div>
         </div>
 
-        <div className="wf-orc-body">
-          <div className="wf-orc-step">
-            <div className="wf-orc-step-label"><span className="wf-orc-step-num">01</span><h3>Qual o tipo do projeto?</h3></div>
-            <div className="wf-orc-svc-grid">
-              {services.map(s => (
+        <div className="wf-orc2-card">
+          <div className="wf-orc2-step">
+            <span className="wf-orc2-step-label">01 / QUAL SOLUÇÃO FAZ MAIS SENTIDO?</span>
+            <div className="wf-orc2-grid">
+              {solutions.map(({ id, icon: Icon, label }) => (
                 <button
-                  key={s.id}
+                  key={id}
                   type="button"
-                  className={`wf-orc-svc-card${svc === s.id ? ' is-active' : ''}`}
-                  onClick={() => setSvc(svc === s.id ? null : s.id)}
+                  className={`wf-orc2-opt${sol === id ? ' is-active' : ''}`}
+                  onClick={() => { setSol(sol === id ? null : id); setExSet(new Set()); }}
                 >
-                  <span className="wf-orc-card-icon">{s.icon}</span>
-                  <span className="wf-orc-card-label">{s.label}</span>
-                  {svc === s.id && <span className="wf-orc-check" aria-hidden="true">✓</span>}
+                  <Icon size={16} strokeWidth={1.8} />
+                  <span>{label}</span>
+                  {sol === id && <span className="wf-orc2-check">✓</span>}
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="wf-orc-step">
-            <div className="wf-orc-step-label"><span className="wf-orc-step-num">02</span><h3>Quais recursos extras?</h3></div>
-            <div className="wf-orc-extras-grid">
-              {extras.map(e => (
-                <button
-                  key={e.id}
-                  type="button"
-                  className={`wf-orc-extra-card${exSet.has(e.id) ? ' is-active' : ''}`}
-                  onClick={() => toggleExtra(e.id)}
-                >
-                  <span className="wf-orc-card-icon">{e.icon}</span>
-                  <span className="wf-orc-card-label">{e.label}</span>
-                  <span className="wf-orc-extra-price">+{fmt(e.price)}</span>
-                  {exSet.has(e.id) && <span className="wf-orc-check" aria-hidden="true">✓</span>}
-                </button>
-              ))}
+          {sol && !isNaoSei && (
+            <div className="wf-orc2-step">
+              <span className="wf-orc2-step-label">02 / ALGO A MAIS?</span>
+              <div className="wf-orc2-grid">
+                {extras.map(({ id, icon: Icon, label }) => (
+                  <button
+                    key={id}
+                    type="button"
+                    className={`wf-orc2-opt${exSet.has(id) ? ' is-active' : ''}`}
+                    onClick={() => toggleExtra(id)}
+                  >
+                    <Icon size={16} strokeWidth={1.8} />
+                    <span>{label}</span>
+                    {exSet.has(id) && <span className="wf-orc2-check">✓</span>}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
-          <div className="wf-orc-result">
-            <div className="wf-orc-result-info">
-              <span className="wf-orc-result-label">Estimativa de investimento</span>
-              <strong className="wf-orc-result-price">{svc ? fmt(total) : '—'}</strong>
-              <span className="wf-orc-result-note">Valores de referência · sujeito a escopo</span>
+          <div className="wf-orc2-result">
+            <div className="wf-orc2-result-info">
+              <span className="wf-orc2-result-label">REFERÊNCIA INICIAL</span>
+              <strong className="wf-orc2-result-price">
+                {sol && !isNaoSei ? `A partir de ${fmt(total)}` : isNaoSei ? 'Vamos conversar' : '—'}
+              </strong>
+              {sol && !isNaoSei && <span className="wf-orc2-result-note">Valor estimado · sujeito a escopo</span>}
             </div>
             <a
               href={whatsappHref(waMsg)}
               target="_blank"
               rel="noreferrer"
-              className="wf-orc-result-cta"
+              className="wf-orc2-cta"
             >
-              Conversar sobre o projeto
+              {isNaoSei ? 'Quero conversar' : 'Falar sobre o projeto'} →
             </a>
           </div>
         </div>
