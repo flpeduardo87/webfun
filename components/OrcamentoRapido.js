@@ -49,6 +49,7 @@ export default function OrcamentoRapido() {
   return (
     <section className="wf-orc2-section">
       <div className="shell">
+        <div className="wf-orc2-layout">
         <div className="wf-orc2-header">
           <span className="v4-tag">ORÇAMENTO</span>
           <h2 className="wf-orc2-title">
@@ -120,6 +121,7 @@ export default function OrcamentoRapido() {
             </a>
           </div>
         </div>
+        </div>{/* wf-orc2-layout */}
       </div>
     </section>
   );

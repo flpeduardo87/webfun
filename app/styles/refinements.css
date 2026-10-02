@@ -325,8 +325,8 @@ html body #conteudo .wf-service-cta{background:#2563eb;border-color:#2563eb;colo
 /* responsive */
 @media(max-width:600px){
   .wf-orc2-card{padding:24px 18px;gap:24px}
-  .wf-orc2-opt{font-size:12.5px;padding:11px 12px;gap:8px}
-  .wf-orc2-opt svg{width:14px;height:14px}
+  .wf-orc2-opt{font-size:11.5px;padding:10px 10px;gap:7px}
+  .wf-orc2-opt svg{width:13px;height:13px;flex-shrink:0}
   .wf-orc2-result{flex-direction:column;align-items:stretch;text-align:center}
   .wf-orc2-cta{width:100%;justify-content:center}
 }
@@ -392,5 +392,43 @@ html body #conteudo .wf-service-cta{background:none!important;border:none!import
 }
 
 /* stronger h3 */
-#conteudo .wf-service-body h3{font-weight:800!important;letter-spacing:-.045em!important}
+#conteudo .wf-service-body h3{font-weight:800!important;letter-spacing:-.045em!important;font-size:clamp(20px,1.9vw,27px)!important}
+
+/* colored top-border accent per card */
+.wf-service-card:has(.wf-art-sites-e-experiencias-digitais){border-top:3px solid #60a5fa}
+.wf-service-card:has(.wf-art-e-commerce){border-top:3px solid #34d399}
+.wf-service-card:has(.wf-art-sistemas-e-plataformas){border-top:3px solid #a78bfa}
+.wf-service-card:has(.wf-art-automacao-e-ia){border-top:3px solid #f472b6}
+
+/* subtle card tint per palette (light mode) */
+.wf-service-card:has(.wf-art-sites-e-experiencias-digitais){background:linear-gradient(160deg,#f0f7ff 0%,var(--paper) 55%)}
+.wf-service-card:has(.wf-art-e-commerce){background:linear-gradient(160deg,#f0fdf9 0%,var(--paper) 55%)}
+.wf-service-card:has(.wf-art-sistemas-e-plataformas){background:linear-gradient(160deg,#f5f3ff 0%,var(--paper) 55%)}
+.wf-service-card:has(.wf-art-automacao-e-ia){background:linear-gradient(160deg,#fdf2f8 0%,var(--paper) 55%)}
+
+/* dark mode tints */
+html[data-theme="dark"] .wf-service-card:has(.wf-art-sites-e-experiencias-digitais){background:linear-gradient(160deg,#172135 0%,#171d24 60%)}
+html[data-theme="dark"] .wf-service-card:has(.wf-art-e-commerce){background:linear-gradient(160deg,#0d2821 0%,#171d24 60%)}
+html[data-theme="dark"] .wf-service-card:has(.wf-art-sistemas-e-plataformas){background:linear-gradient(160deg,#1e1438 0%,#171d24 60%)}
+html[data-theme="dark"] .wf-service-card:has(.wf-art-automacao-e-ia){background:linear-gradient(160deg,#2d1020 0%,#171d24 60%)}
+
+/* dark mode card border more visible */
+html[data-theme="dark"] .wf-service-card{border-color:#2a3340}
+
+/* mobile: reduce art area height so body text fits */
+@media(max-width:640px){
+  .wf-service-art{aspect-ratio:2.2!important}
+  #conteudo .wf-service-body h3{font-size:21px!important}
+}
+
+/* ============================================================
+   ORÇAMENTO RÁPIDO — desktop 2-column layout
+   ============================================================ */
+@media(min-width:900px){
+  .wf-orc2-layout{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:72px;align-items:start}
+  .wf-orc2-header{max-width:none;margin:0;text-align:left}
+  .wf-orc2-header .wf-orc2-pills{justify-content:flex-start}
+  .wf-orc2-title{font-size:clamp(36px,3.6vw,56px)}
+  .wf-orc2-card{margin:0}
+}
 
