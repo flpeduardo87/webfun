@@ -535,3 +535,9 @@ html[data-theme="dark"] .wf-client-placeholder{
   .wf-clients-row{gap:8px 20px}
   .wf-client-placeholder{font-size:11px;padding:0 12px;height:32px}
 }
+
+/* Orçamento Rápido: texto à esquerda no mobile */
+@media(max-width:899px){
+  .wf-orc2-header{text-align:left!important;margin-left:0!important;margin-right:0!important}
+  .wf-orc2-header .wf-orc2-pills{justify-content:flex-start!important}
+}
