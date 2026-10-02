@@ -391,6 +391,9 @@ html body #conteudo .wf-service-cta{background:none!important;border:none!import
   .wf-service-card:has(.wf-art-automacao-e-ia):hover{border-color:#f9a8d4;box-shadow:0 12px 32px #db277714}
 }
 
+/* tags em sentence case (só primeira letra maiúscula) */
+html body .v4-tag,html body .v788-section-tag{text-transform:none!important;letter-spacing:.04em!important}
+
 /* stronger h3 */
 #conteudo .wf-service-body h3{font-weight:800!important;letter-spacing:-.045em!important;font-size:clamp(20px,1.9vw,27px)!important}
 

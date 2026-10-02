@@ -121,8 +121,8 @@ export default function FeaturedProjects(){
           ))}
         </div>
         <div className="v740-projects-footer">
-          <span>Projetos diferentes, cada um com uma solução pensada para o contexto real.</span>
-          <Link href="/projetos">Explorar portfólio <SquareArrowOutUpRight size={16}/></Link>
+          <span>Conceitos por segmento. Os projetos reais estão no portfólio.</span>
+          <Link href="/projetos">Ver projetos reais <SquareArrowOutUpRight size={16}/></Link>
         </div>
       </div>
 

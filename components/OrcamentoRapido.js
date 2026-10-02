@@ -51,7 +51,7 @@ export default function OrcamentoRapido() {
       <div className="shell">
         <div className="wf-orc2-layout">
         <div className="wf-orc2-header">
-          <span className="v4-tag">ORÇAMENTO</span>
+          <span className="v4-tag">Orçamento</span>
           <h2 className="wf-orc2-title">
             Já sabe o que precisa?<br/>
             <span>Vamos dar um norte.</span>
