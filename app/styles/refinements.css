@@ -331,3 +331,66 @@ html body #conteudo .wf-service-cta{background:#2563eb;border-color:#2563eb;colo
   .wf-orc2-cta{width:100%;justify-content:center}
 }
 
+/* ============================================================
+   SERVICE CARDS — 4-color palette (azul · verde água · lilás · rosa)
+   ============================================================ */
+
+/* art + preview backgrounds */
+.wf-art-sites-e-experiencias-digitais,.wf-preview-sites-e-experiencias-digitais{background:#dbeafe}
+.wf-art-e-commerce,.wf-preview-e-commerce{background:#ccfbf1}
+.wf-art-sistemas-e-plataformas,.wf-preview-sistemas-e-plataformas{background:#ede9fe}
+.wf-art-automacao-e-ia,.wf-preview-automacao-e-ia{background:#fce7f3}
+
+/* dark mode art backgrounds */
+html[data-theme="dark"] .wf-art-sites-e-experiencias-digitais,
+html[data-theme="dark"] .wf-preview-sites-e-experiencias-digitais{background:#1a3a6b}
+html[data-theme="dark"] .wf-art-e-commerce,
+html[data-theme="dark"] .wf-preview-e-commerce{background:#0d3d33}
+html[data-theme="dark"] .wf-art-sistemas-e-plataformas,
+html[data-theme="dark"] .wf-preview-sistemas-e-plataformas{background:#2d1a5c}
+html[data-theme="dark"] .wf-art-automacao-e-ia,
+html[data-theme="dark"] .wf-preview-automacao-e-ia{background:#4d1a34}
+
+/* verde água — e-commerce illustration accents */
+.wf-preview-e-commerce .wf-product-photo{background:#99f0da;color:#0d7a65}
+.wf-preview-e-commerce .wf-product-info>span{color:#0f8a6f}
+.wf-preview-e-commerce .wf-swatch-row i{background:#5de8c8}
+.wf-preview-e-commerce .wf-swatch-row i:nth-child(2){background:#0d9488}
+.wf-preview-e-commerce .wf-swatch-row i:nth-child(3){background:#b2f5e9}
+html[data-theme="dark"] .wf-preview-e-commerce .wf-product-photo{background:#0d4a3c;color:#5de8c8}
+
+/* lilás — sistemas illustration accents */
+.wf-preview-sistemas-e-plataformas .wf-mini-dashboard aside{color:#8b5cf6}
+.wf-preview-sistemas-e-plataformas .wf-task{background:#f5f0fe}
+.wf-preview-sistemas-e-plataformas .wf-task i{background:#8b5cf6}
+.wf-preview-sistemas-e-plataformas .wf-task .tone-1{background:#a78bfa}
+.wf-preview-sistemas-e-plataformas .wf-task .tone-2{background:#c4b5fd}
+html[data-theme="dark"] .wf-preview-sistemas-e-plataformas .wf-task{background:#3b2668}
+html[data-theme="dark"] .wf-preview-sistemas-e-plataformas .wf-task i{background:#a78bfa}
+html[data-theme="dark"] .wf-preview-sistemas-e-plataformas .wf-task .tone-1{background:#c4b5fd}
+html[data-theme="dark"] .wf-preview-sistemas-e-plataformas .wf-task .tone-2{background:#6d4ac4}
+
+/* rosa — automação & IA illustration accents */
+.wf-preview-automacao-e-ia .wf-flow-step>div{background:#fdf2f8;border-color:#fce7f3;box-shadow:0 12px 25px #db277712}
+.wf-preview-automacao-e-ia .wf-flow-arrow{color:#f472b6}
+html[data-theme="dark"] .wf-preview-automacao-e-ia .wf-flow-step>div{background:#3d1128;border-color:#5c1a3a}
+html[data-theme="dark"] .wf-preview-automacao-e-ia .wf-flow-arrow{color:#f9a8d4}
+
+/* CTA — elegant text + animated arrow (replaces blue button) */
+html body #conteudo .wf-service-cta{background:none!important;border:none!important;color:var(--ink)!important;min-height:0!important;padding:0!important;font-size:14px;font-weight:700;letter-spacing:-.01em;gap:4px;justify-content:flex-start;transition:gap .22s,color .22s}
+@media(max-width:640px){html body #conteudo .wf-service-cta{min-height:0!important}}
+@media(hover:hover){
+  html body #conteudo .wf-service-card:hover .wf-service-cta{gap:9px}
+  .wf-service-card:has(.wf-art-sites-e-experiencias-digitais):hover .wf-service-cta{color:#1d4ed8!important}
+  .wf-service-card:has(.wf-art-e-commerce):hover .wf-service-cta{color:#0d9488!important}
+  .wf-service-card:has(.wf-art-sistemas-e-plataformas):hover .wf-service-cta{color:#7c3aed!important}
+  .wf-service-card:has(.wf-art-automacao-e-ia):hover .wf-service-cta{color:#db2777!important}
+  .wf-service-card:has(.wf-art-sites-e-experiencias-digitais):hover{border-color:#93c5fd;box-shadow:0 12px 32px #3b82f614}
+  .wf-service-card:has(.wf-art-e-commerce):hover{border-color:#5eead4;box-shadow:0 12px 32px #0d948814}
+  .wf-service-card:has(.wf-art-sistemas-e-plataformas):hover{border-color:#c4b5fd;box-shadow:0 12px 32px #7c3aed14}
+  .wf-service-card:has(.wf-art-automacao-e-ia):hover{border-color:#f9a8d4;box-shadow:0 12px 32px #db277714}
+}
+
+/* stronger h3 */
+#conteudo .wf-service-body h3{font-weight:800!important;letter-spacing:-.045em!important}
+
