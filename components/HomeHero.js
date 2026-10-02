@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 import { whatsappHref } from '../lib/data';
 
 const ease = [0.16, 1, 0.3, 1];
@@ -80,12 +81,17 @@ function SistemasPanel() {
           <div key={l} className="wf-panel-stat"><b>{v}</b><span>{l}</span></div>
         ))}
       </div>
-      <div className="wf-panel-tasks">
-        {['Faturamento gerado','Pedidos em aberto','Clientes novos','Tarefas pendentes'].map((t, i) => (
-          <div key={t} className={`wf-panel-task${i < 2 ? ' is-done' : ''}`}>
+      <div className="wf-panel-tasks-grid">
+        {[
+          {lbl:'Faturamento', num:'R$12.4k', done:true},
+          {lbl:'Pedidos',     num:'23 abertos', done:true},
+          {lbl:'Clientes',   num:'+8 novos',   done:false},
+          {lbl:'Tarefas',    num:'5 pendentes', done:false},
+        ].map(({lbl, num, done}) => (
+          <div key={lbl} className={`wf-panel-task-card${done ? ' is-done' : ''}`}>
             <span className="wf-panel-task-dot" />
-            <span className="wf-panel-task-label">{t}</span>
-            <span className="wf-panel-task-val" />
+            <span className="wf-panel-task-lbl">{lbl}</span>
+            <span className="wf-panel-task-num">{num}</span>
           </div>
         ))}
       </div>
@@ -179,7 +185,7 @@ export default function HomeHero() {
                 className="v5-hero-cta wf-hero2-cta-primary"
               >
                 Falar sobre meu projeto
-                <i aria-hidden="true">→</i>
+                <i aria-hidden="true"><ArrowRight size={16}/></i>
               </a>
               <Link href="/projetos" className="wf-hero2-secondary">Ver projetos</Link>
             </div>

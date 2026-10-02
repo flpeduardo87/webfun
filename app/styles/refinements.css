@@ -170,9 +170,9 @@ html body #conteudo .wf-service-cta{background:#2563eb;border-color:#2563eb;colo
 .wf-stamp{display:inline-block;background:var(--acid);color:#fff;border-radius:8px;padding:0 12px 3px;transform:rotate(-1.5deg);font-style:normal;text-decoration:none;line-height:1.05}
 .wf-hero2-copy p{font-size:16px;line-height:1.72;color:var(--muted);max-width:480px;margin:24px 0 22px}
 .wf-hero2-cta-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.wf-hero2-cta-primary{background:#16191c!important;box-shadow:0 14px 30px rgba(0,0,0,.18)!important}
-.wf-hero2-cta-primary i{background:rgba(255,255,255,.12)!important;color:#fff!important}
-.wf-hero2-cta-primary:hover{box-shadow:0 19px 40px rgba(0,0,0,.26)!important}
+.wf-hero2-cta-primary{background:#fff!important;color:#16191c!important;box-shadow:0 8px 24px rgba(0,0,0,.14)!important}
+.wf-hero2-cta-primary i{background:#16191c!important;color:#fff!important}
+.wf-hero2-cta-primary:hover{box-shadow:0 14px 34px rgba(0,0,0,.22)!important}
 .wf-hero2-secondary{font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:0 22px;border:2px solid var(--line);border-radius:999px;min-height:52px;transition:border-color .2s,background .2s,color .2s}
 .wf-hero2-secondary:hover{border-color:var(--acid);color:var(--acid)}
 .wf-hero2-proof{display:flex;align-items:center;gap:10px;margin-top:24px;font-size:13px;color:var(--muted);font-weight:500}
@@ -181,7 +181,7 @@ html body #conteudo .wf-service-cta{background:#2563eb;border-color:#2563eb;colo
 .wf-hero2-faces span:first-child{margin-left:0}
 
 /* Service window */
-.wf-hero2-window{background:#18191d;border-radius:20px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.30),0 0 0 1px rgba(255,255,255,.06)}
+.wf-hero2-window{background:#18191d;border-radius:20px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.30),0 0 0 1px rgba(255,255,255,.06);display:flex;flex-direction:column}
 .wf-win-bar{display:flex;align-items:center;gap:10px;padding:11px 14px;background:#111215;border-bottom:1px solid rgba(255,255,255,.07)}
 .wf-win-dots{display:flex;gap:5px}
 .wf-win-dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.15);font-style:normal}
@@ -635,22 +635,24 @@ html body #conteudo .v4-process-section .v773-process-step::before{background:#2
   html body #conteudo .v4-process-section .v773-process-step.is-active::before{background:#2563eb!important}
 }
 
-/* Hero2: icon on right, proper circle (no grey square) */
-.wf-hero2-cta-primary{display:inline-flex!important;flex-direction:row!important}
+/* Hero2: white pill, dark filled circle on right with lucide ArrowRight */
+.wf-hero2-cta-primary{display:inline-flex!important;align-items:center!important;flex-direction:row!important;gap:12px!important;padding-right:6px!important}
 .wf-hero2-cta-primary i{
-  width:30px!important;height:30px!important;
+  width:36px!important;height:36px!important;
   border-radius:50%!important;
-  background:rgba(255,255,255,.16)!important;
+  background:#16191c!important;
   color:#fff!important;
   display:grid!important;place-items:center!important;
   font-style:normal!important;flex-shrink:0!important;
-  font-size:15px!important;line-height:1!important;
+  line-height:1!important;
   order:2!important;
 }
+.wf-hero2-cta-primary i svg{display:block!important}
 
-/* Dark mode: primary CTA azul */
+/* Dark mode: primary CTA azul, circle branco translúcido */
 [data-theme="dark"] .wf-hero2-cta-primary{
   background:var(--acid)!important;
+  color:#fff!important;
   box-shadow:0 14px 30px rgba(37,99,235,.32)!important;
 }
 [data-theme="dark"] .wf-hero2-cta-primary:hover{
@@ -658,6 +660,7 @@ html body #conteudo .v4-process-section .v773-process-step::before{background:#2
 }
 [data-theme="dark"] .wf-hero2-cta-primary i{
   background:rgba(255,255,255,.22)!important;
+  color:#fff!important;
 }
 
 /* H1 hero +4px desktop e mobile */
@@ -665,9 +668,18 @@ html body #conteudo .v4-process-section .v773-process-step::before{background:#2
 @media(max-width:600px){.wf-hero2-h1{font-size:clamp(42px,9vw,56px)!important}}
 @media(max-width:380px){.wf-hero2-h1{font-size:40px!important}}
 
-/* Service panels: altura uniforme igual ao painel Loja virtual */
-.wf-win-body{min-height:360px!important;display:flex!important;flex-direction:column!important}
+/* Service panels: igual altura via flex na window */
+.wf-win-body{flex:1!important;display:flex!important;flex-direction:column!important;min-height:0!important}
 .wf-panel{flex:1!important;display:flex!important;flex-direction:column!important}
-.wf-panel--site{justify-content:space-between!important}
-.wf-panel--sistemas{justify-content:flex-start!important}
+/* Site: label → body(flex:1) → cards pinned ao bottom */
+.wf-panel--site{gap:0!important}
+.wf-panel-site-body{flex:1!important;align-items:flex-start!important}
+/* Sistemas: tasks 2×2 grid */
+.wf-panel-tasks-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px;flex:1}
+.wf-panel-task-card{background:rgba(255,255,255,.05);border-radius:9px;padding:10px 11px;display:flex;flex-direction:column;gap:5px}
+.wf-panel-task-card .wf-panel-task-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2)}
+.wf-panel-task-card.is-done .wf-panel-task-dot{background:#22c55e}
+.wf-panel-task-card .wf-panel-task-lbl{font-size:8px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.wf-panel-task-card .wf-panel-task-num{font-size:14px;font-weight:800;color:#fff;line-height:1}
+/* IA: keep space-between */
 .wf-panel--ia{justify-content:space-between!important}
