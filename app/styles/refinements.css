@@ -166,7 +166,7 @@ html body #conteudo .wf-service-cta{background:#2563eb;border-color:#2563eb;colo
 .wf-hero2-copy{position:relative;z-index:3;max-width:560px}
 .wf-hero2-copy .v4-tag{margin-bottom:24px}
 .wf-hero2-h1{font-size:clamp(50px,4.55vw,74px);line-height:.96;letter-spacing:-.055em;font-weight:800;margin:0 0 2px;color:var(--ink)}
-.wf-hero2-h1 span{display:block}
+.wf-hero2-h1>span{display:block}
 .wf-stamp{display:inline-block;background:var(--acid);color:#fff;border-radius:8px;padding:0 12px 3px;transform:rotate(-1.5deg);font-style:normal;text-decoration:none;line-height:1.05}
 .wf-hero2-copy p{font-size:16px;line-height:1.72;color:var(--muted);max-width:480px;margin:24px 0 22px}
 .wf-hero2-cta-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
