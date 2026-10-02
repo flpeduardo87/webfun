@@ -60,7 +60,7 @@ function LojaPanel() {
             <div className="wf-panel-product-img">{emoji}</div>
             <div className="wf-panel-product-name">{name}</div>
             <div className="wf-panel-product-price" />
-            <div className="wf-panel-product-btn" />
+            <div className="wf-panel-product-btn">Comprar</div>
           </div>
         ))}
       </div>
