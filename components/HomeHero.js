@@ -178,10 +178,10 @@ export default function HomeHero() {
                 rel="noreferrer"
                 className="v5-hero-cta wf-hero2-cta-primary"
               >
-                <i aria-hidden="true">→</i>
                 Falar sobre meu projeto
+                <i aria-hidden="true">→</i>
               </a>
-              <Link href="/projetos" className="wf-hero2-secondary">Ver projetos →</Link>
+              <Link href="/projetos" className="wf-hero2-secondary">Ver projetos</Link>
             </div>
             <div className="wf-hero2-proof">
               <div className="wf-hero2-faces">

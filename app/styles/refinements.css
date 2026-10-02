@@ -634,3 +634,40 @@ html body #conteudo .v4-process-section .v773-process-step::before{background:#2
 @media(max-width:900px){
   html body #conteudo .v4-process-section .v773-process-step.is-active::before{background:#2563eb!important}
 }
+
+/* Hero2: icon on right, proper circle (no grey square) */
+.wf-hero2-cta-primary{display:inline-flex!important;flex-direction:row!important}
+.wf-hero2-cta-primary i{
+  width:30px!important;height:30px!important;
+  border-radius:50%!important;
+  background:rgba(255,255,255,.16)!important;
+  color:#fff!important;
+  display:grid!important;place-items:center!important;
+  font-style:normal!important;flex-shrink:0!important;
+  font-size:15px!important;line-height:1!important;
+  order:2!important;
+}
+
+/* Dark mode: primary CTA azul */
+[data-theme="dark"] .wf-hero2-cta-primary{
+  background:var(--acid)!important;
+  box-shadow:0 14px 30px rgba(37,99,235,.32)!important;
+}
+[data-theme="dark"] .wf-hero2-cta-primary:hover{
+  box-shadow:0 19px 42px rgba(37,99,235,.45)!important;
+}
+[data-theme="dark"] .wf-hero2-cta-primary i{
+  background:rgba(255,255,255,.22)!important;
+}
+
+/* H1 hero +4px desktop e mobile */
+.wf-hero2-h1{font-size:clamp(54px,4.55vw,78px)!important}
+@media(max-width:600px){.wf-hero2-h1{font-size:clamp(42px,9vw,56px)!important}}
+@media(max-width:380px){.wf-hero2-h1{font-size:40px!important}}
+
+/* Service panels: altura uniforme igual ao painel Loja virtual */
+.wf-win-body{min-height:360px!important;display:flex!important;flex-direction:column!important}
+.wf-panel{flex:1!important;display:flex!important;flex-direction:column!important}
+.wf-panel--site{justify-content:space-between!important}
+.wf-panel--sistemas{justify-content:flex-start!important}
+.wf-panel--ia{justify-content:space-between!important}
