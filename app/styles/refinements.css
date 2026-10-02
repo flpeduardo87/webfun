@@ -880,8 +880,8 @@ html body #conteudo .v4-faq-answer p{font-size:15px!important;line-height:1.7!im
 }
 .wf2-hero-inner {
   display:grid;
-  grid-template-columns:1.1fr 0.9fr;
-  gap:72px;
+  grid-template-columns:1fr 1fr;
+  gap:56px;
   align-items:center;
   padding-top:140px;
   padding-bottom:0;
@@ -907,10 +907,11 @@ html body #conteudo .v4-faq-answer p{font-size:15px!important;line-height:1.7!im
 .wf2-h1-l { display:block; }
 .wf2-stamp {
   display:inline-block;
-  background:var(--acid);color:#fff;
+  background:#fff;color:var(--acid);
   border-radius:9px;padding:0 14px 4px;
   transform:rotate(-1.5deg);
   font-style:normal;text-decoration:none;line-height:1.05;
+  box-shadow:0 4px 20px rgba(0,0,0,.12);
 }
 .wf2-lead {
   font-size:17px;line-height:1.72;
@@ -976,7 +977,6 @@ html body #conteudo .v4-faq-answer p{font-size:15px!important;line-height:1.7!im
   background:#13151a;border-radius:22px;overflow:hidden;
   box-shadow:0 40px 100px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.07);
   display:flex;flex-direction:column;
-  animation:wf2-float 7s ease-in-out 1s infinite;
 }
 
 /* Window bar */
@@ -1042,7 +1042,7 @@ html body #conteudo .v4-faq-answer p{font-size:15px!important;line-height:1.7!im
 /* ────────────────────────────────────────
    SITE PANEL
    ──────────────────────────────────────── */
-.wf2-panel-site { gap:10px; }
+.wf2-panel-site { gap:10px;justify-content:space-between; }
 .wf2-ps-nav {
   display:flex;align-items:center;gap:10px;
   padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07);
@@ -1076,7 +1076,7 @@ html body #conteudo .v4-faq-answer p{font-size:15px!important;line-height:1.7!im
   border-radius:9px;background:rgba(255,255,255,.07);
 }
 .wf2-ps-cards {
-  display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:7px;
 }
 .wf2-ps-card {
   background:rgba(255,255,255,.05);border-radius:8px;padding:9px;
@@ -1238,7 +1238,7 @@ html body #conteudo .v4-faq-answer p{font-size:15px!important;line-height:1.7!im
 [data-theme="dark"] .wf2-faces span { border-color:#0f1115; }
 [data-theme="dark"] .wf2-cta-primary { background:var(--acid);color:#fff;box-shadow:0 8px 28px rgba(59,91,219,.35); }
 [data-theme="dark"] .wf2-cta-primary i { background:rgba(255,255,255,.22);color:#fff; }
-[data-theme="dark"] .wf2-stamp { color:#fff; }
+[data-theme="dark"] .wf2-stamp { background:var(--acid);color:#fff;box-shadow:0 4px 24px rgba(59,91,219,.35); }
 
 /* ── Responsive ── */
 @media(max-width:1100px) {
