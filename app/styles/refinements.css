@@ -703,8 +703,13 @@ html body #conteudo h2 {
   font-weight: 780 !important;
   letter-spacing: -.052em !important;
   line-height: .96 !important;
-  color: var(--ink) !important;
 }
+
+/* Seções com fundo escuro precisam de texto branco */
+html body #conteudo .v4-signal-strip h2,
+html body #conteudo .v771-testimonials h2,
+html body #conteudo .v4-fit-copy h2,
+html body #conteudo .v4-process-section h2 { color: #fff !important; }
 html body #conteudo h2 em {
   font-style: normal !important;
   font-weight: 780 !important;
@@ -903,7 +908,7 @@ html body #conteudo .v4-faq-answer p{font-size:15px!important;line-height:1.7!im
 }
 .wf2-h1 {
   display:flex;flex-direction:column;gap:2px;
-  font-size:clamp(52px,5.2vw,84px);font-weight:820;
+  font-size:clamp(52px,5.2vw,84px);font-weight:820!important;
   letter-spacing:-.056em;line-height:.96;
   color:var(--ink);margin:0 0 24px;
   text-wrap:balance;
