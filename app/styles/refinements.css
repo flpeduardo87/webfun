@@ -392,7 +392,7 @@ html body #conteudo .wf-service-cta{background:none!important;border:none!import
 }
 
 /* tags em sentence case (só primeira letra maiúscula) */
-html body #conteudo :is(.v4-tag,.v788-section-tag,.v742-project-card-tags span,.v4-project-tags span,.v723-service-tags span,.v4-service-row-tags i,.v740-project-topline em){text-transform:none!important;letter-spacing:.04em!important}
+html body #conteudo :is(.v742-project-card-tags span,.v4-project-tags span,.v740-project-topline em){text-transform:none!important;letter-spacing:.04em!important}
 
 /* stronger h3 */
 #conteudo .wf-service-body h3{font-weight:800!important;letter-spacing:-.045em!important;font-size:clamp(20px,1.9vw,27px)!important}
@@ -626,4 +626,11 @@ html body #conteudo .v4-process-section .v773-process-step:nth-child(6).is-activ
 @media(max-width:700px){
   .wf-midcta{padding:48px 0}
   .wf-midcta-inner{flex-direction:column;align-items:flex-start}
+}
+
+/* ProcessExperience: linha de progresso azul sólido (não lilás) */
+html body #conteudo .v4-process-section .v773-process-fill{background:#2563eb!important;box-shadow:0 0 12px rgba(37,99,235,.22)!important}
+html body #conteudo .v4-process-section .v773-process-step::before{background:#2563eb!important}
+@media(max-width:900px){
+  html body #conteudo .v4-process-section .v773-process-step.is-active::before{background:#2563eb!important}
 }
