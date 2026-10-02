@@ -471,3 +471,10 @@ html[data-theme="dark"] .wf-service-card{border-color:#2a3340}
   .wf-orc2-card{margin:0}
 }
 
+
+/* === Depoimentos: estrelas em âmbar (padrão de confiança) === */
+.v771-testimonial-stars{color:#f59e0b!important}
+
+/* === FitSection: destaque no <em> do título === */
+html body #conteudo .v4-fit-copy h2 em{color:var(--acid)!important;font-weight:520!important}
+html[data-theme="dark"] body #conteudo .v4-fit-copy h2 em{color:#7fa8ff!important}
