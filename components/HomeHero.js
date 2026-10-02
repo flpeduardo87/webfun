@@ -9,34 +9,37 @@ const ease = [0.16, 1, 0.3, 1];
 const CYCLE_MS = 4400;
 
 const tabs = [
-  { id: 'site',     label: 'Site',      icon: '🌐' },
-  { id: 'loja',     label: 'Loja',      icon: '🛍️' },
-  { id: 'sistemas', label: 'Sistemas',  icon: '⚙️' },
-  { id: 'ia',       label: 'IA',        icon: '✨' },
+  { id: 'site',     label: 'Site',           icon: '🌐' },
+  { id: 'loja',     label: 'Loja virtual',   icon: '🛍️' },
+  { id: 'sistemas', label: 'Sistemas',       icon: '⚙️' },
+  { id: 'ia',       label: 'Automação & IA', icon: '✨' },
 ];
 
 function SitePanel() {
   return (
     <div className="wf-panel wf-panel--site">
-      <div className="wf-panel-nav">
-        <div className="wf-panel-logo" />
-        <div className="wf-panel-nav-links"><span /><span /><span /><span /></div>
-        <div className="wf-panel-nav-cta" />
-      </div>
-      <div className="wf-panel-hero-row">
-        <div className="wf-panel-headline">
-          <div className="wf-panel-line wf-panel-line--h" />
-          <div className="wf-panel-line wf-panel-line--h wf-panel-line--short" />
-          <div className="wf-panel-btn" />
+      <div className="wf-panel-site-label">SUA MARCA</div>
+      <div className="wf-panel-site-body">
+        <div className="wf-panel-site-copy">
+          <strong className="wf-panel-site-h">Sua marca,<br/><span>apresentada.</span></strong>
+          <p className="wf-panel-site-sub">Sites que comunicam valor e geram contato.</p>
+          <div className="wf-panel-site-btns">
+            <span className="wf-panel-site-btn-primary">Contratar</span>
+            <span className="wf-panel-site-btn-ghost">Ver mais</span>
+          </div>
         </div>
-        <div className="wf-panel-img-box" />
+        <div className="wf-panel-img-box"><span>HERO IMAGE</span></div>
       </div>
       <div className="wf-panel-cards">
-        {[1, 2, 3].map(i => (
-          <div key={i} className="wf-panel-card">
-            <div className="wf-panel-card-icon" />
-            <div className="wf-panel-line" />
-            <div className="wf-panel-line wf-panel-line--short" />
+        {[
+          { icon: '⊕', title: 'Conversão',  sub: 'Estruturado para gerar contato' },
+          { icon: '▭', title: 'Responsivo', sub: 'Perfeito em qualquer tela' },
+          { icon: '⌕', title: 'SEO',        sub: 'Encontrado no Google' },
+        ].map(({ icon, title, sub }) => (
+          <div key={title} className="wf-panel-card">
+            <span className="wf-panel-card-ico">{icon}</span>
+            <strong>{title}</strong>
+            <span>{sub}</span>
           </div>
         ))}
       </div>
