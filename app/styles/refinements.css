@@ -541,3 +541,63 @@ html[data-theme="dark"] .wf-client-placeholder{
   .wf-orc2-header{text-align:left!important;margin-left:0!important;margin-right:0!important}
   .wf-orc2-header .wf-orc2-pills{justify-content:flex-start!important}
 }
+
+/* === Barra de números / StatsBar === */
+.wf-stats-bar{
+  padding:52px 0 56px;
+  background:#e8e6e1;
+  border-bottom:1px solid rgba(22,25,28,.07);
+}
+html[data-theme="dark"] .wf-stats-bar{
+  background:#0e1216;
+  border-bottom-color:rgba(255,255,255,.06);
+}
+.wf-stats-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:0;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.wf-stat{
+  flex:1;
+  max-width:280px;
+  text-align:center;
+  padding:0 32px;
+  position:relative;
+}
+.wf-stat+.wf-stat::before{
+  content:"";
+  position:absolute;
+  left:0;top:10%;height:80%;
+  width:1px;
+  background:rgba(22,25,28,.12);
+}
+html[data-theme="dark"] .wf-stat+.wf-stat::before{
+  background:rgba(255,255,255,.10);
+}
+.wf-stat-value{
+  display:block;
+  font-size:clamp(48px,5.5vw,80px);
+  font-weight:800;
+  line-height:1;
+  letter-spacing:-.055em;
+  color:var(--acid);
+  margin:0 0 8px;
+}
+.wf-stat-label{
+  font-size:14px;
+  font-weight:500;
+  color:#6b7278;
+  line-height:1.4;
+  margin:0;
+}
+html[data-theme="dark"] .wf-stat-label{color:#8a949c}
+@media(max-width:600px){
+  .wf-stats-bar{padding:40px 0 44px}
+  .wf-stats-row{gap:0}
+  .wf-stat{padding:0 20px}
+  .wf-stat-label{font-size:12px}
+}
