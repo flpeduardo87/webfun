@@ -181,7 +181,7 @@ html body #conteudo .wf-service-cta{background:#2563eb;border-color:#2563eb;colo
 .wf-hero2-faces span:first-child{margin-left:0}
 
 /* Service window */
-.wf-hero2-window{background:#18191d;border-radius:20px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.30),0 0 0 1px rgba(255,255,255,.06)}
+.wf-hero2-window{background:#18191d;border-radius:20px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.30),0 0 0 1px rgba(255,255,255,.06);display:flex;flex-direction:column}
 .wf-win-bar{display:flex;align-items:center;gap:10px;padding:11px 14px;background:#111215;border-bottom:1px solid rgba(255,255,255,.07)}
 .wf-win-dots{display:flex;gap:5px}
 .wf-win-dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.15);font-style:normal}
@@ -668,9 +668,18 @@ html body #conteudo .v4-process-section .v773-process-step::before{background:#2
 @media(max-width:600px){.wf-hero2-h1{font-size:clamp(42px,9vw,56px)!important}}
 @media(max-width:380px){.wf-hero2-h1{font-size:40px!important}}
 
-/* Service panels: altura uniforme igual ao painel Loja virtual */
-.wf-win-body{min-height:360px!important;display:flex!important;flex-direction:column!important}
+/* Service panels: igual altura via flex na window */
+.wf-win-body{flex:1!important;display:flex!important;flex-direction:column!important;min-height:0!important}
 .wf-panel{flex:1!important;display:flex!important;flex-direction:column!important}
-.wf-panel--site{justify-content:space-between!important}
-.wf-panel--sistemas{justify-content:flex-start!important}
+/* Site: label → body(flex:1) → cards pinned ao bottom */
+.wf-panel--site{gap:0!important}
+.wf-panel-site-body{flex:1!important;align-items:flex-start!important}
+/* Sistemas: tasks 2×2 grid */
+.wf-panel-tasks-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px;flex:1}
+.wf-panel-task-card{background:rgba(255,255,255,.05);border-radius:9px;padding:10px 11px;display:flex;flex-direction:column;gap:5px}
+.wf-panel-task-card .wf-panel-task-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2)}
+.wf-panel-task-card.is-done .wf-panel-task-dot{background:#22c55e}
+.wf-panel-task-card .wf-panel-task-lbl{font-size:8px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.wf-panel-task-card .wf-panel-task-num{font-size:14px;font-weight:800;color:#fff;line-height:1}
+/* IA: keep space-between */
 .wf-panel--ia{justify-content:space-between!important}
