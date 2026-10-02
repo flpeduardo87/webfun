@@ -668,14 +668,14 @@ html body #conteudo .v4-process-section .v773-process-step::before{background:#2
 @media(max-width:600px){.wf-hero2-h1{font-size:clamp(42px,9vw,56px)!important}}
 @media(max-width:380px){.wf-hero2-h1{font-size:40px!important}}
 
-/* Service panels: igual altura via flex na window */
-.wf-win-body{flex:1!important;display:flex!important;flex-direction:column!important;min-height:0!important}
-.wf-panel{flex:1!important;display:flex!important;flex-direction:column!important}
-/* Site: label → body(flex:1) → cards pinned ao bottom */
-.wf-panel--site{gap:0!important}
-.wf-panel-site-body{flex:1!important;align-items:flex-start!important}
+/* Service panels: altura fixa no body → todos os painéis iguais */
+.wf-win-body{height:390px!important;flex:none!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}
+.wf-panel{flex:1!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}
+/* Site: sem esticar o body horizontal */
+.wf-panel--site{justify-content:space-between!important}
+.wf-panel-site-body{flex:none!important}
 /* Sistemas: tasks 2×2 grid */
-.wf-panel-tasks-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px;flex:1}
+.wf-panel-tasks-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
 .wf-panel-task-card{background:rgba(255,255,255,.05);border-radius:9px;padding:10px 11px;display:flex;flex-direction:column;gap:5px}
 .wf-panel-task-card .wf-panel-task-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2)}
 .wf-panel-task-card.is-done .wf-panel-task-dot{background:#22c55e}
