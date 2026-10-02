@@ -15,7 +15,7 @@ export default function ServicesExperience(){
   return <div className="wf-service-grid" aria-label="Serviços da Webfun">
     {services.slice(0, 4).map(service=><Link key={service.slug} href={`/servicos/${service.slug}`} className="wf-service-card" aria-labelledby={`service-title-${service.slug}`}>
       <div className={`wf-service-art wf-art-${service.slug}`} aria-hidden="true"><ServiceIllustration slug={service.slug}/></div>
-      <div className="wf-service-body"><h3 id={`service-title-${service.slug}`}>{service.title}</h3><p>{descriptions[service.slug]}</p><span className="wf-service-cta">Explorar serviço</span></div>
+      <div className="wf-service-body"><h3 id={`service-title-${service.slug}`}>{service.title}</h3><p>{descriptions[service.slug]}</p><span className="wf-service-cta">Explorar serviço <span aria-hidden="true">→</span></span></div>
     </Link>)}
   </div>;
 }
