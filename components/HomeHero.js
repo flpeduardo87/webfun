@@ -190,7 +190,7 @@ export default function HomeHero() {
                 <span style={{ background: '#25292e' }}>G</span>
                 <span style={{ background: '#2d6a4f' }}>H</span>
               </div>
-              <span><strong>+50 projetos entregues</strong><br/><small>para negócios em todo o mundo</small></span>
+              <span><strong>+100 projetos entregues</strong><br/><small>para negócios em todo o mundo</small></span>
             </div>
           </motion.div>
 
