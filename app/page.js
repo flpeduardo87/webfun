@@ -21,8 +21,6 @@ export default function Home(){
 
   <ClientLogos/>
 
-  <OrcamentoRapido/>
-
   <section id="servicos-home" className="v4-section v4-services-section"><div className="shell"><SectionIntro tag="Serviços" title={<>Como podemos te ajudar agora?</>} subtitle="Site, loja, sistema ou automação: começamos pelo que precisa melhorar no seu negócio."/><Reveal className="v42-reveal-block"><ServicesExperience/></Reveal></div></section>
 
   <section className="v4-section v745-capabilities-section"><div className="shell"><div className="v745-capabilities-panel"><SectionIntro tag="Recursos" title={<>Seu site pode vender, atender e operar melhor.</>} subtitle="O projeto é desenhado em torno da jornada real do cliente e do time interno — e não em torno de um template."/><Reveal className="v42-reveal-block"><CapabilitiesGrid/></Reveal></div></div></section>
@@ -30,6 +28,8 @@ export default function Home(){
   <section className="v4-section v4-work-section"><div className="shell"><SectionIntro tag="Referências & conceitos" title={<>Cada segmento tem o seu jeito de crescer.</>} subtitle="Referências visuais e de produto por nicho — para ver como uma solução pode tomar forma no seu mercado."/><Reveal className="v42-reveal-block"><FeaturedProjects/></Reveal></div></section>
 
   <Reveal className="v42-reveal-block"><TestimonialsSection/></Reveal>
+
+  <OrcamentoRapido/>
 
   <section className="v4-section v41-human-section"><div className="shell"><Reveal className="v42-reveal-block"><HumanExperience/></Reveal></div></section>
 
