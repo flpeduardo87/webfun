@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voltz Pixel — Sites e lojas virtuais em União da Vitória</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ── Design tokens (dark-first, single-theme) ──────────────────────── */
+:root {
+  /* Colors */
+  --limao:   #d4ff3a;
+  --limao-2: #c2f01f;
+  --preto:   #0b0b0a;
+  --preto-2: #161614;
+  --tinta:   #f4f2ed;
+  --tinta-2: rgb(244 242 237 / .64);
+  --fio:     rgb(244 242 237 / .12);
+  --apagado: rgb(244 242 237 / .38);
+  --teal:    #0aa79e;
+  --papel:   #f4f2ed;
+  --moldura: #e2dfd7;
+  color-scheme: dark;
+
+  /* Type */
+  --f: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  /* Layout */
+  --max:    1320px;
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+  --raio:   1.75rem;
+  --raio-p: .9rem;
+  --ease:   cubic-bezier(.16,1,.3,1);
+}
+
+/* ── Reset ──────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--f);
+  background: var(--preto);
+  color: var(--tinta);
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+
+/* ── Shared utilities ───────────────────────────────────────────────── */
+.wrap { max-width: var(--max); margin: 0 auto; width: 100%; }
+.eyebrow {
+  font-size: .62rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--apagado);
+}
+.section-head { margin-bottom: 3rem; }
+.section-title {
+  font-size: clamp(2rem, 4.5vw, 3.4rem); font-weight: 800;
+  letter-spacing: -.03em; line-height: 1.08; margin-top: .6rem;
+  text-wrap: balance;
+}
+.section-title em { font-style: normal; color: var(--apagado); }
+.btn-lime {
+  display: inline-flex; align-items: center; gap: .45rem;
+  background: var(--limao); color: var(--preto);
+  font-weight: 700; font-size: .9rem;
+  padding: .72rem 1.5rem; border-radius: 99px;
+  transition: background .18s, transform .15s;
+}
+.btn-lime:hover { background: var(--limao-2); transform: translateY(-1px); }
+.btn-ghost {
+  font-size: .88rem; color: var(--tinta-2);
+  display: inline-flex; align-items: center; gap: .3rem;
+  transition: color .18s;
+}
+.btn-ghost:hover { color: var(--tinta); }
+
+/* ── Cookie banner ──────────────────────────────────────────────────── */
+#cookie {
+  position: fixed; bottom: 1.25rem; left: 1.25rem; z-index: 300;
+  background: var(--preto-2); border: 1px solid rgba(244,242,237,.18);
+  border-radius: var(--raio); padding: 1.2rem 1.4rem;
+  max-width: 360px; font-size: .8rem; color: var(--tinta-2);
+  line-height: 1.55; display: flex; flex-direction: column; gap: .9rem;
+}
+#cookie a { color: var(--tinta); text-decoration: underline; text-decoration-color: var(--fio); }
+#cookie .row { display: flex; gap: .65rem; }
+.btn-cookie {
+  padding: .45rem .95rem; border-radius: 99px;
+  font-size: .8rem; font-weight: 700;
+}
+.btn-cookie.reject {
+  background: none; border: 1px solid var(--fio); color: var(--tinta-2);
+  transition: color .18s, border-color .18s;
+}
+.btn-cookie.reject:hover { color: var(--tinta); border-color: rgba(244,242,237,.3); }
+.btn-cookie.accept { background: var(--limao); color: var(--preto); border: none; }
+.btn-cookie.accept:hover { background: var(--limao-2); }
+
+/* ── Floating WA ────────────────────────────────────────────────────── */
+#float-wa {
+  position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 200;
+  display: flex; align-items: center; gap: .45rem;
+  background: var(--limao); color: var(--preto);
+  font-weight: 700; font-size: .82rem;
+  padding: .6rem 1.1rem; border-radius: 99px;
+  box-shadow: 0 4px 24px rgba(212,255,58,.25);
+  transition: background .18s, box-shadow .18s;
+}
+#float-wa:hover { background: var(--limao-2); box-shadow: 0 4px 32px rgba(212,255,58,.35); }
+#float-wa svg { flex-shrink: 0; }
+
+/* ── Header (floating pill layout, matches original) ─────────────────── */
+.c-topo {
+  position: fixed; inset: .9rem .9rem auto; z-index: 50;
+  display: flex; align-items: center; gap: .75rem;
+  max-width: var(--max); margin-inline: auto;
+}
+/* Logo pill */
+.c-logo {
+  margin-right: auto; padding: .6rem 1rem; border-radius: 999px;
+  background: rgba(14,14,12,.86); backdrop-filter: blur(16px) saturate(1.4);
+  box-shadow: rgba(244,242,237,.1) 0 0 0 1px inset, rgba(0,0,0,.5) 0 10px 30px -14px;
+  display: flex; align-items: center;
+}
+.c-logo img { height: 1.4rem; width: auto; display: block; }
+/* Desktop nav pill */
+.c-nav {
+  position: absolute; left: 50%; translate: -50%;
+  display: none; padding: .3rem; border-radius: 999px;
+  background: rgba(22,22,20,.7); backdrop-filter: blur(16px) saturate(1.3);
+  box-shadow: inset 0 0 0 1px var(--fio), rgba(0,0,0,.5) 0 10px 30px -14px;
+}
+@media (min-width: 900px) { .c-nav { display: flex; } .c-topo-cta { display: inline-flex !important; } }
+.c-nav a {
+  padding: .55rem 1rem; border-radius: 999px; font-size: .9rem;
+  color: var(--tinta-2); transition: background-color .25s, color .25s;
+}
+.c-nav a:hover { background: rgba(244,242,237,.1); color: var(--tinta); }
+/* Serviços dropdown */
+.c-nav-grupo { position: relative; display: flex; }
+.c-nav-serv { display: inline-flex; align-items: center; gap: .45rem; }
+.c-nav-serv::after {
+  content: ''; width: .4rem; height: .4rem; margin-top: -.2rem;
+  border-right: 1.5px solid; border-bottom: 1.5px solid;
+  rotate: 45deg; opacity: .7;
+}
+.c-nav-sub {
+  position: absolute; top: calc(100% + .75rem); left: -.3rem;
+  display: grid; grid-template-columns: repeat(2, 15.5rem);
+  gap: .5rem 1rem; padding: 1rem; border-radius: var(--raio);
+  background: rgba(14,14,12,.97);
+  box-shadow: rgba(244,242,237,.1) 0 0 0 1px inset, rgba(0,0,0,.6) 0 24px 48px -8px;
+  opacity: 0; visibility: hidden;
+}
+/* arrow-gap bridge so mouse can move from link to panel */
+.c-nav-sub::before { content: ''; position: absolute; inset: -.8rem 0 auto; height: .8rem; }
+.c-nav-grupo:hover .c-nav-sub,
+.c-nav-grupo:focus-within .c-nav-sub { opacity: 1; visibility: visible; }
+@media (prefers-reduced-motion: no-preference) {
+  .c-nav-sub { translate: 0 -.35rem; transition: opacity .25s var(--ease), translate .25s var(--ease), visibility .25s; }
+  .c-nav-grupo:hover .c-nav-sub,
+  .c-nav-grupo:focus-within .c-nav-sub { translate: 0; }
+}
+.c-nav-col { display: grid; align-content: start; gap: .15rem; }
+.c-nav-tit {
+  padding: .3rem .75rem .4rem; font-size: .72rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--tinta-2);
+}
+.c-nav-sub a {
+  display: grid; gap: .1rem; padding: .6rem .75rem;
+  border-radius: .8rem; background: none;
+}
+.c-nav-sub a:hover { background: rgba(244,242,237,.06); }
+.c-nav-nome { font-size: .95rem; font-weight: 500; color: var(--tinta); }
+.c-nav-desc { font-size: .8rem; line-height: 1.35; color: var(--tinta-2); }
+/* CTA button (lime pill with arrow circle) */
+.nv-btn {
+  --btn-fundo: var(--limao); --btn-cor: #0e0e0c;
+  --btn-seta-fundo: #0e0e0c; --btn-seta-cor: var(--limao);
+  display: inline-flex; align-items: center; gap: .9rem;
+  height: 3.5rem; padding: 0 .45rem 0 1.6rem;
+  border-radius: 999px; background: var(--btn-fundo); color: var(--btn-cor);
+  font-weight: 700; font-size: .95rem; text-decoration: none;
+  transition: transform .15s;
+}
+.nv-btn:active { transform: scale(.97); }
+.nv-btn--p { height: 2.9rem; padding-left: 1.25rem; font-size: .9rem; }
+.nv-btn-clip { display: block; overflow: hidden; height: 1.3em; line-height: 1.3; }
+.nv-btn-txt { position: relative; display: block; transition: transform .55s var(--ease); }
+.nv-btn-txt::after { content: attr(data-t); position: absolute; top: 100%; left: 0; }
+.nv-btn-seta {
+  display: grid; place-items: center;
+  width: 2.6rem; height: 2.6rem; border-radius: 999px;
+  background: var(--btn-seta-fundo); color: var(--btn-seta-cor);
+  font-size: 1rem; transition: transform .55s var(--ease);
+}
+.nv-btn--p .nv-btn-seta { width: 2.1rem; height: 2.1rem; }
+.nv-btn:hover .nv-btn-txt { transform: translateY(-100%); }
+.nv-btn:hover .nv-btn-seta { transform: rotate(45deg); }
+.c-topo-cta { display: none; }
+/* Mobile hamburger */
+.c-menu { position: relative; }
+@media (min-width: 900px) { .c-menu { display: none; } }
+.c-menu summary {
+  display: grid; place-content: center; gap: 5px;
+  width: 2.9rem; height: 2.9rem; border-radius: 999px;
+  background: rgba(14,14,12,.86); backdrop-filter: blur(16px) saturate(1.4);
+  box-shadow: rgba(244,242,237,.1) 0 0 0 1px inset, rgba(0,0,0,.5) 0 10px 30px -14px;
+  cursor: pointer; list-style: none;
+}
+.c-menu summary::-webkit-details-marker { display: none; }
+.c-menu summary span { width: 1.05rem; height: 1.5px; background: var(--tinta); transition: transform .35s var(--ease); }
+.c-menu[open] summary span:first-child { transform: translateY(3.25px) rotate(45deg); }
+.c-menu[open] summary span:last-child  { transform: translateY(-3.25px) rotate(-45deg); }
+.c-menu:not([open]) .c-menu-painel { display: none; }
+/* Mobile panel */
+.c-menu-painel {
+  position: absolute; right: 0; top: calc(100% + .5rem);
+  width: min(360px, calc(100vw - 1.8rem));
+  background: rgba(14,14,12,.97); border-radius: var(--raio);
+  box-shadow: rgba(244,242,237,.1) 0 0 0 1px inset, rgba(0,0,0,.7) 0 24px 48px -8px;
+  max-height: calc(100dvh - 5rem); overflow-y: auto; scrollbar-width: none;
+}
+.c-menu-painel::-webkit-scrollbar { display: none; }
+.c-menu-grupo { display: grid; padding: .7rem .6rem .8rem; border-bottom: 1px solid var(--fio); }
+.c-menu-grupo a { padding: .38rem 0; font-size: 1.1rem; font-weight: 500; letter-spacing: -.02em; color: var(--tinta); transition: color .18s; }
+.c-menu-grupo a:hover { color: var(--limao); }
+.c-menu-tit { margin-bottom: .3rem; font-size: .72rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--tinta-2); }
+.c-menu-empresa { display: grid; grid-template-columns: repeat(3, 1fr); gap: .4rem; padding: .7rem .6rem .8rem; border-bottom: 1px solid var(--fio); }
+.c-menu-empresa a { padding: .7rem .4rem; border-radius: .9rem; background: rgba(244,242,237,.06); box-shadow: inset 0 0 0 1px var(--fio); font-size: 1rem; font-weight: 500; text-align: center; color: var(--tinta); transition: color .18s; }
+.c-menu-empresa a:hover { color: var(--limao); }
+.c-menu-wa {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: .9rem .6rem; background: var(--limao); color: var(--preto);
+  font-weight: 700; font-size: .95rem; padding: .75rem 1rem;
+  border-radius: var(--raio-p);
+}
+.c-menu-wa:hover { background: var(--limao-2); }
+.menu-toggle { display: none; }
+
+/* ── Hero ───────────────────────────────────────────────────────────── */
+.hero {
+  padding-top: clamp(8.5rem, 16vw, 11rem);
+  position: relative; isolation: isolate;
+  overflow: hidden;
+}
+/* Google badge */
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: .5rem 1.15rem .5rem .9rem; border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--fio), inset 0 1px rgba(255,255,255,.08);
+  background: linear-gradient(rgba(244,242,237,.07), rgba(244,242,237,.02));
+  margin-bottom: 2.2rem;
+}
+.hero-badge:hover { box-shadow: rgba(212,255,58,.45) 0 0 0 1px inset, rgba(255,255,255,.08) 0 1px inset; }
+.hero-badge .g-icon { font-size: .85rem; font-weight: 800; }
+.hero-badge .star { font-size: .95rem; color: var(--limao); filter: drop-shadow(rgba(212,255,58,.45) 0 0 6px); }
+.hero-badge strong { font-weight: 600; color: var(--tinta); }
+.hero-badge .divider { width: 1px; height: .9rem; margin-inline: .15rem; background: var(--fio); }
+.hero-badge span:not(.star):not(.divider):not(.g-icon) { font-size: .84rem; color: var(--tinta-2); }
+/* Hero real background photo */
+.c4-hero-fundo {
+  position: absolute; inset: 0 0 auto; z-index: -1;
+  height: clamp(44rem, 56vw, 58rem); pointer-events: none;
+  mask-image: linear-gradient(#000 72%, transparent 100%);
+  -webkit-mask-image: linear-gradient(#000 72%, transparent 100%);
+}
+.c4-hero-fundo img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center top;
+}
+.c4-hero-fundo::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to left, var(--preto), rgba(11,11,10,0) 4%), rgba(11,11,10,.2);
+}
+@media (max-width: 700px) {
+  .c4-hero-fundo { height: 52rem; }
+  .c4-hero-fundo img { object-position: 60% top; }
+}
+@media (min-width: 1180px) {
+  .c4-hero-fundo img { object-position: 85% top; }
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: var(--max); margin: 0 auto; width: 100%;
+  padding-bottom: 0;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .55rem;
+  background: rgba(244,242,237,.05); border: 1px solid var(--fio);
+  border-radius: 99px; padding: .32rem .85rem;
+  font-size: .76rem; color: var(--tinta-2);
+  margin-bottom: 2.2rem;
+}
+.hero-badge .g-icon { font-weight: 800; font-size: .85rem; }
+.hero-badge .star { color: var(--limao); }
+.hero-badge .divider { width: 1px; height: 11px; background: var(--fio); }
+.hero h1 {
+  font-size: clamp(3.2rem, 9vw, 7.5rem);
+  font-weight: 900; letter-spacing: -.04em; line-height: .98;
+  margin-bottom: 1.6rem; max-width: 900px;
+}
+.hero h1 .l1, .hero h1 .l2 { display: block; color: var(--tinta); }
+.hero h1 .highlight { color: var(--limao); }
+.hero h1 .l3 { display: block; color: var(--apagado); }
+.hero-desc {
+  font-size: clamp(.88rem, 1.4vw, 1rem); color: var(--tinta-2);
+  max-width: 460px; line-height: 1.65; margin-bottom: 2.4rem;
+}
+.hero-desc a { color: var(--tinta); border-bottom: 1px solid var(--fio); }
+.hero-actions { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
+
+/* ── Hero inner ─────────────────────────────────────────────────────── */
+.hero-inner { padding: 0 var(--gutter); }
+
+/* ── Bento grid (.c-bento / .c-tile) ───────────────────────────────── */
+.c-bento {
+  display: grid; grid-template-columns: minmax(0,1fr);
+  gap: .75rem; width: 100%; max-width: var(--max);
+  margin: clamp(3.5rem, 7vw, 6rem) auto 0; padding: 0 var(--gutter);
+  text-align: left;
+}
+@media (min-width: 720px) {
+  .c-bento { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .c-tile--arte, .c-tile--largo { grid-column: span 2; }
+}
+@media (min-width: 1100px) {
+  .c-bento { grid-template-columns: repeat(4, minmax(0,1fr)); grid-template-rows: repeat(2, minmax(15rem, auto)); }
+  .c-tile--arte { grid-area: span 2 / 1 / auto / span 2; }
+  .c-tile--largo { grid-column: 3 / span 2; }
+}
+
+.c-tile {
+  position: relative; display: grid; align-content: space-between;
+  gap: .6rem; min-height: 14rem; padding: 1.9rem;
+  overflow: clip; border-radius: var(--raio);
+  background: var(--preto-2); box-shadow: inset 0 0 0 1px var(--fio);
+}
+.c-tile--arte {
+  min-height: 26rem; padding: 0; background: #000;
+}
+.c-tile--arte picture, .c-tile--arte picture img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: 75% 50%;
+}
+.c-tile--arte picture::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(to right, rgba(11,11,10,.84) 0%, rgba(11,11,10,.72) 38%, rgba(11,11,10,.32) 68%, transparent 90%),
+    linear-gradient(to top, rgba(11,11,10,.75), transparent 65%);
+}
+.c-tile--limao {
+  background: var(--limao); color: var(--preto); box-shadow: none;
+  transition: transform .5s var(--ease);
+}
+.c-tile--limao:hover { transform: rotate(-1.5deg) scale(1.02); }
+.c-tile.nv-claro { background: var(--papel); color: var(--preto); box-shadow: none; }
+.c-tile--vidro {
+  background: rgb(233, 236, 234); color: var(--preto);
+  box-shadow: none; align-content: end;
+}
+.c-tile-kicker {
+  font-size: .72rem; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; opacity: .7;
+}
+.c-tile-num {
+  font-size: clamp(4rem, 7vw, 6.5rem); font-weight: 500;
+  line-height: .9; letter-spacing: -.06em;
+}
+.c-tile-frase {
+  font-size: clamp(2rem, 3.2vw, 2.8rem); font-weight: 500;
+  line-height: 1; letter-spacing: -.045em;
+}
+.c-tile-txt { font-size: .92rem; opacity: .8; }
+.c-tile-fundo {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.c-tile-autor {
+  position: relative; display: flex; align-items: center;
+  gap: .9rem; padding: .9rem 1.1rem .9rem .9rem;
+  border-radius: 1.1rem; background: rgba(244,242,237,.82);
+  backdrop-filter: blur(12px); max-width: 36rem;
+}
+.c-tile-autor img {
+  width: 3.4rem; height: 3.4rem; border-radius: 999px;
+  object-fit: cover; flex: 0 0 auto;
+}
+.c-tile-autor p { display: grid; font-size: .88rem; line-height: 1.4; }
+.c-tile-autor b { font-size: 1.05rem; }
+.c4-arte-txt {
+  position: relative; z-index: 1; padding: 1.9rem;
+  align-self: end;
+}
+.c4-arte-rotulo {
+  font-size: .72rem; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; opacity: .7; margin-bottom: .5rem;
+}
+.c4-arte-frase {
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 500;
+  line-height: 1.1; letter-spacing: -.04em; color: var(--tinta);
+}
+.c4-arte-frase span { color: var(--limao); }
+.c4-arte-sub { font-size: .88rem; color: var(--tinta-2); margin-top: .5rem; }
+.c-estrelas { font-size: 1rem; }
+
+/* ── Ticker ─────────────────────────────────────────────────────────── */
+.ticker-wrap {
+  overflow: hidden;
+  border-top: 1px solid var(--fio); border-bottom: 1px solid var(--fio);
+  padding: .85rem 0;
+  background: var(--preto);
+}
+.ticker-track {
+  display: flex; gap: 0;
+  animation: ticker 50s linear infinite;
+  width: max-content;
+}
+.ticker-track:hover { animation-play-state: paused; }
+.ti {
+  display: flex; align-items: center; gap: 1.1rem;
+  padding: 0 1.1rem;
+  font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--apagado); white-space: nowrap;
+}
+.ti .dot { color: var(--limao); font-size: .85rem; }
+@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ── Section base ───────────────────────────────────────────────────── */
+.section { padding: 5.5rem var(--gutter); }
+
+/* ── Services carousel ──────────────────────────────────────────────── */
+.services { background: var(--preto); border-top: 1px solid var(--fio); }
+.svc-carousel-wrap {
+  overflow-x: auto; cursor: grab;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.svc-carousel-wrap::-webkit-scrollbar { display: none; }
+.svc-carousel-wrap.dragging { cursor: grabbing; user-select: none; }
+.svc-carousel {
+  display: flex; gap: 1rem;
+  padding: 0 var(--gutter) 1rem;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  overflow-x: auto; scrollbar-width: none;
+}
+.svc-carousel::-webkit-scrollbar { display: none; }
+.svc-card {
+  flex: 0 0 min(24rem, 84vw);
+  width: min(24rem, 84vw);
+  min-height: 26rem;
+  scroll-snap-align: start;
+  border-radius: var(--raio);
+  padding: 2.1rem;
+  display: grid; align-content: space-between; gap: 1rem;
+  text-decoration: none;
+  transition: transform .5s var(--ease);
+}
+.svc-card:hover { transform: translateY(-.4rem); }
+
+.c-painel {
+  flex: 0 0 min(24rem, calc(100vw - 2 * var(--gutter)));
+  width: min(24rem, calc(100vw - 2 * var(--gutter)));
+  scroll-snap-align: start;
+}
+.c-painel a {
+  position: relative; display: grid; align-content: space-between;
+  gap: 1rem; height: 100%; min-height: 26rem; padding: 2.1rem;
+  border-radius: var(--raio); text-decoration: none;
+  transition: transform .5s var(--ease);
+}
+.c-painel a:hover { transform: translateY(-.4rem); }
+.c-painel a:hover .c-painel-seta { transform: rotate(45deg); opacity: 1; }
+.c-painel--claro a { background: var(--papel); color: #0e0e0c; }
+.c-painel--escuro a { background: var(--preto-2); box-shadow: inset 0 0 0 1px var(--fio); }
+.c-painel--limao a { background: var(--limao); color: #0e0e0c; }
+.c-painel-seta {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  display: grid; place-items: center;
+  width: 2.9rem; height: 2.9rem; border-radius: 999px;
+  box-shadow: currentcolor 0 0 0 1px inset; opacity: .6;
+  transition: transform .5s var(--ease), opacity .3s;
+}
+.c-painel-n {
+  font-size: clamp(4rem, 6vw, 5.5rem); font-weight: 500;
+  line-height: .9; letter-spacing: -.06em; opacity: .5;
+}
+.c-painel-nome {
+  margin-top: auto; font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+  font-weight: 500; line-height: 1; letter-spacing: -.045em;
+}
+.c-painel-desc { font-size: .95rem; opacity: .72; }
+
+.scroll-hint {
+  font-size: .72rem; color: var(--apagado);
+  margin-top: 1.5rem; text-align: center; letter-spacing: .05em;
+}
+
+/* ── Manifesto ──────────────────────────────────────────────────────── */
+.manifesto {
+  background: var(--preto-2);
+  border-top: 1px solid var(--fio); border-bottom: 1px solid var(--fio);
+}
+.manifesto-text {
+  font-size: clamp(1.9rem, 4.8vw, 4.2rem);
+  font-weight: 800; letter-spacing: -.03em; line-height: 1.12;
+  margin-top: .8rem;
+}
+.manifesto-text .m { color: var(--apagado); }
+.manifesto-author {
+  margin-top: 2.5rem; font-size: .78rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--apagado);
+}
+
+/* ── How it works ───────────────────────────────────────────────────── */
+.how {
+  background: var(--papel); border-top: 1px solid var(--moldura);
+  color: var(--preto); --tinta: #0e0e0c; --tinta-2: #57554f;
+  --apagado: rgb(14 14 12 / .46); --fio: rgb(14 14 12 / .12);
+}
+.how .eyebrow { color: rgba(14,14,12,.46); }
+.how-subtitle {
+  font-size: .95rem; color: #57554f; margin-top: .9rem;
+  max-width: 420px; line-height: 1.6;
+}
+.how-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: start; margin-top: 0;
+}
+.how-left { position: sticky; top: 90px; }
+/* sticky stacking steps */
+.steps { display: flex; flex-direction: column; gap: .75rem; padding-bottom: 2rem; }
+.c-passo {
+  position: sticky; top: calc(6rem + var(--i, 0) * 1.4rem);
+  display: grid; gap: 1rem; min-height: 17rem;
+  padding: 2rem; border-radius: var(--raio);
+  background: #fff; color: #0e0e0c;
+  box-shadow: rgba(14,14,12,.08) 0 0 0 1px, rgba(14,14,12,.25) 0 -20px 40px -24px;
+}
+.c-passo:nth-child(2) {
+  background: var(--preto); color: var(--tinta);
+}
+.c-passo.c-passo--limao {
+  background: var(--limao); color: #0e0e0c;
+}
+.c-passo-topo {
+  display: flex; justify-content: space-between;
+  font-size: .8rem; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: rgba(14,14,12,.55);
+}
+.c-passo:nth-child(2) .c-passo-topo { color: var(--tinta-2); }
+.c-passo.c-passo--limao .c-passo-topo { color: rgba(14,14,12,.6); }
+.c-passo h3 {
+  margin-top: auto; font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 500;
+  line-height: 1; letter-spacing: -.045em;
+}
+.c-passo-desc { font-size: .92rem; color: rgba(14,14,12,.55); line-height: 1.6; }
+.c-passo:nth-child(2) .c-passo-desc { color: var(--tinta-2); }
+
+/* ── Stats ──────────────────────────────────────────────────────────── */
+.stats { background: var(--preto-2); border-top: 1px solid var(--fio); }
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1px; background: var(--fio);
+  border: 1px solid var(--fio); border-radius: var(--raio); overflow: hidden;
+  margin-top: 3rem;
+}
+.stat { background: var(--preto); padding: 1.75rem; }
+.stat-lbl {
+  font-size: .6rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--apagado); margin-bottom: .9rem;
+}
+.stat-val {
+  font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 900;
+  letter-spacing: -.04em; color: var(--tinta); line-height: 1;
+  margin-bottom: .6rem; font-variant-numeric: tabular-nums;
+}
+.stat-val.accent { color: var(--limao); }
+.stat p { font-size: .8rem; color: var(--tinta-2); line-height: 1.55; }
+
+/* ── Reviews ────────────────────────────────────────────────────────── */
+.reviews {
+  background: var(--papel); border-top: 1px solid var(--moldura);
+  color: var(--preto);
+  --tinta: #0e0e0c; --tinta-2: #57554f; --apagado: rgb(14 14 12 / .46);
+  --fio: rgb(14 14 12 / .12);
+}
+.reviews .eyebrow { color: rgba(14,14,12,.46); }
+.reviews-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 2.5rem; gap: 1.5rem; flex-wrap: wrap;
+}
+.g-rating { display: flex; align-items: center; gap: .9rem; }
+.g-rating-num {
+  font-size: 3.2rem; font-weight: 900; letter-spacing: -.04em; line-height: 1;
+}
+.g-rating-meta { font-size: .78rem; color: var(--tinta-2); margin-top: .2rem; }
+.g-rating-link { font-size: .78rem; color: #0aa79e; margin-top: .15rem; }
+.reviews-grid {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem;
+}
+.review-card {
+  background: #fff; border: 1px solid var(--moldura);
+  border-radius: var(--raio); padding: 1.75rem;
+}
+.rv-name { font-weight: 700; font-size: .95rem; color: var(--preto); }
+.rv-meta { font-size: .78rem; color: var(--tinta-2); margin-top: .15rem; margin-bottom: .75rem; }
+.rv-stars { color: #fbbc04; font-size: .88rem; margin-bottom: .35rem; }
+.rv-date { font-size: .72rem; color: var(--apagado); margin-bottom: .75rem; }
+.rv-text { font-size: .85rem; color: var(--tinta-2); line-height: 1.68; }
+
+/* ── Portfolio ──────────────────────────────────────────────────────── */
+.portfolio { background: var(--preto-2); border-top: 1px solid var(--fio); }
+.portfolio-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 2.5rem; gap: 1rem; flex-wrap: wrap;
+}
+.portfolio-link { font-size: .84rem; color: var(--tinta-2); transition: color .18s; }
+.portfolio-link:hover { color: var(--tinta); }
+.portfolio-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto; gap: 1rem;
+}
+.p-card {
+  background: var(--preto); border: 1px solid var(--fio);
+  border-radius: var(--raio); overflow: hidden; display: block;
+  transition: border-color .2s;
+}
+.p-card:hover { border-color: rgba(244,242,237,.25); }
+.p-card.tall { grid-row: span 2; }
+.p-thumb {
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--fio); position: relative; overflow: hidden;
+}
+.p-thumb.h220 { height: 220px; }
+.p-thumb.h-full { height: 100%; min-height: 260px; flex: 1; }
+.p-mock {
+  width: 75%; aspect-ratio: 16/10;
+  border: 1px solid var(--fio); border-radius: .6rem;
+  background: var(--preto-2); padding: .8rem;
+  display: flex; flex-direction: column; gap: .4rem;
+}
+.p-mock-bar { height: 7px; border-radius: 3px; }
+.p-mock-line { height: 5px; border-radius: 3px; background: rgba(244,242,237,.1); }
+.p-body { padding: 1.4rem 1.5rem; }
+.p-type {
+  font-size: .6rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--apagado); margin-bottom: .45rem;
+}
+.p-name { font-size: 1.15rem; font-weight: 700; color: var(--tinta); margin-bottom: .25rem; }
+.p-desc { font-size: .82rem; color: var(--tinta-2); margin-bottom: .9rem; }
+.p-tags { display: flex; gap: .35rem; flex-wrap: wrap; margin-bottom: .9rem; }
+.p-tag {
+  font-size: .62rem; font-weight: 600;
+  padding: .18rem .48rem;
+  background: rgba(244,242,237,.05); border: 1px solid var(--fio);
+  border-radius: .3rem; color: var(--apagado);
+}
+.p-arrow { font-size: .8rem; color: var(--tinta-2); display: flex; align-items: center; gap: .3rem; }
+.p-card:hover .p-arrow { color: var(--tinta); gap: .3rem; }
+/* tall card layout */
+.p-card.tall { display: flex; flex-direction: column; }
+.p-card.tall .p-thumb { flex: 1; }
+
+/* ── Pricing ────────────────────────────────────────────────────────── */
+.pricing { background: var(--preto); border-top: 1px solid var(--fio); }
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1rem; margin-top: 3rem;
+}
+.pr-card {
+  background: var(--preto-2); border: 1px solid var(--fio);
+  border-radius: var(--raio); padding: 1.6rem;
+  display: flex; flex-direction: column; gap: 1.4rem;
+}
+.pr-head { border-bottom: 1px solid var(--fio); padding-bottom: 1.2rem; }
+.pr-type {
+  font-size: .6rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--apagado); margin-bottom: .4rem;
+}
+.pr-name { font-size: 1.2rem; font-weight: 800; margin-bottom: .2rem; }
+.pr-desc { font-size: .8rem; color: var(--tinta-2); }
+.pr-from {
+  font-size: .65rem; font-weight: 700; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--apagado);
+}
+.pr-val {
+  font-size: 2.1rem; font-weight: 900; letter-spacing: -.04em;
+  color: var(--tinta); line-height: 1; margin: .3rem 0 .2rem;
+  font-variant-numeric: tabular-nums;
+}
+.pr-val.consult { font-size: 1.5rem; }
+.pr-feats { flex: 1; display: flex; flex-direction: column; gap: .55rem; }
+.pr-feats li {
+  font-size: .8rem; color: var(--tinta-2);
+  display: flex; gap: .3rem; align-items: flex-start;
+}
+.pr-feats li::before { content: '✓'; color: var(--limao); flex-shrink: 0; }
+.pr-cta {
+  display: block; background: var(--limao); color: var(--preto);
+  font-weight: 700; font-size: .85rem;
+  padding: .75rem; border-radius: var(--raio-p); text-align: center;
+  transition: background .18s;
+}
+.pr-cta:hover { background: var(--limao-2); }
+.pr-sub {
+  display: block; font-size: .75rem; color: var(--apagado);
+  text-align: center; margin-top: .45rem; transition: color .18s;
+}
+.pr-sub:hover { color: var(--tinta-2); }
+
+/* ── FAQ ────────────────────────────────────────────────────────────── */
+.faq { background: var(--preto-2); border-top: 1px solid var(--fio); }
+.faq-list { border-top: 1px solid var(--fio); margin-top: 2.5rem; }
+.faq-item { border-bottom: 1px solid var(--fio); }
+.faq-q {
+  width: 100%; text-align: left; background: none;
+  color: var(--tinta); font-size: .95rem; font-weight: 600;
+  padding: 1.2rem 0; display: flex; justify-content: space-between;
+  align-items: center; gap: 1rem; transition: color .18s;
+}
+.faq-q:hover { color: var(--limao); }
+.faq-icon {
+  width: 22px; height: 22px; flex-shrink: 0;
+  border: 1px solid var(--fio); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .7rem; color: var(--tinta-2);
+  transition: background .2s, border-color .2s, transform .3s var(--ease), color .2s;
+}
+.faq-item.open .faq-icon {
+  background: var(--limao); color: var(--preto);
+  border-color: var(--limao); transform: rotate(45deg);
+}
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height .4s var(--ease);
+}
+.faq-item.open .faq-a { max-height: 250px; }
+.faq-a-inner {
+  padding-bottom: 1.2rem; font-size: .88rem;
+  color: var(--tinta-2); line-height: 1.7; max-width: 680px;
+}
+
+/* ── Blog ───────────────────────────────────────────────────────────── */
+.blog {
+  background: var(--papel); border-top: 1px solid var(--moldura);
+  color: var(--preto);
+  --tinta: #0e0e0c; --tinta-2: #57554f; --apagado: rgb(14 14 12 / .46);
+  --fio: rgb(14 14 12 / .12);
+}
+.blog .eyebrow { color: rgba(14,14,12,.46); }
+.blog-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 2.5rem; gap: 1rem; flex-wrap: wrap;
+}
+.blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+.b-card {
+  background: #fff; border: 1px solid var(--moldura);
+  border-radius: var(--raio); padding: 1.5rem; display: flex;
+  flex-direction: column; gap: .3rem; transition: border-color .2s;
+}
+.b-card:hover { border-color: rgba(14,14,12,.25); }
+.b-cat { font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); }
+.b-time { color: var(--apagado); margin-left: .4rem; }
+.b-title { font-size: 1.05rem; font-weight: 700; line-height: 1.35; color: var(--preto); }
+.b-excerpt { font-size: .8rem; color: var(--tinta-2); line-height: 1.62; flex: 1; }
+.b-read { font-size: .78rem; color: var(--apagado); margin-top: .3rem; transition: color .18s; }
+.b-card:hover .b-read { color: var(--tinta-2); }
+
+/* ── CTA section ────────────────────────────────────────────────────── */
+.cta-final {
+  background: var(--preto-2); border-top: 1px solid var(--fio);
+  text-align: center; padding: 6rem var(--gutter);
+}
+.cta-final .eyebrow { margin-bottom: 1.2rem; }
+.cta-final h2 {
+  font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 900;
+  letter-spacing: -.04em; line-height: 1.02; margin-bottom: 1.1rem;
+}
+.cta-final p {
+  font-size: .98rem; color: var(--tinta-2);
+  max-width: 440px; margin: 0 auto 2.2rem; line-height: 1.65;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────── */
+footer {
+  background: var(--preto); border-top: 1px solid var(--fio);
+  padding: 4rem var(--gutter) 2rem;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 3rem; padding-bottom: 3rem;
+  border-bottom: 1px solid var(--fio); margin-bottom: 1.75rem;
+}
+.f-brand-desc {
+  font-size: .82rem; color: var(--tinta-2);
+  margin: .9rem 0 1.1rem; line-height: 1.6;
+}
+.f-wa {
+  display: inline-flex; align-items: center; gap: .45rem;
+  background: rgba(244,242,237,.05); border: 1px solid var(--fio);
+  padding: .45rem .95rem; border-radius: 99px;
+  font-size: .8rem; color: var(--tinta-2); transition: color .18s, border-color .18s;
+}
+.f-wa:hover { color: var(--tinta); border-color: rgba(244,242,237,.25); }
+.f-nav-title {
+  font-size: .6rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--apagado); margin-bottom: .9rem;
+}
+.f-nav-list { display: flex; flex-direction: column; gap: .45rem; }
+.f-nav-list a { font-size: .8rem; color: var(--tinta-2); transition: color .18s; }
+.f-nav-list a:hover { color: var(--tinta); }
+.f-contact { display: flex; flex-direction: column; gap: .45rem; }
+.f-contact li { font-size: .8rem; color: var(--tinta-2); }
+.f-contact a { transition: color .18s; }
+.f-contact a:hover { color: var(--tinta); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: .75rem;
+}
+.footer-bottom p { font-size: .74rem; color: var(--apagado); }
+.f-top-link {
+  font-size: .74rem; color: var(--apagado); transition: color .18s;
+}
+.f-top-link:hover { color: var(--tinta-2); }
+
+/* old mobile-nav removed — now using .c-menu details/summary */
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+@media (max-width: 1060px) {
+  .pricing-grid { grid-template-columns: repeat(2,1fr); }
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .how-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .how-left { position: static; }
+  .steps { padding-bottom: 0; }
+  .c-passo { position: static; }
+}
+@media (max-width: 760px) {
+  .main-nav { display: none; }
+  .menu-toggle { display: flex; }
+  .hero-strip { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .p-card.tall { grid-row: auto; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .reviews-head { flex-direction: column; align-items: flex-start; }
+  .portfolio-head { flex-direction: column; align-items: flex-start; }
+  .blog-head { flex-direction: column; align-items: flex-start; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  #float-wa { bottom: 1rem; right: 1rem; }
+  #cookie { left: 1rem; right: 1rem; max-width: none; }
+  .svc-card { min-height: 320px; }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: clamp(2.8rem, 13vw, 3.5rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+  * { transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Cookie banner -->
+<div id="cookie">
+  <p>Usamos cookies para medir o uso do site e melhorar o atendimento (Google Analytics e Microsoft Clarity). <a href="#">Saiba mais.</a></p>
+  <div class="row">
+    <button class="btn-cookie reject" onclick="hideCookie()">Recusar</button>
+    <button class="btn-cookie accept" onclick="hideCookie()">Aceitar</button>
+  </div>
+</div>
+
+<!-- Floating WhatsApp -->
+<a id="float-wa" href="https://wa.me/5542999486020" target="_blank" rel="noopener">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  WhatsApp
+</a>
+
+<!-- Header — floating pill layout -->
+<header class="c-topo" id="topo">
+
+  <a href="#" class="c-logo" aria-label="Voltz Pixel, página inicial">
+    <img src="https://voltzpixel.com/logo-voltzpixel.svg" alt="" width="132" height="28">
+  </a>
+
+  <!-- Desktop nav — centered pill with mega-menu dropdown -->
+  <nav class="c-nav" aria-label="Principal">
+    <a href="#">Sobre</a>
+
+    <div class="c-nav-grupo">
+      <a href="#servicos" class="c-nav-serv">Serviços</a>
+      <div class="c-nav-sub" role="menu">
+        <div class="c-nav-col">
+          <p class="c-nav-tit">Sites e lojas</p>
+          <a href="#"><span class="c-nav-nome">Criação de sites</span><span class="c-nav-desc">Site completo, institucional ou catálogo</span></a>
+          <a href="#"><span class="c-nav-nome">Página de vendas</span><span class="c-nav-desc">Landing page: uma oferta, um botão</span></a>
+          <a href="#"><span class="c-nav-nome">Loja virtual</span><span class="c-nav-desc">Pix, cartão e frete, sem comissão</span></a>
+          <a href="#"><span class="c-nav-nome">SEO local</span><span class="c-nav-desc">Apareça no Google quando procuram você</span></a>
+        </div>
+        <div class="c-nav-col">
+          <p class="c-nav-tit">Sistemas e IA</p>
+          <a href="#"><span class="c-nav-nome">Sistema sob medida</span><span class="c-nav-desc">Financeiro, comercial e projetos</span></a>
+          <a href="#"><span class="c-nav-nome">Automação de processos</span><span class="c-nav-desc">O trabalho repetido se faz sozinho</span></a>
+          <a href="#"><span class="c-nav-nome">Agente de IA</span><span class="c-nav-desc">Responde e qualifica no WhatsApp</span></a>
+          <a href="#"><span class="c-nav-nome">Agendamento com IA</span><span class="c-nav-desc">Cliente marca horário pela conversa</span></a>
+        </div>
+      </div>
+    </div>
+
+    <a href="#portfolio">Portfólio</a>
+    <a href="#">Blog</a>
+    <a href="#">Contato</a>
+  </nav>
+
+  <!-- Desktop CTA -->
+  <a href="https://wa.me/5542999486020" class="nv-btn nv-btn--p c-topo-cta" target="_blank" rel="noopener">
+    <span class="nv-btn-clip"><span class="nv-btn-txt" data-t="WhatsApp">WhatsApp</span></span>
+    <span class="nv-btn-seta" aria-hidden="true">↗</span>
+  </a>
+
+  <!-- Mobile hamburger — details/summary, no JS needed -->
+  <details class="c-menu">
+    <summary aria-label="Abrir menu"><span></span><span></span></summary>
+    <nav class="c-menu-painel" aria-label="Menu">
+      <div class="c-menu-grupo">
+        <p class="c-menu-tit">Sites e lojas</p>
+        <a href="#">Criação de sites</a>
+        <a href="#">Página de vendas</a>
+        <a href="#">Loja virtual</a>
+        <a href="#">SEO local</a>
+      </div>
+      <div class="c-menu-grupo">
+        <p class="c-menu-tit">Sistemas e IA</p>
+        <a href="#">Sistema sob medida</a>
+        <a href="#">Automação de processos</a>
+        <a href="#">Agente de IA</a>
+        <a href="#">Agendamento com IA</a>
+      </div>
+      <div class="c-menu-empresa">
+        <a href="#">Sobre</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#">Blog</a>
+        <a href="#">Contato</a>
+      </div>
+      <a href="https://wa.me/5542999486020" class="c-menu-wa" target="_blank" rel="noopener">
+        Falar no WhatsApp ↗
+      </a>
+    </nav>
+  </details>
+
+</header>
+
+<!-- Hero -->
+<section class="hero" aria-labelledby="hero-heading">
+
+  <!-- Real background photo -->
+  <picture class="c4-hero-fundo" aria-hidden="true">
+    <source media="(max-width: 700px)" srcset="https://voltzpixel.com/imagens/hero/editorial-mobile-540.webp 540w, https://voltzpixel.com/imagens/hero/editorial-mobile-900.webp 900w" sizes="100vw">
+    <img src="https://voltzpixel.com/imagens/hero/editorial-1600.webp" srcset="https://voltzpixel.com/imagens/hero/editorial-960.webp 960w, https://voltzpixel.com/imagens/hero/editorial-1600.webp 1600w, https://voltzpixel.com/imagens/hero/editorial-1915.webp 1915w" sizes="100vw" alt="" width="1915" height="821" fetchpriority="high">
+  </picture>
+
+  <div class="hero-inner wrap" style="padding-bottom:0">
+    <a href="#avaliacoes" class="hero-badge">
+      <span class="g-icon" style="color:#4285f4">G</span>
+      <span class="star">★</span>
+      <strong>4,7</strong>
+      <span>no Google</span>
+      <span class="divider" aria-hidden="true"></span>
+      <span>Desde 2008</span>
+    </a>
+
+    <h1 id="hero-heading">
+      <span class="l1">Sites e lojas virtuais</span>
+      <span class="l2">que <span class="highlight">trabalham</span></span>
+      <span class="l3">pela sua empresa.</span>
+    </h1>
+
+    <p class="hero-desc">
+      A Voltz Pixel cria sites, lojas virtuais e sistemas, de <a href="#">União da Vitória&nbsp;(PR)</a> para empresas de todo o Brasil. Escopo e preço fechados, no ar em semanas.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#" class="btn-lime">Agendar diagnóstico gratuito ↗</a>
+      <a href="#servicos" class="btn-ghost">Ver o que a gente faz</a>
+    </div>
+  </div>
+
+  <!-- Bento grid — flat 4-col structure matching original .c-bento -->
+  <div class="c-bento wrap">
+
+    <!-- Tile 1: Real photo card — "Feito para vender" (spans 2 rows × 2 cols at ≥1100px) -->
+    <figure class="c-tile c-tile--arte">
+      <picture>
+        <source type="image/webp" srcset="https://voltzpixel.com/imagens/box-vender/cliente-busca-480.webp 480w, https://voltzpixel.com/imagens/box-vender/cliente-busca-800.webp 800w, https://voltzpixel.com/imagens/box-vender/cliente-busca-1120.webp 1120w" sizes="(min-width: 1100px) 50vw, 100vw">
+        <img src="https://voltzpixel.com/imagens/box-vender/cliente-busca-800.webp" alt="" width="800" height="1000" loading="lazy">
+      </picture>
+      <div class="c4-arte-txt">
+        <p class="c4-arte-rotulo">Feito para vender</p>
+        <p class="c4-arte-frase">Aparece no Google. <span>Leva o cliente ao seu WhatsApp.</span></p>
+        <p class="c4-arte-sub">Site rápido no celular, pensado para quem procura o seu serviço.</p>
+      </div>
+    </figure>
+
+    <!-- Tile 2: Google rating (lime) -->
+    <a class="c-tile c-tile--limao" href="https://www.google.com/maps?cid=15722257013029955062" rel="noopener">
+      <p class="c-tile-kicker">Google</p>
+      <p class="c-tile-num">4,7</p>
+      <p class="c-estrelas" aria-hidden="true">★★★★★</p>
+      <p class="c-tile-txt">3 avaliações reais →</p>
+    </a>
+
+    <!-- Tile 3: Sem amarras (cream) -->
+    <div class="c-tile nv-claro">
+      <p class="c-tile-kicker">Sem amarras</p>
+      <p class="c-tile-frase">Tudo no seu nome.</p>
+      <p class="c-tile-txt">Domínio, site e acessos são da sua empresa. Sem fidelidade.</p>
+    </div>
+
+    <!-- Tile 4: Desde 2008 (full-width bottom bar) -->
+    <div class="c-tile c-tile--vidro c-tile--largo">
+      <img class="c-tile-fundo" src="https://voltzpixel.com/imagens/faixa-1x.webp" alt="" loading="lazy">
+      <div class="c-tile-autor">
+        <img src="https://voltzpixel.com/avt-cbjr.webp" alt="" width="56" height="56" loading="lazy">
+        <p><b>Desde 2008</b><span>18 anos criando sites, de União da Vitória para o Brasil, Paraguai, Estados Unidos e Europa.</span></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Ticker -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ti">Criação de sites <span class="dot">✦</span></span>
+    <span class="ti">Loja virtual <span class="dot">✦</span></span>
+    <span class="ti">Página de vendas <span class="dot">✦</span></span>
+    <span class="ti">Sistema sob medida <span class="dot">✦</span></span>
+    <span class="ti">Automação <span class="dot">✦</span></span>
+    <span class="ti">SEO local <span class="dot">✦</span></span>
+    <span class="ti">Agente de IA <span class="dot">✦</span></span>
+    <span class="ti">Criação de sites <span class="dot">✦</span></span>
+    <span class="ti">Loja virtual <span class="dot">✦</span></span>
+    <span class="ti">Página de vendas <span class="dot">✦</span></span>
+    <span class="ti">Sistema sob medida <span class="dot">✦</span></span>
+    <span class="ti">Automação <span class="dot">✦</span></span>
+    <span class="ti">SEO local <span class="dot">✦</span></span>
+    <span class="ti">Agente de IA <span class="dot">✦</span></span>
+    <span class="ti">Criação de sites <span class="dot">✦</span></span>
+    <span class="ti">Loja virtual <span class="dot">✦</span></span>
+    <span class="ti">Página de vendas <span class="dot">✦</span></span>
+    <span class="ti">Sistema sob medida <span class="dot">✦</span></span>
+    <span class="ti">Automação <span class="dot">✦</span></span>
+    <span class="ti">SEO local <span class="dot">✦</span></span>
+    <span class="ti">Agente de IA <span class="dot">✦</span></span>
+    <span class="ti">Criação de sites <span class="dot">✦</span></span>
+    <span class="ti">Loja virtual <span class="dot">✦</span></span>
+    <span class="ti">Página de vendas <span class="dot">✦</span></span>
+    <span class="ti">Sistema sob medida <span class="dot">✦</span></span>
+    <span class="ti">Automação <span class="dot">✦</span></span>
+    <span class="ti">SEO local <span class="dot">✦</span></span>
+    <span class="ti">Agente de IA <span class="dot">✦</span></span>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="section services" id="servicos">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">O que a gente faz</p>
+      <h2 class="section-title">Oito frentes. <em>Uma conversa.</em></h2>
+    </div>
+
+    <ol class="svc-carousel" id="svcCarousel">
+
+      <li class="c-painel c-painel--claro">
+        <a href="#">
+          <span class="c-painel-seta" aria-hidden="true">↗</span>
+          <p class="c-painel-n">01</p>
+          <p class="c-painel-nome">Criação de sites</p>
+          <p class="c-painel-desc">Institucional e catálogo, com uma página para cada serviço</p>
+        </a>
+      </li>
+
+      <li class="c-painel c-painel--escuro">
+        <a href="#">
+          <span class="c-painel-seta" aria-hidden="true">↗</span>
+          <p class="c-painel-n">02</p>
+          <p class="c-painel-nome">Página de vendas</p>
+          <p class="c-painel-desc">Landing page: uma página, uma oferta e um botão</p>
+        </a>
+      </li>
+
+      <li class="c-painel c-painel--limao">
+        <a href="#">
+          <span class="c-painel-seta" aria-hidden="true">↗</span>
+          <p class="c-painel-n">03</p>
+          <p class="c-painel-nome">Loja virtual</p>
+          <p class="c-painel-desc">Pix, cartão e frete, ligada ao estoque e ao financeiro</p>
+        </a>
+      </li>
+
+      <li class="c-painel c-painel--escuro">
+        <a href="#">
+          <span class="c-painel-seta" aria-hidden="true">↗</span>
+          <p class="c-painel-n">04</p>
+          <p class="c-painel-nome">SEO local</p>
+          <p class="c-painel-desc">Sua empresa aparecendo no Google e no Maps quando alguém da região procura</p>
+        </a>
+      </li>
+
+      <li class="c-painel c-painel--claro">
+        <a href="#">
+          <span class="c-painel-seta" aria-hidden="true">↗</span>
+          <p class="c-painel-n">05</p>
+          <p class="c-painel-nome">Sistema sob medida</p>
+          <p class="c-painel-desc">Financeiro, comercial e projetos num lugar só</p>
+        </a>
+      </li>
+
+      <li class="c-painel c-painel--escuro">
+        <a href="#">
+          <span class="c-painel-seta" aria-hidden="true">↗</span>
+          <p class="c-painel-n">06</p>
+          <p class="c-painel-nome">Automação de processos</p>
+          <p class="c-painel-desc">O trabalho repetido passa a se fazer sozinho</p>
+        </a>
+      </li>
+
+      <li class="c-painel c-painel--claro">
+        <a href="#">
+          <span class="c-painel-seta" aria-hidden="true">↗</span>
+          <p class="c-painel-n">07</p>
+          <p class="c-painel-nome">Agente de IA</p>
+          <p class="c-painel-desc">Responde e qualifica o contato no WhatsApp</p>
+        </a>
+      </li>
+
+      <li class="c-painel c-painel--escuro">
+        <a href="#">
+          <span class="c-painel-seta" aria-hidden="true">↗</span>
+          <p class="c-painel-n">08</p>
+          <p class="c-painel-nome">Agendamento com IA</p>
+          <p class="c-painel-desc">O cliente marca o horário pela conversa</p>
+        </a>
+      </li>
+
+    </ol>
+    <p class="scroll-hint">Role para ver as oito · 08</p>
+  </div>
+</section>
+
+<!-- Manifesto -->
+<section class="section manifesto" aria-labelledby="manifesto-heading">
+  <div class="wrap">
+    <p class="eyebrow" id="manifesto-heading">No que a gente acredita</p>
+    <p class="manifesto-text">
+      <span class="m">Site </span>bonito<span class="m"> que não traz cliente é </span>despesa.<span class="m"> A gente </span>faz<span class="m"> site e </span>loja virtual<span class="m"> que </span>aparecem<span class="m"> no </span>Google,<span class="m"> abrem </span>rápido<span class="m"> no </span>celular<span class="m"> e </span>levam<span class="m"> quem chegou até o seu </span>WhatsApp.<span class="m"> O resto é enfeite.</span>
+    </p>
+    <p class="manifesto-author">— Cassio Bona Junior</p>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section how" id="como-funciona">
+  <div class="wrap">
+    <div class="how-layout">
+      <div class="how-left">
+        <p class="eyebrow">Como funciona</p>
+        <h2 class="section-title">Do primeiro papo <em>ao site no ar.</em></h2>
+        <p class="how-subtitle">Sem surpresa no meio do caminho: escopo, prazo e preço definidos antes de qualquer linha de código.</p>
+      </div>
+
+      <ol class="steps">
+        <li class="c-passo" style="--i:0">
+          <div class="c-passo-topo">
+            <span>Etapa 01</span>
+            <span>30–60 min</span>
+          </div>
+          <h3>Diagnóstico gratuito</h3>
+          <p class="c-passo-desc">Uma conversa direta sobre o seu negócio: o que o site precisa fazer, para quem e onde ele trava hoje.</p>
+        </li>
+        <li class="c-passo" style="--i:1">
+          <div class="c-passo-topo">
+            <span>Etapa 02</span>
+            <span>24–48h</span>
+          </div>
+          <h3>Proposta fechada</h3>
+          <p class="c-passo-desc">Escopo, prazo e preço definidos por escrito. Sem hora extra surpresa, sem escopo elástico.</p>
+        </li>
+        <li class="c-passo" style="--i:2">
+          <div class="c-passo-topo">
+            <span>Etapa 03</span>
+            <span>Semanas</span>
+          </div>
+          <h3>Construção</h3>
+          <p class="c-passo-desc">Texto, design e código feitos para a sua empresa, não um tema com o logo trocado.</p>
+        </li>
+        <li class="c-passo c-passo--limao" style="--i:3">
+          <div class="c-passo-topo">
+            <span>Etapa 04</span>
+            <span>1 ano</span>
+          </div>
+          <h3>Acompanhamento incluso</h3>
+          <p class="c-passo-desc">Colocamos no ar e seguimos ajustando o que está no ar durante o primeiro ano.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="section stats">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:0">
+      <p class="eyebrow">Por escrito na proposta</p>
+      <h2 class="section-title">Sem letra miúda.</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat">
+        <p class="stat-lbl">Prazo</p>
+        <p class="stat-val">48h</p>
+        <p>Proposta com escopo, prazo e preço fechados</p>
+      </div>
+      <div class="stat">
+        <p class="stat-lbl">Conversa</p>
+        <p class="stat-val">30min</p>
+        <p>Diagnóstico gratuito, feche negócio ou não</p>
+      </div>
+      <div class="stat">
+        <p class="stat-lbl">Propriedade</p>
+        <p class="stat-val">100%</p>
+        <p>Do código, do domínio e dos dados em nome da sua empresa</p>
+      </div>
+      <div class="stat">
+        <p class="stat-lbl">Amarras</p>
+        <p class="stat-val accent" style="font-variant-numeric:tabular-nums">0</p>
+        <p>Fidelidade, taxa de saída ou refém de contrato</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="section reviews" id="avaliacoes">
+  <div class="wrap">
+    <div class="reviews-head">
+      <div>
+        <p class="eyebrow">Avaliações no Google</p>
+        <h2 class="section-title">Quem já contratou <em>conta como foi.</em></h2>
+      </div>
+      <a href="#" class="g-rating">
+        <span class="g-rating-num">4,7</span>
+        <div>
+          <p class="g-stars">★★★★★</p>
+          <p class="g-rating-meta">3 avaliações no Google</p>
+          <p class="g-rating-link">Ver no Google ↗</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <p class="rv-name">Vibezen Store</p>
+        <p class="rv-meta">Site da loja</p>
+        <p class="rv-stars">★★★★★</p>
+        <p class="rv-date">setembro de 2026</p>
+        <p class="rv-text">O site da Vibezen Store foi um sucesso, conseguimos realizar diversas vendas por lá. Eu já recomendei para muitas pessoas e vou continuar recomendando, pois seu trabalho foi impecável em todos os aspectos.</p>
+      </div>
+      <div class="review-card">
+        <p class="rv-name">Caio Henrique</p>
+        <p class="rv-meta">Loja virtual na Nuvemshop</p>
+        <p class="rv-stars">★★★★★</p>
+        <p class="rv-date">setembro de 2026</p>
+        <p class="rv-text">Contratei a equipe para refazer o meu ecommerce na nuvemshop e ficou muito bom — a taxa de conversão dobrou. O Cássio me deu todo o suporte durante o período de otimizações. Instalamos uma ferramenta para acompanhar o usuário dentro do site e íamos ajustando conforme a necessidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio -->
+<section class="section portfolio" id="portfolio">
+  <div class="wrap">
+    <div class="portfolio-head">
+      <div>
+        <p class="eyebrow">Portfólio</p>
+        <h2 class="section-title">Trabalhos <em>já entregues.</em></h2>
+      </div>
+      <a href="#" class="portfolio-link">Ver todo o portfólio ↗</a>
+    </div>
+
+    <div class="portfolio-grid">
+      <!-- Tall card -->
+      <a href="#" class="p-card tall">
+        <div class="p-thumb h-full" style="background:#0e1a2e;">
+          <img src="https://voltzpixel.com/imagens/portfolio/agende-comigo/produto-hero-v1-640.webp" alt="Agende Comigo" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+        </div>
+        <div class="p-body">
+          <p class="p-type">Sistema · Agendamento Online</p>
+          <p class="p-name">Agende Comigo</p>
+          <p class="p-desc">Um produto completo, do sistema ao site.</p>
+          <div class="p-tags">
+            <span class="p-tag">Sistema completo</span>
+            <span class="p-tag">Site</span>
+            <span class="p-tag">SEO</span>
+            <span class="p-tag">Performance</span>
+          </div>
+          <p class="p-arrow">Ver o projeto ↗</p>
+        </div>
+      </a>
+
+      <!-- Short cards -->
+      <a href="#" class="p-card">
+        <div class="p-thumb h220" style="background:#0a1628;overflow:hidden;">
+          <img src="https://voltzpixel.com/imagens/portfolio/oral-centter/site-hero-v5-640.webp" alt="Oral Centter" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="p-body">
+          <p class="p-type">Site · Clínicas Odontológicas</p>
+          <p class="p-name">Oral Centter</p>
+          <p class="p-desc">O site de uma rede de clínicas em seis estados.</p>
+          <p class="p-arrow">Ver o projeto ↗</p>
+        </div>
+      </a>
+
+      <a href="#" class="p-card">
+        <div class="p-thumb h220" style="background:#1a0a28;overflow:hidden;">
+          <img src="https://voltzpixel.com/imagens/portfolio/proattive/pagina-hero-v1-640.webp" alt="ProAttive" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="p-body">
+          <p class="p-type">Página de Vendas · Quiropraxia</p>
+          <p class="p-name">ProAttive</p>
+          <p class="p-desc">Uma página com um objetivo: agendar.</p>
+          <p class="p-arrow">Ver o projeto ↗</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section pricing" id="precos">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:0">
+      <p class="eyebrow">Quanto custa</p>
+      <h2 class="section-title">Preço fechado <em>antes de começar.</em></h2>
+    </div>
+
+    <div class="pricing-grid">
+      <article class="pr-card">
+        <div class="pr-head">
+          <p class="pr-type">Página de vendas</p>
+          <p class="pr-name">Landing page</p>
+          <p class="pr-desc">uma página, uma oferta</p>
+        </div>
+        <div>
+          <p class="pr-from">a partir de</p>
+          <p class="pr-val">R$&nbsp;1.500</p>
+        </div>
+        <ul class="pr-feats">
+          <li>Texto e design inclusos</li>
+          <li>Feita para receber o clique do anúncio</li>
+          <li>Um botão só, direto no WhatsApp</li>
+          <li>Medição de visitas e contatos</li>
+        </ul>
+        <div>
+          <a href="#" class="pr-cta">Conversar sobre isso ↗</a>
+          <a href="#" class="pr-sub">Como funciona a página de vendas →</a>
+        </div>
+      </article>
+
+      <article class="pr-card">
+        <div class="pr-head">
+          <p class="pr-type">Site</p>
+          <p class="pr-name">Institucional</p>
+          <p class="pr-desc">ou catálogo, com várias páginas</p>
+        </div>
+        <div>
+          <p class="pr-from">a partir de</p>
+          <p class="pr-val">R$&nbsp;2.500</p>
+        </div>
+        <ul class="pr-feats">
+          <li>Desenhado para a sua marca, não template</li>
+          <li>Uma página para cada serviço</li>
+          <li>Pronto para ser encontrado no Google</li>
+          <li>Contato ligado ao seu atendimento</li>
+        </ul>
+        <div>
+          <a href="#" class="pr-cta">Pedir orçamento ↗</a>
+          <a href="#" class="pr-sub">Quanto custa um site →</a>
+        </div>
+      </article>
+
+      <article class="pr-card">
+        <div class="pr-head">
+          <p class="pr-type">Loja virtual</p>
+          <p class="pr-name">Loja própria</p>
+          <p class="pr-desc">sem comissão por venda</p>
+        </div>
+        <div>
+          <p class="pr-from">a partir de</p>
+          <p class="pr-val">R$&nbsp;4.000</p>
+        </div>
+        <ul class="pr-feats">
+          <li>Pix, cartão e frete</li>
+          <li>Ligada ao estoque e ao financeiro</li>
+          <li>Conta das taxas mensais na proposta</li>
+          <li>Plataforma escolhida pelo seu caso</li>
+        </ul>
+        <div>
+          <a href="#" class="pr-cta">Conversar sobre isso ↗</a>
+          <a href="#" class="pr-sub">Quanto custa uma loja virtual →</a>
+        </div>
+      </article>
+
+      <article class="pr-card">
+        <div class="pr-head">
+          <p class="pr-type">Sistema sob medida</p>
+          <p class="pr-name">Financeiro</p>
+          <p class="pr-desc">comercial e projetos</p>
+        </div>
+        <div>
+          <p class="pr-from" style="visibility:hidden">—</p>
+          <p class="pr-val consult">Sob consulta</p>
+        </div>
+        <ul class="pr-feats">
+          <li>Diagnóstico da operação</li>
+          <li>Feito para o seu processo</li>
+          <li>Escopo, prazo e preço fechados</li>
+          <li>Código e dados em nome da empresa</li>
+        </ul>
+        <div>
+          <a href="#" class="pr-cta">Conversar sobre isso ↗</a>
+          <a href="#" class="pr-sub">Como funciona o sistema →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:0">
+      <p class="eyebrow">Perguntas</p>
+      <h2 class="section-title">O que todo mundo <em>pergunta.</em></h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quanto custa um site na Voltz Pixel?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Na Voltz Pixel, a página de vendas começa em R$&nbsp;1.500, o site em R$&nbsp;2.500 e a loja virtual em R$&nbsp;4.000. Todos com escopo, prazo e preço definidos antes de qualquer linha de código.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Em quanto tempo o site fica pronto?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">A proposta chega em 24 a 48 horas depois do diagnóstico, e o site entra no ar em semanas, não meses. O prazo exato depende do escopo e é colocado por escrito.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O site e o domínio ficam no meu nome?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Sim. Domínio, código e acessos ficam em nome da sua empresa desde o primeiro dia. Sem fidelidade, sem taxa de saída.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          A Voltz Pixel atende empresas de outras cidades?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Sim. O atendimento presencial cobre União da Vitória e Porto União; empresas de todo o Brasil são atendidas remotamente com a mesma qualidade e resultado.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O site vai aparecer no Google?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Todo site da Voltz Pixel nasce com a estrutura que o Google lê: títulos corretos, dados estruturados, sinal local e boa performance. SEO mais profundo está disponível como serviço adicional.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          E depois que o site está no ar?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">O suporte é direto no WhatsApp com quem construiu. O primeiro ano de acompanhamento está incluso: ajustes de texto, troca de imagem e pequenas melhorias sem custo extra.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Vocês também fazem sistemas e automação?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Sim. Além de sites e lojas, desenvolvemos sistemas sob medida (financeiro, comercial, projetos), automação de processos e agentes de IA para atendimento no WhatsApp.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog -->
+<section class="section blog" id="blog">
+  <div class="wrap">
+    <div class="blog-head">
+      <div>
+        <p class="eyebrow">Do blog</p>
+        <h2 class="section-title">Antes de contratar, <em>entenda.</em></h2>
+      </div>
+      <a href="#" class="portfolio-link">Ver todos os artigos →</a>
+    </div>
+
+    <div class="blog-grid">
+      <a href="#" class="b-card">
+        <img src="https://voltzpixel.com/imagens/blog/loja-virtual-confiavel-640.webp" alt="" loading="lazy" style="border-radius:.75rem;width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:.25rem;">
+        <p class="b-cat">Loja virtual <span class="b-time">· 9 min</span></p>
+        <h3 class="b-title">Sua loja parece golpe? O que mostrar ao cliente antes da Black Friday</h3>
+        <p class="b-excerpt">O que a lei manda a loja virtual mostrar, os sinais que o cliente confere antes de pagar e como provar que o desconto da Black Friday é de verdade.</p>
+        <p class="b-read">Ler artigo →</p>
+      </a>
+      <a href="#" class="b-card">
+        <img src="https://voltzpixel.com/imagens/blog/quanto-custa-um-site-640.webp" alt="" loading="lazy" style="border-radius:.75rem;width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:.25rem;">
+        <p class="b-cat">Sites <span class="b-time">· 6 min</span></p>
+        <h3 class="b-title">Quanto custa um site em 2026 e o que muda o preço</h3>
+        <p class="b-excerpt">Landing page, site institucional, domínio, hospedagem e manutenção: as faixas de preço de 2026, com fonte, e as armadilhas que encarecem a conta.</p>
+        <p class="b-read">Ler artigo →</p>
+      </a>
+      <a href="#" class="b-card">
+        <img src="https://voltzpixel.com/imagens/blog/quanto-custa-uma-loja-virtual-640.webp" alt="" loading="lazy" style="border-radius:.75rem;width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:.25rem;">
+        <p class="b-cat">Loja virtual <span class="b-time">· 5 min</span></p>
+        <h3 class="b-title">Quanto custa uma loja virtual, da criação ao custo por mês</h3>
+        <p class="b-excerpt">Criação, mensalidade da plataforma, taxa por venda e meio de pagamento: quanto custa uma loja virtual em 2026 e como comparar com o marketplace.</p>
+        <p class="b-read">Ler artigo →</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="cta-final">
+  <div class="wrap">
+    <p class="eyebrow">Diagnóstico gratuito · 30 minutos · Sem compromisso</p>
+    <h2>Vamos conversar?</h2>
+    <p>Conte o que trava a sua empresa. Em 24–48h você recebe a proposta, com escopo, prazo e preço fechados.</p>
+    <a href="https://wa.me/5542999486020" class="btn-lime" target="_blank" rel="noopener" style="justify-content:center;max-width:260px;margin:0 auto;font-size:.95rem;padding:.85rem 1.8rem;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chamar no WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#"><img src="https://voltzpixel.com/logo-voltzpixel.svg" alt="Voltz Pixel" height="20" loading="lazy"></a>
+        <p class="f-brand-desc">Sites, lojas virtuais e sistemas sob medida. De União da Vitória para o Brasil e o mundo.</p>
+        <a href="https://wa.me/5542999486020" class="f-wa" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+
+      <nav aria-label="Serviços">
+        <p class="f-nav-title">Serviços</p>
+        <ul class="f-nav-list">
+          <li><a href="#">Criação de sites</a></li>
+          <li><a href="#">Página de vendas</a></li>
+          <li><a href="#">Loja virtual</a></li>
+          <li><a href="#">SEO local</a></li>
+          <li><a href="#">Sistema sob medida</a></li>
+          <li><a href="#">Automação de processos</a></li>
+          <li><a href="#">Agente de IA para atendimento</a></li>
+          <li><a href="#">Agendamento com IA</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Empresa">
+        <p class="f-nav-title">Empresa</p>
+        <ul class="f-nav-list">
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Portfólio</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Diagnóstico gratuito</a></li>
+          <li><a href="#">Contato</a></li>
+          <li><a href="#">Privacidade</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="f-nav-title">Contato</p>
+        <ul class="f-contact">
+          <li><a href="https://wa.me/5542999486020" target="_blank" rel="noopener">+55 42 99948-6020</a></li>
+          <li>contato@voltzpixel.com</li>
+          <li>União da Vitória · PR · Brasil</li>
+          <li>Seg a sex, 8h às 18h30</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Voltz Pixel · CNPJ 39.740.206/0001-93</p>
+      <p>Feito à mão em União da Vitória, PR</p>
+      <a href="#topo" class="f-top-link">Voltar ao topo ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  }
+
+  // Cookie banner
+  function hideCookie() {
+    const el = document.getElementById('cookie');
+    if (el) el.style.display = 'none';
+  }
+
+  // Mobile menu
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll('.c-menu-painel a').forEach(a => {
+    a.addEventListener('click', () => {
+      const details = document.querySelector('.c-menu');
+      if (details) details.removeAttribute('open');
+    });
+  });
+
+
+  // Drag-scroll carousel
+  const carousel = document.getElementById('svcCarousel');
+  if (carousel) {
+    let isDown = false, startX = 0, scrollLeft = 0;
+    carousel.addEventListener('mousedown', e => {
+      isDown = true; carousel.style.cursor = 'grabbing';
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+    });
+    carousel.addEventListener('mouseleave', () => { isDown = false; carousel.style.cursor = ''; });
+    carousel.addEventListener('mouseup', () => { isDown = false; carousel.style.cursor = ''; });
+    carousel.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - carousel.offsetLeft;
+      carousel.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+    let touchStartX = 0, touchScrollLeft = 0;
+    carousel.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].pageX; touchScrollLeft = carousel.scrollLeft;
+    }, { passive: true });
+    carousel.addEventListener('touchmove', e => {
+      const dx = touchStartX - e.touches[0].pageX;
+      carousel.scrollLeft = touchScrollLeft + dx;
+    }, { passive: true });
+  }
+
+  // Animate stats on scroll
+  const statVals = { '48h': 48, '30min': 30, '100%': 100, '0': 0 };
+  const statEls = document.querySelectorAll('.stat-val');
+  const suffixes = ['h', 'min', '%', ''];
+  const targets  = [48, 30, 100, 0];
+  let statsAnimated = false;
+  const animateStats = () => {
+    if (statsAnimated) return;
+    const section = document.querySelector('.stats-grid');
+    if (!section) return;
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight * .85) {
+      statsAnimated = true;
+      statEls.forEach((el, i) => {
+        const end = targets[i], suf = suffixes[i];
+        if (end === 0) return;
+        let cur = 0;
+        const step = end / 28;
+        const timer = setInterval(() => {
+          cur = Math.min(cur + step, end);
+          el.textContent = Math.round(cur) + suf;
+          if (cur >= end) clearInterval(timer);
+        }, 22);
+      });
+    }
+  };
+  window.addEventListener('scroll', animateStats, { passive: true });
+  animateStats();
+</script>
+</body>
+</html>
