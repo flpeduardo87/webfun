@@ -316,7 +316,8 @@ svg { display: block; }
   .hero-ctas .btn-ghost svg { display: none; }
   .hero-ctas .btn-ghost:hover { border-color: var(--ink); color: var(--ink); background: none; }
   .hero-window { width: 100%; }
-  .hw-hero-strip { flex-direction: column; }
+  .hw-hero-strip { flex-direction: column; align-items: flex-start; }
+  .hw-hero-txt { width: 100%; }
   .hw-hero-photo { width: 100%; height: 6rem; }
 }
 
@@ -362,7 +363,7 @@ svg { display: block; }
 .svc-cta svg { width: .9rem; height: .9rem; stroke-width: 2.5; }
 .svc-card:hover .svc-cta { opacity: .85; }
 @media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .svc-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .svc-grid { grid-template-columns: 1fr; } .svc-cta { justify-content: flex-start; width: fit-content; } }
 
 /* ── Portfolio ───────────────────────────────────────────────────────── */
 .portfolio { background: var(--surface); border-top: 1px solid var(--line); }
@@ -435,6 +436,7 @@ svg { display: block; }
 .stat-card.stat-lime .stat-ey { color: rgba(30,39,0,.5); }
 .stat-num { font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 900; letter-spacing: -.05em; line-height: 1; font-variant-numeric: tabular-nums; color: var(--win-txt); margin-top: auto; padding-top: 1.5rem; }
 .stat-card.stat-lime .stat-num { color: var(--acid-fg); }
+.stat-num.stat-star::after { content: "★"; font-size: .5em; vertical-align: super; }
 .stat-ctx { font-size: .88rem; line-height: 1.55; color: var(--win-muted); margin-top: .6rem; }
 .stat-card.stat-lime .stat-ctx { color: rgba(30,39,0,.55); }
 @media (max-width: 900px) { .stats-bento { grid-template-columns: repeat(2,1fr); } }
@@ -912,7 +914,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
       <div class="stat-card">
         <span class="stat-ey">avaliação média</span>
         <div>
-          <p class="stat-num" data-target="4.8" data-suffix="★">0</p>
+          <p class="stat-num stat-star" data-target="4.8" data-suffix="">0</p>
           <p class="stat-ctx">Nota média de satisfação dos clientes.</p>
         </div>
       </div>
