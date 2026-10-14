@@ -370,10 +370,11 @@ svg { display: block; }
 .portfolio { background: var(--surface); border-top: 1px solid var(--line); }
 .portfolio-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
 .filtros { display: flex; gap: .35rem; flex-wrap: wrap; }
-.filtro-btn { padding: .45rem 1rem; border-radius: 999px; border: 1.5px solid var(--ink-2); background: transparent; font-size: .88rem; font-weight: 600; color: var(--ink-2); transition: all .18s; cursor: pointer; }
-.filtro-btn:hover, .filtro-btn.ativo { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.filtro-btn { padding: .45rem 1rem; border-radius: 999px; border: 1px solid var(--line); background: transparent; font-size: .88rem; font-weight: 600; color: var(--muted); transition: all .18s; cursor: pointer; }
+.filtro-btn:hover { border-color: var(--ink-2); color: var(--ink-2); }
+.filtro-btn.ativo { background: var(--acid); border-color: var(--acid); color: var(--acid-fg); }
 .p-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
-.p-card { background: var(--win); border-radius: var(--r); overflow: hidden; border: 1px solid var(--win-line); display: flex; flex-direction: column; transition: transform .2s; }
+.p-card { background: var(--win); border-radius: var(--r); overflow: hidden; border: 1px solid var(--line); display: flex; flex-direction: column; transition: transform .2s; }
 .p-card:hover { transform: translateY(-2px); }
 .p-thumb { aspect-ratio: 16/10; position: relative; overflow: hidden; display: flex; align-items: flex-end; }
 .p-thumb-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
