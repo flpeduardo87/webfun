@@ -234,7 +234,7 @@ svg { display: block; }
 }
 .wf-theme-btn:hover { color: var(--ink); }
 [data-theme="dark"] .wf-theme-btn { color: #fff; }
-[data-theme="dark"] .wf-theme-btn:hover { color: var(--muted); }
+@media (hover: hover) { [data-theme="dark"] .wf-theme-btn:hover { color: var(--muted); } }
 .wf-theme-btn svg { width: 1rem; height: 1rem; stroke-width: 2; }
 .wf-theme-btn .ico-dark { display: none; }
 [data-theme="dark"] .wf-theme-btn .ico-light { display: none; }
@@ -302,11 +302,24 @@ svg { display: block; }
 .hero-float { position: absolute; right: -1.5rem; top: -1.5rem; background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow); border: 1px solid var(--line); padding: .8rem 1rem; font-size: .82rem; font-weight: 600; display: flex; align-items: center; gap: .3rem; color: var(--ink); white-space: nowrap; }
 .hero-float .dot { width: .45rem; height: .45rem; border-radius: 999px; background: var(--green); }
 .hero-float-2 { position: absolute; left: -1rem; bottom: 2rem; background: var(--acid); border-radius: var(--r); box-shadow: var(--shadow); padding: .7rem 1rem; color: var(--acid-fg); font-size: .82rem; font-weight: 700; display: flex; align-items: center; gap: .3rem; }
-@media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } .hero-right { display: none; } }
+@media (max-width: 900px) {
+  .hero { padding: 5.5rem var(--gutter) 3rem; min-height: auto; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-float, .hero-float-2 { display: none; }
+}
+@media (max-width: 600px) {
+  .hero-ctas { flex-direction: column; align-items: flex-start; gap: .75rem; }
+  .hero-ctas .btn-ghost {
+    height: 2.9rem; padding: 0 1.3rem; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--ink-2);
+  }
+  .hero-ctas .btn-ghost svg { display: none; }
+  .hero-ctas .btn-ghost:hover { border-color: var(--ink); color: var(--ink); background: none; }
+}
 
 /* ── Banda ───────────────────────────────────────────────────────────── */
 .band { padding: 1.5rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); overflow: hidden; }
-.band-track { display: flex; gap: 3rem; align-items: center; animation: marquee 22s linear infinite; width: max-content; }
+.band-track { display: flex; gap: 3rem; align-items: center; animation: marquee 40s linear infinite; width: max-content; }
 .band-item { font-size: .88rem; font-weight: 700; letter-spacing: .04em; color: var(--muted); white-space: nowrap; text-transform: uppercase; }
 .band-sep { color: var(--line); }
 @keyframes marquee { to { transform: translateX(-50%); } }
