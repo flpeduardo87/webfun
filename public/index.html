@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
 <meta charset="UTF-8">
@@ -630,7 +630,13 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
 .cta-final .btn-acid:hover { background: #2a3600; }
 .cta-final .btn-outline { border-color: rgba(30,39,0,.3); color: var(--acid-fg); }
 .cta-final .btn-outline:hover { border-color: var(--acid-fg); color: var(--acid-fg); }
-
+.cta-human { margin-top: 2.5rem; border-radius: var(--r); overflow: hidden; max-width: 480px; margin-left: auto; margin-right: auto; }
+.cta-human img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; object-position: center 25%; }
+.pq-photo { margin-top: 1.75rem; border-radius: var(--r); overflow: hidden; }
+.pq-photo img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; object-position: center 15%; }
+.processo-photo { margin-top: 1.75rem; border-radius: var(--r); overflow: hidden; }
+.processo-photo img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; }
+@media (max-width: 800px) { .pq-photo, .processo-photo { display: none; } }
 /* ── Rodapé ──────────────────────────────────────────────────────────── */
 .rodape { background: var(--win); border-top: 1px solid var(--win-line); padding: 4rem 0 2.5rem; transition: background .3s, border-color .3s; }
 .rodape-grid { display: grid; grid-template-columns: 2fr repeat(3,1fr); gap: 3rem; margin-bottom: 3rem; }
@@ -1005,6 +1011,9 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
         <div class="pq-cta">
           <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">Quero resolver isso <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
         </div>
+        <div class="pq-photo">
+          <img src="media/pessoas/mobile-planning.webp" alt="Empresária organizando o negócio com celular e caderno" loading="lazy">
+        </div>
       </div>
       <div class="pq-items">
         <div class="pq-item"><span class="pq-n">01</span><div><p class="pq-item-titulo">Meu site ficou para trás.</p><p class="pq-item-desc">A empresa evoluiu, mas a presença digital já não transmite o nível atual do negócio. O site parece amador diante do que você entrega.</p></div></div>
@@ -1023,6 +1032,9 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
         <span class="eyebrow">Processo</span>
         <h2 class="section-title" id="proc-h2">Clareza antes de código.</h2>
         <p class="processo-sub">Um processo simples o suficiente para ser ágil e estruturado o bastante para evitar retrabalho e decisões sem direção.</p>
+        <div class="processo-photo">
+          <img src="media/pessoas/webfun-collaboration.webp" alt="Equipe Webfun colaborando em projeto" loading="lazy">
+        </div>
       </div>
       <ol class="steps">
         <li class="step" style="--i:0"><div class="step-top"><span class="step-n">Etapa 01 · Diagnóstico</span><span class="step-dur">30–60 min</span></div><h3>Entender o negócio.</h3><p class="step-desc">Objetivos, público, concorrência, oferta e o que a experiência precisa resolver. Nenhum template, nenhum achismo.</p></li>
@@ -1184,6 +1196,9 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
     <div class="cta-final-btns">
       <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">Falar no WhatsApp <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
       <a href="mailto:contato@webfun.com.br" class="btn-outline">Enviar e-mail</a>
+    </div>
+    <div class="cta-human">
+      <img src="media/pessoas/mobile-professional.webp" alt="Profissional em contato com a agência pelo celular" loading="lazy">
     </div>
   </div>
 </section>
