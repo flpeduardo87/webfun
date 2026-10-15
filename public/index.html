@@ -425,29 +425,35 @@ svg { display: block; }
 .hw-sys-tabs { display: flex; gap: .25rem; }
 .hw-sys-tab { font-size: .58rem; font-weight: 700; padding: .22rem .55rem; border-radius: .4rem; color: var(--win-muted); background: transparent; white-space: nowrap; cursor: pointer; }
 .hw-sys-tab.on { background: var(--ink); color: var(--win); }
-.hw-kanban { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .4rem; flex: 1; }
-.hw-kcol { display: flex; flex-direction: column; gap: .28rem; justify-content: space-between; }
-.hw-kcol-head { display: flex; align-items: center; gap: .28rem; font-size: .54rem; font-weight: 700; color: var(--win-muted); padding-bottom: .15rem; }
-.hw-kcol-status { width: .42rem; height: .42rem; border-radius: 999px; flex-shrink: 0; }
-.hw-kcol-n { margin-left: auto; background: var(--win-3); color: var(--win-muted); font-size: .48rem; font-weight: 800; padding: .04rem .28rem; border-radius: 999px; }
-.hw-ktask { background: var(--win); border-radius: .55rem; padding: .38rem .42rem .4rem; border: 1px solid var(--win-line); display: flex; flex-direction: column; gap: .22rem; }
-.hw-ktask-top { display: flex; align-items: center; gap: .25rem; }
-.hw-ktask-prio { width: .32rem; height: .32rem; border-radius: 999px; flex-shrink: 0; }
-.hw-ktask-title { font-size: .55rem; font-weight: 700; color: var(--win-txt); line-height: 1.3; flex: 1; }
-.hw-ktask-foot { display: flex; align-items: center; justify-content: flex-end; }
-.hw-ktask-av { width: 1.1rem; height: 1.1rem; border-radius: 999px; font-size: .44rem; font-weight: 900; display: grid; place-items: center; color: #fff; flex-shrink: 0; }
-.hw-ktask-active { border-color: rgba(59,130,246,.5); background: rgba(59,130,246,.05); }
-.hw-ktask-done .hw-ktask-title { text-decoration: line-through; opacity: .5; }
-.hw-ktask-done { opacity: .7; }
+/* Dashboard KPIs */
+.hw-dash-kpis { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .4rem; }
+.hw-kpi { background: var(--win-2); border-radius: .65rem; padding: .5rem .6rem; border: 1px solid var(--win-line); }
+.hw-kpi-lbl { font-size: .5rem; font-weight: 700; color: var(--win-muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .18rem; }
+.hw-kpi-val { font-size: 1rem; font-weight: 900; color: var(--win-txt); letter-spacing: -.04em; line-height: 1; }
+.hw-kpi-delta { font-size: .5rem; font-weight: 700; color: #22c55e; margin-top: .18rem; }
+/* Area chart */
+.hw-dash-chart { flex: 1; background: var(--win-2); border-radius: .75rem; border: 1px solid var(--win-line); padding: .6rem .6rem .3rem; display: flex; flex-direction: column; min-height: 3.5rem; }
+.hw-dash-chart svg { flex: 1; width: 100%; overflow: visible; }
+.hw-chart-xlbl { display: flex; justify-content: space-between; font-size: .42rem; color: var(--win-muted); margin-top: .2rem; }
+/* Table */
+.hw-dash-table { background: var(--win-2); border-radius: .75rem; border: 1px solid var(--win-line); overflow: hidden; }
+.hw-dash-row { display: grid; grid-template-columns: 1.4fr 1fr .9fr; gap: .3rem; padding: .3rem .65rem; font-size: .56rem; color: var(--win-txt); align-items: center; }
+.hw-dash-row + .hw-dash-row { border-top: 1px solid var(--win-line); }
+.hw-dash-head { font-size: .48rem; font-weight: 700; color: var(--win-muted); text-transform: uppercase; letter-spacing: .06em; background: var(--win-3); }
+.hw-dash-ok { color: #22c55e; font-weight: 700; }
+.hw-dash-pend { color: #f59e0b; font-weight: 700; }
 [data-theme="dark"] .hw-sys-bar { background: var(--bg2); border-color: rgba(255,255,255,.06); }
 [data-theme="dark"] .hw-sys-brand { color: var(--ink); }
 [data-theme="dark"] .hw-sys-tab { color: var(--muted); }
 [data-theme="dark"] .hw-sys-tab.on { background: var(--ink); color: var(--bg); }
-[data-theme="dark"] .hw-kcol-head { color: var(--muted); }
-[data-theme="dark"] .hw-kcol-n { background: var(--bg); color: var(--muted); }
-[data-theme="dark"] .hw-ktask { background: var(--bg2); border-color: rgba(255,255,255,.06); }
-[data-theme="dark"] .hw-ktask-title { color: var(--ink); }
-[data-theme="dark"] .hw-ktask-active { border-color: rgba(59,130,246,.4); background: rgba(59,130,246,.08); }
+[data-theme="dark"] .hw-kpi { background: var(--bg2); border-color: rgba(255,255,255,.06); }
+[data-theme="dark"] .hw-kpi-val { color: var(--ink); }
+[data-theme="dark"] .hw-kpi-lbl { color: var(--muted); }
+[data-theme="dark"] .hw-dash-chart { background: var(--bg2); border-color: rgba(255,255,255,.06); }
+[data-theme="dark"] .hw-chart-xlbl { color: var(--muted); }
+[data-theme="dark"] .hw-dash-table { background: var(--bg2); border-color: rgba(255,255,255,.06); }
+[data-theme="dark"] .hw-dash-row { color: var(--ink); border-color: rgba(255,255,255,.05); }
+[data-theme="dark"] .hw-dash-head { background: var(--bg); color: var(--muted); }
 @media (max-width: 900px) {
   .hero { padding: 6.5rem var(--gutter) 3rem; min-height: auto; }
   .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -905,7 +911,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
             </div>
           </div>
 
-          <!-- Slide 3: Sistema — kanban -->
+          <!-- Slide 3: Sistema — dashboard -->
           <div class="hw-slide hw-body">
             <div class="hw-sys-bar">
               <span class="hw-sys-brand">⚡ SysBoard</span>
@@ -915,28 +921,34 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
               </div>
             </div>
             <div class="hw-sys-tabs">
-              <span class="hw-sys-tab">Dashboard</span>
-              <span class="hw-sys-tab on">Kanban</span>
+              <span class="hw-sys-tab on">Dashboard</span>
+              <span class="hw-sys-tab">Kanban</span>
               <span class="hw-sys-tab">Relatórios</span>
             </div>
-            <div class="hw-kanban">
-              <div class="hw-kcol">
-                <div class="hw-kcol-head"><span class="hw-kcol-status" style="background:#f59e0b"></span>A fazer<span class="hw-kcol-n">3</span></div>
-                <div class="hw-ktask"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#ef4444"></span><span class="hw-ktask-title">Migrar banco</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#6366f1">M</div></div></div>
-                <div class="hw-ktask"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#f59e0b"></span><span class="hw-ktask-title">Rel. financeiro</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#8b5cf6">L</div></div></div>
-                <div class="hw-ktask"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#94a3b8"></span><span class="hw-ktask-title">Revisão UX</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#ec4899">A</div></div></div>
-              </div>
-              <div class="hw-kcol">
-                <div class="hw-kcol-head"><span class="hw-kcol-status" style="background:#3b82f6"></span>Progresso<span class="hw-kcol-n">2</span></div>
-                <div class="hw-ktask hw-ktask-active"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#3b82f6"></span><span class="hw-ktask-title">Módulo vendas</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#14b8a6">J</div></div></div>
-                <div class="hw-ktask hw-ktask-active"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#3b82f6"></span><span class="hw-ktask-title">API pagamentos</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#f97316">R</div></div></div>
-              </div>
-              <div class="hw-kcol">
-                <div class="hw-kcol-head"><span class="hw-kcol-status" style="background:#22c55e"></span>Concluído<span class="hw-kcol-n">5</span></div>
-                <div class="hw-ktask hw-ktask-done"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#22c55e"></span><span class="hw-ktask-title">Design sistema</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:var(--acid);color:var(--acid-fg)">F</div></div></div>
-                <div class="hw-ktask hw-ktask-done"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#22c55e"></span><span class="hw-ktask-title">Integração fiscal</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#0ea5e9">C</div></div></div>
-                <div class="hw-ktask hw-ktask-done"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#22c55e"></span><span class="hw-ktask-title">Login & acesso</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#6366f1">M</div></div></div>
-              </div>
+            <div class="hw-dash-kpis">
+              <div class="hw-kpi"><p class="hw-kpi-lbl">Receita</p><p class="hw-kpi-val">R$48k</p><p class="hw-kpi-delta">↑ 8% este mês</p></div>
+              <div class="hw-kpi"><p class="hw-kpi-lbl">Usuários</p><p class="hw-kpi-val">1.342</p><p class="hw-kpi-delta">↑ 18% semana</p></div>
+              <div class="hw-kpi"><p class="hw-kpi-lbl">Conversão</p><p class="hw-kpi-val">68%</p><p class="hw-kpi-delta">↑ 5% vs ontem</p></div>
+            </div>
+            <div class="hw-dash-chart">
+              <svg viewBox="0 0 260 55" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#c9ff41" stop-opacity=".28"/>
+                    <stop offset="100%" stop-color="#c9ff41" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0,48 C30,44 50,36 80,30 C110,24 120,34 145,22 C165,13 190,18 215,10 C235,4 248,7 260,3 L260,55 L0,55 Z" fill="url(#cg)"/>
+                <path d="M0,48 C30,44 50,36 80,30 C110,24 120,34 145,22 C165,13 190,18 215,10 C235,4 248,7 260,3" fill="none" stroke="#c9ff41" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="260" cy="3" r="2.5" fill="#c9ff41"/>
+              </svg>
+              <div class="hw-chart-xlbl"><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span></div>
+            </div>
+            <div class="hw-dash-table">
+              <div class="hw-dash-row hw-dash-head"><span>Projeto</span><span>Tipo</span><span>Status</span></div>
+              <div class="hw-dash-row"><span>Loja Maria</span><span>E-commerce</span><span class="hw-dash-ok">● Ativo</span></div>
+              <div class="hw-dash-row"><span>Clínica Sol</span><span>Site</span><span class="hw-dash-ok">● Ativo</span></div>
+              <div class="hw-dash-row"><span>Firma Ltda</span><span>Sistema</span><span class="hw-dash-pend">● Build</span></div>
             </div>
           </div>
 
