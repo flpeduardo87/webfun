@@ -462,9 +462,10 @@ svg { display: block; }
   .hero-ctas .btn-ghost svg { display: none; }
   .hero-ctas .btn-ghost:hover { border-color: var(--ink); color: var(--ink); background: none; }
   .hero-window { width: 100%; }
-  .hw-hero-strip { flex-direction: column; align-items: flex-start; }
-  .hw-hero-txt { width: 100%; }
-  .hw-hero-photo { width: 100%; height: 6rem; }
+  .hw-hero-strip { flex-direction: row; align-items: center; gap: .65rem; padding: 1rem; }
+  .hw-hero-txt { flex: 1; min-width: 0; }
+  .hw-hero-photo { width: 5.5rem; height: 5.5rem; flex-shrink: 0; border-radius: .6rem; }
+  .hw-btn { font-size: .62rem; padding: .28rem .55rem; margin-top: .35rem; }
 }
 
 /* ── Carrossel dots ──────────────────────────────────────────────────── */
