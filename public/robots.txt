@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://webfun.com.br/sitemap.xml
