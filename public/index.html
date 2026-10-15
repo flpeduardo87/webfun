@@ -388,9 +388,16 @@ svg { display: block; }
 .p-desc { font-size: .88rem; color: var(--win-muted); line-height: 1.55; }
 .p-meta { display: flex; align-items: center; justify-content: space-between; margin-top: .75rem; }
 .p-ano { font-size: .75rem; color: var(--win-muted); font-weight: 600; }
-.p-link { font-size: .82rem; color: var(--acid); font-weight: 700; }
-[data-theme="dark"] .p-link { color: var(--acid-fg); }
+.p-tags { display: flex; gap: .3rem; flex-wrap: wrap; }
+.p-tag { font-size: .75rem; font-weight: 600; text-transform: capitalize; color: var(--win-muted); background: var(--win-3); border-radius: 999px; padding: .18rem .55rem; }
+.p-link { display: inline-flex; align-items: center; gap: .25rem; padding: .3rem .8rem; border-radius: 999px; background: var(--acid); color: var(--acid-fg); font-size: .78rem; font-weight: 700; white-space: nowrap; transition: background .15s; }
+.p-link:hover { background: var(--acid-2); }
+.p-card[data-cat="site"] .p-thumb-bg { background: linear-gradient(135deg,#1e2640 0%,#252e55 100%); }
+.p-card[data-cat="loja"] .p-thumb-bg { background: linear-gradient(135deg,#1a2e1a 0%,#1f3a20 100%); }
+.p-card[data-cat="sistema"] .p-thumb-bg { background: linear-gradient(135deg,#2a1a2e 0%,#351e3a 100%); }
+.p-card[data-cat="landing"] .p-thumb-bg { background: linear-gradient(135deg,#2e1a1a 0%,#3a2020 100%); }
 .p-card.hidden { display: none; }
+.portfolio-mais { text-align: center; margin-top: 2.5rem; }
 @media (max-width: 900px) { .p-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .p-grid { grid-template-columns: 1fr; } }
 
@@ -851,15 +858,55 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
       </div>
     </div>
     <div class="p-grid" id="portfolioGrid">
-      <div class="p-card" data-cat="site"><div class="p-thumb" style="background:linear-gradient(135deg,#1a1f2e,#0f1520)"><div class="p-thumb-bg"><span class="p-thumb-letra">L</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div><div class="p-info"><p class="p-nome">LUME Odontologia</p><p class="p-desc">Clínica premium com jornada completa. Agendamento online e área do paciente.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="loja"><div class="p-thumb" style="background:linear-gradient(135deg,#1a1410,#2a1e16)"><div class="p-thumb-bg"><span class="p-thumb-letra">A</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Loja virtual</span></div></div><div class="p-info"><p class="p-nome">AZAFF</p><p class="p-desc">E-commerce de moda feminina com identidade minimalista e checkout otimizado.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="site"><div class="p-thumb" style="background:linear-gradient(135deg,#1e1520,#150e1a)"><div class="p-thumb-bg"><span class="p-thumb-letra">A</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div><div class="p-info"><p class="p-nome">AURA Estética</p><p class="p-desc">Site premium para clínica estética avançada com foco em conversão e identidade sofisticada.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="sistema"><div class="p-thumb" style="background:linear-gradient(135deg,#0d1a14,#121f18)"><div class="p-thumb-bg"><span class="p-thumb-letra">C</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div><div class="p-info"><p class="p-nome">Canoinhas TC</p><p class="p-desc">Site + sistema de reservas de quadras, churrasqueiras e gestão de sócios.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="site"><div class="p-thumb" style="background:linear-gradient(135deg,#1e1710,#17120c)"><div class="p-thumb-bg"><span class="p-thumb-letra">C</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div><div class="p-info"><p class="p-nome">Casa Serena</p><p class="p-desc">Hotel boutique na Serra da Mantiqueira com reservas integradas e identidade premium.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="sistema"><div class="p-thumb" style="background:linear-gradient(135deg,#0a1a10,#0e2016)"><div class="p-thumb-bg"><span class="p-thumb-letra">M</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div><div class="p-info"><p class="p-nome">MATCH Racquet Club</p><p class="p-desc">Plataforma com reservas, planos de sócios e agenda de eventos do clube.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="site"><div class="p-thumb" style="background:linear-gradient(135deg,#1a1400,#211900)"><div class="p-thumb-bg"><span class="p-thumb-letra">M</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div><div class="p-info"><p class="p-nome">Mielke Energia Solar</p><p class="p-desc">Site de geração de leads para instaladora solar com portfólio de projetos e SEO.</p><div class="p-meta"><span class="p-ano">2024</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="landing"><div class="p-thumb" style="background:linear-gradient(135deg,#1e0e0e,#2a1010)"><div class="p-thumb-bg"><span class="p-thumb-letra">C</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Landing page</span></div></div><div class="p-info"><p class="p-nome">Com Cristo Kids</p><p class="p-desc">Landing page de alta conversão para biblioteca cristã infantil com checkout integrado.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="site"><div class="p-thumb" style="background:linear-gradient(135deg,#111520,#0c1018)"><div class="p-thumb-bg"><span class="p-thumb-letra">N</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div><div class="p-info"><p class="p-nome">NEXO Estratégia</p><p class="p-desc">Site para consultoria B2B com foco em diagnóstico executivo e autoridade de marca.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
+
+      <div class="p-card" data-cat="site">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/lume.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
+        <div class="p-info"><p class="p-nome">LUME Odontologia</p><p class="p-desc">Site de alta conversão para clínica odontológica com agendamento online e área do paciente.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">UX/UI</span><span class="p-tag">Agendamento</span></div><a href="https://webfun.com.br/modelos/lume/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="loja">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/azaff.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Loja virtual</span></div></div>
+        <div class="p-info"><p class="p-nome">AZAFF</p><p class="p-desc">E-commerce de moda feminina com identidade minimalista, catálogo e checkout otimizado.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">E-commerce</span><span class="p-tag">Moda</span></div><a href="https://lojasazaff.com.br/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="site">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/aura.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
+        <div class="p-info"><p class="p-nome">AURA Estética</p><p class="p-desc">Site premium para clínica estética avançada com foco em conversão e identidade visual sofisticada.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Premium</span><span class="p-tag">UX/UI</span></div><a href="https://webfun.com.br/modelos/aura/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="sistema">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/canoinhas-tenis-clube.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div>
+        <div class="p-info"><p class="p-nome">Canoinhas Tênis Clube</p><p class="p-desc">Site institucional + sistema de reservas de quadras, churrasqueiras e gestão de sócios.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Reservas</span><span class="p-tag">Sócios</span></div><a href="https://canoinhas-tenis-clube.vercel.app/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="site">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/casa-serena.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
+        <div class="p-info"><p class="p-nome">Casa Serena</p><p class="p-desc">Hotel boutique na Serra da Mantiqueira com sistema de reservas integrado e identidade visual premium.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Reservas</span><span class="p-tag">Hospitalidade</span></div><a href="https://webfun.com.br/modelos/casa-serena/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="sistema">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/match.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div>
+        <div class="p-info"><p class="p-nome">MATCH Racquet Club</p><p class="p-desc">Plataforma completa para clube de raquete com reservas, planos de sócios e agenda de eventos.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Agenda</span><span class="p-tag">Área do sócio</span></div><a href="https://webfun.com.br/modelos/match/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="loja">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/wasabi.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Loja virtual</span></div></div>
+        <div class="p-info"><p class="p-nome">Wasabi Sushi Bar</p><p class="p-desc">Site para restaurante japonês em Dublin com cardápio digital, reservas e identidade visual marcante.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Restaurante</span><span class="p-tag">Exterior</span></div><a href="https://wasabisushibar.ie/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="landing">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/elisangela-pontes.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Landing page</span></div></div>
+        <div class="p-info"><p class="p-nome">Elisangela Pontes</p><p class="p-desc">Landing page para advocacia empresarial especializada em blindagem jurídica e gestão de riscos.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Jurídico</span><span class="p-tag">Conversão</span></div><a href="https://elisangelapontes.adv.br/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="site">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/noma.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
+        <div class="p-info"><p class="p-nome">Noma Imóveis</p><p class="p-desc">Template premium para imobiliárias com listagem de imóveis, captação de leads e identidade sofisticada.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Imóveis</span><span class="p-tag">UX/UI</span></div><a href="https://webfun.com.br/modelos/noma/imoveis.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+    </div>
+    <div class="portfolio-mais">
+      <a href="/projetos" class="btn-outline">Ver todos os projetos →</a>
     </div>
   </div>
 </section>
