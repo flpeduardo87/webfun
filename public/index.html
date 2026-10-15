@@ -366,6 +366,11 @@ svg { display: block; }
   .hw-hero-photo { width: 100%; height: 6rem; }
 }
 
+/* ── Carrossel dots ──────────────────────────────────────────────────── */
+.port-dots, .proc-dots { display: none; justify-content: center; gap: .4rem; margin-top: 1.25rem; }
+.carr-dot { width: .45rem; height: .45rem; border-radius: 999px; background: var(--line); border: none; padding: 0; cursor: pointer; transition: background .2s, width .3s var(--ease); flex-shrink: 0; }
+.carr-dot.ativo { background: var(--ink); width: 1.2rem; }
+
 /* ── Banda ───────────────────────────────────────────────────────────── */
 .band { padding: 1.5rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); overflow: hidden; }
 .band-track { display: flex; gap: 3rem; align-items: center; animation: marquee 40s linear infinite; width: max-content; }
@@ -441,7 +446,13 @@ svg { display: block; }
 .p-card.hidden { display: none; }
 .portfolio-mais { text-align: center; margin-top: 2.5rem; }
 @media (max-width: 900px) { .p-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .p-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  .filtros { display: none; }
+  .p-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 1rem; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); padding-bottom: .25rem; }
+  .p-grid::-webkit-scrollbar { display: none; }
+  .p-card { flex: 0 0 82vw; max-width: 320px; scroll-snap-align: start; }
+  .port-dots { display: flex !important; }
+}
 
 /* ── Para quem ───────────────────────────────────────────────────────── */
 .paraquem { background: var(--bg); border-top: 1px solid var(--line); }
@@ -477,7 +488,14 @@ svg { display: block; }
 .step-dur { font-size: .75rem; font-weight: 600; color: var(--muted2); }
 .step h3 { font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.1; margin-bottom: .5rem; }
 .step-desc { font-size: .88rem; color: var(--muted); line-height: 1.6; }
-@media (max-width: 800px) { .processo-layout { grid-template-columns: 1fr; } .processo-left { position: static; } }
+@media (max-width: 800px) {
+  .processo-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .processo-left { position: static; }
+  .steps { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 1rem; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); padding-bottom: .25rem; }
+  .steps::-webkit-scrollbar { display: none; }
+  .step { flex: 0 0 82vw; max-width: 340px; position: relative !important; top: auto !important; scroll-snap-align: start; }
+  .proc-dots { display: flex !important; }
+}
 
 /* ── Stats ───────────────────────────────────────────────────────────── */
 .stats { background: var(--win); border-top: 1px solid var(--win-line); transition: background .3s, border-color .3s; }
@@ -951,6 +969,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
       </div>
 
     </div>
+    <div class="port-dots" aria-hidden="true"></div>
     <div class="portfolio-mais">
       <a href="/projetos" class="btn-outline">Ver todos os projetos →</a>
     </div>
@@ -995,6 +1014,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
         <li class="step" style="--i:4"><div class="step-top"><span class="step-n">Etapa 05 · Validação</span><span class="step-dur">Antes do lançamento</span></div><h3>Testar os detalhes.</h3><p class="step-desc">Desktop, mobile, formulários, links, legibilidade e experiência final. Nada vai ao ar sem passar por isso.</p></li>
         <li class="step" style="--i:5"><div class="step-top"><span class="step-n">Etapa 06 · Evolução</span><span class="step-dur">Contínuo</span></div><h3>Continuar melhorando.</h3><p class="step-desc">SEO, tráfego, manutenção e novas funcionalidades conforme o negócio cresce. Entregar é o começo da parceria.</p></li>
       </ol>
+      <div class="proc-dots" aria-hidden="true"></div>
     </div>
   </div>
 </section>
@@ -1274,6 +1294,32 @@ document.querySelectorAll('#estAdds .est-add').forEach(function(label) {
 var firstOpcao = document.querySelector('#estOpcoes .est-opcao');
 if (firstOpcao) firstOpcao.classList.add('ativo');
 updateEst();
+
+/* ── Carrossel dots ── */
+function setupCarrDots(track, dotsEl) {
+  if (!track || !dotsEl) return;
+  var items = Array.from(track.children).filter(function(el) { return getComputedStyle(el).display !== 'none'; });
+  dotsEl.innerHTML = items.map(function(_, i) {
+    return '<button class="carr-dot' + (i === 0 ? ' ativo' : '') + '" aria-label="Item ' + (i + 1) + '"></button>';
+  }).join('');
+  var btns = Array.from(dotsEl.querySelectorAll('.carr-dot'));
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var idx = items.indexOf(e.target);
+        if (idx >= 0) btns.forEach(function(b, j) { b.classList.toggle('ativo', j === idx); });
+      }
+    });
+  }, { root: track, threshold: 0.55 });
+  items.forEach(function(el) { obs.observe(el); });
+  btns.forEach(function(b, i) {
+    b.addEventListener('click', function() {
+      items[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    });
+  });
+}
+if (window.innerWidth <= 600) setupCarrDots(document.getElementById('portfolioGrid'), document.querySelector('.port-dots'));
+if (window.innerWidth <= 800) setupCarrDots(document.querySelector('.steps'), document.querySelector('.proc-dots'));
 </script>
 </body>
 </html>
