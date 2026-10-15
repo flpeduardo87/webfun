@@ -390,16 +390,31 @@ svg { display: block; }
 .hw-pip.hw-active { width: 1.1rem; background: var(--ink); opacity: 1; }
 [data-theme="dark"] .hw-pip { background: var(--muted); }
 [data-theme="dark"] .hw-pip.hw-active { background: var(--acid); }
-/* Loja prods */
-.hw-prods { width: 7.5rem; flex-shrink: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .3rem; }
-.hw-prod { background: var(--win-3); border-radius: .5rem; overflow: hidden; border: 1px solid var(--win-line); }
-.hw-prod-img { height: 2.8rem; display: grid; place-items: center; font-size: 1.3rem; }
-.hw-prod-body { padding: .25rem .35rem .3rem; }
-.hw-prod-name { font-size: .58rem; font-weight: 700; color: var(--win-txt); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.hw-prod-price { font-size: .62rem; font-weight: 800; color: var(--acid-fg); margin-top: .1rem; }
-[data-theme="dark"] .hw-prod { background: var(--bg); border-color: rgba(255,255,255,.06); }
-[data-theme="dark"] .hw-prod-name { color: var(--ink); }
-[data-theme="dark"] .hw-prod-price { color: var(--acid); }
+/* Loja — e-commerce mockup */
+.hw-shop-nav { display: flex; align-items: center; justify-content: space-between; padding: .55rem .75rem; background: var(--win-2); border-radius: .75rem; border: 1px solid var(--win-line); }
+.hw-shop-brand { font-size: .8rem; font-weight: 900; color: var(--win-txt); letter-spacing: -.04em; }
+.hw-shop-brand em { font-style: normal; color: var(--acid-fg); }
+.hw-shop-actions { display: flex; align-items: center; gap: .55rem; }
+.hw-shop-ico { font-size: .8rem; line-height: 1; }
+.hw-shop-cart-wrap { position: relative; display: inline-flex; }
+.hw-cart-badge { position: absolute; top: -.35rem; right: -.35rem; background: var(--acid); color: var(--acid-fg); font-size: .42rem; font-weight: 900; width: .85rem; height: .85rem; border-radius: 999px; display: grid; place-items: center; line-height: 1; }
+.hw-shop-cats { display: flex; gap: .3rem; }
+.hw-shop-cat { font-size: .58rem; font-weight: 700; padding: .22rem .5rem; border-radius: 999px; border: 1px solid var(--win-line); color: var(--win-muted); background: var(--win-2); white-space: nowrap; }
+.hw-shop-cat.on { background: var(--ink); color: var(--win); border-color: var(--ink); }
+.hw-shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem; }
+.hw-shop-prod { background: var(--win-2); border-radius: .75rem; overflow: hidden; border: 1px solid var(--win-line); }
+.hw-shop-thumb { height: 3.8rem; display: grid; place-items: center; font-size: 1.6rem; }
+.hw-shop-info { padding: .35rem .5rem .45rem; }
+.hw-shop-name { font-size: .64rem; font-weight: 700; color: var(--win-txt); line-height: 1.2; }
+.hw-shop-price { font-size: .7rem; font-weight: 900; color: var(--win-txt); margin: .12rem 0 .3rem; }
+.hw-shop-btn { width: 100%; padding: .24rem 0; background: var(--acid); color: var(--acid-fg); border: none; border-radius: .4rem; font-size: .58rem; font-weight: 800; cursor: pointer; font-family: inherit; }
+[data-theme="dark"] .hw-shop-nav { background: var(--bg2); border-color: rgba(255,255,255,.06); }
+[data-theme="dark"] .hw-shop-brand { color: var(--ink); }
+[data-theme="dark"] .hw-shop-brand em { color: var(--acid); }
+[data-theme="dark"] .hw-shop-cat { background: var(--bg2); border-color: rgba(255,255,255,.07); color: var(--muted); }
+[data-theme="dark"] .hw-shop-cat.on { background: var(--ink); color: var(--bg); border-color: transparent; }
+[data-theme="dark"] .hw-shop-prod { background: var(--bg2); border-color: rgba(255,255,255,.06); }
+[data-theme="dark"] .hw-shop-name,[data-theme="dark"] .hw-shop-price { color: var(--ink); }
 /* Sistema chart */
 .hw-chart-wrap { width: 7.5rem; flex-shrink: 0; }
 .hw-chart { display: flex; align-items: flex-end; gap: .22rem; height: 4.5rem; }
@@ -840,25 +855,27 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
 
           <!-- Slide 2: Loja virtual -->
           <div class="hw-slide hw-body">
-            <div class="hw-hero-strip">
-              <div class="hw-hero-txt">
-                <p class="hw-tag">Loja virtual</p>
-                <p class="hw-h">Moda<br>Feminina.</p>
-                <span class="hw-btn">Ver coleção ↗</span>
-              </div>
-              <div class="hw-prods">
-                <div class="hw-prod"><div class="hw-prod-img">👟</div><div class="hw-prod-body"><p class="hw-prod-name">Tênis Air</p><p class="hw-prod-price">R$ 329</p></div></div>
-                <div class="hw-prod"><div class="hw-prod-img">👗</div><div class="hw-prod-body"><p class="hw-prod-name">Vestido</p><p class="hw-prod-price">R$ 189</p></div></div>
+            <div class="hw-shop-nav">
+              <span class="hw-shop-brand">moda<em>ária</em></span>
+              <div class="hw-shop-actions">
+                <span class="hw-shop-ico">🔍</span>
+                <span class="hw-shop-cart-wrap">
+                  <span class="hw-shop-ico">🛒</span>
+                  <span class="hw-cart-badge">3</span>
+                </span>
               </div>
             </div>
-            <div class="hw-metrics">
-              <div class="hw-metric"><p class="hw-metric-val">48</p><p class="hw-metric-lbl">Pedidos</p><p class="hw-metric-up">↑ 12%</p></div>
-              <div class="hw-metric"><p class="hw-metric-val">R$12k</p><p class="hw-metric-lbl">Receita</p><p class="hw-metric-up">↑ 8%</p></div>
-              <div class="hw-metric"><p class="hw-metric-val">3,2×</p><p class="hw-metric-lbl">Recompra</p><p class="hw-metric-up">↑ 5%</p></div>
+            <div class="hw-shop-cats">
+              <span class="hw-shop-cat on">Novidades</span>
+              <span class="hw-shop-cat">Roupas</span>
+              <span class="hw-shop-cat">Calçados</span>
+              <span class="hw-shop-cat">Acessórios</span>
             </div>
-            <div class="hw-cards">
-              <div class="hw-card"><div class="hw-avatar" style="background:#e6f4ea;color:#1e6b3a">P</div><div class="hw-card-info"><p class="hw-card-name">Pedido #2847</p><p class="hw-card-sub">Tênis Air + Vestido · R$ 518</p></div><span class="hw-badge ok">Enviado</span></div>
-              <div class="hw-card"><div class="hw-avatar" style="background:#fff3e0;color:#8a5800">C</div><div class="hw-card-info"><p class="hw-card-name">Carrinho abandonado</p><p class="hw-card-sub">R$ 329 · Recuperar agora</p></div><span class="hw-badge pend">Alerta</span></div>
+            <div class="hw-shop-grid">
+              <div class="hw-shop-prod"><div class="hw-shop-thumb" style="background:#f5e8d8">👗</div><div class="hw-shop-info"><p class="hw-shop-name">Vestido Floral</p><p class="hw-shop-price">R$ 189</p><button class="hw-shop-btn">Comprar</button></div></div>
+              <div class="hw-shop-prod"><div class="hw-shop-thumb" style="background:#e3ecf5">👟</div><div class="hw-shop-info"><p class="hw-shop-name">Tênis Air Max</p><p class="hw-shop-price">R$ 329</p><button class="hw-shop-btn">Comprar</button></div></div>
+              <div class="hw-shop-prod"><div class="hw-shop-thumb" style="background:#eaf5e3">👜</div><div class="hw-shop-info"><p class="hw-shop-name">Bolsa Couro</p><p class="hw-shop-price">R$ 249</p><button class="hw-shop-btn">Comprar</button></div></div>
+              <div class="hw-shop-prod"><div class="hw-shop-thumb" style="background:#f5f0e3">🕶️</div><div class="hw-shop-info"><p class="hw-shop-name">Óculos Retrô</p><p class="hw-shop-price">R$ 129</p><button class="hw-shop-btn">Comprar</button></div></div>
             </div>
           </div>
 
