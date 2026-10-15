@@ -62,6 +62,11 @@
 
 [data-theme="light"] .paraquem{background:#18191d;border-color:rgba(255,255,255,.08);}[data-theme="light"] .paraquem .section-title{color:rgba(255,255,255,.88);}[data-theme="light"] .paraquem .eyebrow{color:var(--acid);}[data-theme="light"] .pq-sub{color:rgba(255,255,255,.5);}[data-theme="light"] .pq-item{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.09);}[data-theme="light"] .pq-item:hover{border-color:rgba(255,255,255,.3);}[data-theme="light"] .pq-n{color:rgba(255,255,255,.12);}[data-theme="light"] .pq-item-titulo{color:rgba(255,255,255,.88);}[data-theme="light"] .pq-item-desc{color:rgba(255,255,255,.5);}
 [data-theme="light"] .rodape{background:#18191d;border-color:rgba(255,255,255,.08);}[data-theme="light"] .rodape-marca,[data-theme="light"] .rodape-col a:hover{color:rgba(255,255,255,.88);}[data-theme="light"] .rodape-sub,[data-theme="light"] .rodape-col-tit,[data-theme="light"] .rodape-copy,[data-theme="light"] .rodape-love,[data-theme="light"] .rodape-col a{color:rgba(255,255,255,.42);}[data-theme="light"] .rodape-bottom{border-color:rgba(255,255,255,.08);}
+/* Processo — cards 1&4 escuros no light (mesma lógica do dark mode) */
+[data-theme="light"] .step:nth-child(1),[data-theme="light"] .step:nth-child(4){background:#18191d;border-color:transparent;}
+[data-theme="light"] .step:nth-child(1) h3,[data-theme="light"] .step:nth-child(4) h3{color:rgba(255,255,255,.88);}
+[data-theme="light"] .step:nth-child(1) .step-n,[data-theme="light"] .step:nth-child(1) .step-dur,[data-theme="light"] .step:nth-child(1) .step-desc,[data-theme="light"] .step:nth-child(4) .step-n,[data-theme="light"] .step:nth-child(4) .step-dur,[data-theme="light"] .step:nth-child(4) .step-desc{color:rgba(255,255,255,.5);}
+[data-theme="light"] .step:nth-child(2),[data-theme="light"] .step:nth-child(5){background:#ffffff;color:var(--ink);border-color:var(--line);}
 /* Estimador — painel de resultado escuro no light (lime precisa de fundo escuro) */
 [data-theme="light"] .est-result{background:#18191d;border-color:rgba(255,255,255,.08);}
 [data-theme="light"] .est-result-label,[data-theme="light"] .est-total-sub,[data-theme="light"] .est-incl-tit,[data-theme="light"] .est-result-txt,[data-theme="light"] .est-aviso{color:rgba(255,255,255,.42);}
@@ -237,6 +242,8 @@ svg { display: block; }
 @media (min-width: 900px) { .wf-nav { display: flex; } .wf-topo-cta { display: inline-flex !important; } }
 .wf-nav a, .wf-nav button { padding: .5rem .85rem; border-radius: 999px; font-size: .88rem; font-weight: 600; color: var(--ink-2); transition: background .15s, color .15s; white-space: nowrap; }
 .wf-nav a:hover, .wf-nav button:hover { background: var(--ink); color: #fff; }
+.wf-nav a.ativo { background: var(--acid); color: var(--acid-fg); font-weight: 700; }
+.wf-nav a.ativo:hover { background: var(--acid-2); color: var(--acid-fg); }
 
 /* Mega menu */
 .wf-nav-grupo { position: static; display: flex; }
@@ -950,7 +957,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
       </div>
 
       <div class="p-card" data-cat="sistema">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/canoinhas-tenis-clube.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div>
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('media/portfolio/canoinhas-tenis-clube.webp') center/contain no-repeat"></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div>
         <div class="p-info"><p class="p-nome">Canoinhas Tênis Clube</p><p class="p-desc">Site institucional + sistema de reservas de quadras, churrasqueiras e gestão de sócios.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Reservas</span><span class="p-tag">Sócios</span></div><a href="https://canoinhas-tenis-clube.vercel.app/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
       </div>
 
@@ -960,7 +967,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
       </div>
 
       <div class="p-card" data-cat="sistema">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/match.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div>
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('media/portfolio/match.webp') center/contain no-repeat"></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div>
         <div class="p-info"><p class="p-nome">MATCH Racquet Club</p><p class="p-desc">Plataforma completa para clube de raquete com reservas, planos de sócios e agenda de eventos.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Agenda</span><span class="p-tag">Área do sócio</span></div><a href="https://webfun.com.br/modelos/match/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
       </div>
 
@@ -1391,8 +1398,8 @@ document.addEventListener('DOMContentLoaded', function() {
 #wppModal.wpp-open{pointer-events:all;opacity:1;}
 #wppOverlay{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);}
 .wpp-box{position:relative;background:#18191d;border-radius:1.5rem 1.5rem 0 0;padding:1.4rem 1.5rem 1.6rem;width:100%;max-width:480px;transform:translateY(100%);transition:transform .35s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;gap:.65rem;}
-#wppModal.wpp-open .wpp-box{position:relative;background:#18191d;border-radius:1.5rem 1.5rem 0 0;padding:1.4rem 1.5rem 1.6rem;width:100%;max-width:480px;transform:translateY(100%);transition:transform .35s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;gap:.65rem;}
-@media(min-width:600px){.wpp-box{position:relative;background:#18191d;border-radius:1.5rem 1.5rem 0 0;padding:1.4rem 1.5rem 1.6rem;width:100%;max-width:480px;transform:translateY(100%);transition:transform .35s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;gap:.65rem;}}
+#wppModal.wpp-open .wpp-box{transform:translateY(0);}
+@media(min-width:600px){.wpp-box{border-radius:1.5rem;margin-bottom:2rem;}}
 .wpp-top{display:flex;justify-content:space-between;align-items:flex-start;}
 .wpp-eyebrow{display:flex;align-items:center;gap:.45rem;font-size:.7rem;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.4);text-transform:uppercase;}
 .wpp-dot{width:.45rem;height:.45rem;border-radius:50%;background:var(--acid);flex-shrink:0;}
