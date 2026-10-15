@@ -425,8 +425,8 @@ svg { display: block; }
 .hw-sys-tabs { display: flex; gap: .25rem; }
 .hw-sys-tab { font-size: .58rem; font-weight: 700; padding: .22rem .55rem; border-radius: .4rem; color: var(--win-muted); background: transparent; white-space: nowrap; cursor: pointer; }
 .hw-sys-tab.on { background: var(--ink); color: var(--win); }
-.hw-kanban { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .4rem; }
-.hw-kcol { display: flex; flex-direction: column; gap: .28rem; }
+.hw-kanban { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .4rem; flex: 1; }
+.hw-kcol { display: flex; flex-direction: column; gap: .28rem; justify-content: space-between; }
 .hw-kcol-head { display: flex; align-items: center; gap: .28rem; font-size: .54rem; font-weight: 700; color: var(--win-muted); padding-bottom: .15rem; }
 .hw-kcol-status { width: .42rem; height: .42rem; border-radius: 999px; flex-shrink: 0; }
 .hw-kcol-n { margin-left: auto; background: var(--win-3); color: var(--win-muted); font-size: .48rem; font-weight: 800; padding: .04rem .28rem; border-radius: 999px; }
