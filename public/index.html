@@ -380,6 +380,33 @@ svg { display: block; }
 .hero-float { position: absolute; right: -1.5rem; top: -1.5rem; background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow); border: 1px solid var(--line); padding: .8rem 1rem; font-size: .82rem; font-weight: 600; display: flex; align-items: center; gap: .3rem; color: var(--ink); white-space: nowrap; }
 .hero-float .dot { width: .45rem; height: .45rem; border-radius: 999px; background: var(--green); }
 .hero-float-2 { position: absolute; left: -1rem; bottom: 2rem; background: var(--acid); border-radius: var(--r); box-shadow: var(--shadow); padding: .7rem 1rem; color: var(--acid-fg); font-size: .82rem; font-weight: 700; display: flex; align-items: center; gap: .3rem; }
+/* ── Hero slideshow ── */
+.hw-slides { display: grid; }
+.hw-slide { grid-area: 1/1; transition: opacity .5s ease; }
+.hw-slide:not(.hw-active) { opacity: 0; pointer-events: none; }
+.hw-slide.hw-active { opacity: 1; }
+.hw-pips { display: flex; align-items: center; gap: .35rem; margin-left: auto; }
+.hw-pip { width: .45rem; height: .45rem; border-radius: 999px; background: var(--win-muted); border: none; padding: 0; cursor: pointer; transition: background .2s, width .25s; opacity: .5; }
+.hw-pip.hw-active { width: 1.1rem; background: var(--ink); opacity: 1; }
+[data-theme="dark"] .hw-pip { background: var(--muted); }
+[data-theme="dark"] .hw-pip.hw-active { background: var(--acid); }
+/* Loja prods */
+.hw-prods { width: 7.5rem; flex-shrink: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .3rem; }
+.hw-prod { background: var(--win-3); border-radius: .5rem; overflow: hidden; border: 1px solid var(--win-line); }
+.hw-prod-img { height: 2.8rem; display: grid; place-items: center; font-size: 1.3rem; }
+.hw-prod-body { padding: .25rem .35rem .3rem; }
+.hw-prod-name { font-size: .58rem; font-weight: 700; color: var(--win-txt); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hw-prod-price { font-size: .62rem; font-weight: 800; color: var(--acid-fg); margin-top: .1rem; }
+[data-theme="dark"] .hw-prod { background: var(--bg); border-color: rgba(255,255,255,.06); }
+[data-theme="dark"] .hw-prod-name { color: var(--ink); }
+[data-theme="dark"] .hw-prod-price { color: var(--acid); }
+/* Sistema chart */
+.hw-chart-wrap { width: 7.5rem; flex-shrink: 0; }
+.hw-chart { display: flex; align-items: flex-end; gap: .22rem; height: 4.5rem; }
+.hw-bar-c { flex: 1; border-radius: .2rem .2rem 0 0; background: var(--acid); opacity: .3; transition: opacity .2s; }
+.hw-bar-c.hi { opacity: 1; }
+.hw-chart-lbl { display: flex; justify-content: space-between; font-size: .45rem; color: var(--win-muted); margin-top: .25rem; }
+[data-theme="dark"] .hw-chart-lbl { color: var(--muted); }
 @media (max-width: 900px) {
   .hero { padding: 6.5rem var(--gutter) 3rem; min-height: auto; }
   .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -780,27 +807,92 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
       <div class="hero-window">
         <div class="hw-bar">
           <span class="hw-dot"></span><span class="hw-dot"></span><span class="hw-dot"></span>
-          <span class="hw-addr">webfun.com.br/cliente</span>
+          <span class="hw-addr" id="hwAddr">webfun.com.br/clinica</span>
+          <div class="hw-pips">
+            <button class="hw-pip hw-active" data-slide="0" aria-label="Site institucional"></button>
+            <button class="hw-pip" data-slide="1" aria-label="Loja virtual"></button>
+            <button class="hw-pip" data-slide="2" aria-label="Sistema"></button>
+          </div>
         </div>
-        <div class="hw-body">
-          <div class="hw-hero-strip">
-            <div class="hw-hero-txt">
-              <p class="hw-tag">Webfun · Site institucional</p>
-              <p class="hw-h">Clínica<br>Premium.</p>
-              <span class="hw-btn">Agendar consulta ↗</span>
+        <div class="hw-slides">
+
+          <!-- Slide 1: Site institucional -->
+          <div class="hw-slide hw-active hw-body">
+            <div class="hw-hero-strip">
+              <div class="hw-hero-txt">
+                <p class="hw-tag">Site institucional</p>
+                <p class="hw-h">Clínica<br>Premium.</p>
+                <span class="hw-btn">Agendar consulta ↗</span>
+              </div>
+              <div class="hw-hero-photo"></div>
             </div>
-            <div class="hw-hero-photo"></div>
+            <div class="hw-metrics">
+              <div class="hw-metric"><p class="hw-metric-val">127</p><p class="hw-metric-lbl">Visitas/dia</p><p class="hw-metric-up">↑ 34%</p></div>
+              <div class="hw-metric"><p class="hw-metric-val">18</p><p class="hw-metric-lbl">Contatos</p><p class="hw-metric-up">↑ 22%</p></div>
+              <div class="hw-metric"><p class="hw-metric-val">4,9★</p><p class="hw-metric-lbl">Avaliação</p><p class="hw-metric-up">↑ 2%</p></div>
+            </div>
+            <div class="hw-cards">
+              <div class="hw-card"><div class="hw-avatar" style="background:url('avatar-ana.webp') center/cover;font-size:0"></div><div class="hw-card-info"><p class="hw-card-name">Ana C.</p><p class="hw-card-sub">14/10 às 14h30</p></div><span class="hw-badge ok">Agendado</span></div>
+              <div class="hw-card"><div class="hw-avatar" style="background:url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face&q=80') center/cover;font-size:0"></div><div class="hw-card-info"><p class="hw-card-name">Marina S.</p><p class="hw-card-sub">15/10 às 10h00</p></div><span class="hw-badge pend">Pendente</span></div>
+            </div>
           </div>
 
-          <div class="hw-metrics">
-            <div class="hw-metric"><p class="hw-metric-val">48</p><p class="hw-metric-lbl">Pedidos</p><p class="hw-metric-up">↑ 12%</p></div>
-            <div class="hw-metric"><p class="hw-metric-val">R$12k</p><p class="hw-metric-lbl">Receita</p><p class="hw-metric-up">↑ 8%</p></div>
-            <div class="hw-metric"><p class="hw-metric-val">4,9★</p><p class="hw-metric-lbl">Avaliação</p><p class="hw-metric-up">↑ 2%</p></div>
+          <!-- Slide 2: Loja virtual -->
+          <div class="hw-slide hw-body">
+            <div class="hw-hero-strip">
+              <div class="hw-hero-txt">
+                <p class="hw-tag">Loja virtual</p>
+                <p class="hw-h">Moda<br>Feminina.</p>
+                <span class="hw-btn">Ver coleção ↗</span>
+              </div>
+              <div class="hw-prods">
+                <div class="hw-prod"><div class="hw-prod-img">👟</div><div class="hw-prod-body"><p class="hw-prod-name">Tênis Air</p><p class="hw-prod-price">R$ 329</p></div></div>
+                <div class="hw-prod"><div class="hw-prod-img">👗</div><div class="hw-prod-body"><p class="hw-prod-name">Vestido</p><p class="hw-prod-price">R$ 189</p></div></div>
+              </div>
+            </div>
+            <div class="hw-metrics">
+              <div class="hw-metric"><p class="hw-metric-val">48</p><p class="hw-metric-lbl">Pedidos</p><p class="hw-metric-up">↑ 12%</p></div>
+              <div class="hw-metric"><p class="hw-metric-val">R$12k</p><p class="hw-metric-lbl">Receita</p><p class="hw-metric-up">↑ 8%</p></div>
+              <div class="hw-metric"><p class="hw-metric-val">3,2×</p><p class="hw-metric-lbl">Recompra</p><p class="hw-metric-up">↑ 5%</p></div>
+            </div>
+            <div class="hw-cards">
+              <div class="hw-card"><div class="hw-avatar" style="background:#e6f4ea;color:#1e6b3a">P</div><div class="hw-card-info"><p class="hw-card-name">Pedido #2847</p><p class="hw-card-sub">Tênis Air + Vestido · R$ 518</p></div><span class="hw-badge ok">Enviado</span></div>
+              <div class="hw-card"><div class="hw-avatar" style="background:#fff3e0;color:#8a5800">C</div><div class="hw-card-info"><p class="hw-card-name">Carrinho abandonado</p><p class="hw-card-sub">R$ 329 · Recuperar agora</p></div><span class="hw-badge pend">Alerta</span></div>
+            </div>
           </div>
-          <div class="hw-cards">
-            <div class="hw-card"><div class="hw-avatar" style="background:url('avatar-ana.webp') center/cover;font-size:0"></div><div class="hw-card-info"><p class="hw-card-name">Ana C.</p><p class="hw-card-sub">14/10 às 14h30</p></div><span class="hw-badge ok">Agendado</span></div>
-            <div class="hw-card"><div class="hw-avatar" style="background:url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face&q=80') center/cover;font-size:0"></div><div class="hw-card-info"><p class="hw-card-name">Marina S.</p><p class="hw-card-sub">15/10 às 10h00</p></div><span class="hw-badge pend">Pendente</span></div>
+
+          <!-- Slide 3: Sistema -->
+          <div class="hw-slide hw-body">
+            <div class="hw-hero-strip">
+              <div class="hw-hero-txt">
+                <p class="hw-tag">Sistema web</p>
+                <p class="hw-h">Painel de<br>controle.</p>
+                <span class="hw-btn">Acessar ↗</span>
+              </div>
+              <div class="hw-chart-wrap">
+                <div class="hw-chart">
+                  <div class="hw-bar-c" style="height:42%"></div>
+                  <div class="hw-bar-c" style="height:58%"></div>
+                  <div class="hw-bar-c" style="height:50%"></div>
+                  <div class="hw-bar-c" style="height:72%"></div>
+                  <div class="hw-bar-c" style="height:60%"></div>
+                  <div class="hw-bar-c" style="height:88%"></div>
+                  <div class="hw-bar-c hi" style="height:100%"></div>
+                </div>
+                <div class="hw-chart-lbl"><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span></div>
+              </div>
+            </div>
+            <div class="hw-metrics">
+              <div class="hw-metric"><p class="hw-metric-val">342</p><p class="hw-metric-lbl">Usuários</p><p class="hw-metric-up">↑ 18%</p></div>
+              <div class="hw-metric"><p class="hw-metric-val">87</p><p class="hw-metric-lbl">Tarefas</p><p class="hw-metric-up">↑ 3%</p></div>
+              <div class="hw-metric"><p class="hw-metric-val">96%</p><p class="hw-metric-lbl">Uptime</p><p class="hw-metric-up">↑ 1%</p></div>
+            </div>
+            <div class="hw-cards">
+              <div class="hw-card"><div class="hw-avatar" style="background:#e8eeff;color:#2b3ea8">R</div><div class="hw-card-info"><p class="hw-card-name">Relatório mensal</p><p class="hw-card-sub">Gerado automaticamente</p></div><span class="hw-badge ok">Pronto</span></div>
+              <div class="hw-card"><div class="hw-avatar" style="background:#fff0e8;color:#8a3a00">B</div><div class="hw-card-info"><p class="hw-card-name">Backup agendado</p><p class="hw-card-sub">Hoje às 23h00</p></div><span class="hw-badge pend">Pendente</span></div>
+            </div>
           </div>
+
         </div>
       </div>
       <div class="hero-float-2">↗ Responsivo e no Google</div>
@@ -1470,6 +1562,27 @@ document.addEventListener('DOMContentLoaded', function() {
     <p class="wpp-legal">Sem compromisso. Seus dados são usados apenas para personalizar o atendimento.</p>
   </div>
 </div>
+<script>
+(function(){
+  var slides=document.querySelectorAll('.hw-slide');
+  var pips=document.querySelectorAll('.hw-pip');
+  var addr=document.getElementById('hwAddr');
+  var addrs=['webfun.com.br/clinica','webfun.com.br/loja','webfun.com.br/sistema'];
+  var cur=0,timer;
+  function go(n){
+    slides[cur].classList.remove('hw-active');
+    pips[cur].classList.remove('hw-active');
+    cur=n;
+    slides[cur].classList.add('hw-active');
+    pips[cur].classList.add('hw-active');
+    if(addr)addr.textContent=addrs[cur];
+  }
+  function next(){go((cur+1)%slides.length);}
+  function reset(){clearInterval(timer);timer=setInterval(next,4000);}
+  pips.forEach(function(p,i){p.addEventListener('click',function(){go(i);reset();});});
+  timer=setInterval(next,4000);
+})();
+</script>
 </body>
 </html>
 
