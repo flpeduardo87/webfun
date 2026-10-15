@@ -1,10 +1,26 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Webfun — Sites, lojas virtuais e sistemas sob medida</title>
+<meta name="description" content="Sites, lojas virtuais, landing pages e sistemas sob medida. Do briefing ao ar em semanas, com design que converte e código que não quebra.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://webfun.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Webfun">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Webfun — Sites, lojas virtuais e sistemas sob medida">
+<meta property="og:description" content="Sites, lojas virtuais, landing pages e sistemas sob medida. Do briefing ao ar em semanas, com design que converte e código que não quebra.">
+<meta property="og:url" content="https://webfun.com.br/">
+<meta property="og:image" content="https://webfun.com.br/media/og-home.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Webfun — Sites, lojas virtuais e sistemas sob medida">
+<meta name="twitter:description" content="Sites, lojas virtuais, landing pages e sistemas sob medida. Do briefing ao ar em semanas, com design que converte e código que não quebra.">
+<meta name="twitter:image" content="https://webfun.com.br/media/og-home.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -366,6 +382,11 @@ svg { display: block; }
   .hw-hero-photo { width: 100%; height: 6rem; }
 }
 
+/* ── Carrossel dots ──────────────────────────────────────────────────── */
+.port-dots, .proc-dots { display: none; justify-content: center; gap: .4rem; margin-top: 1.25rem; }
+.carr-dot { width: .45rem; height: .45rem; border-radius: 999px; background: var(--line); border: none; padding: 0; cursor: pointer; transition: background .2s, width .3s var(--ease); flex-shrink: 0; }
+.carr-dot.ativo { background: var(--ink); width: 1.2rem; }
+
 /* ── Banda ───────────────────────────────────────────────────────────── */
 .band { padding: 1.5rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); overflow: hidden; }
 .band-track { display: flex; gap: 3rem; align-items: center; animation: marquee 40s linear infinite; width: max-content; }
@@ -441,7 +462,13 @@ svg { display: block; }
 .p-card.hidden { display: none; }
 .portfolio-mais { text-align: center; margin-top: 2.5rem; }
 @media (max-width: 900px) { .p-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .p-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  .filtros { display: none; }
+  .p-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 1rem; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); padding-bottom: .25rem; }
+  .p-grid::-webkit-scrollbar { display: none; }
+  .p-card { flex: 0 0 82vw; max-width: 320px; scroll-snap-align: start; }
+  .port-dots { display: flex !important; }
+}
 
 /* ── Para quem ───────────────────────────────────────────────────────── */
 .paraquem { background: var(--bg); border-top: 1px solid var(--line); }
@@ -477,7 +504,14 @@ svg { display: block; }
 .step-dur { font-size: .75rem; font-weight: 600; color: var(--muted2); }
 .step h3 { font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.1; margin-bottom: .5rem; }
 .step-desc { font-size: .88rem; color: var(--muted); line-height: 1.6; }
-@media (max-width: 800px) { .processo-layout { grid-template-columns: 1fr; } .processo-left { position: static; } }
+@media (max-width: 800px) {
+  .processo-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .processo-left { position: static; }
+  .steps { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 1rem; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); padding-bottom: .25rem; }
+  .steps::-webkit-scrollbar { display: none; }
+  .step { flex: 0 0 82vw; max-width: 340px; position: relative !important; top: auto !important; scroll-snap-align: start; }
+  .proc-dots { display: flex !important; }
+}
 
 /* ── Stats ───────────────────────────────────────────────────────────── */
 .stats { background: var(--win); border-top: 1px solid var(--win-line); transition: background .3s, border-color .3s; }
@@ -798,13 +832,13 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
           <span class="svc-badge popular">★ Mais popular</span>
         </div>
         <p class="svc-nome">Site institucional</p>
-        <p class="svc-desc">Presença profissional que comunica seus diferenciais e converte visitantes em clientes.</p>
+        <p class="svc-desc">Seu site no ar em semanas — feito para convencer, não só para existir.</p>
         <div class="svc-sep"></div>
         <div class="svc-preco-row">
           <div><span class="svc-from">A partir de</span><span class="svc-val">R$ 1.700</span></div>
           <span class="svc-tempo">~3 semanas</span>
         </div>
-        <div class="svc-cta">Começar projeto <i data-lucide="arrow-right"></i></div>
+        <div class="svc-cta">Criar meu site <i data-lucide="arrow-right"></i></div>
       </a>
 
       <a href="/contato" class="svc-card">
@@ -813,13 +847,13 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
           <span class="svc-badge">E-commerce</span>
         </div>
         <p class="svc-nome">Loja virtual</p>
-        <p class="svc-desc">E-commerce completo com catálogo, checkout e integração com os principais meios de pagamento.</p>
+        <p class="svc-desc">Venda todos os dias, com catálogo, checkout e pagamento prontos para usar.</p>
         <div class="svc-sep"></div>
         <div class="svc-preco-row">
           <div><span class="svc-from">A partir de</span><span class="svc-val">R$ 3.800</span></div>
           <span class="svc-tempo">~5 semanas</span>
         </div>
-        <div class="svc-cta">Começar projeto <i data-lucide="arrow-right"></i></div>
+        <div class="svc-cta">Montar minha loja <i data-lucide="arrow-right"></i></div>
       </a>
 
       <a href="/contato" class="svc-card">
@@ -828,13 +862,13 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
           <span class="svc-badge">Alta conversão</span>
         </div>
         <p class="svc-nome">Landing page</p>
-        <p class="svc-desc">Uma página focada em converter o tráfego que você já está pagando em campanhas e lançamentos.</p>
+        <p class="svc-desc">Transforma o tráfego de anúncios em leads reais — sem distração, sem fuga.</p>
         <div class="svc-sep"></div>
         <div class="svc-preco-row">
           <div><span class="svc-from">A partir de</span><span class="svc-val">R$ 2.400</span></div>
           <span class="svc-tempo">~2 semanas</span>
         </div>
-        <div class="svc-cta">Começar projeto <i data-lucide="arrow-right"></i></div>
+        <div class="svc-cta">Criar minha landing <i data-lucide="arrow-right"></i></div>
       </a>
 
       <a href="/contato" class="svc-card">
@@ -843,13 +877,13 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
           <span class="svc-badge">Sob medida</span>
         </div>
         <p class="svc-nome">Sistema</p>
-        <p class="svc-desc">Plataformas sob medida para quando uma solução pronta não resolve o seu processo interno.</p>
+        <p class="svc-desc">Quando planilha e app pronto não resolvem mais: um sistema feito pro seu processo.</p>
         <div class="svc-sep"></div>
         <div class="svc-preco-row">
           <div><span class="svc-from">A partir de</span><span class="svc-val">R$ 5.500</span></div>
           <span class="svc-tempo">~8 semanas</span>
         </div>
-        <div class="svc-cta">Começar projeto <i data-lucide="arrow-right"></i></div>
+        <div class="svc-cta">Desenvolver sistema <i data-lucide="arrow-right"></i></div>
       </a>
 
       <a href="/contato" class="svc-card">
@@ -858,13 +892,13 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
           <span class="svc-badge">IA</span>
         </div>
         <p class="svc-nome">Automação & IA</p>
-        <p class="svc-desc">Fluxos automáticos e inteligência artificial integrados ao seu negócio para reduzir trabalho manual.</p>
+        <p class="svc-desc">Elimina tarefas repetitivas e deixa sua equipe focada no que gera resultado.</p>
         <div class="svc-sep"></div>
         <div class="svc-preco-row">
           <div><span class="svc-from">A partir de</span><span class="svc-val">R$ 2.200</span></div>
           <span class="svc-tempo">~3 semanas</span>
         </div>
-        <div class="svc-cta">Começar projeto <i data-lucide="arrow-right"></i></div>
+        <div class="svc-cta">Automatizar agora <i data-lucide="arrow-right"></i></div>
       </a>
 
       <a href="/contato" class="svc-card">
@@ -873,13 +907,13 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
           <span class="svc-badge">Mobile</span>
         </div>
         <p class="svc-nome">Aplicativo</p>
-        <p class="svc-desc">Apps mobile (PWA e nativo) quando seus clientes precisam do seu produto na palma da mão.</p>
+        <p class="svc-desc">Seu produto na palma do cliente — disponível 24h, sem fila de atendimento.</p>
         <div class="svc-sep"></div>
         <div class="svc-preco-row">
           <div><span class="svc-from">A partir de</span><span class="svc-val">R$ 4.500</span></div>
           <span class="svc-tempo">~8 semanas</span>
         </div>
-        <div class="svc-cta">Começar projeto <i data-lucide="arrow-right"></i></div>
+        <div class="svc-cta">Criar meu app <i data-lucide="arrow-right"></i></div>
       </a>
 
     </div>
@@ -951,6 +985,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
       </div>
 
     </div>
+    <div class="port-dots" aria-hidden="true"></div>
     <div class="portfolio-mais">
       <a href="/projetos" class="btn-outline">Ver todos os projetos →</a>
     </div>
@@ -995,6 +1030,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
         <li class="step" style="--i:4"><div class="step-top"><span class="step-n">Etapa 05 · Validação</span><span class="step-dur">Antes do lançamento</span></div><h3>Testar os detalhes.</h3><p class="step-desc">Desktop, mobile, formulários, links, legibilidade e experiência final. Nada vai ao ar sem passar por isso.</p></li>
         <li class="step" style="--i:5"><div class="step-top"><span class="step-n">Etapa 06 · Evolução</span><span class="step-dur">Contínuo</span></div><h3>Continuar melhorando.</h3><p class="step-desc">SEO, tráfego, manutenção e novas funcionalidades conforme o negócio cresce. Entregar é o começo da parceria.</p></li>
       </ol>
+      <div class="proc-dots" aria-hidden="true"></div>
     </div>
   </div>
 </section>
@@ -1274,6 +1310,32 @@ document.querySelectorAll('#estAdds .est-add').forEach(function(label) {
 var firstOpcao = document.querySelector('#estOpcoes .est-opcao');
 if (firstOpcao) firstOpcao.classList.add('ativo');
 updateEst();
+
+/* ── Carrossel dots ── */
+function setupCarrDots(track, dotsEl) {
+  if (!track || !dotsEl) return;
+  var items = Array.from(track.children).filter(function(el) { return getComputedStyle(el).display !== 'none'; });
+  dotsEl.innerHTML = items.map(function(_, i) {
+    return '<button class="carr-dot' + (i === 0 ? ' ativo' : '') + '" aria-label="Item ' + (i + 1) + '"></button>';
+  }).join('');
+  var btns = Array.from(dotsEl.querySelectorAll('.carr-dot'));
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var idx = items.indexOf(e.target);
+        if (idx >= 0) btns.forEach(function(b, j) { b.classList.toggle('ativo', j === idx); });
+      }
+    });
+  }, { root: track, threshold: 0.55 });
+  items.forEach(function(el) { obs.observe(el); });
+  btns.forEach(function(b, i) {
+    b.addEventListener('click', function() {
+      items[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    });
+  });
+}
+if (window.innerWidth <= 600) setupCarrDots(document.getElementById('portfolioGrid'), document.querySelector('.port-dots'));
+if (window.innerWidth <= 800) setupCarrDots(document.querySelector('.steps'), document.querySelector('.proc-dots'));
 </script>
 </body>
 </html>
