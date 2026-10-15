@@ -69,8 +69,8 @@ svg{display:block;}
 .wf-nav-ico svg{width:.9rem;height:.9rem;stroke-width:2;pointer-events:none;}
 .wf-nav-nome{font-size:.88rem;font-weight:600;color:var(--ink);display:block;}
 .wf-nav-desc{font-size:.82rem;color:var(--muted);line-height:1.35;display:block;margin-top:.05rem;}
-.wf-topo-cta{display:none;height:2.9rem;padding:0 .45rem 0 1rem;border-radius:999px;background:var(--ink);color:var(--bg);font-size:.88rem;font-weight:700;align-items:center;gap:.55rem;transition:opacity .18s;}
-.wf-topo-cta:hover{opacity:.82;}
+.wf-topo-cta{display:none;height:2.9rem;padding:0 .45rem 0 1rem;border-radius:999px;background:var(--acid);color:var(--acid-fg);font-size:.88rem;font-weight:700;align-items:center;gap:.55rem;transition:background .18s,color .18s;}
+.wf-topo-cta:hover{opacity:.88;}
 .wf-topo-cta .seta-sm{display:grid;place-items:center;width:2rem;height:2rem;border-radius:999px;background:var(--bg);color:var(--ink);transition:transform .4s var(--ease);}
 .wf-topo-cta .seta-sm svg{width:.8rem;height:.8rem;stroke-width:2.5;pointer-events:none;}
 .wf-topo-cta:hover .seta-sm{transform:rotate(45deg);}
@@ -88,14 +88,15 @@ svg{display:block;}
 .wf-menu[open] summary span:first-child{transform:translateY(6.5px) rotate(45deg);}
 .wf-menu[open] summary span:nth-child(2){opacity:0;transform:scaleX(0);}
 .wf-menu[open] summary span:last-child{transform:translateY(-6.5px) rotate(-45deg);}.wf-menu:not([open]) .wf-menu-painel{display:none;}
-.wf-menu-painel{position:absolute;right:0;top:calc(100% + .5rem);width:min(340px,calc(100vw - 1.7rem));background:var(--surface);border-radius:var(--r);box-shadow:0 0 0 1px var(--line),var(--shadow);max-height:calc(100dvh - 5rem);overflow-y:auto;scrollbar-width:none;}
+.wf-menu-painel{position:absolute;right:0;top:calc(100% + .5rem);width:min(340px,calc(100vw - 2 * var(--gutter)));background:var(--surface);border-radius:var(--r);box-shadow:0 0 0 1px var(--line),var(--shadow);max-height:calc(100dvh - 5rem);overflow-y:auto;scrollbar-width:none;}
+@media(max-width:500px){.wf-menu-painel{width:calc(100vw - 2 * var(--gutter));}}
 .wf-menu-grupo{display:grid;padding:.75rem .7rem .85rem;border-bottom:1px solid var(--line);}
 .wf-menu-grupo a{padding:.42rem .5rem;font-size:1.05rem;font-weight:600;color:var(--ink);border-radius:.6rem;transition:background .13s;}
 .wf-menu-grupo a:hover{background:var(--bg2);}
 .wf-menu-tit{margin-bottom:.3rem;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);padding:0 .5rem;}
 .wf-menu-outras{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;padding:.75rem .7rem .85rem;border-bottom:1px solid var(--line);}
 .wf-menu-outras a{padding:.62rem .35rem;border-radius:999px;background:var(--bg2);font-size:.88rem;font-weight:600;text-align:center;color:var(--ink);transition:background .13s;}
-.wf-menu-cta{display:flex;align-items:center;justify-content:space-between;margin:.75rem .7rem .85rem;background:var(--acid);color:var(--acid-fg);font-weight:700;font-size:.92rem;padding:.75rem 1rem;border-radius:999px;}
+.wf-menu-cta{display:inline-flex;align-items:center;gap:.4rem;margin:.75rem .7rem .85rem;background:var(--acid);color:var(--acid-fg);font-weight:700;font-size:.92rem;padding:.75rem 1rem;border-radius:999px;}
 
 /* Footer */
 .rodape{background:var(--win);border-top:1px solid var(--win-line);padding:4rem 0 2.5rem;transition:background .3s,border-color .3s;}
@@ -297,7 +298,7 @@ svg{display:block;}
     </div>
     <a href="/projetos">Projetos</a>
     <a href="/blog">Blog</a>
-    <a href="/contato" class="ativo">Contato</a>
+    <a href="/contato">Contato</a>
   </nav>
   <button class="wf-theme-btn" id="themeToggle" aria-label="Alternar tema"><span class="ico-light"><i data-lucide="sun"></i></span><span class="ico-dark"><i data-lucide="moon"></i></span></button>
   <a href="https://wa.me/5542999486020" class="wf-topo-cta" target="_blank" rel="noopener">Começar projeto <span class="seta-sm"><i data-lucide="arrow-right"></i></span></a>
