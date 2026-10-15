@@ -13,9 +13,9 @@
 <style>
 /* ── Tokens (light) ──────────────────────────────────────────────────── */
 :root {
-  --bg:       #f0efe9;
-  --bg2:      #e5e4de;
-  --surface:  #fafaf7;
+  --bg:       #f7f7f5;
+  --bg2:      #efefed;
+  --surface:  #ffffff;
   --ink:      #17181b;
   --ink-2:    #3d3f44;
   --muted:    #6a7078;
@@ -24,12 +24,12 @@
   --acid:     #c9ff41;
   --acid-fg:  #1e2700;
   --acid-2:   #b8f020;
-  --win:      #18191d;
-  --win-2:    #1f2126;
-  --win-3:    #252930;
-  --win-line: rgba(255,255,255,.08);
-  --win-txt:  rgba(255,255,255,.88);
-  --win-muted:rgba(255,255,255,.42);
+  --win:      #ffffff;
+  --win-2:    #f5f5f3;
+  --win-3:    #ececea;
+  --win-line: rgba(0,0,0,.08);
+  --win-txt:  #17181b;
+  --win-muted:#6a7078;
   --blue:     #4d63f0;
   --green:    #30b55e;
   --f: "Manrope", ui-sans-serif, system-ui, sans-serif;
@@ -44,6 +44,7 @@
   --hdr-glass-hover: rgba(229,228,222,.7);
 }
 
+[data-theme="light"] .rodape{background:#18191d;border-color:rgba(255,255,255,.08);}[data-theme="light"] .rodape-marca,[data-theme="light"] .rodape-col a:hover{color:rgba(255,255,255,.88);}[data-theme="light"] .rodape-sub,[data-theme="light"] .rodape-col-tit,[data-theme="light"] .rodape-copy,[data-theme="light"] .rodape-love,[data-theme="light"] .rodape-col a{color:rgba(255,255,255,.42);}[data-theme="light"] .rodape-bottom{border-color:rgba(255,255,255,.08);}
 /* ── Dark mode ───────────────────────────────────────────────────────── */
 [data-theme="dark"] {
   --bg:       #13141a;
@@ -1180,3 +1181,4 @@ updateEst();
 </script>
 </body>
 </html>
+
