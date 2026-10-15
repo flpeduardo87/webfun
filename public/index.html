@@ -464,7 +464,7 @@ svg { display: block; }
 @media (max-width: 900px) { .p-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) {
   .filtros { display: none; }
-  .p-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 1rem; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); padding-bottom: .25rem; }
+  .p-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: var(--gutter); scrollbar-width: none; gap: 1rem; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); padding-bottom: .25rem; }
   .p-grid::-webkit-scrollbar { display: none; }
   .p-card { flex: 0 0 82vw; max-width: 320px; scroll-snap-align: start; }
   .port-dots { display: flex !important; }
@@ -507,7 +507,7 @@ svg { display: block; }
 @media (max-width: 800px) {
   .processo-layout { grid-template-columns: 1fr; gap: 2rem; }
   .processo-left { position: static; }
-  .steps { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 1rem; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); padding-bottom: .25rem; }
+  .steps { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: var(--gutter); scrollbar-width: none; gap: 1rem; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); padding-bottom: .25rem; }
   .steps::-webkit-scrollbar { display: none; }
   .step { flex: 0 0 82vw; max-width: 340px; position: relative !important; top: auto !important; scroll-snap-align: start; }
   .proc-dots { display: flex !important; }
