@@ -438,6 +438,92 @@ document.getElementById('themeToggle').onclick = function() {
 function hideCookie() { var el = document.getElementById('cookie'); if (el) el.style.display = 'none'; }
 if (localStorage.getItem('wf-cookie')) hideCookie();
 document.querySelectorAll('.btn-cookie').forEach(function(b) { b.addEventListener('click', function() { localStorage.setItem('wf-cookie','1'); }); });
-</script>
+
+/* ── Modal WhatsApp ── */
+(function() {
+  var WA = '5547997618824';
+  var modal = document.getElementById('wppModal');
+  var overlay = document.getElementById('wppOverlay');
+  var nomeEl = document.getElementById('wppNome');
+  var telEl = document.getElementById('wppTel');
+  var pills = document.querySelectorAll('.wpp-pill');
+  var goBtn = document.getElementById('wppGo');
+  var svc = '';
+  function openModal() { modal.classList.add('wpp-open'); document.body.style.overflow = 'hidden'; setTimeout(function() { nomeEl.focus(); }, 100); }
+  function closeModal() { modal.classList.remove('wpp-open'); document.body.style.overflow = ''; }
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(a) { a.addEventListener('click', function(e) { e.preventDefault(); openModal(); }); });
+  document.getElementById('wppClose').onclick = closeModal;
+  overlay.onclick = closeModal;
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+  pills.forEach(function(p) { p.onclick = function() { pills.forEach(function(x) { x.classList.remove('ativo'); }); p.classList.add('ativo'); svc = p.dataset.svc; }; });
+  goBtn.onclick = function() {
+    var nome = nomeEl.value.trim(); var tel = telEl.value.trim();
+    var msg = 'Olá! ';
+    if (nome) msg += 'Sou ' + nome + '. ';
+    if (svc) msg += 'Preciso de: ' + svc + '. ';
+    if (tel) msg += 'Meu WhatsApp: ' + tel + '.';
+    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg.trim()), '_blank', 'noopener');
+    closeModal();
+  };
+})();</script>
+<style>
+#wppModal{position:fixed;inset:0;z-index:1000;display:flex;align-items:flex-end;justify-content:center;pointer-events:none;opacity:0;transition:opacity .25s;}
+#wppModal.wpp-open{pointer-events:all;opacity:1;}
+#wppOverlay{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);}
+.wpp-box{position:relative;background:#18191d;border-radius:1.5rem 1.5rem 0 0;padding:2rem 1.75rem 2.5rem;width:100%;max-width:480px;transform:translateY(100%);transition:transform .35s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;gap:1rem;}
+#wppModal.wpp-open .wpp-box{transform:translateY(0);}
+@media(min-width:600px){.wpp-box{border-radius:1.5rem;margin-bottom:2rem;}}
+.wpp-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.wpp-eyebrow{display:flex;align-items:center;gap:.45rem;font-size:.7rem;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.4);text-transform:uppercase;}
+.wpp-dot{width:.45rem;height:.45rem;border-radius:50%;background:var(--acid);flex-shrink:0;}
+.wpp-close{width:2rem;height:2rem;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:rgba(255,255,255,.55);font-size:1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.wpp-close:hover{background:rgba(255,255,255,.12);}
+.wpp-title{font-size:clamp(1.4rem,4vw,1.85rem);font-weight:900;letter-spacing:-.04em;line-height:1.15;color:#fff;}
+.wpp-title span{color:rgba(255,255,255,.38);}
+.wpp-label{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.45);margin-bottom:-.4rem;}
+.wpp-input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:.85rem;padding:.85rem 1rem;font-size:.95rem;color:#fff;font-family:inherit;outline:none;transition:border-color .15s;}
+.wpp-input::placeholder{color:rgba(255,255,255,.22);}
+.wpp-input:focus{border-color:var(--acid);}
+.wpp-pills{display:flex;flex-wrap:wrap;gap:.5rem;}
+.wpp-pill{padding:.5rem 1rem;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:transparent;color:rgba(255,255,255,.6);font-size:.85rem;font-weight:600;cursor:pointer;transition:border-color .15s,color .15s,background .15s;font-family:inherit;}
+.wpp-pill:hover{border-color:rgba(255,255,255,.3);color:#fff;}
+.wpp-pill.ativo{background:var(--acid);border-color:var(--acid);color:var(--acid-fg);}
+.wpp-btn{display:flex;align-items:center;justify-content:space-between;width:100%;padding:.9rem 1rem .9rem 1.5rem;background:var(--acid);border:none;border-radius:999px;font-size:1rem;font-weight:800;color:var(--acid-fg);cursor:pointer;font-family:inherit;transition:opacity .15s;margin-top:.25rem;}
+.wpp-btn:hover{opacity:.9;}
+.wpp-btn-arrow{width:2.2rem;height:2.2rem;border-radius:50%;background:var(--acid-fg);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.wpp-btn-arrow svg{width:1rem;height:1rem;stroke:var(--acid);stroke-width:2.5;fill:none;}
+.wpp-legal{font-size:.72rem;color:rgba(255,255,255,.28);text-align:center;line-height:1.5;}
+</style>
+
+<div id="wppModal" role="dialog" aria-modal="true" aria-labelledby="wppTitle">
+  <div id="wppOverlay"></div>
+  <div class="wpp-box">
+    <div class="wpp-top">
+      <span class="wpp-eyebrow"><span class="wpp-dot"></span>Fale com a Webfun</span>
+      <button class="wpp-close" id="wppClose" aria-label="Fechar">✕</button>
+    </div>
+    <h2 class="wpp-title" id="wppTitle">Antes de abrir o WhatsApp,<br><span>como te chamo?</span></h2>
+    <span class="wpp-label">Seu nome</span>
+    <input id="wppNome" class="wpp-input" type="text" placeholder="João Silva" autocomplete="given-name">
+    <span class="wpp-label">Seu WhatsApp, com DDD</span>
+    <input id="wppTel" class="wpp-input" type="tel" placeholder="(47) 99999-9999" autocomplete="tel">
+    <span class="wpp-label">O que você precisa?</span>
+    <div class="wpp-pills">
+      <button class="wpp-pill" data-svc="Site institucional">Site</button>
+      <button class="wpp-pill" data-svc="Loja virtual">Loja virtual</button>
+      <button class="wpp-pill" data-svc="Landing page">Landing page</button>
+      <button class="wpp-pill" data-svc="Sistema ou automação">Sistema ou automação</button>
+      <button class="wpp-pill" data-svc="Aplicativo">Aplicativo</button>
+      <button class="wpp-pill" data-svc="Outra coisa">Outra coisa</button>
+    </div>
+    <button class="wpp-btn" id="wppGo">
+      Continuar no WhatsApp
+      <span class="wpp-btn-arrow">
+        <svg viewBox="0 0 16 16"><path d="M3 13L13 3M13 3H6M13 3v7"/></svg>
+      </span>
+    </button>
+    <p class="wpp-legal">Sem compromisso. Seus dados são usados apenas para personalizar o atendimento.</p>
+  </div>
+</div>
 </body>
 </html>
