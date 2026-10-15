@@ -105,11 +105,17 @@
 /* Stats — dark bg, stat-cards dark */
 [data-theme="dark"] .stats { background: var(--surface); border-color: rgba(255,255,255,.08); }
 [data-theme="dark"] .stats .stat-card { background: var(--bg2); border-color: rgba(255,255,255,.06); }
+[data-theme="dark"] .stats .stat-card.stat-lime { background: var(--acid); border-color: transparent; }
+[data-theme="dark"] .stats .stat-card.stat-lime .stat-ey { color: rgba(30,39,0,.5); }
+[data-theme="dark"] .stats .stat-card.stat-lime .stat-num { color: var(--acid-fg); }
+[data-theme="dark"] .stats .stat-card.stat-lime .stat-ctx { color: rgba(30,39,0,.55); }
 [data-theme="dark"] .stats .stat-num { color: var(--ink); }
 [data-theme="dark"] .stats .stat-ey { color: var(--muted); }
 [data-theme="dark"] .stats .stat-ctx { color: var(--muted); }
 /* Estimador — dark bg, opções dark */
 [data-theme="dark"] .estimador { background: var(--surface); border-color: rgba(255,255,255,.08); }
+[data-theme="dark"] .estimador .eyebrow { color: var(--muted); }
+[data-theme="dark"] .estimador .section-title { color: var(--ink); }
 [data-theme="dark"] .est-label { color: var(--muted); }
 [data-theme="dark"] .est-opcao,
 [data-theme="dark"] .est-add { background: var(--bg2); border-color: rgba(255,255,255,.08); }
@@ -450,7 +456,7 @@ svg { display: block; }
 .pq-item:hover .pq-n { color: var(--acid); }
 .pq-item-titulo { font-size: 1.05rem; font-weight: 700; margin-bottom: .4rem; padding-right: 3rem; }
 .pq-item-desc { font-size: .88rem; color: var(--muted); line-height: 1.62; }
-@media (max-width: 800px) { .pq-layout { grid-template-columns: 1fr; } .pq-left { position: static; } }
+@media (max-width: 800px) { .pq-layout { grid-template-columns: 1fr; } .pq-left { display: contents; } .pq-items { order: 2; } .pq-cta { order: 3; } }
 
 /* ── Processo ────────────────────────────────────────────────────────── */
 .processo { background: var(--bg2); border-top: 1px solid var(--line); }
@@ -521,7 +527,7 @@ details.faq-item summary::-webkit-details-marker { display: none; }
 .faq-icon svg { width: .75rem; height: .75rem; stroke-width: 2.5; }
 details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rotate: 45deg; }
 .faq-body { padding-bottom: 1.25rem; font-size: .88rem; color: var(--muted); line-height: 1.7; }
-@media (max-width: 800px) { .faq-layout { grid-template-columns: 1fr; } .faq-left { position: static; } }
+@media (max-width: 800px) { .faq-layout { grid-template-columns: 1fr; gap: 1.5rem; } .faq-left { position: static; } }
 
 /* ── Estimador ───────────────────────────────────────────────────────── */
 .estimador { background: var(--win); border-top: 1px solid var(--win-line); transition: background .3s, border-color .3s; }
@@ -663,7 +669,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
     <span class="ico-dark"><i data-lucide="moon"></i></span>
   </button>
 
-  <a href="https://wa.me/5542999486020" class="wf-topo-cta" target="_blank" rel="noopener">
+  <a href="https://wa.me/5547997618824" class="wf-topo-cta" target="_blank" rel="noopener">
     Começar projeto
     <span class="seta-sm" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
   </a>
@@ -690,7 +696,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
         <a href="/blog">Blog</a>
         <a href="/contato">Contato</a>
       </div>
-      <a href="https://wa.me/5542999486020" class="wf-menu-cta" target="_blank" rel="noopener">Começar projeto ↗</a>
+      <a href="https://wa.me/5547997618824" class="wf-menu-cta" target="_blank" rel="noopener">Começar projeto ↗</a>
     </nav>
   </details>
 </header>
@@ -707,7 +713,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
       <h1 id="hero-h1">Seu negócio<br>merece mais<br><em>do que um site.</em></h1>
       <p class="hero-sub">A Webfun cria sites, lojas e sistemas que trabalham por você — mesmo quando você não está olhando.</p>
       <div class="hero-ctas">
-        <a href="https://wa.me/5542999486020" class="btn-acid" target="_blank" rel="noopener">
+        <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">
           Começar meu projeto <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
         </a>
         <a href="#portfolio" class="btn-ghost">Ver projetos <i data-lucide="arrow-right"></i></a>
@@ -955,7 +961,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
         <h2 class="section-title" id="pq-h2">Talvez esteja na hora de resolver isso.</h2>
         <p class="pq-sub">Se o digital da sua empresa ficou para trás, a operação começou a travar ou uma ideia precisa sair do papel, vale uma conversa antes de decidir a solução.</p>
         <div class="pq-cta">
-          <a href="https://wa.me/5542999486020" class="btn-acid" target="_blank" rel="noopener">Quero resolver isso <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+          <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">Quero resolver isso <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
         </div>
       </div>
       <div class="pq-items">
@@ -1117,7 +1123,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
         </div>
 
         <div class="est-cta">
-          <a href="https://wa.me/5542999486020" class="btn-acid" target="_blank" rel="noopener" id="estLink" style="width:100%;justify-content:space-between;height:3.2rem">
+          <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener" id="estLink" style="width:100%;justify-content:space-between;height:3.2rem">
             Quero um orçamento <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
           </a>
         </div>
@@ -1134,8 +1140,8 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
     <h2 id="cta-h2">Seu próximo projeto<br>começa aqui.</h2>
     <p>Conte o que precisa. A gente entende o contexto, sugere o caminho e apresenta uma proposta clara antes de qualquer compromisso.</p>
     <div class="cta-final-btns">
-      <a href="https://wa.me/5542999486020" class="btn-acid" target="_blank" rel="noopener">Falar no WhatsApp <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
-      <a href="mailto:agenciawebfun@gmail.com" class="btn-outline">Enviar e-mail</a>
+      <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">Falar no WhatsApp <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+      <a href="mailto:contato@webfun.com.br" class="btn-outline">Enviar e-mail</a>
     </div>
   </div>
 </section>
@@ -1150,7 +1156,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
       </div>
       <div class="rodape-col"><p class="rodape-col-tit">Serviços</p><a href="/servicos">Site institucional</a><a href="/servicos">Loja virtual</a><a href="/servicos">Landing page</a><a href="/servicos">Sistemas</a><a href="/servicos">Automação & IA</a><a href="/servicos">Aplicativo</a></div>
       <div class="rodape-col"><p class="rodape-col-tit">Empresa</p><a href="/sobre">Sobre a Webfun</a><a href="/projetos">Projetos</a><a href="/blog">Blog</a><a href="/contato">Contato</a></div>
-      <div class="rodape-col"><p class="rodape-col-tit">Contato</p><a href="mailto:agenciawebfun@gmail.com">agenciawebfun@gmail.com</a><a href="https://wa.me/5542999486020" target="_blank" rel="noopener">WhatsApp</a><a href="#">Canoinhas, SC — Brasil</a></div>
+      <div class="rodape-col"><p class="rodape-col-tit">Contato</p><a href="mailto:contato@webfun.com.br">contato@webfun.com.br</a><a href="https://wa.me/5547997618824" target="_blank" rel="noopener">WhatsApp</a><a href="#">Canoinhas, SC — Brasil</a></div>
     </div>
     <div class="rodape-bottom"><p class="rodape-copy">© 2026 Webfun. Todos os direitos reservados.</p><p class="rodape-love">Feito com ♥ em Canoinhas</p></div>
   </div>
@@ -1237,7 +1243,7 @@ function updateEst() {
   document.getElementById('estSub').textContent = nome + (addNames.length ? ' · ' + addNames.join(', ') : ' · sem adicionais');
   document.getElementById('estPrazo').textContent = prazos[String(base)] || '~4 semanas';
   var msg = encodeURIComponent('Olá! Interesse em: ' + nome + (addNames.length ? ' + ' + addNames.join(', ') : '') + '. Estimativa: R$' + total.toLocaleString('pt-BR') + '. Podemos conversar?');
-  document.getElementById('estLink').href = 'https://wa.me/5542999486020?text=' + msg;
+  document.getElementById('estLink').href = 'https://wa.me/5547997618824?text=' + msg;
 }
 
 /* Opções (radio) */

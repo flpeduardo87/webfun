@@ -46,6 +46,12 @@
 
 [data-theme="light"] .paraquem{background:#18191d;border-color:rgba(255,255,255,.08);}[data-theme="light"] .paraquem .section-title{color:rgba(255,255,255,.88);}[data-theme="light"] .paraquem .eyebrow{color:var(--acid);}[data-theme="light"] .pq-sub{color:rgba(255,255,255,.5);}[data-theme="light"] .pq-item{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.09);}[data-theme="light"] .pq-item:hover{border-color:rgba(255,255,255,.3);}[data-theme="light"] .pq-n{color:rgba(255,255,255,.12);}[data-theme="light"] .pq-item-titulo{color:rgba(255,255,255,.88);}[data-theme="light"] .pq-item-desc{color:rgba(255,255,255,.5);}
 [data-theme="light"] .rodape{background:#18191d;border-color:rgba(255,255,255,.08);}[data-theme="light"] .rodape-marca,[data-theme="light"] .rodape-col a:hover{color:rgba(255,255,255,.88);}[data-theme="light"] .rodape-sub,[data-theme="light"] .rodape-col-tit,[data-theme="light"] .rodape-copy,[data-theme="light"] .rodape-love,[data-theme="light"] .rodape-col a{color:rgba(255,255,255,.42);}[data-theme="light"] .rodape-bottom{border-color:rgba(255,255,255,.08);}
+/* Estimador — painel de resultado escuro no light (lime precisa de fundo escuro) */
+[data-theme="light"] .est-result{background:#18191d;border-color:rgba(255,255,255,.08);}
+[data-theme="light"] .est-result-label,[data-theme="light"] .est-total-sub,[data-theme="light"] .est-incl-tit,[data-theme="light"] .est-result-txt,[data-theme="light"] .est-aviso{color:rgba(255,255,255,.42);}
+[data-theme="light"] .est-incl li{color:rgba(255,255,255,.85);}
+[data-theme="light"] .est-prazo{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);}
+[data-theme="light"] .est-prazo-txt{color:rgba(255,255,255,.85);}
 /* ── Dark mode ───────────────────────────────────────────────────────── */
 [data-theme="dark"] {
   --bg:       #13141a;
@@ -83,28 +89,64 @@
 [data-theme="dark"] .wf-menu-painel { background: var(--surface); box-shadow: 0 0 0 1px var(--line), var(--shadow); }
 [data-theme="dark"] .hero-window { background: var(--win); border-color: var(--win-line); }
 [data-theme="dark"] .hw-bar { background: var(--win-2); border-color: var(--win-line); }
+/* ── Dark mode: seções escuras (seguem --bg/surface) ── */
 [data-theme="dark"] .p-thumb-letra { color: #000; opacity: .06; }
-[data-theme="dark"] .stats { background: var(--win); border-color: var(--win-line); }
-[data-theme="dark"] .stats .stat { background: var(--win-2); }
-[data-theme="dark"] .stats .stat p { color: var(--win-muted); }
-[data-theme="dark"] .estimador { background: var(--win); border-color: var(--win-line); }
-[data-theme="dark"] .estimador .eyebrow { color: var(--win-muted); }
-[data-theme="dark"] .estimador .section-title { color: var(--win-txt); }
-[data-theme="dark"] .est-label { color: var(--win-muted); }
+/* Portfolio — dark bg, cards dark */
+[data-theme="dark"] .portfolio { background: var(--bg); border-color: rgba(255,255,255,.08); }
+[data-theme="dark"] .p-card { background: var(--surface); border-color: rgba(255,255,255,.08); }
+[data-theme="dark"] .p-card:hover { border-color: rgba(255,255,255,.22); }
+[data-theme="dark"] .p-nome { color: var(--ink); }
+[data-theme="dark"] .p-desc { color: var(--muted); }
+[data-theme="dark"] .p-tag { background: rgba(255,255,255,.08); color: var(--muted); }
+[data-theme="dark"] .filtro-btn { border-color: rgba(255,255,255,.12); color: var(--muted); }
+[data-theme="dark"] .filtro-btn:hover { border-color: rgba(255,255,255,.3); color: var(--ink); }
+[data-theme="dark"] .portfolio .btn-outline { border-color: rgba(255,255,255,.15); color: var(--ink-2); }
+[data-theme="dark"] .portfolio .btn-outline:hover { border-color: rgba(255,255,255,.35); color: var(--ink); }
+/* Stats — dark bg, stat-cards dark */
+[data-theme="dark"] .stats { background: var(--surface); border-color: rgba(255,255,255,.08); }
+[data-theme="dark"] .stats .stat-card { background: var(--bg2); border-color: rgba(255,255,255,.06); }
+[data-theme="dark"] .stats .stat-card.stat-lime { background: var(--acid); border-color: transparent; }
+[data-theme="dark"] .stats .stat-card.stat-lime .stat-ey { color: rgba(30,39,0,.5); }
+[data-theme="dark"] .stats .stat-card.stat-lime .stat-num { color: var(--acid-fg); }
+[data-theme="dark"] .stats .stat-card.stat-lime .stat-ctx { color: rgba(30,39,0,.55); }
+[data-theme="dark"] .stats .stat-num { color: var(--ink); }
+[data-theme="dark"] .stats .stat-ey { color: var(--muted); }
+[data-theme="dark"] .stats .stat-ctx { color: var(--muted); }
+/* Estimador — dark bg, opções dark */
+[data-theme="dark"] .estimador { background: var(--surface); border-color: rgba(255,255,255,.08); }
+[data-theme="dark"] .estimador .eyebrow { color: var(--muted); }
+[data-theme="dark"] .estimador .section-title { color: var(--ink); }
+[data-theme="dark"] .est-label { color: var(--muted); }
 [data-theme="dark"] .est-opcao,
-[data-theme="dark"] .est-add { background: var(--win-2); border-color: var(--win-line); }
+[data-theme="dark"] .est-add { background: var(--bg2); border-color: rgba(255,255,255,.08); }
+[data-theme="dark"] .est-radio { border-color: rgba(255,255,255,.25); }
+[data-theme="dark"] .est-check { border-color: rgba(255,255,255,.25); }
+[data-theme="dark"] .est-ico { color: rgba(255,255,255,.5); background: rgba(255,255,255,.08); }
 [data-theme="dark"] .est-opcao-nome,
-[data-theme="dark"] .est-add-nome { color: var(--win-txt); }
-[data-theme="dark"] .est-opcao-preco { color: var(--win-muted); }
-[data-theme="dark"] .est-result { background: var(--win-3); border-color: var(--win-line); }
+[data-theme="dark"] .est-add-nome { color: var(--ink); }
+[data-theme="dark"] .est-opcao-preco { color: var(--muted); }
+[data-theme="dark"] .est-result { background: var(--bg); border-color: rgba(255,255,255,.08); }
 [data-theme="dark"] .est-result-label,
 [data-theme="dark"] .est-total-label,
 [data-theme="dark"] .est-total-sub,
 [data-theme="dark"] .est-result-txt,
 [data-theme="dark"] .est-aviso,
-[data-theme="dark"] .est-incl-tit { color: var(--win-muted); }
-[data-theme="dark"] .est-incl li { color: var(--win-txt); }
-[data-theme="dark"] .est-total-val { color: var(--acid-fg); }
+[data-theme="dark"] .est-incl-tit { color: var(--muted); }
+[data-theme="dark"] .est-incl li { color: var(--ink); }
+[data-theme="dark"] .est-total-val { color: var(--acid); }
+/* ── Dark mode: seções cream (acento — oposto do light) ── */
+/* Para quem — cream (era escuro no light) */
+[data-theme="dark"] .paraquem { background: var(--win); border-color: var(--win-line); }
+[data-theme="dark"] .paraquem .section-title { color: var(--win-txt); }
+[data-theme="dark"] .paraquem .eyebrow { color: var(--acid-fg); opacity: .7; }
+[data-theme="dark"] .pq-sub { color: var(--win-muted); }
+[data-theme="dark"] .pq-item { background: var(--win-2); border-color: var(--win-line); }
+[data-theme="dark"] .pq-item:hover { border-color: rgba(0,0,0,.25); }
+[data-theme="dark"] .pq-n { color: rgba(0,0,0,.12); }
+[data-theme="dark"] .pq-item-titulo { color: var(--win-txt); }
+[data-theme="dark"] .pq-item-desc { color: var(--win-muted); }
+[data-theme="dark"] .pq-item:hover .pq-n { color: var(--acid-fg); }
+/* Rodapé — cream (era escuro no light) */
 [data-theme="dark"] .rodape { background: var(--win); border-color: var(--win-line); }
 [data-theme="dark"] .rodape-marca,
 [data-theme="dark"] .rodape-col a { color: var(--win-txt); }
@@ -388,9 +430,16 @@ svg { display: block; }
 .p-desc { font-size: .88rem; color: var(--win-muted); line-height: 1.55; }
 .p-meta { display: flex; align-items: center; justify-content: space-between; margin-top: .75rem; }
 .p-ano { font-size: .75rem; color: var(--win-muted); font-weight: 600; }
-.p-link { font-size: .82rem; color: var(--acid); font-weight: 700; }
-[data-theme="dark"] .p-link { color: var(--acid-fg); }
+.p-tags { display: flex; gap: .3rem; flex-wrap: wrap; }
+.p-tag { font-size: .75rem; font-weight: 600; text-transform: capitalize; color: var(--win-muted); background: var(--win-3); border-radius: 999px; padding: .18rem .55rem; }
+.p-link { display: inline-flex; align-items: center; gap: .25rem; padding: .3rem .8rem; border-radius: 999px; background: var(--acid); color: var(--acid-fg); font-size: .78rem; font-weight: 700; white-space: nowrap; transition: background .15s; }
+.p-link:hover { background: var(--acid-2); }
+.p-card[data-cat="site"] .p-thumb-bg { background: linear-gradient(135deg,#1e2640 0%,#252e55 100%); }
+.p-card[data-cat="loja"] .p-thumb-bg { background: linear-gradient(135deg,#1a2e1a 0%,#1f3a20 100%); }
+.p-card[data-cat="sistema"] .p-thumb-bg { background: linear-gradient(135deg,#2a1a2e 0%,#351e3a 100%); }
+.p-card[data-cat="landing"] .p-thumb-bg { background: linear-gradient(135deg,#2e1a1a 0%,#3a2020 100%); }
 .p-card.hidden { display: none; }
+.portfolio-mais { text-align: center; margin-top: 2.5rem; }
 @media (max-width: 900px) { .p-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .p-grid { grid-template-columns: 1fr; } }
 
@@ -401,14 +450,13 @@ svg { display: block; }
 .pq-sub { font-size: .95rem; color: var(--muted); line-height: 1.65; margin-top: .9rem; max-width: 400px; }
 .pq-cta { margin-top: 2rem; }
 .pq-items { display: flex; flex-direction: column; gap: 1rem; }
-.pq-item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 1.75rem; display: flex; gap: 1.25rem; transition: border-color .2s; }
+.pq-item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 1.75rem; position: relative; transition: border-color .2s; }
 .pq-item:hover { border-color: var(--ink); }
-[data-theme="dark"] .pq-item:hover { border-color: rgba(255,255,255,.3); }
-.pq-n { font-size: 2rem; font-weight: 900; letter-spacing: -.06em; color: var(--line); line-height: 1; flex-shrink: 0; min-width: 2.5rem; transition: color .2s; }
+.pq-n { font-size: 1.4rem; font-weight: 900; letter-spacing: -.06em; color: var(--line); line-height: 1; position: absolute; top: 1.75rem; right: 1.75rem; transition: color .2s; }
 .pq-item:hover .pq-n { color: var(--acid); }
-.pq-item-titulo { font-size: 1.05rem; font-weight: 700; margin-bottom: .4rem; }
+.pq-item-titulo { font-size: 1.05rem; font-weight: 700; margin-bottom: .4rem; padding-right: 3rem; }
 .pq-item-desc { font-size: .88rem; color: var(--muted); line-height: 1.62; }
-@media (max-width: 800px) { .pq-layout { grid-template-columns: 1fr; } .pq-left { position: static; } }
+@media (max-width: 800px) { .pq-layout { grid-template-columns: 1fr; } .pq-left { display: contents; } .pq-items { order: 2; } .pq-cta { order: 3; } }
 
 /* ── Processo ────────────────────────────────────────────────────────── */
 .processo { background: var(--bg2); border-top: 1px solid var(--line); }
@@ -479,7 +527,7 @@ details.faq-item summary::-webkit-details-marker { display: none; }
 .faq-icon svg { width: .75rem; height: .75rem; stroke-width: 2.5; }
 details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rotate: 45deg; }
 .faq-body { padding-bottom: 1.25rem; font-size: .88rem; color: var(--muted); line-height: 1.7; }
-@media (max-width: 800px) { .faq-layout { grid-template-columns: 1fr; } .faq-left { position: static; } }
+@media (max-width: 800px) { .faq-layout { grid-template-columns: 1fr; gap: 1.5rem; } .faq-left { position: static; } }
 
 /* ── Estimador ───────────────────────────────────────────────────────── */
 .estimador { background: var(--win); border-top: 1px solid var(--win-line); transition: background .3s, border-color .3s; }
@@ -512,17 +560,19 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
 .est-result { position: sticky; top: 7rem; background: var(--win-2); border: 1px solid var(--win-line); border-radius: var(--r); padding: 1.75rem; display: flex; flex-direction: column; gap: 0; }
 .est-result-label { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--win-muted); margin-bottom: 1rem; }
 .est-total-val { font-size: 3.2rem; font-weight: 900; letter-spacing: -.06em; color: var(--acid); line-height: 1; }
-[data-theme="dark"] .est-total-val { color: var(--acid-fg); }
+[data-theme="dark"] .est-total-val { color: var(--acid); }
 .est-total-sub { font-size: .75rem; color: var(--win-muted); margin-top: .35rem; margin-bottom: 1.5rem; }
 .est-incl { margin-bottom: 1.5rem; }
 .est-incl-tit { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--win-muted); margin-bottom: .65rem; }
 .est-incl ul { display: flex; flex-direction: column; gap: .45rem; }
 .est-incl li { display: flex; align-items: center; gap: .6rem; font-size: .88rem; color: var(--win-txt); }
 .est-incl li svg { width: .85rem; height: .85rem; stroke-width: 2.5; color: var(--acid); flex-shrink: 0; }
-[data-theme="dark"] .est-incl li svg { color: var(--acid-fg); }
+[data-theme="dark"] .est-incl li svg { color: var(--acid); }
 .est-prazo { background: var(--win-3); border-radius: .85rem; padding: .9rem 1rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: .75rem; border: 1px solid var(--win-line); }
 .est-prazo svg { width: 1.1rem; height: 1.1rem; stroke-width: 2; color: var(--acid); flex-shrink: 0; }
-[data-theme="dark"] .est-prazo svg { color: var(--acid-fg); }
+[data-theme="dark"] .est-prazo { background: var(--bg); border-color: rgba(255,255,255,.08); }
+[data-theme="dark"] .est-prazo svg { color: var(--acid); }
+[data-theme="dark"] .est-prazo-txt { color: var(--ink); }
 .est-prazo-txt { font-size: .88rem; color: var(--win-txt); font-weight: 600; }
 .est-prazo-sub { font-size: .75rem; color: var(--win-muted); margin-top: .1rem; }
 .est-rv { background: var(--win-3); border-radius: .85rem; padding: .9rem 1rem; margin-bottom: 1.5rem; border: 1px solid var(--win-line); }
@@ -619,7 +669,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
     <span class="ico-dark"><i data-lucide="moon"></i></span>
   </button>
 
-  <a href="https://wa.me/5542999486020" class="wf-topo-cta" target="_blank" rel="noopener">
+  <a href="https://wa.me/5547997618824" class="wf-topo-cta" target="_blank" rel="noopener">
     Começar projeto
     <span class="seta-sm" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
   </a>
@@ -646,7 +696,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
         <a href="/blog">Blog</a>
         <a href="/contato">Contato</a>
       </div>
-      <a href="https://wa.me/5542999486020" class="wf-menu-cta" target="_blank" rel="noopener">Começar projeto ↗</a>
+      <a href="https://wa.me/5547997618824" class="wf-menu-cta" target="_blank" rel="noopener">Começar projeto ↗</a>
     </nav>
   </details>
 </header>
@@ -663,7 +713,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
       <h1 id="hero-h1">Seu negócio<br>merece mais<br><em>do que um site.</em></h1>
       <p class="hero-sub">A Webfun cria sites, lojas e sistemas que trabalham por você — mesmo quando você não está olhando.</p>
       <div class="hero-ctas">
-        <a href="https://wa.me/5542999486020" class="btn-acid" target="_blank" rel="noopener">
+        <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">
           Começar meu projeto <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
         </a>
         <a href="#portfolio" class="btn-ghost">Ver projetos <i data-lucide="arrow-right"></i></a>
@@ -849,15 +899,55 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
       </div>
     </div>
     <div class="p-grid" id="portfolioGrid">
-      <div class="p-card" data-cat="site"><div class="p-thumb" style="background:linear-gradient(135deg,#1a1f2e,#0f1520)"><div class="p-thumb-bg"><span class="p-thumb-letra">L</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div><div class="p-info"><p class="p-nome">LUME Odontologia</p><p class="p-desc">Clínica premium com jornada completa. Agendamento online e área do paciente.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="loja"><div class="p-thumb" style="background:linear-gradient(135deg,#1a1410,#2a1e16)"><div class="p-thumb-bg"><span class="p-thumb-letra">A</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Loja virtual</span></div></div><div class="p-info"><p class="p-nome">AZAFF</p><p class="p-desc">E-commerce de moda feminina com identidade minimalista e checkout otimizado.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="site"><div class="p-thumb" style="background:linear-gradient(135deg,#1e1520,#150e1a)"><div class="p-thumb-bg"><span class="p-thumb-letra">A</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div><div class="p-info"><p class="p-nome">AURA Estética</p><p class="p-desc">Site premium para clínica estética avançada com foco em conversão e identidade sofisticada.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="sistema"><div class="p-thumb" style="background:linear-gradient(135deg,#0d1a14,#121f18)"><div class="p-thumb-bg"><span class="p-thumb-letra">C</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div><div class="p-info"><p class="p-nome">Canoinhas TC</p><p class="p-desc">Site + sistema de reservas de quadras, churrasqueiras e gestão de sócios.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="site"><div class="p-thumb" style="background:linear-gradient(135deg,#1e1710,#17120c)"><div class="p-thumb-bg"><span class="p-thumb-letra">C</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div><div class="p-info"><p class="p-nome">Casa Serena</p><p class="p-desc">Hotel boutique na Serra da Mantiqueira com reservas integradas e identidade premium.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="sistema"><div class="p-thumb" style="background:linear-gradient(135deg,#0a1a10,#0e2016)"><div class="p-thumb-bg"><span class="p-thumb-letra">M</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div><div class="p-info"><p class="p-nome">MATCH Racquet Club</p><p class="p-desc">Plataforma com reservas, planos de sócios e agenda de eventos do clube.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="site"><div class="p-thumb" style="background:linear-gradient(135deg,#1a1400,#211900)"><div class="p-thumb-bg"><span class="p-thumb-letra">M</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div><div class="p-info"><p class="p-nome">Mielke Energia Solar</p><p class="p-desc">Site de geração de leads para instaladora solar com portfólio de projetos e SEO.</p><div class="p-meta"><span class="p-ano">2024</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="landing"><div class="p-thumb" style="background:linear-gradient(135deg,#1e0e0e,#2a1010)"><div class="p-thumb-bg"><span class="p-thumb-letra">C</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Landing page</span></div></div><div class="p-info"><p class="p-nome">Com Cristo Kids</p><p class="p-desc">Landing page de alta conversão para biblioteca cristã infantil com checkout integrado.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
-      <div class="p-card" data-cat="site"><div class="p-thumb" style="background:linear-gradient(135deg,#111520,#0c1018)"><div class="p-thumb-bg"><span class="p-thumb-letra">N</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div><div class="p-info"><p class="p-nome">NEXO Estratégia</p><p class="p-desc">Site para consultoria B2B com foco em diagnóstico executivo e autoridade de marca.</p><div class="p-meta"><span class="p-ano">2025</span><a href="#" class="p-link">Ver projeto ↗</a></div></div></div>
+
+      <div class="p-card" data-cat="site">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/lume.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
+        <div class="p-info"><p class="p-nome">LUME Odontologia</p><p class="p-desc">Site de alta conversão para clínica odontológica com agendamento online e área do paciente.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">UX/UI</span><span class="p-tag">Agendamento</span></div><a href="https://webfun.com.br/modelos/lume/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="loja">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/azaff.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Loja virtual</span></div></div>
+        <div class="p-info"><p class="p-nome">AZAFF</p><p class="p-desc">E-commerce de moda feminina com identidade minimalista, catálogo e checkout otimizado.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">E-commerce</span><span class="p-tag">Moda</span></div><a href="https://lojasazaff.com.br/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="site">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/aura.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
+        <div class="p-info"><p class="p-nome">AURA Estética</p><p class="p-desc">Site premium para clínica estética avançada com foco em conversão e identidade visual sofisticada.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Premium</span><span class="p-tag">UX/UI</span></div><a href="https://webfun.com.br/modelos/aura/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="sistema">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/canoinhas-tenis-clube.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div>
+        <div class="p-info"><p class="p-nome">Canoinhas Tênis Clube</p><p class="p-desc">Site institucional + sistema de reservas de quadras, churrasqueiras e gestão de sócios.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Reservas</span><span class="p-tag">Sócios</span></div><a href="https://canoinhas-tenis-clube.vercel.app/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="site">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/casa-serena.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
+        <div class="p-info"><p class="p-nome">Casa Serena</p><p class="p-desc">Hotel boutique na Serra da Mantiqueira com sistema de reservas integrado e identidade visual premium.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Reservas</span><span class="p-tag">Hospitalidade</span></div><a href="https://webfun.com.br/modelos/casa-serena/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="sistema">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/match.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div>
+        <div class="p-info"><p class="p-nome">MATCH Racquet Club</p><p class="p-desc">Plataforma completa para clube de raquete com reservas, planos de sócios e agenda de eventos.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Agenda</span><span class="p-tag">Área do sócio</span></div><a href="https://webfun.com.br/modelos/match/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="loja">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/wasabi.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Loja virtual</span></div></div>
+        <div class="p-info"><p class="p-nome">Wasabi Sushi Bar</p><p class="p-desc">Site para restaurante japonês em Dublin com cardápio digital, reservas e identidade visual marcante.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Restaurante</span><span class="p-tag">Exterior</span></div><a href="https://wasabisushibar.ie/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="landing">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/elisangela-pontes.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Landing page</span></div></div>
+        <div class="p-info"><p class="p-nome">Elisangela Pontes</p><p class="p-desc">Landing page para advocacia empresarial especializada em blindagem jurídica e gestão de riscos.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Jurídico</span><span class="p-tag">Conversão</span></div><a href="https://elisangelapontes.adv.br/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+      <div class="p-card" data-cat="site">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/noma.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
+        <div class="p-info"><p class="p-nome">Noma Imóveis</p><p class="p-desc">Template premium para imobiliárias com listagem de imóveis, captação de leads e identidade sofisticada.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Imóveis</span><span class="p-tag">UX/UI</span></div><a href="https://webfun.com.br/modelos/noma/imoveis.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      </div>
+
+    </div>
+    <div class="portfolio-mais">
+      <a href="/projetos" class="btn-outline">Ver todos os projetos →</a>
     </div>
   </div>
 </section>
@@ -871,7 +961,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
         <h2 class="section-title" id="pq-h2">Talvez esteja na hora de resolver isso.</h2>
         <p class="pq-sub">Se o digital da sua empresa ficou para trás, a operação começou a travar ou uma ideia precisa sair do papel, vale uma conversa antes de decidir a solução.</p>
         <div class="pq-cta">
-          <a href="https://wa.me/5542999486020" class="btn-acid" target="_blank" rel="noopener">Quero resolver isso <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+          <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">Quero resolver isso <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
         </div>
       </div>
       <div class="pq-items">
@@ -1033,7 +1123,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
         </div>
 
         <div class="est-cta">
-          <a href="https://wa.me/5542999486020" class="btn-acid" target="_blank" rel="noopener" id="estLink" style="width:100%;justify-content:space-between;height:3.2rem">
+          <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener" id="estLink" style="width:100%;justify-content:space-between;height:3.2rem">
             Quero um orçamento <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
           </a>
         </div>
@@ -1050,8 +1140,8 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
     <h2 id="cta-h2">Seu próximo projeto<br>começa aqui.</h2>
     <p>Conte o que precisa. A gente entende o contexto, sugere o caminho e apresenta uma proposta clara antes de qualquer compromisso.</p>
     <div class="cta-final-btns">
-      <a href="https://wa.me/5542999486020" class="btn-acid" target="_blank" rel="noopener">Falar no WhatsApp <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
-      <a href="mailto:agenciawebfun@gmail.com" class="btn-outline">Enviar e-mail</a>
+      <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">Falar no WhatsApp <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+      <a href="mailto:contato@webfun.com.br" class="btn-outline">Enviar e-mail</a>
     </div>
   </div>
 </section>
@@ -1066,7 +1156,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
       </div>
       <div class="rodape-col"><p class="rodape-col-tit">Serviços</p><a href="/servicos">Site institucional</a><a href="/servicos">Loja virtual</a><a href="/servicos">Landing page</a><a href="/servicos">Sistemas</a><a href="/servicos">Automação & IA</a><a href="/servicos">Aplicativo</a></div>
       <div class="rodape-col"><p class="rodape-col-tit">Empresa</p><a href="/sobre">Sobre a Webfun</a><a href="/projetos">Projetos</a><a href="/blog">Blog</a><a href="/contato">Contato</a></div>
-      <div class="rodape-col"><p class="rodape-col-tit">Contato</p><a href="mailto:agenciawebfun@gmail.com">agenciawebfun@gmail.com</a><a href="https://wa.me/5542999486020" target="_blank" rel="noopener">WhatsApp</a><a href="#">Canoinhas, SC — Brasil</a></div>
+      <div class="rodape-col"><p class="rodape-col-tit">Contato</p><a href="mailto:contato@webfun.com.br">contato@webfun.com.br</a><a href="https://wa.me/5547997618824" target="_blank" rel="noopener">WhatsApp</a><a href="#">Canoinhas, SC — Brasil</a></div>
     </div>
     <div class="rodape-bottom"><p class="rodape-copy">© 2026 Webfun. Todos os direitos reservados.</p><p class="rodape-love">Feito com ♥ em Canoinhas</p></div>
   </div>
@@ -1153,7 +1243,7 @@ function updateEst() {
   document.getElementById('estSub').textContent = nome + (addNames.length ? ' · ' + addNames.join(', ') : ' · sem adicionais');
   document.getElementById('estPrazo').textContent = prazos[String(base)] || '~4 semanas';
   var msg = encodeURIComponent('Olá! Interesse em: ' + nome + (addNames.length ? ' + ' + addNames.join(', ') : '') + '. Estimativa: R$' + total.toLocaleString('pt-BR') + '. Podemos conversar?');
-  document.getElementById('estLink').href = 'https://wa.me/5542999486020?text=' + msg;
+  document.getElementById('estLink').href = 'https://wa.me/5547997618824?text=' + msg;
 }
 
 /* Opções (radio) */
