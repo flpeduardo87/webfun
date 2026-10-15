@@ -1332,7 +1332,7 @@ if (window.innerWidth <= 600) setupCarrDots(document.getElementById('portfolioGr
 if (window.innerWidth <= 800) setupCarrDots(document.querySelector('.steps'), document.querySelector('.proc-dots'));
 
 /* ── Modal WhatsApp ── */
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
   var WA = '5547997618824';
   var modal = document.getElementById('wppModal');
   var overlay = document.getElementById('wppOverlay');
@@ -1382,7 +1382,7 @@ if (window.innerWidth <= 800) setupCarrDots(document.querySelector('.steps'), do
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
     closeModal();
   };
-})();
+});
 </script>
 
 <!-- ── Modal WhatsApp ──────────────────────────────────────────────────── -->

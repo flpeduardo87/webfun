@@ -443,7 +443,7 @@ if (localStorage.getItem('wf-cookie')) hideCookie();
 document.querySelectorAll('.btn-cookie').forEach(function(b) { b.addEventListener('click', function() { localStorage.setItem('wf-cookie','1'); }); });
 
 /* ── Modal WhatsApp ── */
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
   var WA = '5547997618824';
   var modal = document.getElementById('wppModal');
   var overlay = document.getElementById('wppOverlay');
