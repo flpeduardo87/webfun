@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
 <meta charset="UTF-8">
@@ -161,7 +161,8 @@ svg{display:block;}
 
 .quem{background:var(--surface);border-top:1px solid var(--line);}
 .quem-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:center;}
-.quem-avatar{width:5rem;height:5rem;border-radius:999px;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;font-size:1.6rem;font-weight:900;letter-spacing:-.04em;flex-shrink:0;margin-bottom:1.5rem;}
+.quem-avatar{width:8rem;height:8rem;border-radius:999px;overflow:hidden;background:var(--acid);flex-shrink:0;margin-bottom:1.5rem;}
+.quem-avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
 .quem-nome{font-size:1.8rem;font-weight:900;letter-spacing:-.04em;line-height:1;}
 .quem-cargo{font-size:.88rem;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:.4rem;}
 .quem-desc{font-size:.9rem;color:var(--ink-2);line-height:1.72;margin-top:1.5rem;max-width:480px;}
@@ -313,7 +314,7 @@ svg{display:block;}
   <div class="wrap">
     <div class="quem-layout">
       <div>
-        <div class="quem-avatar">F</div>
+        <div class="quem-avatar"><img src="media/pessoas/felipe.webp" alt="Felipe — Designer & desenvolvedor" loading="lazy"></div>
         <h2 class="quem-nome" id="quem-h2">Felipe</h2>
         <p class="quem-cargo">Designer & desenvolvedor</p>
         <p class="quem-desc">Sou eu quem faz cada projeto do começo ao fim — estratégia, design e código no mesmo lugar, sem terceirizar e sem intermediários. Da primeira conversa às decisões finais de interface, o objetivo é clareza, proximidade e responsabilidade em cada entrega.</p>
@@ -423,7 +424,7 @@ svg{display:block;}
   </div>
 </footer>
 
-<div id="cookie" role="region" aria-label="Aviso de cookies">
+<div id="cookie" role="region" style="display:none" aria-label="Aviso de cookies">
   <p>Usamos cookies para melhorar sua experiência. <a href="#">Saiba mais</a>.</p>
   <div class="row"><button class="btn-cookie accept" onclick="hideCookie()">Aceitar</button><button class="btn-cookie reject" onclick="hideCookie()">Recusar</button></div>
 </div>
