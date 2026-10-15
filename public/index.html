@@ -415,13 +415,39 @@ svg { display: block; }
 [data-theme="dark"] .hw-shop-cat.on { background: var(--ink); color: var(--bg); border-color: transparent; }
 [data-theme="dark"] .hw-shop-prod { background: var(--bg2); border-color: rgba(255,255,255,.06); }
 [data-theme="dark"] .hw-shop-name,[data-theme="dark"] .hw-shop-price { color: var(--ink); }
-/* Sistema chart */
-.hw-chart-wrap { width: 7.5rem; flex-shrink: 0; }
-.hw-chart { display: flex; align-items: flex-end; gap: .22rem; height: 4.5rem; }
-.hw-bar-c { flex: 1; border-radius: .2rem .2rem 0 0; background: var(--acid); opacity: .3; transition: opacity .2s; }
-.hw-bar-c.hi { opacity: 1; }
-.hw-chart-lbl { display: flex; justify-content: space-between; font-size: .45rem; color: var(--win-muted); margin-top: .25rem; }
-[data-theme="dark"] .hw-chart-lbl { color: var(--muted); }
+/* Sistema — kanban mockup */
+.hw-sys-bar { display: flex; align-items: center; justify-content: space-between; padding: .5rem .7rem; background: var(--win-2); border-radius: .75rem; border: 1px solid var(--win-line); }
+.hw-sys-brand { font-size: .75rem; font-weight: 900; color: var(--win-txt); letter-spacing: -.03em; }
+.hw-sys-actions { display: flex; align-items: center; gap: .5rem; }
+.hw-sys-notif { position: relative; font-size: .8rem; line-height: 1; cursor: pointer; }
+.hw-sys-nbadge { position: absolute; top: -.3rem; right: -.3rem; background: #ef4444; color: #fff; font-size: .38rem; font-weight: 900; width: .75rem; height: .75rem; border-radius: 999px; display: grid; place-items: center; }
+.hw-sys-avatar { width: 1.5rem; height: 1.5rem; border-radius: 999px; background: var(--acid); color: var(--acid-fg); font-size: .52rem; font-weight: 900; display: grid; place-items: center; }
+.hw-sys-tabs { display: flex; gap: .25rem; }
+.hw-sys-tab { font-size: .58rem; font-weight: 700; padding: .22rem .55rem; border-radius: .4rem; color: var(--win-muted); background: transparent; white-space: nowrap; cursor: pointer; }
+.hw-sys-tab.on { background: var(--ink); color: var(--win); }
+.hw-kanban { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .4rem; }
+.hw-kcol { display: flex; flex-direction: column; gap: .28rem; }
+.hw-kcol-head { display: flex; align-items: center; gap: .28rem; font-size: .54rem; font-weight: 700; color: var(--win-muted); padding-bottom: .15rem; }
+.hw-kcol-status { width: .42rem; height: .42rem; border-radius: 999px; flex-shrink: 0; }
+.hw-kcol-n { margin-left: auto; background: var(--win-3); color: var(--win-muted); font-size: .48rem; font-weight: 800; padding: .04rem .28rem; border-radius: 999px; }
+.hw-ktask { background: var(--win); border-radius: .55rem; padding: .38rem .42rem .4rem; border: 1px solid var(--win-line); display: flex; flex-direction: column; gap: .22rem; }
+.hw-ktask-top { display: flex; align-items: center; gap: .25rem; }
+.hw-ktask-prio { width: .32rem; height: .32rem; border-radius: 999px; flex-shrink: 0; }
+.hw-ktask-title { font-size: .55rem; font-weight: 700; color: var(--win-txt); line-height: 1.3; flex: 1; }
+.hw-ktask-foot { display: flex; align-items: center; justify-content: flex-end; }
+.hw-ktask-av { width: 1.1rem; height: 1.1rem; border-radius: 999px; font-size: .44rem; font-weight: 900; display: grid; place-items: center; color: #fff; flex-shrink: 0; }
+.hw-ktask-active { border-color: rgba(59,130,246,.5); background: rgba(59,130,246,.05); }
+.hw-ktask-done .hw-ktask-title { text-decoration: line-through; opacity: .5; }
+.hw-ktask-done { opacity: .7; }
+[data-theme="dark"] .hw-sys-bar { background: var(--bg2); border-color: rgba(255,255,255,.06); }
+[data-theme="dark"] .hw-sys-brand { color: var(--ink); }
+[data-theme="dark"] .hw-sys-tab { color: var(--muted); }
+[data-theme="dark"] .hw-sys-tab.on { background: var(--ink); color: var(--bg); }
+[data-theme="dark"] .hw-kcol-head { color: var(--muted); }
+[data-theme="dark"] .hw-kcol-n { background: var(--bg); color: var(--muted); }
+[data-theme="dark"] .hw-ktask { background: var(--bg2); border-color: rgba(255,255,255,.06); }
+[data-theme="dark"] .hw-ktask-title { color: var(--ink); }
+[data-theme="dark"] .hw-ktask-active { border-color: rgba(59,130,246,.4); background: rgba(59,130,246,.08); }
 @media (max-width: 900px) {
   .hero { padding: 6.5rem var(--gutter) 3rem; min-height: auto; }
   .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -878,35 +904,38 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
             </div>
           </div>
 
-          <!-- Slide 3: Sistema -->
+          <!-- Slide 3: Sistema — kanban -->
           <div class="hw-slide hw-body">
-            <div class="hw-hero-strip">
-              <div class="hw-hero-txt">
-                <p class="hw-tag">Sistema web</p>
-                <p class="hw-h">Painel de<br>controle.</p>
-                <span class="hw-btn">Acessar ↗</span>
-              </div>
-              <div class="hw-chart-wrap">
-                <div class="hw-chart">
-                  <div class="hw-bar-c" style="height:42%"></div>
-                  <div class="hw-bar-c" style="height:58%"></div>
-                  <div class="hw-bar-c" style="height:50%"></div>
-                  <div class="hw-bar-c" style="height:72%"></div>
-                  <div class="hw-bar-c" style="height:60%"></div>
-                  <div class="hw-bar-c" style="height:88%"></div>
-                  <div class="hw-bar-c hi" style="height:100%"></div>
-                </div>
-                <div class="hw-chart-lbl"><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span></div>
+            <div class="hw-sys-bar">
+              <span class="hw-sys-brand">⚡ SysBoard</span>
+              <div class="hw-sys-actions">
+                <span class="hw-sys-notif">🔔<span class="hw-sys-nbadge">2</span></span>
+                <div class="hw-sys-avatar">FP</div>
               </div>
             </div>
-            <div class="hw-metrics">
-              <div class="hw-metric"><p class="hw-metric-val">342</p><p class="hw-metric-lbl">Usuários</p><p class="hw-metric-up">↑ 18%</p></div>
-              <div class="hw-metric"><p class="hw-metric-val">87</p><p class="hw-metric-lbl">Tarefas</p><p class="hw-metric-up">↑ 3%</p></div>
-              <div class="hw-metric"><p class="hw-metric-val">96%</p><p class="hw-metric-lbl">Uptime</p><p class="hw-metric-up">↑ 1%</p></div>
+            <div class="hw-sys-tabs">
+              <span class="hw-sys-tab">Dashboard</span>
+              <span class="hw-sys-tab on">Kanban</span>
+              <span class="hw-sys-tab">Relatórios</span>
             </div>
-            <div class="hw-cards">
-              <div class="hw-card"><div class="hw-avatar" style="background:#e8eeff;color:#2b3ea8">R</div><div class="hw-card-info"><p class="hw-card-name">Relatório mensal</p><p class="hw-card-sub">Gerado automaticamente</p></div><span class="hw-badge ok">Pronto</span></div>
-              <div class="hw-card"><div class="hw-avatar" style="background:#fff0e8;color:#8a3a00">B</div><div class="hw-card-info"><p class="hw-card-name">Backup agendado</p><p class="hw-card-sub">Hoje às 23h00</p></div><span class="hw-badge pend">Pendente</span></div>
+            <div class="hw-kanban">
+              <div class="hw-kcol">
+                <div class="hw-kcol-head"><span class="hw-kcol-status" style="background:#f59e0b"></span>A fazer<span class="hw-kcol-n">3</span></div>
+                <div class="hw-ktask"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#ef4444"></span><span class="hw-ktask-title">Migrar banco</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#6366f1">M</div></div></div>
+                <div class="hw-ktask"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#f59e0b"></span><span class="hw-ktask-title">Rel. financeiro</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#8b5cf6">L</div></div></div>
+                <div class="hw-ktask"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#94a3b8"></span><span class="hw-ktask-title">Revisão UX</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#ec4899">A</div></div></div>
+              </div>
+              <div class="hw-kcol">
+                <div class="hw-kcol-head"><span class="hw-kcol-status" style="background:#3b82f6"></span>Progresso<span class="hw-kcol-n">2</span></div>
+                <div class="hw-ktask hw-ktask-active"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#3b82f6"></span><span class="hw-ktask-title">Módulo vendas</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#14b8a6">J</div></div></div>
+                <div class="hw-ktask hw-ktask-active"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#3b82f6"></span><span class="hw-ktask-title">API pagamentos</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#f97316">R</div></div></div>
+              </div>
+              <div class="hw-kcol">
+                <div class="hw-kcol-head"><span class="hw-kcol-status" style="background:#22c55e"></span>Concluído<span class="hw-kcol-n">5</span></div>
+                <div class="hw-ktask hw-ktask-done"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#22c55e"></span><span class="hw-ktask-title">Design sistema</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:var(--acid);color:var(--acid-fg)">F</div></div></div>
+                <div class="hw-ktask hw-ktask-done"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#22c55e"></span><span class="hw-ktask-title">Integração fiscal</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#0ea5e9">C</div></div></div>
+                <div class="hw-ktask hw-ktask-done"><div class="hw-ktask-top"><span class="hw-ktask-prio" style="background:#22c55e"></span><span class="hw-ktask-title">Login & acesso</span></div><div class="hw-ktask-foot"><div class="hw-ktask-av" style="background:#6366f1">M</div></div></div>
+              </div>
             </div>
           </div>
 
