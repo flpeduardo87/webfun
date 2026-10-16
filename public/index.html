@@ -482,7 +482,7 @@ svg { display: block; }
 /* ── Banda ───────────────────────────────────────────────────────────── */
 .band { padding: 1.5rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); overflow: hidden; }
 .band-track { display: flex; gap: 3rem; align-items: center; animation: marquee 40s linear infinite; width: max-content; }
-.band-item { font-size: .88rem; font-weight: 700; letter-spacing: .04em; color: var(--muted); white-space: nowrap; text-transform: uppercase; }
+.band-item { font-size: .88rem; font-weight: 700; color: var(--muted); white-space: nowrap; }
 .band-sep { color: var(--line); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
@@ -501,7 +501,7 @@ svg { display: block; }
 .svc-icon { width: 2.6rem; height: 2.6rem; border-radius: .75rem; display: grid; place-items: center; flex-shrink: 0; background: #18191d; color: var(--acid); }
 [data-theme="dark"] .svc-icon { background: rgba(238,234,227,.09); color: var(--acid); }
 .svc-icon svg { width: 1.2rem; height: 1.2rem; stroke-width: 2; pointer-events: none; }
-.svc-badge { font-size: .625rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .22rem .65rem; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.svc-badge { font-size: .7rem; font-weight: 700; letter-spacing: .01em; padding: .22rem .65rem; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
 .svc-badge.popular { background: var(--acid); border-color: transparent; color: var(--acid-fg); }
 .svc-nome { font-size: 1.3rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.15; margin-bottom: .5rem; }
 .svc-desc { font-size: .88rem; color: var(--muted); line-height: 1.6; flex: 1; }
@@ -537,14 +537,14 @@ svg { display: block; }
 .p-thumb-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
 .p-thumb-letra { font-size: 5rem; font-weight: 900; letter-spacing: -.05em; opacity: .07; color: #fff; user-select: none; }
 .p-thumb-content { position: relative; padding: 1rem; width: 100%; }
-.p-thumb-tag { display: inline-block; font-size: .625rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--acid-fg); background: var(--acid); border-radius: 999px; padding: .18rem .6rem; }
+.p-thumb-tag { display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .01em; color: var(--acid-fg); background: var(--acid); border-radius: 999px; padding: .18rem .6rem; }
 .p-info { padding: 1.1rem 1.2rem 1.25rem; }
 .p-nome { font-size: 1rem; font-weight: 800; color: var(--win-txt); letter-spacing: -.02em; margin-bottom: .3rem; }
 .p-desc { font-size: .88rem; color: var(--win-muted); line-height: 1.55; }
 .p-meta { display: flex; align-items: center; justify-content: space-between; margin-top: .75rem; }
 .p-ano { font-size: .75rem; color: var(--win-muted); font-weight: 600; }
 .p-tags { display: flex; gap: .3rem; flex-wrap: wrap; }
-.p-tag { font-size: .625rem; font-weight: 600; text-transform: uppercase; color: var(--win-muted); background: var(--win-3); border-radius: 999px; padding: .18rem .55rem; }
+.p-tag { font-size: .7rem; font-weight: 600; color: var(--win-muted); background: var(--win-3); border-radius: 999px; padding: .18rem .55rem; }
 .p-link { display: inline-flex; align-items: center; gap: .25rem; padding: .3rem .8rem; border-radius: 999px; background: var(--acid); color: var(--acid-fg); font-size: .78rem; font-weight: 700; white-space: nowrap; transition: background .15s; }
 .p-link:hover { background: var(--acid-2); }
 .p-card[data-cat="site"] .p-thumb-bg { background: linear-gradient(135deg,#1e2640 0%,#252e55 100%); }
