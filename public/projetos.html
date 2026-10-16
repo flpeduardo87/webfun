@@ -142,6 +142,10 @@ svg{display:block;}
 .p-counter{font-size:.88rem;color:var(--muted);font-weight:600;}
 .p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
 .p-card{background:var(--win);border-radius:var(--r);overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .2s;}
+[data-theme="light"] .p-card{background:#fff;border-color:var(--line);}
+[data-theme="light"] .p-nome{color:var(--ink);}
+[data-theme="light"] .p-desc{color:var(--muted);}
+[data-theme="light"] .p-tag{background:var(--bg2);color:var(--muted2);}
 [data-theme="dark"] .p-card{background:var(--surface);border-color:rgba(255,255,255,.08);}
 [data-theme="dark"] .p-nome{color:var(--ink);}
 [data-theme="dark"] .p-desc{color:var(--muted);}
