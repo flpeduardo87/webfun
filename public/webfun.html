@@ -369,6 +369,7 @@ svg { display: block; }
 .hw-metric-lbl { font-size: .55rem; color: var(--win-muted); margin-top: .1rem; }
 .hw-metric-up { font-size: .55rem; color: #30b55e; font-weight: 700; }
 .hw-cards { display: flex; flex-direction: column; gap: .3rem; }
+.hw-card-mobile { display: none; }
 .hw-card { display: flex; align-items: center; gap: .65rem; background: var(--win-2); border-radius: .75rem; padding: .6rem .8rem; border: 1px solid var(--win-line); }
 .hw-avatar { width: 1.8rem; height: 1.8rem; border-radius: 999px; display: grid; place-items: center; font-size: .75rem; font-weight: 700; color: var(--acid-fg); background: var(--acid); flex-shrink: 0; }
 .hw-card-info { flex: 1; min-width: 0; }
@@ -470,7 +471,8 @@ svg { display: block; }
   .hero-window { width: 100%; }
   .hw-hero-strip { flex-direction: row; align-items: center; gap: .65rem; padding: 1rem; }
   .hw-hero-txt { flex: 1; min-width: 0; }
-  .hw-hero-photo { width: 5.5rem; height: 5.5rem; flex-shrink: 0; border-radius: .6rem; }
+  .hw-hero-photo { width: 7.5rem; height: 7.5rem; flex-shrink: 0; border-radius: .6rem; }
+  .hw-card-mobile { display: flex; }
   .hw-btn { font-size: .62rem; padding: .28rem .55rem; margin-top: .35rem; }
 }
 
@@ -883,6 +885,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
             <div class="hw-cards">
               <div class="hw-card"><div class="hw-avatar" style="background:url('avatar-ana.webp') center/cover;font-size:0"></div><div class="hw-card-info"><p class="hw-card-name">Ana C.</p><p class="hw-card-sub">14/10 às 14h30</p></div><span class="hw-badge ok">Agendado</span></div>
               <div class="hw-card"><div class="hw-avatar" style="background:url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face&q=80') center/cover;font-size:0"></div><div class="hw-card-info"><p class="hw-card-name">Marina S.</p><p class="hw-card-sub">15/10 às 10h00</p></div><span class="hw-badge pend">Pendente</span></div>
+              <div class="hw-card hw-card-mobile"><div class="hw-avatar" style="background:url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face&q=80') center/cover;font-size:0"></div><div class="hw-card-info"><p class="hw-card-name">Julia R.</p><p class="hw-card-sub">16/10 às 09h00</p></div><span class="hw-badge ok">Agendado</span></div>
             </div>
           </div>
 
