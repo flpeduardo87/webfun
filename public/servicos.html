@@ -138,10 +138,10 @@ svg{display:block;}
 .hero-sub{font-size:1.05rem;color:var(--win-muted);line-height:1.65;max-width:500px;margin-top:1.5rem;margin-bottom:2.75rem;}
 .svc-pill-row{display:flex;gap:.4rem;flex-wrap:wrap;}
 .svc-pill-row button{padding:.42rem 1rem;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.5);font-family:var(--f);font-size:.88rem;font-weight:600;transition:all .15s;background:transparent;}
-.svc-pill-row button:hover{background:rgba(255,255,255,.08);color:rgba(255,255,255,.9);border-color:rgba(255,255,255,.35);}
+.svc-pill-row button:hover{background:rgba(255,255,255,.18);color:#fff;border-color:rgba(255,255,255,.55);}
 .svc-pill-row button.ativo{background:var(--acid);border-color:var(--acid);color:var(--acid-fg);}
-[data-theme="dark"] .svc-pill-row button{color:var(--win-muted);border-color:var(--win-line);}
-[data-theme="dark"] .svc-pill-row button:hover{background:var(--win-line);color:var(--win-txt);border-color:rgba(20,21,26,.3);}
+[data-theme="dark"] .svc-pill-row button{color:rgba(255,255,255,.55);border-color:rgba(255,255,255,.18);}
+[data-theme="dark"] .svc-pill-row button:hover{background:rgba(255,255,255,.18);color:#fff;border-color:rgba(255,255,255,.55);}
 
 /* ═══════ SERVICES GRID ═══════ */
 .svc-section{background:var(--bg);padding:5rem 0 6rem;}
@@ -305,7 +305,8 @@ svg{display:block;}
 .svc-bread,.svc-bread a{color:rgba(255,255,255,.32);}
 .svc-bread a:hover{color:#fff;}
 /* Tag badge com shimmer */
-.svc-tag{position:relative;overflow:hidden;background:rgba(201,255,65,.1);border:1px solid rgba(201,255,65,.3);animation:fadeUp .5s .05s both;}
+.svc-tag{position:relative;overflow:hidden;background:rgba(201,255,65,.1);border:1px solid rgba(201,255,65,.3);color:var(--acid);animation:fadeUp .5s .05s both;}
+[data-theme="light"] .svc-tag{background:#18191d;border-color:transparent;color:var(--acid);}
 .svc-tag::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(201,255,65,.2),transparent);border-radius:inherit;animation:tagShimmer 4s ease-in-out 1.5s infinite;pointer-events:none;}
 @keyframes tagShimmer{0%{transform:translateX(-200%);}100%{transform:translateX(300%);}}
 /* Headline */
