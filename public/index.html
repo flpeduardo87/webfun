@@ -1292,9 +1292,9 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
           <label class="est-opcao"><input type="radio" name="svc" value="1500" data-nome="Site institucional"><span class="est-ico"><i data-lucide="globe"></i></span><span class="est-opcao-nome">Site institucional</span><span class="est-opcao-preco">R$ 1.500</span><span class="est-radio"></span></label>
           <label class="est-opcao"><input type="radio" name="svc" value="750" data-nome="Landing page"><span class="est-ico"><i data-lucide="zap"></i></span><span class="est-opcao-nome">Landing page</span><span class="est-opcao-preco">R$ 750</span><span class="est-radio"></span></label>
           <label class="est-opcao"><input type="radio" name="svc" value="2000" data-nome="Loja virtual"><span class="est-ico"><i data-lucide="shopping-bag"></i></span><span class="est-opcao-nome">Loja virtual</span><span class="est-opcao-preco">R$ 2.000</span><span class="est-radio"></span></label>
-          <label class="est-opcao"><input type="radio" name="svc" value="5500" data-nome="Sistema sob medida"><span class="est-ico"><i data-lucide="layout-dashboard"></i></span><span class="est-opcao-nome">Sistema sob medida</span><span class="est-opcao-preco">R$ 5.500</span><span class="est-radio"></span></label>
-          <label class="est-opcao"><input type="radio" name="svc" value="2200" data-nome="Automação & IA"><span class="est-ico"><i data-lucide="bot"></i></span><span class="est-opcao-nome">Automação & IA</span><span class="est-opcao-preco">R$ 2.200</span><span class="est-radio"></span></label>
-          <label class="est-opcao"><input type="radio" name="svc" value="4500" data-nome="Aplicativo"><span class="est-ico"><i data-lucide="smartphone"></i></span><span class="est-opcao-nome">Aplicativo</span><span class="est-opcao-preco">R$ 4.500</span><span class="est-radio"></span></label>
+          <label class="est-opcao"><input type="radio" name="svc" value="0" data-consulta="true" data-nome="Sistema sob medida"><span class="est-ico"><i data-lucide="layout-dashboard"></i></span><span class="est-opcao-nome">Sistema sob medida</span><span class="est-opcao-preco">Sob consulta</span><span class="est-radio"></span></label>
+          <label class="est-opcao"><input type="radio" name="svc" value="1500" data-nome="Automação & IA"><span class="est-ico"><i data-lucide="bot"></i></span><span class="est-opcao-nome">Automação & IA</span><span class="est-opcao-preco">R$ 1.500</span><span class="est-radio"></span></label>
+          <label class="est-opcao"><input type="radio" name="svc" value="0" data-consulta="true" data-nome="Aplicativo"><span class="est-ico"><i data-lucide="smartphone"></i></span><span class="est-opcao-nome">Aplicativo</span><span class="est-opcao-preco">Sob consulta</span><span class="est-radio"></span></label>
         </div>
         <p class="est-label" style="margin-top:1.75rem">Adicionar ao projeto</p>
         <div class="est-adicionais" id="estAdds">
@@ -1309,7 +1309,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
 
       <div class="est-result">
         <p class="est-result-label">Estimativa a partir de</p>
-        <p class="est-total-val" id="estTotal">R$ 1.700</p>
+        <p class="est-total-val" id="estTotal">R$ 1.500</p>
         <p class="est-total-sub" id="estSub">Site institucional · sem adicionais</p>
 
         <div class="est-incl">
@@ -1436,13 +1436,22 @@ var sg = document.getElementById('statsGrid');
 if (sg) statsObs.observe(sg);
 
 /* ── Estimador ── */
-var prazos = { '1700':'~3 semanas','2400':'~2 semanas','3800':'~5 semanas','5500':'~8 semanas','2200':'~3 semanas','4500':'~8 semanas' };
+var prazos = { 'Site institucional':'~3 semanas','Landing page':'~2 semanas','Loja virtual':'~5 semanas','Automação & IA':'~3 semanas' };
 
 function updateEst() {
   var ativo = document.querySelector('#estOpcoes .est-opcao.ativo');
   var inp = ativo ? ativo.querySelector('input') : document.querySelector('#estOpcoes input');
-  var base = inp ? parseInt(inp.value) : 1700;
   var nome = inp ? (inp.dataset.nome || 'Site institucional') : 'Site institucional';
+  var isConsulta = inp && inp.dataset.consulta === 'true';
+  if (isConsulta) {
+    document.getElementById('estTotal').textContent = 'Sob consulta';
+    document.getElementById('estSub').textContent = nome + ' · proposta personalizada';
+    document.getElementById('estPrazo').textContent = 'A definir';
+    var msg = encodeURIComponent('Olá! Tenho interesse em: ' + nome + '. Podemos conversar?');
+    document.getElementById('estLink').href = 'https://wa.me/5547997618824?text=' + msg;
+    return;
+  }
+  var base = inp ? parseInt(inp.value) : 1500;
   var adds = 0;
   var addNames = [];
   document.querySelectorAll('#estAdds .est-add.ativo').forEach(function(add) {
@@ -1456,7 +1465,7 @@ function updateEst() {
   var total = base + adds;
   document.getElementById('estTotal').textContent = 'R$ ' + total.toLocaleString('pt-BR');
   document.getElementById('estSub').textContent = nome + (addNames.length ? ' · ' + addNames.join(', ') : ' · sem adicionais');
-  document.getElementById('estPrazo').textContent = prazos[String(base)] || '~4 semanas';
+  document.getElementById('estPrazo').textContent = prazos[nome] || '~4 semanas';
   var msg = encodeURIComponent('Olá! Interesse em: ' + nome + (addNames.length ? ' + ' + addNames.join(', ') : '') + '. Estimativa: R$' + total.toLocaleString('pt-BR') + '. Podemos conversar?');
   document.getElementById('estLink').href = 'https://wa.me/5547997618824?text=' + msg;
 }
