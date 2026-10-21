@@ -143,9 +143,9 @@ svg{display:block;}
 [data-theme="dark"] .svc-pill-row button{color:rgba(255,255,255,.55);border-color:rgba(255,255,255,.18);}
 [data-theme="dark"] .svc-pill-row button:hover{background:#000;color:var(--acid);border-color:var(--acid);}
 [data-theme="dark"] .svc-pill-row button.ativo{color:var(--acid-fg);}
-[data-theme="light"] .svc-pill-row button{color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.2);}
+[data-theme="light"] .svc-pill-row button{color:var(--ink-2);border-color:var(--line);background:transparent;}
 [data-theme="light"] .svc-pill-row button:hover{background:#000;color:var(--acid);border-color:var(--acid);}
-[data-theme="light"] .svc-pill-row button.ativo{color:var(--acid-fg);}
+[data-theme="light"] .svc-pill-row button.ativo{background:var(--acid);border-color:var(--acid);color:var(--acid-fg);}
 
 /* ═══════ SERVICES GRID ═══════ */
 .svc-section{background:var(--bg);padding:5rem 0 6rem;}
@@ -294,7 +294,7 @@ svg{display:block;}
 <!-- ── Hero visual upgrade ──────────────────────────────────────────────── -->
 <style>
 /* Base hero: sempre escuro */
-.svc-hero,.hero-svc{position:relative;overflow:hidden;background:#09090f !important;border-bottom:none;}
+.svc-hero,.hero-svc{position:relative;overflow:hidden;border-bottom:none;}
 .svc-hero{padding:9rem var(--gutter) 7rem;min-height:90vh;display:flex;align-items:center;}
 .hero-svc{padding:9rem var(--gutter) 6rem;}
 /* Dot grid */
