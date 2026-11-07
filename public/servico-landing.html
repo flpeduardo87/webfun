@@ -197,6 +197,7 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 .cta-final-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}.cta-final .btn-acid{background:var(--acid-fg);color:#fff;}.cta-final .btn-acid .seta{background:var(--acid);color:var(--acid-fg);}.cta-final .btn-acid:hover{background:#2a3600;}.cta-final .btn-outline{border-color:rgba(30,39,0,.3);color:var(--acid-fg);}.cta-final .btn-outline:hover{border-color:var(--acid-fg);color:var(--acid-fg);}
 </style>
 
+<style>.btn-outline{display:inline-flex;align-items:center;gap:.4rem;height:2.9rem;padding:0 1.3rem;border-radius:999px;border:1px solid var(--line);font-size:.88rem;font-weight:600;color:var(--ink-2);transition:border-color .18s,color .18s;}</style>
 <!-- ── Hero visual upgrade ──────────────────────────────────────────────── -->
 <style>
 /* Base hero: sempre escuro */
@@ -241,9 +242,9 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 
 /* Hero visual (coluna direita) */
 .svc-bread .svc-bread-atual{color:#fff;opacity:1;font-weight:600;}
-.svc-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:3rem;align-items:center;}
+.svc-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:3rem;align-items:start;}
 .svc-hero-grid h1{font-size:clamp(2.2rem,3.6vw,3.2rem);max-width:none;text-wrap:balance;}
-.svc-vis{position:relative;perspective:1400px;animation:fadeUp .9s .3s both;}
+.svc-vis{position:relative;margin-top:1.6rem;perspective:1400px;animation:fadeUp .9s .3s both;}
 .svc-vis-glow{position:absolute;inset:8% 4%;background:radial-gradient(circle,rgba(201,255,65,.26),transparent 65%);filter:blur(60px);pointer-events:none;}
 .svc-vis-stage{position:relative;transform-style:preserve-3d;transform:rotateY(-9deg) rotateX(4deg);transition:transform .6s cubic-bezier(.16,1,.3,1);will-change:transform;}
 .svc-vis i{font-style:normal;}
@@ -329,9 +330,9 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
   <div class="wrap svc-hero-inner">
-    <div class="svc-bread"><a href="/">Início</a><span>/</span><a href="/servicos">Serviços</a><span>/</span><span class="svc-bread-atual">Landing page</span></div>
     <div class="svc-hero-grid">
     <div class="svc-hero-txt">
+    <div class="svc-bread"><a href="/">Início</a><span>/</span><a href="/servicos">Serviços</a><span>/</span><span class="svc-bread-atual">Landing page</span></div>
     <div class="svc-tag"><i data-lucide="zap" style="width:.75rem;height:.75rem;stroke-width:2.5;pointer-events:none"></i> Landing page</div>
     <h1>Uma página. Um objetivo. <em>Resultados que você mede.</em></h1>
     <p>Projetada para converter — sem distrações, sem menus desnecessários. Cada elemento tem uma função: levar o visitante para a ação que você quer.</p>

@@ -206,6 +206,7 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 .cta-final-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}.cta-final .btn-acid{background:var(--acid-fg);color:#fff;}.cta-final .btn-acid .seta{background:var(--acid);color:var(--acid-fg);}.cta-final .btn-acid:hover{background:#2a3600;}.cta-final .btn-outline{border-color:rgba(30,39,0,.3);color:var(--acid-fg);}.cta-final .btn-outline:hover{border-color:var(--acid-fg);color:var(--acid-fg);}
 </style>
 
+<style>.btn-outline{display:inline-flex;align-items:center;gap:.4rem;height:2.9rem;padding:0 1.3rem;border-radius:999px;border:1px solid var(--line);font-size:.88rem;font-weight:600;color:var(--ink-2);transition:border-color .18s,color .18s;}</style>
 <!-- ── Hero visual upgrade ──────────────────────────────────────────────── -->
 <style>
 /* Base hero: sempre escuro */
@@ -250,9 +251,9 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 
 /* Hero visual (coluna direita) */
 .svc-bread .svc-bread-atual{color:#fff;opacity:1;font-weight:600;}
-.svc-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:3rem;align-items:center;}
+.svc-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:3rem;align-items:start;}
 .svc-hero-grid h1{font-size:clamp(2.2rem,3.6vw,3.2rem);max-width:none;text-wrap:balance;}
-.svc-vis{position:relative;perspective:1400px;animation:fadeUp .9s .3s both;}
+.svc-vis{position:relative;margin-top:1.6rem;perspective:1400px;animation:fadeUp .9s .3s both;}
 .svc-vis-glow{position:absolute;inset:8% 4%;background:radial-gradient(circle,rgba(201,255,65,.26),transparent 65%);filter:blur(60px);pointer-events:none;}
 .svc-vis-stage{position:relative;transform-style:preserve-3d;transform:rotateY(-9deg) rotateX(4deg);transition:transform .6s cubic-bezier(.16,1,.3,1);will-change:transform;}
 .svc-vis i{font-style:normal;}
@@ -276,8 +277,8 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 @media(max-width:600px){.vchip{font-size:.68rem;padding:.45rem .7rem .45rem .45rem;}.vchip-ico{width:1.7rem;height:1.7rem;}.vchip-a{right:-.3rem;top:-1.6rem;}.vchip-b{left:-.3rem;}}
 @media(prefers-reduced-motion:reduce){.svc-vis,.svc-vis *{animation:none!important;transition:none!important;}}
 
-.vph{position:relative;width:min(270px,100%);margin:0 auto;background:#0b0c10;border:1px solid rgba(255,255,255,.14);border-radius:2.6rem;padding:.55rem;box-shadow:0 40px 100px rgba(0,0,0,.6),inset 0 0 0 2px #1d1f26;color:#eeeae3;font-size:.72rem;line-height:1.35;}
-.vph-scr{position:relative;background:#13141a;border-radius:2.1rem;overflow:hidden;padding:2.3rem .9rem .75rem;}
+.vph{position:relative;display:flex;aspect-ratio:9/19.5;width:min(272px,100%);margin:0 auto;background:#0b0c10;border:1px solid rgba(255,255,255,.14);border-radius:2.6rem;padding:.55rem;box-shadow:0 40px 100px rgba(0,0,0,.6),inset 0 0 0 2px #1d1f26;color:#eeeae3;font-size:.72rem;line-height:1.35;}
+.vph-scr{position:relative;flex:1;display:flex;flex-direction:column;background:#13141a;border-radius:2.1rem;overflow:hidden;padding:2.3rem .9rem .75rem;}
 .vph-notch{position:absolute;top:.55rem;left:50%;translate:-50% 0;width:5.2rem;height:1.25rem;border-radius:999px;background:#0b0c10;}
 .vph-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem;}
 .vph-top small{display:block;font-size:.6rem;color:rgba(255,255,255,.45);}
@@ -286,7 +287,7 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 .vph-card{background:var(--acid);color:var(--acid-fg);border-radius:1rem;padding:.8rem;margin-bottom:.8rem;}
 .vph-card small{display:block;font-size:.6rem;font-weight:700;opacity:.7;}
 .vph-card b{display:block;font-size:1.35rem;font-weight:900;letter-spacing:-.03em;margin:.1rem 0 .5rem;}
-.vph-prog{height:.35rem;border-radius:999px;background:rgba(0,0,0,.15);overflow:hidden;}
+.vph-prog{display:block;height:.35rem;border-radius:999px;background:rgba(0,0,0,.15);overflow:hidden;}
 .vph-prog i{display:block;height:100%;width:72%;border-radius:inherit;background:var(--acid-fg);transform-origin:left;animation:vphProg 3s cubic-bezier(.16,1,.3,1) infinite alternate;}
 @keyframes vphProg{from{transform:scaleX(.3);}to{transform:scaleX(1);}}
 .vph-acts{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin-bottom:.8rem;text-align:center;}
@@ -300,7 +301,7 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 .vph-list b{display:block;font-size:.66rem;}
 .vph-list small{font-size:.56rem;color:rgba(255,255,255,.45);}
 .vph-list em{margin-left:auto;font-style:normal;font-weight:800;font-size:.66rem;color:var(--acid);}
-.vph-tab{display:flex;justify-content:space-around;padding-top:.6rem;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.35);}
+.vph-tab{margin-top:auto;display:flex;justify-content:space-around;padding-top:.6rem;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.35);}
 .vph-tab svg{width:1rem;height:1rem;}
 .vph-tab span:first-child{color:var(--acid);}
 .vph~.vchip-a{right:-.4rem;}
@@ -348,9 +349,9 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
   <div class="wrap svc-hero-inner">
-    <div class="svc-bread"><a href="/">Início</a><span>/</span><a href="/servicos">Serviços</a><span>/</span><span class="svc-bread-atual">Aplicativo</span></div>
     <div class="svc-hero-grid">
     <div class="svc-hero-txt">
+    <div class="svc-bread"><a href="/">Início</a><span>/</span><a href="/servicos">Serviços</a><span>/</span><span class="svc-bread-atual">Aplicativo</span></div>
     <div class="svc-tag"><i data-lucide="smartphone" style="width:.75rem;height:.75rem;stroke-width:2.5;pointer-events:none"></i> Aplicativo</div>
     <h1>Do bolso do seu cliente direto ao <em>coração do seu negócio.</em></h1>
     <p>Um aplicativo próprio aproxima sua marca do cliente, cria um canal direto de comunicação e abre novas formas de gerar receita — sem depender de intermediários.</p>
@@ -372,6 +373,7 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
   <div class="vph-list">
     <div><span class="ic"><i data-lucide="calendar-check"></i></span><span><b>Corte + barba</b><small>Amanhã · 14:30</small></span><em>R$ 75</em></div>
     <div><span class="ic"><i data-lucide="package"></i></span><span><b>Pedido #318</b><small>Saiu para entrega</small></span><em>R$ 129</em></div>
+    <div><span class="ic"><i data-lucide="gift"></i></span><span><b>Cupom liberado</b><small>Na sua próxima visita</small></span><em>-10%</em></div>
   </div>
   <div class="vph-tab"><span><i data-lucide="home"></i></span><span><i data-lucide="search"></i></span><span><i data-lucide="heart"></i></span><span><i data-lucide="user"></i></span></div>
 </div></div><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="bell"></i></span><span>Novo agendamento<small>notificação em tempo real</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="star"></i></span><span>Nota 4,9 dos usuários<small>Android e iPhone</small></span></div>
