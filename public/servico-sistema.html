@@ -236,6 +236,56 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 /* Stagger keyframe */
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 @media(max-width:600px){.svc-hero{min-height:auto;padding-top:5.5rem;padding-bottom:4rem;}}
+
+/* Hero visual (coluna direita) */
+.svc-bread .svc-bread-atual{color:#fff;opacity:1;font-weight:600;}
+.svc-hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:4.5rem;align-items:center;}
+.svc-hero-grid h1{font-size:clamp(2.2rem,4.2vw,3.6rem);}
+.svc-vis{position:relative;perspective:1400px;animation:fadeUp .9s .3s both;}
+.svc-vis-glow{position:absolute;inset:8% 4%;background:radial-gradient(circle,rgba(201,255,65,.26),transparent 65%);filter:blur(60px);pointer-events:none;}
+.svc-vis-stage{position:relative;transform-style:preserve-3d;transform:rotateY(-9deg) rotateX(4deg);transition:transform .6s cubic-bezier(.16,1,.3,1);will-change:transform;}
+.svc-vis i{font-style:normal;}
+.vw{position:relative;background:#13141a;border:1px solid rgba(255,255,255,.09);border-radius:1.25rem;box-shadow:0 40px 100px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);overflow:hidden;color:#eeeae3;font-size:.72rem;line-height:1.35;}
+.vw-bar{display:flex;align-items:center;gap:.4rem;padding:.7rem .9rem;border-bottom:1px solid rgba(255,255,255,.07);background:#17181f;}
+.vw-dot{width:.55rem;height:.55rem;border-radius:50%;background:#ff5f57;}
+.vw-dot:nth-child(2){background:#febc2e;}.vw-dot:nth-child(3){background:#28c840;}
+.vw-url{flex:1;display:flex;align-items:center;gap:.35rem;margin-left:.6rem;background:rgba(255,255,255,.06);border-radius:999px;padding:.3rem .8rem;color:rgba(255,255,255,.45);font-size:.64rem;}
+.vw-url svg{width:.65rem;height:.65rem;color:var(--acid);}
+.vw-body{padding:1rem;}
+.sk{display:block;height:.42rem;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,.08),rgba(255,255,255,.17),rgba(255,255,255,.08));background-size:200% 100%;animation:skShine 2.8s linear infinite;}
+@keyframes skShine{to{background-position:-200% 0;}}
+.vchip{position:absolute;z-index:3;display:flex;align-items:center;gap:.6rem;background:rgba(19,20,26,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(201,255,65,.35);border-radius:.95rem;padding:.6rem .9rem .6rem .6rem;color:#fff;font-size:.76rem;font-weight:700;line-height:1.25;box-shadow:0 18px 44px rgba(0,0,0,.5);transform:translateZ(70px);white-space:nowrap;animation:chipFloat 5s ease-in-out infinite;}
+.vchip small{display:block;font-size:.65rem;font-weight:500;color:rgba(255,255,255,.5);}
+.vchip-ico{width:2rem;height:2rem;border-radius:.65rem;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;flex-shrink:0;}
+.vchip-ico svg{width:1rem;height:1rem;stroke-width:2.4;}
+.vchip-a{top:-1.5rem;right:-1.4rem;}
+.vchip-b{bottom:-1.7rem;left:-1.8rem;animation-delay:-2.5s;}
+@keyframes chipFloat{0%,100%{translate:0 0;}50%{translate:0 -9px;}}
+@media(max-width:960px){.svc-hero-grid{grid-template-columns:1fr;gap:4rem;}.svc-vis{width:100%;max-width:480px;margin:0 auto;padding:0 .75rem;}.svc-vis-stage{transform:none;}}
+@media(max-width:600px){.vchip{font-size:.68rem;padding:.45rem .7rem .45rem .45rem;}.vchip-ico{width:1.7rem;height:1.7rem;}.vchip-a{right:-.3rem;top:-1.6rem;}.vchip-b{left:-.3rem;}}
+@media(prefers-reduced-motion:reduce){.svc-vis,.svc-vis *{animation:none!important;transition:none!important;}}
+
+.vsy{display:grid;grid-template-columns:2.2rem 1fr;gap:.85rem;}
+.vsy-side{display:flex;flex-direction:column;gap:.45rem;padding-right:.7rem;border-right:1px solid rgba(255,255,255,.07);}
+.vsy-side span{width:1.8rem;height:1.8rem;border-radius:.55rem;display:grid;place-items:center;color:rgba(255,255,255,.4);}
+.vsy-side span.on{background:var(--acid);color:var(--acid-fg);}
+.vsy-side svg{width:.85rem;height:.85rem;}
+.vsy-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:.7rem;}
+.vsy-kpis>div{background:#1a1b22;border:1px solid rgba(255,255,255,.06);border-radius:.7rem;padding:.55rem .6rem;}
+.vsy-kpis small,.vsy-chart small{display:block;font-size:.58rem;color:rgba(255,255,255,.45);}
+.vsy-kpis b{display:block;font-size:.95rem;font-weight:900;letter-spacing:-.02em;margin:.1rem 0;}
+.vsy-kpis em{font-style:normal;font-size:.58rem;font-weight:800;color:var(--acid);}
+.vsy-chart{background:#1a1b22;border:1px solid rgba(255,255,255,.06);border-radius:.7rem;padding:.6rem .7rem;margin-bottom:.7rem;}
+.vsy-bars{display:flex;align-items:flex-end;gap:.4rem;height:4.6rem;margin-top:.5rem;}
+.vsy-bars i{flex:1;height:var(--h);border-radius:.3rem .3rem .12rem .12rem;background:rgba(255,255,255,.13);transform-origin:bottom;animation:vsyBar 3.2s cubic-bezier(.16,1,.3,1) infinite alternate;animation-delay:calc(var(--d) * .12s);}
+.vsy-bars i:last-child{background:var(--acid);}
+@keyframes vsyBar{0%{transform:scaleY(.35);}100%{transform:scaleY(1);}}
+.vsy-rows{display:flex;flex-direction:column;gap:.4rem;}
+.vsy-rows>div{display:flex;align-items:center;gap:.55rem;background:#1a1b22;border-radius:.6rem;padding:.42rem .55rem;}
+.vsy-av{width:1.15rem;height:1.15rem;border-radius:50%;background:linear-gradient(135deg,#eeeae3,#7a8088);flex-shrink:0;}
+.vsy-rows .sk{flex:1;max-width:45%;}
+.vsy-st{margin-left:auto;font-size:.56rem;font-weight:800;color:var(--acid-fg);background:var(--acid);border-radius:999px;padding:.12rem .45rem;}
+.vsy-st.pend{background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);}
 </style></head>
 <body>
 <header class="wf-topo" id="topo">
@@ -279,7 +329,9 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
   <div class="wrap svc-hero-inner">
-    <div class="svc-bread"><a href="/">Início</a><span>/</span><a href="/servicos">Serviços</a><span>/</span><span style="color:var(--win-txt)">Sistema sob medida</span></div>
+    <div class="svc-bread"><a href="/">Início</a><span>/</span><a href="/servicos">Serviços</a><span>/</span><span class="svc-bread-atual">Sistema sob medida</span></div>
+    <div class="svc-hero-grid">
+    <div class="svc-hero-txt">
     <div class="svc-tag"><i data-lucide="layout-dashboard" style="width:.75rem;height:.75rem;stroke-width:2.5;pointer-events:none"></i> Sistema sob medida</div>
     <h1>Pare de adaptar o negócio à ferramenta — <em>construa a ferramenta certa.</em></h1>
     <p>Quando nenhum software existente encaixa no seu processo, a solução é criar o seu próprio. Um sistema feito exatamente para o jeito que você trabalha.</p>
@@ -291,6 +343,22 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
       <div class="svc-meta-item"><span class="svc-meta-val" style="font-size:1.1rem;letter-spacing:-.01em">Sob consulta</span><span class="svc-meta-lbl">Investimento</span></div>
       <div class="svc-meta-item"><span class="svc-meta-val">45–90</span><span class="svc-meta-lbl">dias úteis</span></div>
       <div class="svc-meta-item"><span class="svc-meta-val">60 dias</span><span class="svc-meta-lbl">suporte incluído</span></div>
+    </div>
+    </div>
+    <div class="svc-vis" aria-hidden="true"><div class="svc-vis-glow"></div><div class="svc-vis-stage">
+<div class="vw"><div class="vw-bar"><i class="vw-dot"></i><i class="vw-dot"></i><i class="vw-dot"></i><span class="vw-url"><i data-lucide="lock"></i>app.suaempresa.com.br/painel</span></div><div class="vw-body vsy">
+  <div class="vsy-side"><span class="on"><i data-lucide="layout-dashboard"></i></span><span><i data-lucide="users"></i></span><span><i data-lucide="package"></i></span><span><i data-lucide="file-text"></i></span><span><i data-lucide="settings"></i></span></div>
+  <div>
+    <div class="vsy-kpis"><div><small>Faturamento</small><b>R$ 84,2k</b><em>+12%</em></div><div><small>Pedidos</small><b>1.284</b><em>+8%</em></div><div><small>Clientes</small><b>342</b><em>+5%</em></div></div>
+    <div class="vsy-chart"><small>Vendas · últimos 7 dias</small><div class="vsy-bars"><i style="--h:45%;--d:0"></i><i style="--h:62%;--d:1"></i><i style="--h:38%;--d:2"></i><i style="--h:74%;--d:3"></i><i style="--h:58%;--d:4"></i><i style="--h:85%;--d:5"></i><i style="--h:100%;--d:6"></i></div></div>
+    <div class="vsy-rows">
+      <div><span class="vsy-av"></span><i class="sk"></i><span class="vsy-st">Pago</span></div>
+      <div><span class="vsy-av"></span><i class="sk"></i><span class="vsy-st">Pago</span></div>
+      <div><span class="vsy-av"></span><i class="sk"></i><span class="vsy-st pend">Pendente</span></div>
+    </div>
+  </div>
+</div></div><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="file-check"></i></span><span>Relatório gerado<small>em 2 segundos</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="zap"></i></span><span>Processos 3x mais rápidos<small>sem planilha, sem retrabalho</small></span></div>
+    </div></div>
     </div>
   </div>
 </section>
@@ -589,6 +657,17 @@ document.addEventListener('DOMContentLoaded', function() {
     o2.style.transform='translate('+(x*40)+'px,'+(y*28)+'px) scale(1.05)';
   });
   h.addEventListener('mouseleave',function(){o1.style.transform='';o2.style.transform='';});
+})();
+</script>
+
+<script>
+(function(){
+  var v=document.querySelector('.svc-vis');if(!v)return;
+  var st=v.querySelector('.svc-vis-stage'),hero=document.querySelector('.svc-hero');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!window.matchMedia('(hover:hover) and (min-width:961px)').matches)return;
+  var c=function(n){return Math.max(-1,Math.min(1,n));};
+  hero.addEventListener('mousemove',function(e){var r=v.getBoundingClientRect();var x=c((e.clientX-(r.left+r.width/2))/r.width),y=c((e.clientY-(r.top+r.height/2))/r.height);st.style.transform='rotateY('+(x*12-4)+'deg) rotateX('+(-y*9+2)+'deg)';});
+  hero.addEventListener('mouseleave',function(){st.style.transform='';});
 })();
 </script>
 </body>
