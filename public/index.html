@@ -971,6 +971,13 @@ html.cur-input .cur-ring{opacity:0;}
 @keyframes ctaSpin{to{rotate:360deg;}}
 @media (prefers-reduced-motion:reduce){.wf-topo-cta::before,.hero-ctas .btn-acid::before{animation:none;rotate:200deg;}}
 </style>
+<style id="svc-css">
+.svc-card .svc-cta,[data-theme="dark"] .svc-card .svc-cta{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line);opacity:1;transition:background .2s,color .2s,box-shadow .2s;}
+[data-theme="dark"] .svc-card .svc-cta{box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);}
+.svc-card:hover .svc-cta,[data-theme="dark"] .svc-card:hover .svc-cta,.svc-card.pop .svc-cta,[data-theme="dark"] .svc-card.pop .svc-cta{background:var(--acid);color:var(--acid-fg);box-shadow:none;opacity:1;}
+.svc-card.pop{border-color:rgba(130,180,0,.55);background:radial-gradient(120% 80% at 100% 0%,rgba(201,255,65,.16),transparent 55%),var(--surface);box-shadow:0 0 0 1px rgba(130,180,0,.18),0 24px 60px rgba(120,170,0,.1);}
+[data-theme="dark"] .svc-card.pop{border-color:rgba(201,255,65,.5);background:radial-gradient(120% 80% at 100% 0%,rgba(201,255,65,.11),transparent 55%),var(--surface);box-shadow:0 0 0 1px rgba(201,255,65,.12),0 24px 60px rgba(201,255,65,.07);}
+</style>
 </head>
 <body>
 
@@ -1165,7 +1172,7 @@ html.cur-input .cur-ring{opacity:0;}
     <!-- Versão A: com ícones -->
     <div class="svc-grid">
 
-      <a href="/contato" class="svc-card">
+      <a href="/servico-site" class="svc-card pop">
         <div class="svc-card-top">
           <span class="svc-icon"><i data-lucide="globe"></i></span>
           <span class="svc-badge popular">★ Mais popular</span>
@@ -1180,10 +1187,10 @@ html.cur-input .cur-ring{opacity:0;}
         <div class="svc-cta">Criar meu site <i data-lucide="arrow-right"></i></div>
       </a>
 
-      <a href="/contato" class="svc-card">
+      <a href="/servico-loja" class="svc-card">
         <div class="svc-card-top">
           <span class="svc-icon"><i data-lucide="shopping-bag"></i></span>
-          <span class="svc-badge">E-commerce</span>
+          <span class="svc-badge">Pagamento integrado</span>
         </div>
         <p class="svc-nome">Loja virtual</p>
         <p class="svc-desc">Venda todos os dias, com catálogo, checkout e pagamento prontos para usar.</p>
@@ -1195,10 +1202,10 @@ html.cur-input .cur-ring{opacity:0;}
         <div class="svc-cta">Montar minha loja <i data-lucide="arrow-right"></i></div>
       </a>
 
-      <a href="/contato" class="svc-card">
+      <a href="/servico-landing" class="svc-card">
         <div class="svc-card-top">
           <span class="svc-icon"><i data-lucide="zap"></i></span>
-          <span class="svc-badge">Alta conversão</span>
+          <span class="svc-badge">Foco em anúncios</span>
         </div>
         <p class="svc-nome">Landing page</p>
         <p class="svc-desc">Transforma o tráfego de anúncios em leads reais — sem distração, sem fuga.</p>
@@ -1210,10 +1217,10 @@ html.cur-input .cur-ring{opacity:0;}
         <div class="svc-cta">Criar minha landing <i data-lucide="arrow-right"></i></div>
       </a>
 
-      <a href="/contato" class="svc-card">
+      <a href="/servico-sistema" class="svc-card">
         <div class="svc-card-top">
           <span class="svc-icon"><i data-lucide="layout-dashboard"></i></span>
-          <span class="svc-badge">Sob medida</span>
+          <span class="svc-badge">100% sob medida</span>
         </div>
         <p class="svc-nome">Sistema</p>
         <p class="svc-desc">Quando planilha e app pronto não resolvem mais: um sistema feito pro seu processo.</p>
@@ -1225,10 +1232,10 @@ html.cur-input .cur-ring{opacity:0;}
         <div class="svc-cta">Desenvolver sistema <i data-lucide="arrow-right"></i></div>
       </a>
 
-      <a href="/contato" class="svc-card">
+      <a href="/servico-automacao" class="svc-card">
         <div class="svc-card-top">
           <span class="svc-icon"><i data-lucide="bot"></i></span>
-          <span class="svc-badge">IA</span>
+          <span class="svc-badge">Atende 24h</span>
         </div>
         <p class="svc-nome">Automação & IA</p>
         <p class="svc-desc">Elimina tarefas repetitivas e deixa sua equipe focada no que gera resultado.</p>
@@ -1240,10 +1247,10 @@ html.cur-input .cur-ring{opacity:0;}
         <div class="svc-cta">Automatizar agora <i data-lucide="arrow-right"></i></div>
       </a>
 
-      <a href="/contato" class="svc-card">
+      <a href="/servico-app" class="svc-card">
         <div class="svc-card-top">
           <span class="svc-icon"><i data-lucide="smartphone"></i></span>
-          <span class="svc-badge">Mobile</span>
+          <span class="svc-badge">Android e iPhone</span>
         </div>
         <p class="svc-nome">Aplicativo</p>
         <p class="svc-desc">Seu produto na palma do cliente — disponível 24h, sem fila de atendimento.</p>
@@ -1911,7 +1918,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('mouseleave',function(){html.classList.remove('cur-on');});
     document.addEventListener('mouseover',function(e){
       var t=e.target;
-      ring.classList.toggle('big',!!t.closest('a,button,summary,label,.svc-card,.p-card,.hx-tab')&&!t.closest('.wf-topo'));
+      ring.classList.toggle('big',!!t.closest('a,button,summary,label,.svc-card,.p-card,.hx-tab')&&!t.closest('.wf-topo,.svc-card,.p-card'));
       html.classList.toggle('cur-input',!!t.closest('input,textarea,select'));
     });
     if(window.innerWidth>800)steps=[].slice.call(document.querySelectorAll('.steps>.step'));
