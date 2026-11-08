@@ -573,6 +573,52 @@ svg{display:block;}
 @media(max-width:600px){.ct-chip{font-size:.68rem;padding:.45rem .7rem .45rem .45rem;}.ct-chip-ico{width:1.7rem;height:1.7rem;}.ct-chip-a{left:-.3rem;}.ct-chip-b{right:-.3rem;}.ct-body{min-height:15rem;}}
 @media(prefers-reduced-motion:reduce){.ct-vis,.ct-vis *{animation:none!important;transition:none!important;}.ct-m{opacity:1;transform:none;}}
 </style>
+<style id="ct-sec-css">
+/* opções do formulário */
+.tipo-btn-ico{width:2.4rem;height:2.4rem;border-radius:.7rem;background:#1e1f26;color:var(--acid);}
+[data-theme="dark"] .tipo-btn-ico{background:rgba(255,255,255,.06);}
+.tipo-btn-ico svg{width:1.1rem;height:1.1rem;}
+.tipo-btn.sel{border-color:var(--acid);}
+.tipo-btn.sel .tipo-btn-ico{background:var(--acid);color:var(--acid-fg);}
+/* canais */
+.ct-side{display:flex;flex-direction:column;gap:1rem;}
+.ct-wcard{position:relative;overflow:hidden;background:#13141a;color:#fff;border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:1.5rem 1.4rem 1.3rem;box-shadow:var(--shadow-sm);}
+.ct-wcard::before{content:'';position:absolute;width:16rem;height:16rem;right:-6rem;top:-8rem;background:radial-gradient(circle,rgba(201,255,65,.22),transparent 65%);pointer-events:none;}
+.ct-wtop{position:relative;display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
+.ct-wico{width:2.6rem;height:2.6rem;border-radius:.8rem;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;}
+.ct-wico svg{width:1.2rem;height:1.2rem;stroke-width:2.2;}
+.ct-status{display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;font-weight:700;color:rgba(255,255,255,.8);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:.3rem .75rem;}
+.ct-status i{width:.5rem;height:.5rem;border-radius:50%;background:#28c840;box-shadow:0 0 0 3px rgba(40,200,64,.2);}
+.ct-status.off i{background:#9ba2aa;box-shadow:none;}
+.ct-wtit{position:relative;display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.ct-wnum{position:relative;display:block;font-size:1.45rem;font-weight:800;letter-spacing:-.02em;margin:.2rem 0 .35rem;}
+.ct-wsub{position:relative;font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:1.1rem;}
+.ct-hours{position:relative;margin-top:1.1rem;padding-top:.9rem;border-top:1px solid rgba(255,255,255,.08);display:grid;gap:.4rem;font-size:.82rem;}
+.ct-hours div{display:flex;justify-content:space-between;color:rgba(255,255,255,.55);}
+.ct-hours b{color:#fff;font-weight:600;}
+.ct-hours em{font-style:normal;color:rgba(255,255,255,.35);}
+.ct-list{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:.45rem;}
+.ct-li{display:flex;align-items:center;gap:.8rem;padding:.75rem .8rem;border-radius:1.1rem;color:var(--ink);transition:background .15s;}
+a.ct-li:hover{background:var(--bg2);}
+.ct-lico{width:2.3rem;height:2.3rem;border-radius:.7rem;background:#1e1f26;color:var(--acid);display:grid;place-items:center;flex-shrink:0;}
+[data-theme="dark"] .ct-lico{background:rgba(255,255,255,.06);}
+.ct-lico svg{width:1.05rem;height:1.05rem;}
+.ct-ltxt{flex:1;min-width:0;}
+.ct-li b{display:block;font-size:.9rem;font-weight:700;overflow:hidden;text-overflow:ellipsis;}
+.ct-li small{display:block;font-size:.75rem;color:var(--muted);margin-top:.1rem;}
+.ct-larr{width:1rem;height:1rem;color:var(--muted);flex-shrink:0;transition:transform .2s,color .2s;}
+a.ct-li:hover .ct-larr{color:var(--ink);transform:translate(2px,-2px);}
+/* próximos passos seguindo o tema */
+.depois-section{background:var(--surface);border-top:1px solid var(--line);}
+.depois-eyebrow{color:var(--muted);}
+.depois-h2{color:var(--ink);}
+.depois-card{background:var(--bg);border-color:var(--line);}
+.depois-num{color:var(--muted2);}
+.depois-ico{background:#1e1f26;}
+[data-theme="dark"] .depois-ico{background:rgba(255,255,255,.06);}
+.depois-card h3{color:var(--ink);}
+.depois-card p{color:var(--muted);}
+</style>
 </head>
 <body>
 
@@ -650,7 +696,7 @@ svg{display:block;}
     <div class="ct-txt">
       <span class="eyebrow">Contato</span>
       <h1>Vamos conversar sobre o seu projeto.</h1>
-      <p>Conte o que precisa. Respondo em até 1 dia útil com uma análise honesta do que faz sentido para o seu momento.</p>
+      <p>Conte o que precisa. Respondemos em até 1 dia útil com uma análise honesta do que faz sentido para o seu momento.</p>
     </div>
     <div class="ct-vis" aria-hidden="true"><div class="ct-glow"></div><div class="ct-stage">
       <div class="ct-chat">
@@ -659,7 +705,7 @@ svg{display:block;}
           <div class="ct-m cli">Oi! Quero um site novo para minha clínica.<span>14:02</span></div>
           <div class="ct-m us">Oi! Que bom falar com você. Qual o principal objetivo do site?<span>14:03</span></div>
           <div class="ct-m cli">Atrair mais pacientes pelo Google.<span>14:04</span></div>
-          <div class="ct-m us">Perfeito! Te envio uma proposta em até 1 dia útil.<span>14:05</span></div>
+          <div class="ct-m us">Perfeito! Vamos te enviar uma proposta em até 1 dia útil.<span>14:05</span></div>
           <div class="ct-m us ct-typing"><i></i><i></i><i></i></div>
         </div>
       </div>
@@ -738,7 +784,7 @@ svg{display:block;}
         <!-- Passo 2 — Detalhes -->
         <div class="form-step" id="step2">
           <h3>Fale mais sobre o projeto</h3>
-          <p>Quanto mais você contar, melhor eu consigo orientar a conversa.</p>
+          <p>Quanto mais você contar, melhor conseguimos orientar a conversa.</p>
           <div class="form-row">
             <div class="form-field"><label>Nome</label><input type="text" id="nome" placeholder="Felipe" autocomplete="given-name"></div>
             <div class="form-field"><label>Empresa (opcional)</label><input type="text" id="empresa" placeholder="Minha Empresa"></div>
@@ -774,8 +820,8 @@ svg{display:block;}
 
         <!-- Passo 3 — Envio -->
         <div class="form-step" id="step3">
-          <h3>Como posso te chamar?</h3>
-          <p>Escolha o canal preferido para eu entrar em contato.</p>
+          <h3>Como falamos com você?</h3>
+          <p>Escolha o canal preferido para entrarmos em contato.</p>
           <div class="form-field"><label>E-mail</label><input type="email" id="email" placeholder="voce@empresa.com" autocomplete="email"></div>
           <div class="form-field"><label>WhatsApp (opcional)</label><input type="tel" id="tel" placeholder="(42) 9 9999-9999" autocomplete="tel"></div>
           <div class="form-field">
@@ -798,53 +844,26 @@ svg{display:block;}
           <div class="form-confirm">
             <div class="form-confirm-ico"><i data-lucide="check"></i></div>
             <h3>Mensagem enviada!</h3>
-            <p>Recebi suas informações e vou entrar em contato em até 1 dia útil. Obrigado pela confiança.</p>
+            <p>Recebemos suas informações e vamos entrar em contato em até 1 dia útil. Obrigado pela confiança.</p>
             <a href="https://wa.me/5547997618824" target="_blank" rel="noopener"><i data-lucide="message-circle" style="width:.9rem;height:.9rem;stroke-width:2.5;pointer-events:none"></i> Falar agora no WhatsApp</a>
           </div>
         </div>
       </div>
 
       <!-- Sidebar canais -->
-      <aside>
-        <div class="canais">
-          <a href="https://wa.me/5547997618824" target="_blank" rel="noopener" class="canal-card">
-            <div class="canal-ico wpp"><i data-lucide="message-circle"></i></div>
-            <div>
-              <span class="canal-tit">WhatsApp</span>
-              <span class="canal-val">(47) 99761-8824</span>
-              <p class="canal-sub">Canal mais rápido. Resposta em minutos nos horários de atendimento.</p>
-            </div>
-          </a>
-          <a href="mailto:contato@webfun.com.br" class="canal-card">
-            <div class="canal-ico mail"><i data-lucide="mail"></i></div>
-            <div>
-              <span class="canal-tit">E-mail</span>
-              <span class="canal-val">contato@webfun.com.br</span>
-              <p class="canal-sub">Para projetos que precisam de documentação ou proposta formal.</p>
-            </div>
-          </a>
-          <a href="https://instagram.com/agenciawebfun" target="_blank" rel="noopener" class="canal-card">
-            <div class="canal-ico ig"><i data-lucide="instagram"></i></div>
-            <div>
-              <span class="canal-tit">Instagram</span>
-              <span class="canal-val">@agenciawebfun</span>
-              <p class="canal-sub">Acompanhe projetos e bastidores do processo de criação.</p>
-            </div>
-          </a>
-          <div class="canal-card" style="cursor:default;">
-            <div class="canal-ico loc"><i data-lucide="map-pin"></i></div>
-            <div>
-              <span class="canal-tit">Localização</span>
-              <span class="canal-val">Canoinhas, SC</span>
-              <p class="canal-sub">Atendo projetos em todo o Brasil de forma 100% remota.</p>
-            </div>
-          </div>
+      <aside class="ct-side">
+        <div class="ct-wcard">
+          <div class="ct-wtop"><span class="ct-wico"><i data-lucide="message-circle"></i></span><span class="ct-status" id="ctStatus"><i></i><span>Online agora</span></span></div>
+          <span class="ct-wtit">Fale pelo WhatsApp</span>
+          <span class="ct-wnum">(47) 99761-8824</span>
+          <p class="ct-wsub">Canal mais rápido. Resposta em minutos nos horários de atendimento.</p>
+          <a href="https://wa.me/5547997618824" target="_blank" rel="noopener" class="btn-glow"><span>Chamar no WhatsApp</span><span class="btn-glow-seta"><i data-lucide="arrow-right"></i></span></a>
+          <div class="ct-hours"><div><span>Segunda – sexta</span><b>9h – 18h</b></div><div><span>Sábado</span><b>9h – 12h</b></div><div><span>Domingo</span><em>Fechado</em></div></div>
         </div>
-        <div class="disponibilidade" style="margin-top:1rem;">
-          <p class="disp-tit">Horários de atendimento</p>
-          <div class="disp-row"><span class="disp-dia">Segunda – sexta</span><span class="disp-hora">9h – 18h</span></div>
-          <div class="disp-row"><span class="disp-dia">Sábado</span><span class="disp-hora">9h – 12h</span></div>
-          <div class="disp-row"><span class="disp-dia">Domingo</span><span class="disp-fechado">Fechado</span></div>
+        <div class="ct-list">
+          <a href="mailto:contato@webfun.com.br" class="ct-li"><span class="ct-lico"><i data-lucide="mail"></i></span><span class="ct-ltxt"><b>contato@webfun.com.br</b><small>Para propostas formais e documentação</small></span><i data-lucide="arrow-up-right" class="ct-larr"></i></a>
+          <a href="https://instagram.com/agenciawebfun" target="_blank" rel="noopener" class="ct-li"><span class="ct-lico"><i data-lucide="instagram"></i></span><span class="ct-ltxt"><b>@agenciawebfun</b><small>Projetos e bastidores da criação</small></span><i data-lucide="arrow-up-right" class="ct-larr"></i></a>
+          <div class="ct-li"><span class="ct-lico"><i data-lucide="map-pin"></i></span><span class="ct-ltxt"><b>Canoinhas, SC</b><small>Atendemos todo o Brasil, 100% remoto</small></span></div>
         </div>
       </aside>
     </div>
@@ -860,17 +879,17 @@ svg{display:block;}
       <div class="depois-card">
         <div class="depois-row"><div class="depois-ico"><i data-lucide="search"></i></div><div class="depois-num" aria-hidden="true">01</div></div>
         <h3>Análise do projeto</h3>
-        <p>Leio com atenção o que você enviou e penso no que faz sentido para o seu momento — sem template, sem proposta genérica.</p>
+        <p>Lemos com atenção o que você enviou e pensamos no que faz sentido para o seu momento — sem template, sem proposta genérica.</p>
       </div>
       <div class="depois-card">
         <div class="depois-row"><div class="depois-ico"><i data-lucide="message-circle"></i></div><div class="depois-num" aria-hidden="true">02</div></div>
         <h3>Conversa inicial</h3>
-        <p>Entro em contato em até 1 dia útil pelo canal preferido. Faço perguntas para entender o negócio antes de falar de preço.</p>
+        <p>Entramos em contato em até 1 dia útil pelo canal preferido. Fazemos perguntas para entender o negócio antes de falar de preço.</p>
       </div>
       <div class="depois-card">
         <div class="depois-row"><div class="depois-ico"><i data-lucide="file-text"></i></div><div class="depois-num" aria-hidden="true">03</div></div>
         <h3>Proposta honesta</h3>
-        <p>Se fizer sentido para os dois lados, preparo uma proposta clara com escopo, prazo e investimento. Sem surpresas no meio do caminho.</p>
+        <p>Se fizer sentido para os dois lados, preparamos uma proposta clara com escopo, prazo e investimento. Sem surpresas no meio do caminho.</p>
       </div>
     </div>
   </div>
@@ -1100,6 +1119,21 @@ document.addEventListener('DOMContentLoaded', function() {
   var st=v.querySelector('.ct-stage'),hero=v.closest('.page-hero'),c=function(n){return Math.max(-1,Math.min(1,n));};
   hero.addEventListener('mousemove',function(e){var r=v.getBoundingClientRect();var x=c((e.clientX-(r.left+r.width/2))/r.width),y=c((e.clientY-(r.top+r.height/2))/r.height);st.style.transform='rotateY('+(x*6-4)+'deg) rotateX('+(-y*4+2)+'deg)';});
   hero.addEventListener('mouseleave',function(){st.style.transform='';});
+})();
+</script>
+<script>
+(function(){
+  var el=document.getElementById('ctStatus');if(!el)return;
+  var n=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Sao_Paulo'}));
+  var d=n.getDay(),h=n.getHours()+n.getMinutes()/60;
+  var open=(d>=1&&d<=5&&h>=9&&h<18)||(d===6&&h>=9&&h<12);
+  if(open)return;
+  var t;
+  if(d>=1&&d<=6&&h<9)t='Respondemos hoje às 9h';
+  else if(d>=1&&d<=4)t='Respondemos amanhã às 9h';
+  else if(d===5)t='Respondemos sábado às 9h';
+  else t='Respondemos segunda às 9h';
+  el.classList.add('off');el.lastChild.textContent=t;
 })();
 </script>
 </body>
