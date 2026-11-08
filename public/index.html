@@ -799,15 +799,18 @@ html.lenis{scroll-behavior:auto!important;}
 .mo .p-thumb{transition:clip-path 1.2s cubic-bezier(.77,0,.18,1);}
 .mo .p-card[data-rv]:not(.in) .p-thumb{clip-path:inset(100% 0 0 0);}
 .mo .p-card[data-rv] .p-thumb{transition-delay:calc(var(--d,0s) + .1s);}
-.mo .band-track{animation:none;will-change:transform;}
+.mo-js .band-track{animation:none;}
 /* faixa gigante */
 .mq-wrap{overflow:hidden;padding:4rem 0;background:var(--bg);}
 .mq{transform:rotate(-2.2deg);width:112%;margin-left:-6%;background:var(--acid);color:var(--acid-fg);padding:1.1rem 0;box-shadow:0 24px 70px rgba(201,255,65,.18);}
-.mq-track{display:flex;align-items:center;gap:2.4rem;width:max-content;will-change:transform;}
+.mq-track{display:flex;align-items:center;width:max-content;animation:marquee 34s linear infinite;}
+.mq-track>*{margin-right:2.4rem;}
+.mo-js .mq-track{animation:none;}
+@media (prefers-reduced-motion:reduce){.mq-track{animation:none;}}
 .mq-track span{font-size:clamp(2.2rem,6vw,5rem);font-weight:900;letter-spacing:-.045em;line-height:1.05;white-space:nowrap;}
 .mq-track span.o{color:transparent;-webkit-text-stroke:1.6px var(--acid-fg);}
 .mq-track i{width:.85rem;height:.85rem;border-radius:50%;background:var(--acid-fg);flex-shrink:0;}
-@media (max-width:600px){.mq-wrap{padding:2.75rem 0;}.mq{padding:.8rem 0;}.mq-track{gap:1.4rem;}.mq-track i{width:.55rem;height:.55rem;}.mq-track span.o{-webkit-text-stroke-width:1.2px;}}
+@media (max-width:600px){.mq-wrap{padding:2.75rem 0;}.mq{padding:.8rem 0;}.mq-track>*{margin-right:1.4rem;}.mq-track i{width:.55rem;height:.55rem;}.mq-track span.o{-webkit-text-stroke-width:1.2px;}}
 /* brilho do hero seguindo o mouse */
 .hero{position:relative;isolation:isolate;}
 .hero::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .6s;background:radial-gradient(640px circle at var(--gx,70%) var(--gy,40%),rgba(201,255,65,.1),transparent 60%);}
@@ -833,7 +836,7 @@ html.cur-on .cur-dot,html.cur-on .cur-ring{opacity:1;}
 .cur-ring.big{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(201,255,65,.14);border-color:var(--acid);}
 html.cur-input .cur-dot,html.cur-input .cur-ring{opacity:0;}
 /* etapas do processo empilhando */
-.mo .step{transform-origin:50% 0;will-change:transform;}
+@media (hover:hover) and (pointer:fine) and (min-width:901px){.mo-js .step{transform-origin:50% 0;}}
 </style>
 </head>
 <body>
@@ -1130,7 +1133,7 @@ html.cur-input .cur-dot,html.cur-input .cur-ring{opacity:0;}
   </div>
 </section>
 
-<div class="mq-wrap" aria-hidden="true"><div class="mq"><div class="mq-track"><span>Sites</span><i></i><span class="o">Lojas virtuais</span><i></i><span>Sistemas</span><i></i><span class="o">Automação & IA</span><i></i><span>Aplicativos</span><i></i><span class="o">Landing pages</span><i></i></div></div></div>
+<div class="mq-wrap" aria-hidden="true"><div class="mq"><div class="mq-track"><span>Sites</span><i></i><span class="o">Lojas virtuais</span><i></i><span>Sistemas</span><i></i><span class="o">Automação & IA</span><i></i><span>Aplicativos</span><i></i><span class="o">Landing pages</span><i></i><span>Sites</span><i></i><span class="o">Lojas virtuais</span><i></i><span>Sistemas</span><i></i><span class="o">Automação & IA</span><i></i><span>Aplicativos</span><i></i><span class="o">Landing pages</span><i></i></div></div></div>
 
 <!-- ── Portfolio ──────────────────────────────────────────────────────── -->
 <section class="section portfolio" id="portfolio" aria-labelledby="port-h2">
@@ -1747,12 +1750,15 @@ document.addEventListener('DOMContentLoaded', function() {
   if(window.innerWidth>600)groups.push('.p-grid>.p-card');
   groups.forEach(function(sel){document.querySelectorAll(sel).forEach(function(el,i){rv(el,(i%3)*0.09);});});
 
+  if(!FINE)return;
+  html.classList.add('mo-js');
+
   /* faixas (velocidade reage ao scroll) */
   var tracks=[];
   var bt=document.querySelector('.band-track');
   if(bt)tracks.push({el:bt,base:38,x:0,period:function(){return bt.scrollWidth/2;}});
   var mt=document.querySelector('.mq-track');
-  if(mt){var n=mt.children.length;mt.innerHTML+=mt.innerHTML;tracks.push({el:mt,base:80,x:0,skew:true,period:function(){return mt.children[n].offsetLeft-mt.children[0].offsetLeft;}});}
+  if(mt){var n=mt.children.length/2;tracks.push({el:mt,base:80,x:0,skew:true,period:function(){return mt.children[n].offsetLeft-mt.children[0].offsetLeft;}});}
   function measure(){tracks.forEach(function(k){k.p=k.period();});docH=document.documentElement.scrollHeight-window.innerHeight;}
   var docH=1;measure();
   window.addEventListener('resize',measure);window.addEventListener('load',measure);
@@ -1763,7 +1769,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* scroll suave */
   var lenis=null;
-  if(FINE&&window.Lenis){
+  if(window.Lenis){
     lenis=new Lenis({lerp:.1});
     document.querySelectorAll('.wf-menu-painel,#wppModal').forEach(function(el){el.setAttribute('data-lenis-prevent','');});
     new MutationObserver(function(){if(document.body.style.overflow==='hidden')lenis.stop();else lenis.start();}).observe(document.body,{attributes:true,attributeFilter:['style']});
@@ -1778,7 +1784,7 @@ document.addEventListener('DOMContentLoaded', function() {
   /* desktop: brilho, spotlight, magnético, cursor, parallax, etapas */
   var steps=[],thumbs=[],procVis=false,portVis=false;
   var mx=-100,my=-100,rx=-100,ry=-100,dot,ring;
-  if(FINE){
+  {
     var hero=document.querySelector('.hero');
     if(hero){
       hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();hero.style.setProperty('--gx',(e.clientX-r.left)+'px');hero.style.setProperty('--gy',(e.clientY-r.top)+'px');hero.classList.add('glow');});
