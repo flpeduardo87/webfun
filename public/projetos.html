@@ -470,6 +470,37 @@ svg{display:block;}
 @keyframes ctaSpin{to{rotate:360deg;}}
 @media (prefers-reduced-motion:reduce){.wf-topo-cta::before,.hero-ctas .btn-acid::before{animation:none;rotate:200deg;}}
 </style>
+<style id="pj-css">
+.pj-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:3rem;align-items:center;}
+.page-hero .pj-txt h1{max-width:none;font-size:clamp(2.4rem,4.1vw,3.6rem);}
+.pj-vis{position:relative;perspective:1400px;animation:pjIn .9s .25s both;}
+@keyframes pjIn{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+.pj-glow{position:absolute;inset:5% 8%;background:radial-gradient(circle,rgba(201,255,65,.24),transparent 65%);filter:blur(60px);pointer-events:none;}
+.pj-stage{position:relative;height:23rem;transform-style:preserve-3d;transform:rotateY(-5deg) rotateX(2deg);transition:transform .6s cubic-bezier(.16,1,.3,1);}
+.pj-vis i{font-style:normal;}
+.pj-deck{position:absolute;inset:2.5rem 1rem 0 1.5rem;}
+.pj-card{position:absolute;left:0;right:0;bottom:0;height:85%;border-radius:1.3rem;overflow:hidden;background:radial-gradient(60% 65% at 50% 45%,rgba(201,255,65,.16),transparent 72%),#13141a;border:1px solid rgba(255,255,255,.09);box-shadow:0 30px 80px rgba(0,0,0,.5);transform-origin:50% 100%;transition:transform .7s cubic-bezier(.16,1,.3,1),opacity .5s;opacity:0;transform:translateY(-14%) scale(.82);pointer-events:none;}
+.pj-card[data-pos="0"]{opacity:1;transform:none;z-index:4;}
+.pj-card[data-pos="1"]{opacity:.75;transform:translateY(-7%) scale(.93);z-index:3;}
+.pj-card[data-pos="2"]{opacity:.45;transform:translateY(-13%) scale(.86);z-index:2;}
+.pj-card.out{opacity:0!important;transform:translateX(-34%) rotate(-7deg) scale(.95)!important;z-index:5!important;}
+.pj-img{position:absolute;inset:.8rem .8rem 3.6rem;background:center/contain no-repeat;}
+.pj-info{position:absolute;left:1rem;bottom:.85rem;display:flex;flex-direction:column;gap:.1rem;}
+.pj-ey{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--acid);}
+.pj-nome{font-size:.95rem;font-weight:800;letter-spacing:-.02em;color:#eeeae3;}
+.pj-tag{position:absolute;right:1rem;bottom:1rem;display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:700;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:.25rem .6rem;}
+.pj-tag i{width:.45rem;height:.45rem;border-radius:50%;background:#28c840;box-shadow:0 0 0 3px rgba(40,200,64,.18);}
+.pj-chip{position:absolute;z-index:6;display:flex;align-items:center;gap:.6rem;background:rgba(19,20,26,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(201,255,65,.35);border-radius:.95rem;padding:.6rem .9rem .6rem .6rem;color:#fff;font-size:.78rem;font-weight:700;line-height:1.25;white-space:nowrap;box-shadow:0 18px 44px rgba(0,0,0,.45);transform:translateZ(80px);animation:pjFloat 5s ease-in-out infinite;}
+.pj-chip small{display:block;font-size:.66rem;font-weight:500;color:rgba(255,255,255,.5);}
+.pj-chip-ico{width:2rem;height:2rem;border-radius:.65rem;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;flex-shrink:0;}
+.pj-chip-ico svg{width:1rem;height:1rem;stroke-width:2.4;}
+.pj-chip-a{left:-1.5rem;top:1.25rem;}
+.pj-chip-b{right:-1rem;bottom:4.5rem;animation-delay:-2.5s;}
+@keyframes pjFloat{0%,100%{translate:0 0;}50%{translate:0 -8px;}}
+@media(max-width:900px){.pj-grid{grid-template-columns:1fr;gap:3rem;}.pj-stage{transform:none;height:20rem;max-width:480px;margin:0 auto;}}
+@media(max-width:600px){.pj-stage{height:17rem;}.pj-deck{inset:2rem .25rem 0 .25rem;}.pj-chip{font-size:.68rem;padding:.45rem .7rem .45rem .45rem;}.pj-chip-ico{width:1.7rem;height:1.7rem;}.pj-chip-a{left:-.3rem;top:0;}.pj-chip-b{right:-.3rem;bottom:4rem;}.pj-nome{font-size:.85rem;}}
+@media(prefers-reduced-motion:reduce){.pj-vis,.pj-vis *{animation:none!important;transition:none!important;}}
+</style>
 </head>
 <body>
 
@@ -543,10 +574,24 @@ svg{display:block;}
 </header>
 
 <section class="page-hero">
-  <div class="wrap">
-    <span class="eyebrow">Portfólio</span>
-    <h1>Projetos diferentes. O mesmo cuidado.</h1>
-    <p>Sites, landing pages, lojas virtuais, sistemas e produtos digitais desenvolvidos para contextos, públicos e operações diferentes.</p>
+  <div class="wrap pj-grid">
+    <div class="pj-txt">
+      <span class="eyebrow">Portfólio</span>
+      <h1>Projetos diferentes.<br>O mesmo cuidado.</h1>
+      <p>Sites, landing pages, lojas virtuais, sistemas e produtos digitais desenvolvidos para contextos, públicos e operações diferentes.</p>
+    </div>
+    <div class="pj-vis" aria-hidden="true"><div class="pj-glow"></div><div class="pj-stage">
+      <div class="pj-deck">
+        <div class="pj-card" data-pos="0"><div class="pj-img" style="background-image:url('https://webfun.com.br/media/portfolio/azaff.webp')"></div><div class="pj-info"><span class="pj-ey">Loja virtual · Moda</span><span class="pj-nome">AZAFF</span></div><span class="pj-tag"><i></i>Cliente</span></div>
+        <div class="pj-card" data-pos="1"><div class="pj-img" style="background-image:url('https://webfun.com.br/media/portfolio/wasabi.webp')"></div><div class="pj-info"><span class="pj-ey">Loja virtual · Delivery</span><span class="pj-nome">Wasabi Sushi Bar</span></div><span class="pj-tag"><i></i>Cliente</span></div>
+        <div class="pj-card" data-pos="2"><div class="pj-img" style="background-image:url('https://webfun.com.br/media/portfolio/mielke-energia-solar.webp')"></div><div class="pj-info"><span class="pj-ey">Site · Energia solar</span><span class="pj-nome">Mielke Energia Solar</span></div><span class="pj-tag"><i></i>Cliente</span></div>
+        <div class="pj-card" data-pos="3"><div class="pj-img" style="background-image:url('media/portfolio/canoinhas-tenis-clube.webp')"></div><div class="pj-info"><span class="pj-ey">Sistema · Clube esportivo</span><span class="pj-nome">Canoinhas Tênis Clube</span></div><span class="pj-tag"><i></i>Cliente</span></div>
+        <div class="pj-card" data-pos="4"><div class="pj-img" style="background-image:url('https://webfun.com.br/media/portfolio/flavia-sussenbach.webp')"></div><div class="pj-info"><span class="pj-ey">Site · Advocacia</span><span class="pj-nome">Flávia Sussenbach</span></div><span class="pj-tag"><i></i>Cliente</span></div>
+        <div class="pj-card" data-pos="5"><div class="pj-img" style="background-image:url('https://webfun.com.br/media/portfolio/com-cristo-kids.webp')"></div><div class="pj-info"><span class="pj-ey">Landing page · Educação</span><span class="pj-nome">Com Cristo Kids</span></div><span class="pj-tag"><i></i>Cliente</span></div>
+      </div>
+      <div class="pj-chip pj-chip-a"><span class="pj-chip-ico"><i data-lucide="rocket"></i></span><span>50+ projetos entregues<small>sites, lojas e sistemas</small></span></div>
+      <div class="pj-chip pj-chip-b"><span class="pj-chip-ico"><i data-lucide="map-pin"></i></span><span>8+ estados atendidos<small>de SC ao exterior</small></span></div>
+    </div></div>
   </div>
 </section>
 
@@ -833,6 +878,29 @@ document.addEventListener('DOMContentLoaded', function() {
   g.addEventListener('mouseenter',function(){requestAnimationFrame(fit);});
   g.addEventListener('focusin',function(){requestAnimationFrame(fit);});
   window.addEventListener('resize',fit);
+})();
+</script>
+<script>
+(function(){
+  var v=document.querySelector('.pj-vis');if(!v)return;
+  var cards=[].slice.call(v.querySelectorAll('.pj-card')),n=cards.length,paused=false;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function next(){
+    if(paused||document.hidden)return;
+    var front=cards.filter(function(c){return c.dataset.pos==='0';})[0];
+    front.classList.add('out');
+    setTimeout(function(){
+      cards.forEach(function(c){c.dataset.pos=(+c.dataset.pos-1+n)%n;});
+      front.classList.remove('out');
+    },450);
+  }
+  if(!rm)setInterval(next,3200);
+  v.addEventListener('mouseenter',function(){paused=true;});
+  v.addEventListener('mouseleave',function(){paused=false;});
+  if(rm||!window.matchMedia('(hover:hover) and (min-width:901px)').matches)return;
+  var st=v.querySelector('.pj-stage'),hero=v.closest('.page-hero'),c=function(x){return Math.max(-1,Math.min(1,x));};
+  hero.addEventListener('mousemove',function(e){var r=v.getBoundingClientRect();var x=c((e.clientX-(r.left+r.width/2))/r.width),y=c((e.clientY-(r.top+r.height/2))/r.height);st.style.transform='rotateY('+(x*6-4)+'deg) rotateX('+(-y*4+2)+'deg)';});
+  hero.addEventListener('mouseleave',function(){st.style.transform='';});
 })();
 </script>
 </body>
