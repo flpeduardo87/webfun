@@ -493,6 +493,72 @@ svg{display:block;}
 @keyframes ctaSpin{to{rotate:360deg;}}
 @media (prefers-reduced-motion:reduce){.wf-topo-cta::before,.hero-ctas .btn-acid::before{animation:none;rotate:200deg;}}
 </style>
+<style id="sb-css">
+/* hero com composição */
+.sb-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:3rem;align-items:center;}
+.page-hero .sb-txt h1{max-width:none;font-size:clamp(2.4rem,4.1vw,3.6rem);}
+.sb-vis{position:relative;perspective:1400px;animation:sbIn .9s .25s both;}
+@keyframes sbIn{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+.sb-glow{position:absolute;inset:5% 8%;background:radial-gradient(circle,rgba(201,255,65,.24),transparent 65%);filter:blur(60px);pointer-events:none;}
+.sb-stage{position:relative;height:24rem;transform-style:preserve-3d;transform:rotateY(-5deg) rotateX(2deg);transition:transform .6s cubic-bezier(.16,1,.3,1);}
+.sb-vis i{font-style:normal;}
+.sb-tile{position:absolute;background:radial-gradient(60% 65% at 50% 55%,rgba(201,255,65,.16),transparent 72%),#13141a;border:1px solid rgba(255,255,255,.09);border-radius:1.2rem;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);animation:sbFloat 6s ease-in-out infinite;}
+.sb-img{position:absolute;inset:.6rem .6rem 2.4rem;background:center/contain no-repeat;}
+.sb-cap{position:absolute;left:.75rem;bottom:.65rem;display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:700;color:#eeeae3;}
+.sb-cap i{width:.45rem;height:.45rem;border-radius:50%;background:#28c840;}
+.sb-main{left:4%;top:20%;width:62%;height:58%;z-index:2;transform:translateZ(30px);}
+.sb-tr{right:0;top:0;width:44%;height:42%;animation-delay:-2s;}.sb-tr .sb-cap{left:auto;right:.75rem;}
+.sb-bl{left:22%;bottom:0;width:40%;height:38%;z-index:3;transform:translateZ(60px);animation-delay:-4s;}
+@keyframes sbFloat{0%,100%{translate:0 0;}50%{translate:0 -8px;}}
+.sb-chip{position:absolute;z-index:4;display:flex;align-items:center;gap:.6rem;background:rgba(19,20,26,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(201,255,65,.35);border-radius:.95rem;padding:.6rem .9rem .6rem .6rem;color:#fff;font-size:.78rem;font-weight:700;line-height:1.25;white-space:nowrap;box-shadow:0 18px 44px rgba(0,0,0,.45);transform:translateZ(90px);}
+.sb-chip small{display:block;font-size:.66rem;font-weight:500;color:rgba(255,255,255,.5);}
+.sb-chip-ico{width:2rem;height:2rem;border-radius:.65rem;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;flex-shrink:0;}
+.sb-chip-ico svg{width:1rem;height:1rem;stroke-width:2.4;}
+.sb-chip-a{left:-1.5rem;top:2rem;}
+.sb-chip-b{right:-.5rem;bottom:1.5rem;}
+@media(max-width:900px){.sb-grid{grid-template-columns:1fr;gap:3rem;}.sb-stage{transform:none;height:20rem;max-width:480px;margin:0 auto;}}
+@media(max-width:600px){.sb-stage{height:17rem;}.sb-chip{font-size:.68rem;padding:.45rem .7rem .45rem .45rem;}.sb-chip-ico{width:1.7rem;height:1.7rem;}.sb-chip-a{left:-.3rem;top:.5rem;}.sb-chip-b{right:-.3rem;bottom:.5rem;}.sb-cap{font-size:.6rem;}}
+@media(prefers-reduced-motion:reduce){.sb-vis,.sb-vis *{animation:none!important;transition:none!important;}}
+/* ícones de posicionamento */
+.pos-ico{background:#1e1f26;color:var(--acid);}
+[data-theme="dark"] .pos-ico{background:rgba(255,255,255,.06);}
+/* fundador */
+.quem-avatar{width:11rem;height:11rem;padding:5px;background:var(--surface);box-shadow:0 0 0 2px var(--acid),0 20px 60px rgba(201,255,65,.15);}
+.quem-avatar img{border-radius:999px;}
+.quem-social{display:flex;gap:.5rem;margin-top:1.5rem;}
+.quem-social a{width:2.6rem;height:2.6rem;border-radius:999px;display:grid;place-items:center;border:1px solid var(--line);color:var(--ink);transition:background .2s,color .2s,border-color .2s;}
+.quem-social a:hover{background:var(--acid);border-color:var(--acid);color:var(--acid-fg);}
+.quem-social svg{width:1.05rem;height:1.05rem;stroke-width:2;}
+/* princípios e números seguindo o tema */
+.principios{background:var(--bg);border-top-color:var(--line);}
+.principios .eyebrow{color:var(--muted);}
+.principios .section-title{color:var(--ink);}
+.pr-card{background:var(--surface);border-color:var(--line);}
+.pr-ico{background:#1e1f26;}
+[data-theme="dark"] .pr-ico{background:rgba(255,255,255,.06);}
+.pr-num{color:var(--muted2);}
+.pr-tit{color:var(--ink);}
+.pr-desc{color:var(--muted);}
+.localizacao{background:var(--surface);}
+.loc-stat{background:var(--bg);border-color:var(--line);}
+.loc-stat-val{color:var(--ink);}
+.loc-stat-lbl{color:var(--muted);}
+.loc-tag{background:var(--bg);}
+/* depoimentos */
+.sb-rv{background:var(--bg);border-top:1px solid var(--line);}
+.sb-rv-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.sb-rv-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;font-weight:700;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.45rem .95rem;}
+.sb-rv-badge svg{width:.95rem;height:.95rem;color:#f59e0b;fill:#f59e0b;}
+.sb-rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.sb-rv-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.75rem;}
+.sb-rv-stars{color:#f59e0b;font-size:.9rem;letter-spacing:.1em;margin-bottom:.9rem;}
+.sb-rv-txt{flex:1;font-size:.95rem;color:var(--ink-2);line-height:1.65;margin-bottom:1.5rem;}
+.sb-rv-who{display:flex;align-items:center;gap:.75rem;padding-top:1.1rem;border-top:1px solid var(--line);}
+.sb-rv-av{width:2.4rem;height:2.4rem;border-radius:999px;display:grid;place-items:center;background:var(--acid);color:var(--acid-fg);font-size:.78rem;font-weight:800;}
+.sb-rv-who b{display:block;font-size:.9rem;color:var(--ink);}
+.sb-rv-who small{font-size:.78rem;color:var(--muted);}
+@media(max-width:900px){.sb-rv-grid{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
 
@@ -567,10 +633,19 @@ svg{display:block;}
 
 <!-- Hero da página -->
 <section class="page-hero">
-  <div class="wrap">
-    <span class="eyebrow">Sobre a Webfun</span>
-    <h1>Design que pensa.<br>Código que funciona.</h1>
-    <p>Serviços digitais sob medida — da definição da solução até a publicação. Cada projeto tem um responsável único do início ao fim.</p>
+  <div class="wrap sb-grid">
+    <div class="sb-txt">
+      <span class="eyebrow">Sobre a Webfun</span>
+      <h1>Design que pensa.<br>Código que funciona.</h1>
+      <p>Serviços digitais sob medida — da definição da solução até a publicação. Cada projeto tem um responsável único do início ao fim.</p>
+    </div>
+    <div class="sb-vis" aria-hidden="true"><div class="sb-glow"></div><div class="sb-stage">
+      <div class="sb-tile sb-main"><div class="sb-img" style="background-image:url('https://webfun.com.br/media/portfolio/azaff.webp')"></div><span class="sb-cap"><i></i>AZAFF · Loja virtual</span></div>
+      <div class="sb-tile sb-tr"><div class="sb-img" style="background-image:url('https://webfun.com.br/media/portfolio/mielke-energia-solar.webp')"></div><span class="sb-cap"><i></i>Mielke · Site</span></div>
+      <div class="sb-tile sb-bl"><div class="sb-img" style="background-image:url('media/portfolio/canoinhas-tenis-clube.webp')"></div><span class="sb-cap"><i></i>Canoinhas TC · Sistema</span></div>
+      <div class="sb-chip sb-chip-a"><span class="sb-chip-ico"><i data-lucide="rocket"></i></span><span>50+ projetos entregues<small>sites, lojas e sistemas</small></span></div>
+      <div class="sb-chip sb-chip-b"><span class="sb-chip-ico"><i data-lucide="star"></i></span><span>Nota 4,8 no Google<small>avaliação dos clientes</small></span></div>
+    </div></div>
   </div>
 </section>
 
@@ -634,8 +709,13 @@ svg{display:block;}
         <div class="quem-avatar"><img src="media/pessoas/felipe.webp" alt="Felipe — Designer & desenvolvedor" loading="lazy"></div>
         <h2 class="quem-nome" id="quem-h2">Felipe</h2>
         <p class="quem-cargo">Designer & desenvolvedor</p>
-        <p class="quem-desc">Somos nós que fazemos cada projeto do começo ao fim — estratégia, design e código no mesmo lugar, sem terceirizar e sem intermediários. Da primeira conversa às decisões finais de interface, o objetivo é clareza, proximidade e responsabilidade em cada entrega.</p>
+        <p class="quem-desc">Cada projeto passa por mim do começo ao fim: estratégia, design e código no mesmo lugar, sem terceirizar e sem intermediários. Da primeira conversa às decisões finais de interface, o objetivo é clareza, proximidade e responsabilidade em cada entrega.</p>
         <p class="quem-desc" style="margin-top:.9rem">Mais do que colocar algo no ar, a ideia é construir um serviço digital que faça sentido para o negócio e para quem vai usar.</p>
+        <div class="quem-social">
+          <a href="https://www.instagram.com/flpeduardo_/" target="_blank" rel="noopener" aria-label="Instagram do Felipe"><i data-lucide="instagram"></i></a>
+          <a href="https://www.linkedin.com/in/felipe-eduardo-pedroso-04b89a41" target="_blank" rel="noopener" aria-label="LinkedIn do Felipe"><i data-lucide="linkedin"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=100001769555524" target="_blank" rel="noopener" aria-label="Facebook do Felipe"><i data-lucide="facebook"></i></a>
+        </div>
       </div>
       <div class="quem-card">
         <p class="quem-card-ey">Como eu penso o trabalho</p>
@@ -712,6 +792,21 @@ svg{display:block;}
           <p class="loc-stat-lbl">anos no mercado<br>atendendo todo o Brasil</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Depoimentos -->
+<section class="section sb-rv" aria-labelledby="rv-h2">
+  <div class="wrap">
+    <div class="sb-rv-head">
+      <div><span class="eyebrow">Depoimentos</span><h2 class="section-title" id="rv-h2">Quem trabalhou com a gente recomenda.</h2></div>
+      <span class="sb-rv-badge"><i data-lucide="star"></i>4,8 no Google</span>
+    </div>
+    <div class="sb-rv-grid">
+      <div class="sb-rv-card"><p class="sb-rv-stars">★★★★★</p><p class="sb-rv-txt">Atendimento excelente, entrega rápida e resultado acima do esperado. Recomendo para quem busca qualidade.</p><div class="sb-rv-who"><span class="sb-rv-av">FS</span><span><b>Flávia Sussenbach</b><small>Site + SEO</small></span></div></div>
+      <div class="sb-rv-card"><p class="sb-rv-stars">★★★★★</p><p class="sb-rv-txt">Perfeito, muito obrigada por todo o trabalho. Nós gostamos muito do resultado e já estamos vendendo!</p><div class="sb-rv-who"><span class="sb-rv-av">KH</span><span><b>Karen Hames</b><small>Loja virtual</small></span></div></div>
+      <div class="sb-rv-card"><p class="sb-rv-stars">★★★★★</p><p class="sb-rv-txt">Atendimento rápido e transparente do início ao fim. Tudo foi explicado com clareza e o resultado ficou do jeito que precisávamos.</p><div class="sb-rv-who"><span class="sb-rv-av">JM</span><span><b>Jean Mielke</b><small>Site</small></span></div></div>
     </div>
   </div>
 </section>
@@ -872,6 +967,15 @@ document.addEventListener('DOMContentLoaded', function() {
   g.addEventListener('mouseenter',function(){requestAnimationFrame(fit);});
   g.addEventListener('focusin',function(){requestAnimationFrame(fit);});
   window.addEventListener('resize',fit);
+})();
+</script>
+<script>
+(function(){
+  var v=document.querySelector('.sb-vis');if(!v)return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!window.matchMedia('(hover:hover) and (min-width:901px)').matches)return;
+  var st=v.querySelector('.sb-stage'),hero=v.closest('.page-hero'),c=function(n){return Math.max(-1,Math.min(1,n));};
+  hero.addEventListener('mousemove',function(e){var r=v.getBoundingClientRect();var x=c((e.clientX-(r.left+r.width/2))/r.width),y=c((e.clientY-(r.top+r.height/2))/r.height);st.style.transform='rotateY('+(x*6-4)+'deg) rotateX('+(-y*4+2)+'deg)';});
+  hero.addEventListener('mouseleave',function(){st.style.transform='';});
 })();
 </script>
 </body>
