@@ -584,6 +584,22 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 @media(max-width:600px){.svc-hero-meta{flex-wrap:nowrap!important;gap:.9rem!important;justify-content:space-between;}.svc-meta-item{min-width:0;}.svc-meta-val{font-size:1.1rem!important;white-space:nowrap;letter-spacing:-.03em;}.svc-meta-lbl{font-size:.58rem!important;letter-spacing:.05em!important;}}
 @media(max-width:360px){.svc-meta-val{font-size:.98rem!important;}.svc-meta-lbl{font-size:.54rem!important;}}
 </style>
+<style id="pqe-css">
+.pqe-layout{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:4rem;}
+.pqe-left{position:sticky;top:7rem;}
+.pqe-list{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:0;}
+.pqe-item{flex-direction:column;align-items:flex-start;gap:.55rem;padding:1.2rem 1.2rem 1.25rem;transition:border-color .2s,transform .2s;}
+.pqe-item:hover{border-color:rgba(201,255,65,.45);transform:translateY(-2px);}
+.pqe-ico{width:2.3rem;height:2.3rem;border-radius:.7rem;display:grid;place-items:center;background:#1e1f26;color:var(--acid);margin-bottom:.15rem;}
+[data-theme="dark"] .pqe-ico{background:rgba(255,255,255,.06);}
+.pqe-ico svg{width:1.1rem;height:1.1rem;stroke-width:2;}
+.pqe-tit{font-size:.95rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);line-height:1.25;}
+.pqe-desc{font-size:.8rem;font-weight:500;color:var(--muted);line-height:1.45;}
+.pqe-cta{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line);}
+.pqe-cta-t{display:block;font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:1rem;}
+@media(max-width:800px){.pqe-layout{grid-template-columns:1fr;gap:2rem;}.pqe-left{position:static;}}
+@media(max-width:600px){.pqe-list{gap:.55rem;}.pqe-item{padding:.95rem .9rem 1rem;gap:.45rem;}.pqe-ico{width:2rem;height:2rem;border-radius:.6rem;}.pqe-ico svg{width:.95rem;height:.95rem;}.pqe-tit{font-size:.86rem;}.pqe-desc{font-size:.74rem;}.pqe-cta{margin-top:1.5rem;}}
+</style>
 </head>
 <body>
 <header class="wf-topo" id="topo">
@@ -691,18 +707,19 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 <section class="pqe-sec">
   <div class="wrap">
     <div class="pqe-layout">
-      <div>
+      <div class="pqe-left">
         <span class="eyebrow">Para quem é</span>
         <h2 class="pqe-label">Para quem quer vender mais sem depender de marketplace.</h2>
         <p class="pqe-sub">Ter loja no Mercado Livre e Instagram é diferente de ter sua própria loja. Aqui, você não paga comissão por venda — o lucro é todo seu.</p>
+        <div class="pqe-cta"><span class="pqe-cta-t">Se identificou? A gente te mostra o caminho.</span><a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">Falar no WhatsApp <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a></div>
       </div>
       <div class="pqe-list">
-        <div class="pqe-item"><span class="pqe-dot"></span>Artesãos e produtores que vendem pelo Instagram ou WhatsApp</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Lojistas que querem sair do marketplace e ter margem de lucro maior</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Marcas próprias que querem controlar a experiência de compra</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Revendedores com catálogo fixo e recorrência de clientes</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Quem quer vender para outros estados sem ponto físico</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Negócios com produtos digitais (ebooks, cursos, templates)</div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="palette"></i></span><span class="pqe-tit">Artesãos e produtores</span><span class="pqe-desc">Que vendem pelo Instagram ou WhatsApp</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="store"></i></span><span class="pqe-tit">Lojistas de marketplace</span><span class="pqe-desc">Que querem sair dele e lucrar mais</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="tag"></i></span><span class="pqe-tit">Marcas próprias</span><span class="pqe-desc">Controle total da experiência de compra</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="repeat"></i></span><span class="pqe-tit">Revendedores</span><span class="pqe-desc">Catálogo fixo e clientes recorrentes</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="truck"></i></span><span class="pqe-tit">Venda para outros estados</span><span class="pqe-desc">Sem precisar de ponto físico</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="file-down"></i></span><span class="pqe-tit">Produtos digitais</span><span class="pqe-desc">Ebooks, cursos e templates</span></div>
       </div>
     </div>
   </div>

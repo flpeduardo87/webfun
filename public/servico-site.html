@@ -599,6 +599,22 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 @media(max-width:600px){.svc-hero-meta{flex-wrap:nowrap!important;gap:.9rem!important;justify-content:space-between;}.svc-meta-item{min-width:0;}.svc-meta-val{font-size:1.1rem!important;white-space:nowrap;letter-spacing:-.03em;}.svc-meta-lbl{font-size:.58rem!important;letter-spacing:.05em!important;}}
 @media(max-width:360px){.svc-meta-val{font-size:.98rem!important;}.svc-meta-lbl{font-size:.54rem!important;}}
 </style>
+<style id="pqe-css">
+.pqe-layout{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:4rem;}
+.pqe-left{position:sticky;top:7rem;}
+.pqe-list{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:0;}
+.pqe-item{flex-direction:column;align-items:flex-start;gap:.55rem;padding:1.2rem 1.2rem 1.25rem;transition:border-color .2s,transform .2s;}
+.pqe-item:hover{border-color:rgba(201,255,65,.45);transform:translateY(-2px);}
+.pqe-ico{width:2.3rem;height:2.3rem;border-radius:.7rem;display:grid;place-items:center;background:#1e1f26;color:var(--acid);margin-bottom:.15rem;}
+[data-theme="dark"] .pqe-ico{background:rgba(255,255,255,.06);}
+.pqe-ico svg{width:1.1rem;height:1.1rem;stroke-width:2;}
+.pqe-tit{font-size:.95rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);line-height:1.25;}
+.pqe-desc{font-size:.8rem;font-weight:500;color:var(--muted);line-height:1.45;}
+.pqe-cta{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line);}
+.pqe-cta-t{display:block;font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:1rem;}
+@media(max-width:800px){.pqe-layout{grid-template-columns:1fr;gap:2rem;}.pqe-left{position:static;}}
+@media(max-width:600px){.pqe-list{gap:.55rem;}.pqe-item{padding:.95rem .9rem 1rem;gap:.45rem;}.pqe-ico{width:2rem;height:2rem;border-radius:.6rem;}.pqe-ico svg{width:.95rem;height:.95rem;}.pqe-tit{font-size:.86rem;}.pqe-desc{font-size:.74rem;}.pqe-cta{margin-top:1.5rem;}}
+</style>
 </head>
 <body>
 
@@ -714,18 +730,19 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 <section class="pqe-sec">
   <div class="wrap">
     <div class="pqe-layout">
-      <div>
+      <div class="pqe-left">
         <span class="eyebrow">Para quem é</span>
         <h2 class="pqe-label">Feito para quem precisa ser levado a sério online.</h2>
         <p class="pqe-sub">Se seu cliente pesquisa seu nome no Google antes de ligar — e encontra nada, ou algo desatualizado — este serviço é para você.</p>
+        <div class="pqe-cta"><span class="pqe-cta-t">Se identificou? A gente te mostra o caminho.</span><a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">Falar no WhatsApp <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a></div>
       </div>
       <div class="pqe-list">
-        <div class="pqe-item"><span class="pqe-dot"></span>Profissionais liberais: advogados, médicos, psicólogos, consultores</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Pequenas empresas que querem parecer grandes</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Prestadores de serviço sem presença digital clara</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Negócios com site desatualizado que envergonha na hora de mostrar</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Quem depende de indicação e quer ampliar o alcance</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Quem quer um site que alguém de fora do país possa ver profissionalmente</div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="briefcase"></i></span><span class="pqe-tit">Profissionais liberais</span><span class="pqe-desc">Advogados, médicos, psicólogos e consultores</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="building-2"></i></span><span class="pqe-tit">Pequenas empresas</span><span class="pqe-desc">Que querem parecer grandes</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="wrench"></i></span><span class="pqe-tit">Prestadores de serviço</span><span class="pqe-desc">Ainda sem presença digital clara</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="refresh-cw"></i></span><span class="pqe-tit">Site desatualizado</span><span class="pqe-desc">Que envergonha na hora de mostrar</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="users"></i></span><span class="pqe-tit">Quem vive de indicação</span><span class="pqe-desc">E quer ampliar o alcance</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="globe"></i></span><span class="pqe-tit">Clientes de fora</span><span class="pqe-desc">Site profissional para quem é de outro país</span></div>
       </div>
     </div>
   </div>

@@ -582,6 +582,22 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 @media(max-width:600px){.svc-hero-meta{flex-wrap:nowrap!important;gap:.9rem!important;justify-content:space-between;}.svc-meta-item{min-width:0;}.svc-meta-val{font-size:1.1rem!important;white-space:nowrap;letter-spacing:-.03em;}.svc-meta-lbl{font-size:.58rem!important;letter-spacing:.05em!important;}}
 @media(max-width:360px){.svc-meta-val{font-size:.98rem!important;}.svc-meta-lbl{font-size:.54rem!important;}}
 </style>
+<style id="pqe-css">
+.pqe-layout{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:4rem;}
+.pqe-left{position:sticky;top:7rem;}
+.pqe-list{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:0;}
+.pqe-item{flex-direction:column;align-items:flex-start;gap:.55rem;padding:1.2rem 1.2rem 1.25rem;transition:border-color .2s,transform .2s;}
+.pqe-item:hover{border-color:rgba(201,255,65,.45);transform:translateY(-2px);}
+.pqe-ico{width:2.3rem;height:2.3rem;border-radius:.7rem;display:grid;place-items:center;background:#1e1f26;color:var(--acid);margin-bottom:.15rem;}
+[data-theme="dark"] .pqe-ico{background:rgba(255,255,255,.06);}
+.pqe-ico svg{width:1.1rem;height:1.1rem;stroke-width:2;}
+.pqe-tit{font-size:.95rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);line-height:1.25;}
+.pqe-desc{font-size:.8rem;font-weight:500;color:var(--muted);line-height:1.45;}
+.pqe-cta{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line);}
+.pqe-cta-t{display:block;font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:1rem;}
+@media(max-width:800px){.pqe-layout{grid-template-columns:1fr;gap:2rem;}.pqe-left{position:static;}}
+@media(max-width:600px){.pqe-list{gap:.55rem;}.pqe-item{padding:.95rem .9rem 1rem;gap:.45rem;}.pqe-ico{width:2rem;height:2rem;border-radius:.6rem;}.pqe-ico svg{width:.95rem;height:.95rem;}.pqe-tit{font-size:.86rem;}.pqe-desc{font-size:.74rem;}.pqe-cta{margin-top:1.5rem;}}
+</style>
 </head>
 <body>
 <header class="wf-topo" id="topo">
@@ -692,18 +708,19 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 <section class="pqe-sec">
   <div class="wrap">
     <div class="pqe-layout">
-      <div>
+      <div class="pqe-left">
         <span class="eyebrow">Para quem é</span>
         <h2 class="pqe-label">Para quem o Excel já não aguenta mais — e o software pronto nunca encaixou.</h2>
         <p class="pqe-sub">Quando você está pagando por funcionalidades que não usa e faltando exatamente o que precisa, é hora de um sistema construído para o seu negócio.</p>
+        <div class="pqe-cta"><span class="pqe-cta-t">Se identificou? A gente te mostra o caminho.</span><a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">Falar no WhatsApp <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a></div>
       </div>
       <div class="pqe-list">
-        <div class="pqe-item"><span class="pqe-dot"></span>Empresas com processo interno complexo e específico</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Negócios que controlam tudo em planilhas e precisam de algo mais robusto</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Equipes com fluxo de aprovação, status e responsáveis</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Quem precisa de portal para clientes, fornecedores ou parceiros</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Negócios com relatórios e métricas que nenhum software padrão gera</div>
-        <div class="pqe-item"><span class="pqe-dot"></span>Quem já tentou outros softwares e nenhum encaixou 100%</div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="git-branch"></i></span><span class="pqe-tit">Processo complexo</span><span class="pqe-desc">Interno e específico do seu negócio</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="sheet"></i></span><span class="pqe-tit">Tudo em planilhas</span><span class="pqe-desc">E precisa de algo mais robusto</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="check-square"></i></span><span class="pqe-tit">Fluxos de aprovação</span><span class="pqe-desc">Status e responsáveis para a equipe</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="door-open"></i></span><span class="pqe-tit">Portais</span><span class="pqe-desc">Para clientes, fornecedores ou parceiros</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="bar-chart-3"></i></span><span class="pqe-tit">Relatórios sob medida</span><span class="pqe-desc">Métricas que nenhum software padrão gera</span></div>
+        <div class="pqe-item"><span class="pqe-ico"><i data-lucide="puzzle"></i></span><span class="pqe-tit">Nada encaixou</span><span class="pqe-desc">Já testou outros softwares sem sucesso</span></div>
       </div>
     </div>
   </div>
