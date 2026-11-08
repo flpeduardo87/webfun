@@ -929,15 +929,15 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
 .mo .p-card[data-rv] .p-thumb{transition-delay:calc(var(--d,0s) + .1s);}
 .mo-js .band-track{animation:none;}
 /* faixa gigante */
-.mq-wrap{position:relative;overflow:hidden;padding:2.25rem 0 5.5rem;margin-top:-4.5rem;background:var(--bg);}
-.mq{transform:rotate(-2.2deg);width:112%;margin-left:-6%;background:var(--acid);color:var(--acid-fg);padding:1.1rem 0;box-shadow:0 24px 70px rgba(201,255,65,.18);}
+.mq-wrap{position:relative;overflow:hidden;padding:1.75rem 0 5rem;margin-top:-4.5rem;background:var(--bg);}
+.mq{transform:rotate(-1.6deg);width:112%;margin-left:-6%;background:var(--acid);color:var(--acid-fg);padding:.85rem 0;box-shadow:0 18px 50px rgba(201,255,65,.14);}
 .mq-track{display:flex;align-items:center;width:max-content;animation:marquee 65s linear infinite;}
-.mq-track>*{margin-right:2.4rem;}
+.mq-track>*{margin-right:1.9rem;}
 .mo-js .mq-track{animation:none;}
 @media (prefers-reduced-motion:reduce){.mq-track{animation:none;}}
-.mq-track span{font-size:clamp(2.2rem,6vw,5rem);font-weight:900;letter-spacing:-.045em;line-height:1.05;white-space:nowrap;}
-.mq-track i{width:.85rem;height:.85rem;border-radius:50%;background:var(--acid-fg);flex-shrink:0;}
-@media (max-width:600px){.mq-wrap{padding:1.25rem 0 4rem;margin-top:-4.5rem;}.mq{padding:.8rem 0;}.mq-track>*{margin-right:1.4rem;}.mq-track i{width:.55rem;height:.55rem;}}
+.mq-track span{font-size:clamp(1.5rem,3vw,2.5rem);font-weight:800;letter-spacing:-.035em;line-height:1.1;white-space:nowrap;}
+.mq-track i{width:.55rem;height:.55rem;border-radius:50%;background:var(--acid-fg);flex-shrink:0;}
+@media (max-width:600px){.mq-wrap{padding:1.25rem 0 4rem;margin-top:-4.5rem;}.mq{padding:.65rem 0;}.mq-track>*{margin-right:1.2rem;}.mq-track i{width:.42rem;height:.42rem;}}
 /* brilho do hero seguindo o mouse */
 .hero{position:relative;isolation:isolate;}
 .hero::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .6s;background:radial-gradient(640px circle at var(--gx,70%) var(--gy,40%),rgba(201,255,65,.1),transparent 60%);}
