@@ -418,6 +418,15 @@ svg { display: block; }
 .hl-prod>span{color:rgba(255,255,255,.55);font-size:.6rem;}
 .hl-prod b{font-size:.74rem;}
 .hl-prod .hl-btn{margin-top:.3rem;background:var(--acid);color:var(--acid-fg);border-radius:999px;padding:.3rem;font-weight:800;font-size:.58rem;text-align:center;}
+.hl-extra{display:none;flex-direction:column;gap:.5rem;}
+.hl-ship{display:flex;align-items:center;gap:.4rem;background:rgba(201,255,65,.08);border:1px dashed rgba(201,255,65,.35);border-radius:.6rem;padding:.45rem .6rem;font-size:.6rem;font-weight:700;color:#eeeae3;}
+.hl-ship svg{width:.85rem;height:.85rem;color:var(--acid);flex-shrink:0;}
+.hl-ship em{font-style:normal;color:rgba(255,255,255,.35);}
+.hl-bar{display:flex;align-items:center;justify-content:space-between;gap:.5rem;background:#1a1b22;border:1px solid rgba(255,255,255,.06);border-radius:.7rem;padding:.5rem .6rem;}
+.hl-bar small{display:block;font-size:.55rem;color:rgba(255,255,255,.45);}
+.hl-bar b{font-size:.85rem;font-weight:900;letter-spacing:-.02em;}
+.hl-go{display:inline-flex;align-items:center;gap:.3rem;background:var(--acid);color:var(--acid-fg);border-radius:999px;padding:.42rem .75rem;font-weight:800;font-size:.6rem;}
+.hl-go svg{width:.7rem;height:.7rem;}
 .hl-prod.hot .hl-btn{animation:hxPulse 2.4s ease-in-out infinite;}
 /* sistema */
 .hy{display:grid;grid-template-columns:2rem 1fr;gap:.75rem;}
@@ -485,7 +494,7 @@ svg { display: block; }
 @keyframes hxFloat{0%,100%{translate:0 0;}50%{translate:0 -9px;}}
 @media (min-width:901px){.hx{margin-left:-2.5rem;}}
 @media (max-width:900px){.hx{max-width:560px;margin:0 auto 2rem;}.hx-stage{transform:none;}}
-@media (max-width:600px){.hx{margin-bottom:4.5rem;}.hx-win{margin-right:0;}.hx-phone{width:40%;right:0;bottom:-3.5rem;border-radius:1.6rem;padding:.3rem;}.hx-scr{border-radius:1.35rem;padding:1.7rem .4rem .45rem;}.hx-notch{top:.35rem;height:.75rem;}.hx-lock{margin-bottom:.6rem;}.hx-lock b{font-size:1.55rem;}.hx-lock small{font-size:.48rem;}.hx-notifs{gap:.28rem;}.hx-n{padding:.35rem;gap:.3rem;font-size:.48rem;border-radius:.6rem;}.hx-n b{font-size:.5rem;}.hx-n-ico{width:1.05rem;height:1.05rem;border-radius:.32rem;}.hx-n-ico svg{width:.58rem;height:.58rem;}.hx-chip-b{left:-.3rem;bottom:-2.2rem;font-size:.68rem;padding:.45rem .7rem .45rem .45rem;}.hx-chip-g{width:1.6rem;height:1.6rem;border-radius:.5rem;}.hx-chip-g svg{width:.85rem;height:.85rem;}.hx-l{display:none;}.hx-s{display:inline;}.hx-chip-a{left:auto;right:-.3rem;font-size:.68rem;}.hs-h{font-size:1.1rem;}.hx-tab{padding:.35rem .6rem;}.hs-banner-txt{max-width:88%;}.hs-banner::before{left:25%;opacity:.55;}}
+@media (max-width:600px){.hx{margin-bottom:4.5rem;}.hx-win{margin-right:0;}.hx-phone{width:40%;right:0;bottom:-3.5rem;border-radius:1.6rem;padding:.3rem;}.hx-scr{border-radius:1.35rem;padding:1.7rem .4rem .45rem;}.hx-notch{top:.35rem;height:.75rem;}.hx-lock{margin-bottom:.6rem;}.hx-lock b{font-size:1.55rem;}.hx-lock small{font-size:.48rem;}.hx-notifs{gap:.28rem;}.hx-n{padding:.35rem;gap:.3rem;font-size:.48rem;border-radius:.6rem;}.hx-n b{font-size:.5rem;}.hx-n-ico{width:1.05rem;height:1.05rem;border-radius:.32rem;}.hx-n-ico svg{width:.58rem;height:.58rem;}.hx-chip-b{left:-.3rem;bottom:-2.2rem;font-size:.68rem;padding:.45rem .7rem .45rem .45rem;}.hx-chip-g{width:1.6rem;height:1.6rem;border-radius:.5rem;}.hx-chip-g svg{width:.85rem;height:.85rem;}.hx-l{display:none;}.hx-s{display:inline;}.hl-extra{display:flex;}.hx-chip-a{left:auto;right:-.3rem;font-size:.68rem;}.hs-h{font-size:1.1rem;}.hx-tab{padding:.35rem .6rem;}.hs-banner-txt{max-width:88%;}.hs-banner::before{left:25%;opacity:.55;}}
 @media (prefers-reduced-motion:reduce){.hx,.hx *{animation:none!important;transition:none!important;}}
 @media (max-width: 900px) {
   .hero { padding: 6.5rem var(--gutter) 3rem; min-height: auto; }
@@ -903,6 +912,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
                 <div class="hl-prod"><div class="hl-img"><i data-lucide="watch"></i></div><span>Smartwatch</span><b>R$ 1.299</b><span class="hl-btn">Comprar</span></div>
                 <div class="hl-prod"><div class="hl-img"><i data-lucide="backpack"></i></div><span>Mochila</span><b>R$ 349,90</b><span class="hl-btn">Comprar</span></div>
               </div>
+              <div class="hl-extra"><div class="hl-ship"><i data-lucide="truck"></i>Frete grátis acima de R$ 199<em>·</em>Pix com 5% off</div><div class="hl-bar"><span><small>Carrinho</small><b>R$ 1.149,70</b></span><span class="hl-go">Finalizar compra <i data-lucide="arrow-right"></i></span></div></div>
             </div>
             <div class="hx-scene">
               <div class="hy">
