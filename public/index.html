@@ -351,6 +351,8 @@ svg { display: block; }
 .btn-glow-seta{width:2.6rem;height:2.6rem;border-radius:50%;display:grid;place-items:center;background:var(--acid);color:var(--acid-fg);box-shadow:0 0 18px rgba(201,255,65,.35);}
 .btn-glow-seta svg{width:1.05rem;height:1.05rem;stroke-width:2.5;}
 @keyframes glowSpin{to{rotate:360deg;}}
+.mm-item[aria-current],.mm-sub a[aria-current]{background:var(--bg2);}
+.mm-sub a[aria-current]{color:var(--ink);}
 @media (prefers-reduced-motion:reduce){.btn-glow::before{animation:none;rotate:200deg;}.wf-menu-painel,.mm-cta,.mm-sub,.wf-menu[open] .mm-list>*{animation:none;}}
 
 /* ── Hero ────────────────────────────────────────────────────────────── */
@@ -923,7 +925,7 @@ html.cur-input .cur-ring{opacity:0;}
     <summary aria-label="Abrir menu"><span></span><span></span><span></span></summary>
     <div class="wf-menu-painel">
       <nav class="mm-list" aria-label="Menu">
-        <a href="/" class="mm-item" style="--i:0"><span class="mm-ico"><i data-lucide="home"></i></span>Início</a>
+        <a href="/" class="mm-item" aria-current="page" style="--i:0"><span class="mm-ico"><i data-lucide="home"></i></span>Início</a>
         <details class="mm-svc" style="--i:1">
           <summary class="mm-item"><span class="mm-ico"><i data-lucide="layers"></i></span>Serviços<span class="mm-badge">6</span><span class="mm-caret"><i data-lucide="chevron-down"></i></span></summary>
           <div class="mm-sub">
