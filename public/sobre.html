@@ -487,6 +487,7 @@ svg{display:block;}
 
 </style>
 <style id="cta-glow">
+.wf-nav a.wf-nav-svc{display:inline-flex;align-items:center;gap:.3rem;}
 .wf-topo-cta,.hero-ctas .btn-acid{position:relative;isolation:isolate;overflow:hidden;}
 .wf-topo-cta::before,.hero-ctas .btn-acid::before{content:'';position:absolute;z-index:-2;left:50%;top:50%;width:160%;aspect-ratio:1;translate:-50% -50%;background:conic-gradient(from 0deg,transparent 0deg,transparent 240deg,rgba(30,39,0,.45) 295deg,#1e2700 330deg,transparent 360deg);animation:ctaSpin 3.2s linear infinite;pointer-events:none;}
 .wf-topo-cta::after,.hero-ctas .btn-acid::after{content:'';position:absolute;z-index:-1;inset:1px;border-radius:inherit;background:inherit;pointer-events:none;}
@@ -570,7 +571,7 @@ svg{display:block;}
     <a href="/" aria-label="Início" class="wf-nav-icon-only"><i data-lucide="home"></i></a>
     <a href="/sobre" class="ativo">Sobre</a>
     <div class="wf-nav-grupo">
-      <button aria-haspopup="true">Serviços <i data-lucide="chevron-down" class="wf-nav-caret"></i></button>
+      <a href="/servicos" aria-haspopup="true" class="wf-nav-svc">Serviços <i data-lucide="chevron-down" class="wf-nav-caret"></i></a>
       <div class="wf-nav-sub mg" role="menu">
         <div class="mg-list">
           <p class="wf-nav-col-tit">Sites & Lojas</p>
