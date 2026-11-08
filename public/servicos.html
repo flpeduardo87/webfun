@@ -633,6 +633,21 @@ svg{display:block;}
 @media (max-width:900px){.wf-topo-cta::after,.hero-ctas .btn-acid::after{inset:2px;}}
 @media (prefers-reduced-motion:reduce){.wf-topo-cta::before,.hero-ctas .btn-acid::before{animation:none;rotate:200deg;}}
 </style>
+<style id="svc-cards-css">
+.svc-card{position:relative;}
+.svc-ilu-mg{height:290px;background:radial-gradient(80% 75% at 50% 35%,rgba(201,255,65,.16),transparent 62%),#0c0d11;}
+.svc-ilu-mg::after{display:none;}
+@media(max-width:600px){.svc-ilu-mg{height:230px;}}
+.svc-ilu-mg .mg-inner{transition:transform .5s cubic-bezier(.16,1,.3,1);}
+.svc-card:hover .svc-ilu-mg .mg-inner{transform:translate(-50%,-50%) scale(calc(var(--mg-s,.6) * 1.04));}
+.svc-ilu-mg .hy-bars i{transform:none;}
+.svc-ilu-mg .hy-donut .v{stroke-dasharray:78 100;}
+.svc-ilu-mg .hy-stack i{transform:none;}
+.svc-arrow::after{content:'';position:absolute;inset:0;z-index:1;}
+.svc-tag.pop{background:var(--acid)!important;border-color:var(--acid)!important;color:var(--acid-fg)!important;}
+.svc-card.pop{border-color:rgba(130,180,0,.55);box-shadow:0 0 0 1px rgba(130,180,0,.18),0 24px 60px rgba(120,170,0,.1);}
+[data-theme="dark"] .svc-card.pop{border-color:rgba(201,255,65,.5);box-shadow:0 0 0 1px rgba(201,255,65,.12),0 24px 60px rgba(201,255,65,.07);}
+</style>
 </head>
 <body>
 
@@ -736,22 +751,10 @@ svg{display:block;}
     <div class="svc-grid" id="svcGrid">
 
       <!-- Site institucional -->
-      <div class="svc-card" data-svc="site">
-        <div class="svc-ilu ilu-site">
-          <div class="svc-ilu-inner">
-            <div class="ilu-browser">
-              <div class="ilu-browser-bar"><span></span><span></span><span></span><div class="ilu-browser-url"></div></div>
-              <div class="ilu-browser-hero"></div>
-              <div class="ilu-browser-content">
-                <div class="ilu-browser-line" style="width:78%"></div>
-                <div class="ilu-browser-line" style="width:55%"></div>
-                <div class="ilu-browser-line" style="width:32%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="svc-card pop" data-svc="site">
+        <div class="svc-ilu svc-ilu-mg" aria-hidden="true"><div class="mg-inner"><div class="mg-win"><div class="hx-bar"><span class="hx-dots"><i></i><i></i><i></i></span><span class="hx-url"><i data-lucide="lock"></i>suaempresa.com.br</span></div><div class="mg-body"><div class="hs-nav"><span class="hs-logo">Clínica<b>Sol</b></span><i class="hx-sk"></i><i class="hx-sk"></i><i class="hx-sk"></i><span class="hs-btn">Agendar</span></div><div class="hs-banner"><div class="hs-banner-txt"><span class="hx-eb">Saúde & bem-estar</span><div class="hs-h">Cuidado que<br><em>transforma.</em></div><span class="hs-sub">Consultas, exames e retorno em um só lugar, com agenda online.</span><span class="hs-ctas"><span class="hx-cta">Agendar consulta <i data-lucide="arrow-right"></i></span></span></div><div class="hs-trust"><span><i data-lucide="star"></i>4,9 no Google</span><span><i data-lucide="users"></i>+2.000 pacientes</span></div></div><div class="hx-kpis"><div><small>Visitas/dia</small><b>127</b><em>+34%</em></div><div><small>Contatos</small><b>18</b><em>+22%</em></div><div><small>Avaliação</small><b>4,9</b><em>Google</em></div></div></div></div></div></div>
         <div class="svc-body">
-          <span class="svc-tag">Site</span>
+          <span class="svc-tag pop">★ Mais popular</span>
           <h2 class="svc-tit">Site institucional</h2>
           <p class="svc-desc">Presença digital que transmite credibilidade e converte visitante em contato — sem template genérico.</p>
           <ul class="svc-feats">
@@ -769,18 +772,9 @@ svg{display:block;}
 
       <!-- Loja virtual -->
       <div class="svc-card" data-svc="loja">
-        <div class="svc-ilu ilu-loja">
-          <div class="svc-ilu-inner">
-            <div class="ilu-product-grid">
-              <div class="ilu-product"><div class="ilu-product-img"></div><div class="ilu-product-price"></div><div class="ilu-product-btn"></div></div>
-              <div class="ilu-product"><div class="ilu-product-img" style="background:linear-gradient(135deg,#c8f0d8,#98d8b0)"></div><div class="ilu-product-price"></div><div class="ilu-product-btn"></div></div>
-              <div class="ilu-product"><div class="ilu-product-img" style="background:linear-gradient(135deg,#b0d8c5,#88c8a0)"></div><div class="ilu-product-price"></div><div class="ilu-product-btn"></div></div>
-              <div class="ilu-product"><div class="ilu-product-img" style="background:linear-gradient(135deg,#98c8b0,#70b890)"></div><div class="ilu-product-price"></div><div class="ilu-product-btn"></div></div>
-            </div>
-          </div>
-        </div>
+        <div class="svc-ilu svc-ilu-mg" aria-hidden="true"><div class="mg-inner"><div class="mg-win"><div class="hx-bar"><span class="hx-dots"><i></i><i></i><i></i></span><span class="hx-url"><i data-lucide="lock"></i>sualoja.com.br</span></div><div class="mg-body"><div class="hl-head"><span class="hl-logo"><i data-lucide="shopping-bag"></i>moda<b>ária</b></span><span class="hl-search"><i data-lucide="search"></i>Buscar produtos</span><span class="hl-cart"><i data-lucide="shopping-cart"></i><b>3</b></span></div><div class="hl-cats"><span class="on">Novidades</span><span>Roupas</span><span>Calçados</span><span>Acessórios</span></div><div class="hl-grid"><div class="hl-prod"><div class="hl-img"><i data-lucide="footprints"></i></div><span>Tênis Runner</span><b>R$ 399,90</b><span class="hl-btn">Comprar</span></div><div class="hl-prod"><div class="hl-img"><i data-lucide="watch"></i></div><span>Smartwatch</span><b>R$ 1.299</b><span class="hl-btn">Comprar</span></div><div class="hl-prod"><div class="hl-img"><i data-lucide="backpack"></i></div><span>Mochila</span><b>R$ 349,90</b><span class="hl-btn">Comprar</span></div></div></div></div></div></div>
         <div class="svc-body">
-          <span class="svc-tag">E-commerce</span>
+          <span class="svc-tag">Pagamento integrado</span>
           <h2 class="svc-tit">Loja virtual</h2>
           <p class="svc-desc">Venda online com autonomia total — catálogo, carrinho, pagamento e gestão de pedidos num só lugar.</p>
           <ul class="svc-feats">
@@ -798,20 +792,9 @@ svg{display:block;}
 
       <!-- Landing page -->
       <div class="svc-card" data-svc="landing">
-        <div class="svc-ilu ilu-landing">
-          <div class="svc-ilu-inner">
-            <div class="ilu-landing-inner">
-              <div class="ilu-heading-block">
-                <div class="ilu-h-line lg"></div>
-                <div class="ilu-h-line md"></div>
-                <div class="ilu-h-line sm"></div>
-              </div>
-              <div class="ilu-cta-pill"></div>
-            </div>
-          </div>
-        </div>
+        <div class="svc-ilu svc-ilu-mg" aria-hidden="true"><div class="mg-inner"><div class="mg-win"><div class="hx-bar"><span class="hx-dots"><i></i><i></i><i></i></span><span class="hx-url"><i data-lucide="lock"></i>oferta.suamarca.com.br</span></div><div class="mg-body"><div class="mgl"><span class="mgl-badge"><i></i>Oferta por tempo limitado</span><div class="mgl-h">Garanta sua vaga<br><em>com 40% OFF</em></div><span class="mgl-sub">Últimas vagas da turma de novembro</span><div class="mgl-timer"><div><b>02</b><small>horas</small></div><div><b>47</b><small>min</small></div><div><b>19</b><small>seg</small></div></div><span class="mgl-cta">Quero garantir minha vaga <i data-lucide="arrow-right"></i></span><span class="mgl-proof">+1.200 pessoas já garantiram</span></div></div></div></div></div>
         <div class="svc-body">
-          <span class="svc-tag">Conversão</span>
+          <span class="svc-tag">Foco em anúncios</span>
           <h2 class="svc-tit">Landing page</h2>
           <p class="svc-desc">Página focada em um único objetivo — capturar leads, vender um produto ou divulgar uma campanha.</p>
           <ul class="svc-feats">
@@ -829,26 +812,9 @@ svg{display:block;}
 
       <!-- Sistema sob medida -->
       <div class="svc-card" data-svc="sistema">
-        <div class="svc-ilu ilu-sistema">
-          <div class="svc-ilu-inner">
-            <div class="ilu-dash">
-              <div class="ilu-dash-side">
-                <div class="ilu-dash-nav-item active"></div>
-                <div class="ilu-dash-nav-item"></div>
-                <div class="ilu-dash-nav-item"></div>
-                <div class="ilu-dash-nav-item" style="width:45%"></div>
-              </div>
-              <div class="ilu-dash-main">
-                <div class="ilu-dash-row accent"></div>
-                <div class="ilu-dash-row"></div>
-                <div class="ilu-dash-row" style="width:72%"></div>
-                <div class="ilu-dash-row" style="width:48%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="svc-ilu svc-ilu-mg" aria-hidden="true"><div class="mg-inner"><div class="mg-win"><div class="hx-bar"><span class="hx-dots"><i></i><i></i><i></i></span><span class="hx-url"><i data-lucide="lock"></i>app.suaempresa.com.br</span></div><div class="mg-body"><div class="hy"><div class="hy-side"><span class="on"><i data-lucide="layout-dashboard"></i></span><span><i data-lucide="users"></i></span><span><i data-lucide="package"></i></span><span><i data-lucide="file-text"></i></span></div><div class="hy-main"><div class="hx-kpis"><div><small>Faturamento</small><b>R$ 84,2k</b><em>+12%</em></div><div><small>Pedidos</small><b>1.284</b><em>+8%</em></div><div><small>Clientes</small><b>342</b><em>+5%</em></div></div><div class="hy-chart"><small>Vendas · últimos 7 dias</small><div class="hy-bars"><i style="--h:45%;--d:0"></i><i style="--h:62%;--d:1"></i><i style="--h:38%;--d:2"></i><i style="--h:74%;--d:3"></i><i style="--h:58%;--d:4"></i><i style="--h:85%;--d:5"></i><i style="--h:100%;--d:6"></i></div></div><div class="hy-duo"><div class="hy-donut"><svg viewBox="0 0 36 36"><circle class="t" cx="18" cy="18" r="15.915"/><circle class="v" cx="18" cy="18" r="15.915"/></svg><span><b>78%</b><small>Meta do mês</small></span></div><div class="hy-src"><small>Origem das vendas</small><div class="hy-stack"><i style="--w:52%"></i><i style="--w:31%"></i><i style="--w:17%"></i></div><div class="hy-leg"><span><i></i>Site 52%</span><span><i></i>WhatsApp 31%</span><span><i></i>Loja 17%</span></div></div></div></div></div></div></div></div></div>
         <div class="svc-body">
-          <span class="svc-tag">Sistema</span>
+          <span class="svc-tag">100% sob medida</span>
           <h2 class="svc-tit">Sistema sob medida</h2>
           <p class="svc-desc">Plataformas que organizam processos, clientes e operações — do zero, do jeito que o negócio precisa.</p>
           <ul class="svc-feats">
@@ -866,19 +832,9 @@ svg{display:block;}
 
       <!-- Automação & IA -->
       <div class="svc-card" data-svc="auto">
-        <div class="svc-ilu ilu-auto">
-          <div class="svc-ilu-inner">
-            <div class="ilu-flow">
-              <div class="ilu-node n1"><div class="ilu-node-dot"></div></div>
-              <div class="ilu-arrow"><div class="ilu-arrow-line"></div><div class="ilu-arrow-head"></div></div>
-              <div class="ilu-node n2"><div class="ilu-node-dot"></div></div>
-              <div class="ilu-arrow"><div class="ilu-arrow-line"></div><div class="ilu-arrow-head"></div></div>
-              <div class="ilu-node n3"><div class="ilu-node-dot"></div></div>
-            </div>
-          </div>
-        </div>
+        <div class="svc-ilu svc-ilu-mg" aria-hidden="true"><div class="mg-inner"><div class="mg-win"><div class="hx-bar mga-bar"><span class="mga-av"><i data-lucide="bot"></i></span><span><b>Assistente virtual</b><small><i></i>online · responde em segundos</small></span></div><div class="mg-body mga"><div class="mga-m cli">Oi! Vocês entregam em Joinville?</div><div class="mga-m bot">Olá! Entregamos sim, em até 2 dias úteis.</div><div class="mga-m cli">Quero fazer um pedido do kit completo</div><div class="mga-m bot">Perfeito! Seu link de pagamento:<span class="mga-pay"><i data-lucide="credit-card"></i>Pedido #2087 · R$ 249,00</span></div><div class="mga-m cli">Pago! Muito rápido, obrigado</div></div></div></div></div>
         <div class="svc-body">
-          <span class="svc-tag">Automação</span>
+          <span class="svc-tag">Atende 24h</span>
           <h2 class="svc-tit">Automação & IA</h2>
           <p class="svc-desc">Fluxos que rodam sozinhos — mensagens, documentos, triagem de leads e relatórios sem toque manual.</p>
           <ul class="svc-feats">
@@ -896,23 +852,9 @@ svg{display:block;}
 
       <!-- Aplicativo -->
       <div class="svc-card" data-svc="app">
-        <div class="svc-ilu ilu-app">
-          <div class="svc-ilu-inner">
-            <div class="ilu-phone">
-              <div class="ilu-phone-bar"></div>
-              <div class="ilu-phone-content">
-                <div class="ilu-phone-row ph-accent"></div>
-                <div class="ilu-phone-row"></div>
-                <div class="ilu-phone-row" style="width:68%"></div>
-                <div class="ilu-phone-btn"></div>
-                <div class="ilu-phone-row" style="width:78%;margin-top:.12rem"></div>
-                <div class="ilu-phone-row" style="width:58%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="svc-ilu svc-ilu-mg" aria-hidden="true"><div class="mg-inner"><div class="mgp-wrap"><div class="mgp"><div class="mgp-scr"><span class="mgp-notch"></span><div class="mgp-top"><div><small>Olá, Marina</small><b>Seu resumo</b></div><span class="mgp-av"></span></div><div class="mgp-card"><small>Pontos de fidelidade</small><b>2.450 pts</b><span class="mgp-prog"><i></i></span></div><div class="mgp-acts"><span><i><i data-lucide="calendar"></i></i>Agendar</span><span><i><i data-lucide="shopping-bag"></i></i>Pedidos</span><span><i><i data-lucide="gift"></i></i>Prêmios</span><span><i><i data-lucide="message-circle"></i></i>Suporte</span></div><div class="mgp-row"><span><i data-lucide="calendar-check"></i></span><span><b>Corte + barba</b><small>Amanhã · 14:30</small></span><em>R$ 75</em></div><div class="mgp-row"><span><i data-lucide="package"></i></span><span><b>Pedido #318</b><small>Saiu para entrega</small></span><em>R$ 129</em></div><div class="mgp-row"><span><i data-lucide="gift"></i></span><span><b>Cupom liberado</b><small>Próxima visita</small></span><em>-10%</em></div><div class="mgp-tab"><span><i data-lucide="home"></i></span><span><i data-lucide="search"></i></span><span><i data-lucide="heart"></i></span><span><i data-lucide="user"></i></span></div></div></div><div class="mgp-chip"><span><i data-lucide="bell"></i></span><span><b>Novo agendamento</b><small>notificação em tempo real</small></span></div></div></div></div>
         <div class="svc-body">
-          <span class="svc-tag">Mobile</span>
+          <span class="svc-tag">Android e iPhone</span>
           <h2 class="svc-tit">Aplicativo</h2>
           <p class="svc-desc">Do app de cliente ao painel interno — PWA ou nativo, com performance e experiência que fideliza.</p>
           <ul class="svc-feats">
@@ -1222,6 +1164,14 @@ document.addEventListener('DOMContentLoaded', function() {
   g.addEventListener('mouseenter',function(){requestAnimationFrame(fit);});
   g.addEventListener('focusin',function(){requestAnimationFrame(fit);});
   window.addEventListener('resize',fit);
+})();
+</script>
+<script>
+(function(){
+  var ilus=[].slice.call(document.querySelectorAll('.svc-ilu-mg'));if(!ilus.length)return;
+  function fit(){ilus.forEach(function(box){var inn=box.querySelector('.mg-inner');if(!inn||!box.clientWidth)return;var sc=Math.min((box.clientWidth-40)/520,(box.clientHeight-28)/(inn.offsetHeight||1));inn.style.setProperty('--mg-s',sc.toFixed(3));});}
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
+  var fr=document.getElementById('filterRow');if(fr)fr.addEventListener('click',function(){setTimeout(fit,30);});
 })();
 </script>
 </body>
