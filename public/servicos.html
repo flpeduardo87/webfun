@@ -648,6 +648,42 @@ svg{display:block;}
 .svc-card.pop{border-color:rgba(130,180,0,.55);box-shadow:0 0 0 1px rgba(130,180,0,.18),0 24px 60px rgba(120,170,0,.1);}
 [data-theme="dark"] .svc-card.pop{border-color:rgba(201,255,65,.5);box-shadow:0 0 0 1px rgba(201,255,65,.12),0 24px 60px rgba(201,255,65,.07);}
 </style>
+<style id="or-css">
+.hero-svc h1{font-size:clamp(2.4rem,4.1vw,3.6rem);max-width:none;}
+.or-wrap{align-items:center!important;height:auto!important;}
+.or{position:relative;width:min(460px,100%);aspect-ratio:1;margin:0 auto;--or-line:rgba(255,255,255,.13);animation:orIn .9s .25s both;}
+[data-theme="light"] .or{--or-line:rgba(23,24,27,.14);}
+@keyframes orIn{from{opacity:0;transform:scale(.94);}to{opacity:1;transform:none;}}
+.or i{font-style:normal;}
+.or-glow{position:absolute;inset:18%;border-radius:50%;background:radial-gradient(circle,rgba(201,255,65,.28),transparent 65%);filter:blur(40px);pointer-events:none;}
+.or-spin{position:absolute;inset:0;animation:orSpin 90s linear infinite;}
+@keyframes orSpin{to{transform:rotate(360deg);}}
+.or-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
+.or-ring{fill:none;stroke:var(--or-line);stroke-width:1;}
+.or-ln{stroke:var(--or-line);stroke-width:1.2;stroke-dasharray:3 6;transition:stroke .4s;}
+.or-ln.on{stroke:var(--acid);stroke-dasharray:6 6;animation:orDash .9s linear infinite;}
+@keyframes orDash{to{stroke-dashoffset:-24;}}
+.or-node{position:absolute;display:flex;align-items:center;gap:.5rem;padding:.4rem .8rem .4rem .4rem;border-radius:999px;background:rgba(19,20,26,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);color:#eeeae3;font-size:.78rem;font-weight:700;white-space:nowrap;box-shadow:0 14px 34px rgba(0,0,0,.35);transform:translate(-50%,-50%);animation:orCounter 90s linear infinite;transition:border-color .4s,box-shadow .4s;}
+@keyframes orCounter{from{transform:translate(-50%,-50%) rotate(0);}to{transform:translate(-50%,-50%) rotate(-360deg);}}
+.or-ni{width:1.9rem;height:1.9rem;border-radius:50%;background:rgba(255,255,255,.07);color:var(--acid);display:grid;place-items:center;transition:background .4s,color .4s;}
+.or-ni svg{width:.95rem;height:.95rem;stroke-width:2.2;}
+.or-node.on{border-color:rgba(201,255,65,.6);box-shadow:0 0 0 4px rgba(201,255,65,.12),0 14px 34px rgba(0,0,0,.35);}
+.or-node.on .or-ni{background:var(--acid);color:var(--acid-fg);}
+.or-core{position:absolute;left:50%;top:50%;width:6.4rem;height:6.4rem;translate:-50% -50%;border-radius:50%;background:#0b0c10;border:1px solid rgba(201,255,65,.4);display:grid;place-items:center;box-shadow:0 20px 60px rgba(0,0,0,.45),0 0 40px rgba(201,255,65,.18);}
+.or-logo{width:2.9rem;height:2.9rem;fill:var(--acid);}
+.or-pulse{position:absolute;inset:-1px;border-radius:50%;border:1px solid rgba(201,255,65,.5);animation:orPulse 2.6s ease-out infinite;}
+@keyframes orPulse{from{transform:scale(1);opacity:.8;}to{transform:scale(1.7);opacity:0;}}
+.or-chip{position:absolute;z-index:3;display:flex;align-items:center;gap:.6rem;background:rgba(19,20,26,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(201,255,65,.35);border-radius:.95rem;padding:.6rem .9rem .6rem .6rem;color:#fff;font-size:.78rem;font-weight:700;line-height:1.25;white-space:nowrap;box-shadow:0 18px 44px rgba(0,0,0,.45);animation:orFloat 5s ease-in-out infinite;}
+.or-chip small{display:block;font-size:.66rem;font-weight:500;color:rgba(255,255,255,.5);}
+.or-ci{width:2rem;height:2rem;border-radius:.65rem;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;flex-shrink:0;}
+.or-ci svg{width:1rem;height:1rem;stroke-width:2.4;}
+.or-chip-a{left:-2.5rem;top:-.5rem;}
+.or-chip-b{right:-2.5rem;bottom:-.5rem;animation-delay:-2.5s;}
+@keyframes orFloat{0%,100%{translate:0 0;}50%{translate:0 -8px;}}
+@media(max-width:960px){.hero-svc-img.or-wrap{display:flex!important;margin-top:2.5rem;}}
+@media(max-width:600px){.or{width:min(330px,100%);}.or-node{font-size:.62rem;padding:.3rem .6rem .3rem .3rem;gap:.35rem;}.or-ni{width:1.45rem;height:1.45rem;}.or-ni svg{width:.75rem;height:.75rem;}.or-core{width:4.6rem;height:4.6rem;}.or-logo{width:2.1rem;height:2.1rem;}.or-chip{font-size:.66rem;padding:.45rem .7rem .45rem .45rem;}.or-ci{width:1.6rem;height:1.6rem;}.or-chip-a{left:-.2rem;top:-1.6rem;}.or-chip-b{right:-.2rem;bottom:-1.6rem;}}
+@media(prefers-reduced-motion:reduce){.or,.or *{animation:none!important;}}
+</style>
 </head>
 <body>
 
@@ -739,8 +775,17 @@ svg{display:block;}
         <button data-filter="app">Aplicativo</button>
       </div>
     </div>
-    <div class="hero-svc-img">
-      <img src="/media/pessoas/servicos-hero.webp" alt="Pessoa usando celular com resultados digitais" loading="eager">
+    <div class="hero-svc-img or-wrap" aria-hidden="true">
+      <div class="or">
+        <div class="or-glow"></div>
+        <div class="or-spin">
+          <svg class="or-svg" viewBox="0 0 400 400"><circle class="or-ring" cx="200" cy="200" r="160"/><circle class="or-ring" cx="200" cy="200" r="96"/><line class="or-ln" data-i="0" x1="200" y1="200" x2="200" y2="40"/><line class="or-ln" data-i="1" x1="200" y1="200" x2="338.6" y2="120"/><line class="or-ln" data-i="2" x1="200" y1="200" x2="338.6" y2="280"/><line class="or-ln" data-i="3" x1="200" y1="200" x2="200" y2="360"/><line class="or-ln" data-i="4" x1="200" y1="200" x2="61.4" y2="280"/><line class="or-ln" data-i="5" x1="200" y1="200" x2="61.4" y2="120"/></svg>
+          <div class="or-node" data-i="0" style="left:50%;top:10%"><span class="or-ni"><i data-lucide="globe"></i></span>Site</div><div class="or-node" data-i="1" style="left:84.64%;top:30%"><span class="or-ni"><i data-lucide="shopping-bag"></i></span>Loja virtual</div><div class="or-node" data-i="2" style="left:84.64%;top:70%"><span class="or-ni"><i data-lucide="zap"></i></span>Landing page</div><div class="or-node" data-i="3" style="left:50%;top:90%"><span class="or-ni"><i data-lucide="layout-dashboard"></i></span>Sistema</div><div class="or-node" data-i="4" style="left:15.36%;top:70%"><span class="or-ni"><i data-lucide="bot"></i></span>Automação & IA</div><div class="or-node" data-i="5" style="left:15.36%;top:30%"><span class="or-ni"><i data-lucide="smartphone"></i></span>Aplicativo</div>
+        </div>
+        <div class="or-core"><span class="or-pulse"></span><svg aria-hidden="true" class="or-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1134.4 1134.4"><path d="M416.36,444.9c-23.95,0-46.12,13.39-62.41,37.69-15.26,22.78-23.67,52.83-23.67,84.61S338.69,629,354,651.81c16.29,24.3,38.46,37.69,62.41,37.69s46.11-13.39,62.4-37.69C494,629,502.43,599,502.43,567.2s-8.4-61.83-23.67-84.61C462.47,458.29,440.31,444.9,416.36,444.9Z"/><path d="M632.22,576.75c1.6,29.79,10.72,57.6,25.68,78.3C674,677.27,695.31,689.5,718,689.5c24,0,46.12-13.39,62.41-37.69C795.71,629,804.12,599,804.12,567.2s-8.41-61.83-23.67-84.61C764.16,458.29,742,444.9,718,444.9c-13.25,0-26.46,4.32-38.19,12.48C650.31,477.93,632,520,632,567.2,632,570.34,632.05,573.56,632.22,576.75Z"/><path d="M1008.26,240.47c-27-31.3-58.35-55.89-93.28-73.11a256.87,256.87,0,0,0-114.43-27H786l-54.3,135.84v0l-8.91,22.3,24.92.09.1,0h49.48c87.17,0,158.08,83,158.08,184.93V650.79c0,102-70.91,184.93-158.08,184.93H508L439.5,1006.64l-45.17,112.19H546.16L596.52,994h204A256.86,256.86,0,0,0,915,967c34.93-17.22,66.31-41.82,93.28-73.11,55.28-64.15,85.72-149,85.72-238.94V479.41C1094,389.47,1063.54,304.62,1008.26,240.47Z"/><path d="M401.69,860.15l9.66-24.43H337.13c-87.17,0-158.08-83-158.08-184.93V483.61c0-102,70.91-184.93,158.08-184.93H626.38L730.05,39.13l.44-1.11v0l9-22.41H587.24L536.87,140.39h-203a256.88,256.88,0,0,0-114.44,27c-34.93,17.22-66.31,41.82-93.28,73.11-55.28,64.15-85.72,149-85.72,238.94V655c0,89.94,30.44,174.79,85.72,238.94,27,31.3,58.36,55.89,93.28,73.11a256.87,256.87,0,0,0,114.44,27h14.56L401.1,862.23A19.57,19.57,0,0,0,401.69,860.15Z"/></svg></div>
+        <div class="or-chip or-chip-a"><span class="or-ci"><i data-lucide="layers"></i></span><span>Tudo num só lugar<small>estratégia, design e código</small></span></div>
+        <div class="or-chip or-chip-b"><span class="or-ci"><i data-lucide="rocket"></i></span><span>Do briefing ao ar<small>um responsável do início ao fim</small></span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1172,6 +1217,15 @@ document.addEventListener('DOMContentLoaded', function() {
   function fit(){ilus.forEach(function(box){var inn=box.querySelector('.mg-inner');if(!inn||!box.clientWidth)return;var sc=Math.min((box.clientWidth-40)/520,(box.clientHeight-28)/(inn.offsetHeight||1));inn.style.setProperty('--mg-s',sc.toFixed(3));});}
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
   var fr=document.getElementById('filterRow');if(fr)fr.addEventListener('click',function(){setTimeout(fit,30);});
+})();
+</script>
+<script>
+(function(){
+  var or=document.querySelector('.or');if(!or)return;
+  var nodes=[].slice.call(or.querySelectorAll('.or-node')),lns=[].slice.call(or.querySelectorAll('.or-ln')),i=0;
+  function lit(){nodes.forEach(function(n,j){n.classList.toggle('on',j===i);});lns.forEach(function(l,j){l.classList.toggle('on',j===i);});i=(i+1)%nodes.length;}
+  lit();
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(lit,1600);
 })();
 </script>
 </body>
