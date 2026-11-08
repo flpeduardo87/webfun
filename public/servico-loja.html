@@ -650,6 +650,32 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
   .incl-head{margin-bottom:2rem;}
 }
 </style>
+<style id="inv-css">
+[data-theme="dark"] .inv-sec{background:radial-gradient(110% 55% at 50% 0%,rgba(201,255,65,.08),transparent 60%),#1a1b22;border-color:var(--line);}
+[data-theme="dark"] .inv-sec .eyebrow{color:var(--muted)!important;}
+[data-theme="dark"] .inv-sec h2,[data-theme="dark"] .inv-val{color:var(--ink);}
+[data-theme="dark"] .inv-card{background:#13141a;border-color:rgba(255,255,255,.08);}
+[data-theme="dark"] .inv-preco-label,[data-theme="dark"] .inv-prazo,[data-theme="dark"] .inv-aviso{color:var(--muted);}
+[data-theme="dark"] .inv-aviso{border-color:var(--line);}
+.inv-card>div:first-child{position:relative;padding:2rem;border-radius:1.25rem;background:radial-gradient(90% 75% at 0% 0%,rgba(201,255,65,.16),transparent 60%),rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.07);}
+.inv-extra{display:inline-flex;align-items:baseline;gap:.15rem;margin-top:.85rem;font-size:.85rem;font-weight:800;color:var(--acid);background:rgba(201,255,65,.1);border:1px solid rgba(201,255,65,.3);border-radius:999px;padding:.28rem .75rem;}
+.inv-extra span{font-size:.75rem;font-weight:600;}
+.inv-lista{gap:.75rem;}
+.inv-lista li{color:rgba(255,255,255,.78);align-items:center;}
+[data-theme="dark"] .inv-lista li{color:var(--ink-2);}
+.inv-lista li::before{width:1.2rem;height:1.2rem;margin-top:0;background:var(--acid) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e2700' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/.68rem no-repeat;}
+.inv-btns{flex-direction:row;flex-wrap:wrap;align-items:center;}
+.inv-sec .btn-outline{border-color:rgba(255,255,255,.22);color:#fff;}
+.inv-sec .btn-outline:hover{border-color:#fff;color:#fff;}
+.inv-sec .inv-aviso.inv-fine{margin-top:1.5rem;padding-top:1.25rem;font-size:.75rem;}
+@media(min-width:1000px){.inv-lista{display:grid;grid-template-columns:1fr 1fr;gap:.85rem 1.25rem;}}
+@media(max-width:700px){
+  .inv-card{padding:1.1rem!important;gap:1.5rem!important;}
+  .inv-card>div:first-child{padding:1.5rem 1.35rem;}
+  .inv-btns a{width:100%;justify-content:space-between;}
+  .inv-btns .btn-outline{justify-content:center;}
+}
+</style>
 </head>
 <body>
 <header class="wf-topo" id="topo">
@@ -873,9 +899,8 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
       <div>
         <p class="inv-preco-label">A partir de</p>
         <div class="inv-val"><small>R$</small> 2.000</div>
-        <p style="font-size:.95rem;color:var(--acid);font-weight:800;margin-top:.5rem;">+ R$ 250<span style="font-size:.78rem;font-weight:600">/mês</span></p>
+        <p class="inv-extra">+ R$ 250<span>/mês</span></p>
         <div class="inv-prazo"><i data-lucide="clock"></i> 20 a 30 dias úteis</div>
-        <p class="inv-aviso">Valor inclui desenvolvimento completo da loja. Mensalidade cobre hospedagem, SSL, atualizações de segurança e suporte técnico. Parcelamento disponível.</p>
       </div>
       <div>
         <ul class="inv-lista">
@@ -892,6 +917,7 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
           <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">Quero uma proposta <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
           <a href="/contato" class="btn-outline">Enviar mensagem</a>
         </div>
+        <p class="inv-aviso inv-fine">Valor inclui desenvolvimento completo da loja. Mensalidade cobre hospedagem, SSL, atualizações de segurança e suporte técnico. Parcelamento disponível.</p>
       </div>
     </div>
   </div>
