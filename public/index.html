@@ -981,6 +981,19 @@ html.cur-input .cur-ring{opacity:0;}
 .svc-card.pop{border-color:rgba(130,180,0,.55);background:radial-gradient(120% 80% at 100% 0%,rgba(201,255,65,.16),transparent 55%),var(--surface);box-shadow:0 0 0 1px rgba(130,180,0,.18),0 24px 60px rgba(120,170,0,.1);}
 [data-theme="dark"] .svc-card.pop{border-color:rgba(201,255,65,.5);background:radial-gradient(120% 80% at 100% 0%,rgba(201,255,65,.11),transparent 55%),var(--surface);box-shadow:0 0 0 1px rgba(201,255,65,.12),0 24px 60px rgba(201,255,65,.07);}
 </style>
+<style id="hdr-glass">
+:root{--hdr-glass:rgba(250,250,247,.56);--hdr-edge:inset 0 1px 0 rgba(255,255,255,.75);}
+[data-theme="dark"]{--hdr-glass:rgba(16,17,22,.46);--hdr-edge:inset 0 1px 0 rgba(255,255,255,.09);}
+.wf-logo,.wf-nav,.wf-theme-btn,.wf-menu>summary{background:var(--hdr-glass);-webkit-backdrop-filter:blur(20px) saturate(1.8);backdrop-filter:blur(20px) saturate(1.8);box-shadow:0 0 0 1px var(--line),var(--hdr-edge),var(--shadow-sm)!important;transition:background .35s,box-shadow .35s,color .35s;}
+html.hdr-dark .wf-logo,html.hdr-dark .wf-nav,html.hdr-dark .wf-theme-btn,html.hdr-dark .wf-menu>summary{background:rgba(16,17,22,.46)!important;box-shadow:0 0 0 1px rgba(255,255,255,.12),inset 0 1px 0 rgba(255,255,255,.09),0 8px 24px rgba(0,0,0,.25)!important;}
+html.hdr-dark .wf-logo,html.hdr-dark .wf-theme-btn,html.hdr-dark .wf-theme-btn svg,html.hdr-dark .wf-nav>a:not(.ativo),html.hdr-dark .wf-nav-grupo>a:not(.ativo){color:#eeeae3!important;}
+html.hdr-dark .wf-nav>a:not(.ativo):hover,html.hdr-dark .wf-nav-grupo>a:not(.ativo):hover{background:rgba(255,255,255,.1)!important;color:#fff!important;}
+html.hdr-dark .wf-menu>summary span{background:#eeeae3!important;}
+html.hdr-light .wf-logo,html.hdr-light .wf-nav,html.hdr-light .wf-theme-btn,html.hdr-light .wf-menu>summary{background:rgba(250,250,247,.6)!important;box-shadow:0 0 0 1px rgba(23,24,27,.1),inset 0 1px 0 rgba(255,255,255,.75),0 8px 24px rgba(0,0,0,.08)!important;}
+html.hdr-light .wf-logo,html.hdr-light .wf-theme-btn,html.hdr-light .wf-theme-btn svg,html.hdr-light .wf-nav>a:not(.ativo),html.hdr-light .wf-nav-grupo>a:not(.ativo){color:#17181b!important;}
+html.hdr-light .wf-nav>a:not(.ativo):hover,html.hdr-light .wf-nav-grupo>a:not(.ativo):hover{background:#17181b!important;color:#fff!important;}
+html.hdr-light .wf-menu>summary span{background:#17181b!important;}
+</style>
 </head>
 <body>
 
@@ -1990,6 +2003,33 @@ document.addEventListener('DOMContentLoaded', function() {
   g.addEventListener('mouseenter',function(){requestAnimationFrame(fit);});
   g.addEventListener('focusin',function(){requestAnimationFrame(fit);});
   window.addEventListener('resize',fit);
+})();
+</script>
+<script id="hdr-glass-js">
+(function(){
+  var html=document.documentElement,hdr=document.querySelector('.wf-topo');if(!hdr||!document.elementsFromPoint)return;
+  function lum(c){var m=c.match(/[\d.]+/g);if(!m)return null;var a=m.length>3?+m[3]:1;if(a<.5)return null;return(.2126*m[0]+.7152*m[1]+.0722*m[2])/255;}
+  function bgAt(x,y){
+    var els=document.elementsFromPoint(x,y);
+    for(var i=0;i<els.length;i++){var el=els[i];if(hdr.contains(el))continue;
+      for(var n=el;n&&n!==html;n=n.parentElement){var L=lum(getComputedStyle(n).backgroundColor);if(L!==null)return L;}}
+    return lum(getComputedStyle(document.body).backgroundColor);
+  }
+  var t=false;
+  function upd(){
+    t=false;
+    if(document.querySelector('.wf-menu[open]')){html.classList.remove('hdr-dark','hdr-light');return;}
+    var r=hdr.getBoundingClientRect(),y=r.top+r.height/2,L=bgAt(Math.max(4,innerWidth*.06),y);
+    if(L===null)return;
+    var dark=html.getAttribute('data-theme')==='dark',bgDark=L<.45;
+    html.classList.toggle('hdr-dark',!dark&&bgDark);
+    html.classList.toggle('hdr-light',dark&&!bgDark);
+  }
+  function req(){if(!t){t=true;requestAnimationFrame(upd);}}
+  addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
+  new MutationObserver(req).observe(html,{attributes:true,attributeFilter:['data-theme']});
+  var m=document.querySelector('.wf-menu');if(m)m.addEventListener('toggle',req);
+  upd();setTimeout(upd,700);
 })();
 </script>
 </body>
