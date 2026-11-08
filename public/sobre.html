@@ -245,6 +245,247 @@ svg{display:block;}
 .mm-item[aria-current],.mm-sub a[aria-current]{background:var(--bg2);}
 .mm-sub a[aria-current]{color:var(--ink);}
 </style>
+<style id="mg-css">
+/* miniaturas (base das cenas do hero) */
+/* ── Hero stage (coluna direita) ─────────────────────────────────────── */
+.hx{position:relative;perspective:1500px;animation:hxIn .9s .25s both;}
+@keyframes hxIn{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
+.hx-glow{position:absolute;inset:6% 12% 0 0;background:radial-gradient(circle,rgba(201,255,65,.3),transparent 62%);filter:blur(70px);pointer-events:none;}
+[data-theme="light"] .hx-glow{background:radial-gradient(circle,rgba(150,200,20,.35),transparent 62%);}
+.hx-stage{position:relative;transform-style:preserve-3d;transform:rotateY(-5deg) rotateX(2deg);transition:transform .7s cubic-bezier(.16,1,.3,1);will-change:transform;}
+.hx i{font-style:normal;}
+.hx-win{position:relative;margin-right:13%;background:#13141a;border:1px solid rgba(255,255,255,.09);border-radius:1.35rem;overflow:hidden;color:#eeeae3;font-size:.72rem;line-height:1.35;box-shadow:0 50px 110px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.06);}
+[data-theme="light"] .hx-win{box-shadow:0 50px 110px rgba(20,25,0,.28),0 10px 30px rgba(0,0,0,.12);}
+.hx-bar{display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem;background:#17181f;border-bottom:1px solid rgba(255,255,255,.06);}
+.hx-dots{display:flex;gap:.35rem;}
+.hx-dots i{width:.55rem;height:.55rem;border-radius:50%;background:#ff5f57;}
+.hx-dots i:nth-child(2){background:#febc2e;}.hx-dots i:nth-child(3){background:#28c840;}
+.hx-url{flex:1;display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.06);border-radius:999px;padding:.3rem .8rem;color:rgba(255,255,255,.5);font-size:.64rem;}
+.hx-url svg{width:.65rem;height:.65rem;color:var(--acid);}
+.hx-tabs{display:flex;gap:.35rem;padding:.6rem .9rem 0;}
+.hx-tab{position:relative;overflow:hidden;display:flex;align-items:center;gap:.35rem;padding:.4rem .75rem;border:1px solid rgba(255,255,255,.08);border-radius:999px;background:transparent;color:rgba(255,255,255,.5);font:700 .66rem var(--f);cursor:pointer;transition:background .25s,color .25s,border-color .25s;}
+.hx-tab svg{width:.75rem;height:.75rem;}
+.hx-tab:hover{color:#fff;border-color:rgba(255,255,255,.2);}
+.hx-tab.on{background:rgba(201,255,65,.1);border-color:rgba(201,255,65,.4);color:var(--acid);}
+.hx-tab::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--acid);transform:scaleX(0);transform-origin:left;}
+.hx-tab.on::after{animation:hxProg 6.5s linear forwards;}
+.hx:hover .hx-tab.on::after{animation-play-state:paused;}
+@keyframes hxProg{to{transform:scaleX(1);}}
+.hx-scenes{display:grid;padding:.9rem;}
+.hx-scene{grid-area:1/1;display:flex;flex-direction:column;gap:.75rem;pointer-events:none;}
+.hx-scene>*{opacity:0;transform:translateY(12px);filter:blur(4px);transition:opacity .3s,transform .3s,filter .3s;}
+.hx-scene.on{pointer-events:auto;}
+.hx-scene.on>*{opacity:1;transform:none;filter:none;transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1),filter .6s;}
+.hx-scene.on>*:nth-child(1){transition-delay:.15s;}.hx-scene.on>*:nth-child(2){transition-delay:.25s;}.hx-scene.on>*:nth-child(3){transition-delay:.35s;}
+.hx-sk{display:block;height:.42rem;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,.08),rgba(255,255,255,.17),rgba(255,255,255,.08));background-size:200% 100%;animation:hxSk 2.8s linear infinite;}
+@keyframes hxSk{to{background-position:-200% 0;}}
+.hx-eb{display:inline-block;font-size:.56rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--acid);border:1px solid rgba(201,255,65,.35);border-radius:999px;padding:.16rem .5rem;}
+.hx-cta{display:inline-flex;align-items:center;gap:.3rem;margin-top:.45rem;background:var(--acid);color:var(--acid-fg);border-radius:999px;padding:.38rem .75rem;font-weight:800;font-size:.6rem;animation:hxPulse 2.4s ease-in-out infinite;}
+.hx-cta svg{width:.7rem;height:.7rem;}
+@keyframes hxPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,255,65,.55);}60%{box-shadow:0 0 0 7px rgba(201,255,65,0);}}
+.hx-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;}
+.hx-kpis>div{background:#1a1b22;border:1px solid rgba(255,255,255,.06);border-radius:.7rem;padding:.5rem .6rem;}
+.hx-kpis small{display:block;font-size:.56rem;color:rgba(255,255,255,.45);}
+.hx-kpis b{display:block;font-size:.95rem;font-weight:900;letter-spacing:-.02em;margin:.1rem 0;}
+.hx-kpis em{font-style:normal;font-size:.56rem;font-weight:800;color:var(--acid);}
+/* site */
+.hs-nav{display:flex;align-items:center;gap:.65rem;}
+.hs-logo{margin-right:auto;font-weight:900;font-size:.8rem;letter-spacing:-.03em;}
+.hs-logo b{color:var(--acid);}
+.hs-nav .hx-sk{width:2rem;}
+.hs-btn{background:#eeeae3;color:#13141a;border-radius:999px;padding:.28rem .65rem;font-weight:800;font-size:.58rem;}
+.hs-banner{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:.9rem;min-height:13rem;padding:1rem 1.1rem;border-radius:.95rem;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#13141a;isolation:isolate;}
+.hs-banner::before{content:'';position:absolute;top:0;right:0;bottom:0;left:30%;z-index:-1;background:url('clinica-hero.webp') 70% 30%/cover;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 35%,#000 70%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 35%,#000 70%);}
+.hs-banner-txt{max-width:62%;}
+.hs-sub{display:block;font-size:.62rem;color:rgba(255,255,255,.6);line-height:1.45;margin-bottom:.15rem;}
+.hs-ctas{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
+.hs-ghost{margin-top:.45rem;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:.34rem .7rem;font-weight:700;font-size:.6rem;color:#fff;}
+.hs-trust{display:flex;gap:.4rem;}
+.hs-trust span{display:inline-flex;align-items:center;gap:.3rem;background:rgba(19,20,26,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:.25rem .55rem;font-size:.58rem;font-weight:700;}
+.hs-trust svg{width:.7rem;height:.7rem;color:var(--acid);}
+.hs-h{font-size:1.3rem;font-weight:900;letter-spacing:-.035em;line-height:1.06;margin:.45rem 0 .6rem;}
+.hs-h em{font-style:normal;color:var(--acid);}
+/* loja */
+.hl-head{display:flex;align-items:center;gap:.6rem;}
+.hl-logo{display:flex;align-items:center;gap:.3rem;font-weight:900;font-size:.8rem;letter-spacing:-.03em;}
+.hl-logo svg{width:.95rem;height:.95rem;color:var(--acid);}
+.hl-logo b{color:var(--acid);font-weight:900;}
+.hl-search{flex:1;display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.06);border-radius:999px;padding:.32rem .7rem;color:rgba(255,255,255,.4);font-size:.62rem;}
+.hl-search svg{width:.7rem;height:.7rem;}
+.hl-cart{position:relative;display:grid;place-items:center;}
+.hl-cart svg{width:1rem;height:1rem;}
+.hl-cart b{position:absolute;top:-.45rem;right:-.55rem;background:var(--acid);color:var(--acid-fg);font-size:.55rem;width:1rem;height:1rem;border-radius:50%;display:grid;place-items:center;}
+.hl-cats{display:flex;gap:.35rem;}
+.hl-cats span{font-size:.58rem;font-weight:700;padding:.22rem .55rem;border-radius:999px;border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.5);}
+.hl-cats span.on{background:#eeeae3;color:#13141a;border-color:transparent;}
+.hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;}
+.hl-prod{background:#1a1b22;border:1px solid rgba(255,255,255,.06);border-radius:.8rem;padding:.5rem;display:flex;flex-direction:column;gap:.12rem;}
+.hl-img{aspect-ratio:1/1;border-radius:.55rem;background:radial-gradient(circle at 50% 65%,rgba(201,255,65,.22),transparent 70%),#0f1015;display:grid;place-items:center;margin-bottom:.3rem;}
+.hl-img svg{width:1.9rem;height:1.9rem;stroke-width:1.4;color:#eeeae3;}
+.hl-prod>span{color:rgba(255,255,255,.55);font-size:.6rem;}
+.hl-prod b{font-size:.74rem;}
+.hl-prod .hl-btn{margin-top:.3rem;background:var(--acid);color:var(--acid-fg);border-radius:999px;padding:.3rem;font-weight:800;font-size:.58rem;text-align:center;}
+.hl-extra{display:none;flex-direction:column;gap:.5rem;}
+.hl-ship{display:flex;align-items:center;gap:.4rem;background:rgba(201,255,65,.08);border:1px dashed rgba(201,255,65,.35);border-radius:.6rem;padding:.45rem .6rem;font-size:.6rem;font-weight:700;color:#eeeae3;}
+.hl-ship svg{width:.85rem;height:.85rem;color:var(--acid);flex-shrink:0;}
+.hl-ship em{font-style:normal;color:rgba(255,255,255,.35);}
+.hl-bar{display:flex;align-items:center;justify-content:space-between;gap:.5rem;background:#1a1b22;border:1px solid rgba(255,255,255,.06);border-radius:.7rem;padding:.5rem .6rem;}
+.hl-bar small{display:block;font-size:.55rem;color:rgba(255,255,255,.45);}
+.hl-bar b{font-size:.85rem;font-weight:900;letter-spacing:-.02em;}
+.hl-go{display:inline-flex;align-items:center;gap:.3rem;background:var(--acid);color:var(--acid-fg);border-radius:999px;padding:.42rem .75rem;font-weight:800;font-size:.6rem;}
+.hl-go svg{width:.7rem;height:.7rem;}
+.hl-prod.hot .hl-btn{animation:hxPulse 2.4s ease-in-out infinite;}
+/* sistema */
+.hy{display:grid;grid-template-columns:2rem 1fr;gap:.75rem;}
+.hy-side{display:flex;flex-direction:column;gap:.4rem;padding-right:.65rem;border-right:1px solid rgba(255,255,255,.07);}
+.hy-side span{width:1.7rem;height:1.7rem;border-radius:.5rem;display:grid;place-items:center;color:rgba(255,255,255,.4);}
+.hy-side span.on{background:var(--acid);color:var(--acid-fg);}
+.hy-side svg{width:.8rem;height:.8rem;}
+.hy-main{display:flex;flex-direction:column;gap:.55rem;}
+.hy-chart{background:#1a1b22;border:1px solid rgba(255,255,255,.06);border-radius:.7rem;padding:.55rem .65rem;}
+.hy-chart small{font-size:.56rem;color:rgba(255,255,255,.45);}
+.hy-bars{display:flex;align-items:flex-end;gap:.4rem;height:4.4rem;margin-top:.45rem;}
+.hy-bars i{flex:1;height:var(--h);border-radius:.3rem .3rem .12rem .12rem;background:rgba(255,255,255,.13);transform-origin:bottom;transform:scaleY(.2);transition:transform .9s cubic-bezier(.16,1,.3,1);transition-delay:calc(.3s + var(--d) * .07s);}
+.hy-bars i:last-child{background:var(--acid);}
+.hx-scene.on .hy-bars i{transform:scaleY(1);}
+.hy-duo{display:grid;grid-template-columns:auto 1fr;gap:.5rem;}
+.hy-donut,.hy-src{background:#1a1b22;border:1px solid rgba(255,255,255,.06);border-radius:.7rem;padding:.55rem .65rem;}
+.hy-donut{display:flex;align-items:center;gap:.55rem;}
+.hy-donut svg{width:3.1rem;height:3.1rem;transform:rotate(-90deg);}
+.hy-donut circle{fill:none;stroke-width:4;}
+.hy-donut .t{stroke:rgba(255,255,255,.1);}
+.hy-donut .v{stroke:var(--acid);stroke-linecap:round;stroke-dasharray:0 100;transition:stroke-dasharray 1.2s cubic-bezier(.16,1,.3,1) .4s;}
+.hx-scene.on .hy-donut .v{stroke-dasharray:78 100;}
+.hy-donut b{display:block;font-size:1rem;font-weight:900;letter-spacing:-.02em;}
+.hy-donut small,.hy-src small{font-size:.56rem;color:rgba(255,255,255,.45);}
+.hy-stack{display:flex;gap:.2rem;height:.5rem;margin:.45rem 0 .5rem;}
+.hy-stack i{width:var(--w);border-radius:999px;background:var(--acid);transform-origin:left;transform:scaleX(0);transition:transform .9s cubic-bezier(.16,1,.3,1) .5s;}
+.hy-stack i:nth-child(2){background:#eeeae3;}.hy-stack i:nth-child(3){background:#4d63f0;}
+.hx-scene.on .hy-stack i{transform:scaleX(1);}
+.hy-leg{display:flex;flex-wrap:wrap;gap:.25rem .7rem;font-size:.56rem;color:rgba(255,255,255,.65);}
+.hy-leg span{display:inline-flex;align-items:center;gap:.25rem;}
+.hy-leg i{width:.45rem;height:.45rem;border-radius:50%;background:var(--acid);}
+.hy-leg span:nth-child(2) i{background:#eeeae3;}.hy-leg span:nth-child(3) i{background:#4d63f0;}
+.hy-row{display:flex;align-items:center;gap:.55rem;background:#1a1b22;border-radius:.6rem;padding:.42rem .55rem;}
+.hy-av{width:1.1rem;height:1.1rem;border-radius:50%;background:linear-gradient(135deg,#eeeae3,#7a8088);}
+.hy-row .hx-sk{flex:1;max-width:45%;}
+.hy-st{margin-left:auto;font-size:.55rem;font-weight:800;color:var(--acid-fg);background:var(--acid);border-radius:999px;padding:.12rem .45rem;}
+/* celular */
+.hx-phone{position:absolute;right:0;bottom:-2.6rem;width:26%;aspect-ratio:9/19.2;display:flex;background:#0b0c10;border:1px solid rgba(255,255,255,.14);border-radius:2rem;padding:.4rem;box-shadow:0 40px 90px rgba(0,0,0,.6),inset 0 0 0 2px #1d1f26;transform:translateZ(90px);color:#fff;}
+.hx-scr{position:relative;flex:1;display:flex;flex-direction:column;border-radius:1.65rem;overflow:hidden;padding:2.2rem .55rem .6rem;background:radial-gradient(120% 70% at 50% 0%,rgba(201,255,65,.35),transparent 60%),radial-gradient(90% 60% at 100% 100%,rgba(77,99,240,.35),transparent 60%),#0e0f14;}
+.hx-notch{position:absolute;top:.45rem;left:50%;translate:-50% 0;width:34%;height:.95rem;border-radius:999px;background:#000;}
+.hx-lock{text-align:center;margin-bottom:.9rem;}
+.hx-lock b{display:block;font-size:2.1rem;font-weight:800;letter-spacing:-.04em;line-height:1;}
+.hx-lock small{font-size:.55rem;color:rgba(255,255,255,.7);text-transform:capitalize;}
+.hx-notifs{display:flex;flex-direction:column;gap:.35rem;}
+.hx-n{display:flex;gap:.4rem;align-items:flex-start;background:rgba(255,255,255,.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:.8rem;padding:.45rem;font-size:.55rem;line-height:1.3;color:rgba(255,255,255,.85);opacity:0;transform:translateY(-14px) scale(.96);transition:opacity .5s,transform .6s cubic-bezier(.16,1,.3,1);}
+.hx-n.in{opacity:1;transform:none;}
+.hx-n:nth-child(2){opacity:.75;}.hx-n:nth-child(3){opacity:.45;}
+.hx-n b{display:flex;justify-content:space-between;gap:.3rem;font-size:.58rem;color:#fff;margin-bottom:.1rem;}
+.hx-n b small{font-weight:500;color:rgba(255,255,255,.5);}
+.hx-n>span:last-child{flex:1;min-width:0;}
+.hx-n-ico{width:1.3rem;height:1.3rem;border-radius:.4rem;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;flex-shrink:0;}
+.hx-n-ico svg{width:.7rem;height:.7rem;stroke-width:2.4;}
+.hx-home{margin:auto auto 0;width:36%;height:.22rem;border-radius:999px;background:rgba(255,255,255,.6);}
+
+/* Mega menu com prévia */
+.wf-nav-sub.mg{width:min(54rem,calc(100vw - 2 * var(--gutter)));display:grid;grid-template-columns:minmax(0,22.5rem) minmax(0,1fr);gap:.75rem;padding:.75rem;}
+[data-theme="dark"] .wf-nav-sub.mg{background:#13141a;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 30px 80px rgba(0,0,0,.55);}
+.mg-list{display:flex;flex-direction:column;gap:.1rem;}
+.mg-list .wf-nav-col-tit{padding:.45rem .65rem .25rem;}
+.mg-list .wf-nav-col-tit:not(:first-child){margin-top:.35rem;}
+.wf-nav-sub.mg .mg-list a{display:flex;align-items:center;gap:.7rem;padding:.55rem .65rem;border-radius:.85rem;white-space:normal;color:var(--ink);background:transparent;transition:background .15s;}
+.wf-nav-sub.mg .mg-list a:hover,.wf-nav-sub.mg .mg-list a.on{background:var(--bg2);color:var(--ink);}
+[data-theme="dark"] .wf-nav-sub.mg .mg-list a:hover,[data-theme="dark"] .wf-nav-sub.mg .mg-list a.on{background:rgba(255,255,255,.06);}
+.mg-ico{width:2.1rem;height:2.1rem;border-radius:.65rem;display:grid;place-items:center;flex-shrink:0;background:#1e1f26;color:var(--acid);transition:background .15s,color .15s;}
+[data-theme="dark"] .mg-ico{background:rgba(255,255,255,.06);}
+.mg-list a.on .mg-ico{background:var(--acid);color:var(--acid-fg);}
+.mg-ico svg{width:1rem;height:1rem;stroke-width:2;}
+.mg-txt{flex:1;min-width:0;}
+.mg-nome{display:block;font-size:.9rem;font-weight:700;color:var(--ink);}
+.mg-desc{display:block;font-size:.8rem;color:var(--muted);line-height:1.35;margin-top:.05rem;}
+.mg-tag{font-size:.72rem;font-weight:700;color:var(--muted);white-space:nowrap;}
+.mg-list a.on .mg-tag{color:var(--ink);}
+.mg-prev{display:flex;flex-direction:column;gap:.6rem;min-width:0;}
+.mg-stage{position:relative;flex:1;min-height:18.5rem;border-radius:1rem;overflow:hidden;background:radial-gradient(80% 70% at 70% 20%,rgba(201,255,65,.16),transparent 60%),#0c0d11;border:1px solid rgba(255,255,255,.06);}
+.mg-shot{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transform:translateY(8px) scale(.98);transition:opacity .35s,transform .45s cubic-bezier(.16,1,.3,1);pointer-events:none;}
+.mg-shot.on{opacity:1;transform:none;}
+.mg-inner{position:absolute;left:50%;top:50%;width:520px;transform:translate(-50%,-50%) scale(var(--mg-s,.74));transform-origin:center;}
+.mg-win{background:#13141a;border:1px solid rgba(255,255,255,.09);border-radius:1.1rem;overflow:hidden;color:#eeeae3;font-size:.72rem;line-height:1.35;box-shadow:0 30px 70px rgba(0,0,0,.5);}
+.mg-body{display:flex;flex-direction:column;gap:.7rem;padding:.9rem;}
+.mg-shot .hy-bars i{transform:none;}
+.mg-shot .hy-donut .v{stroke-dasharray:78 100;}
+.mg-shot .hy-stack i{transform:none;}
+.mg-cap{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;padding:0 .25rem;}
+.mg-cap-t{font-size:.9rem;font-weight:800;color:var(--ink);}
+.mg-cap-m{font-size:.78rem;color:var(--muted);text-align:right;}
+.mg-foot{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem .75rem .75rem 1.1rem;border-radius:1rem;background:#0f1014;color:rgba(255,255,255,.65);font-size:.85rem;}
+.mg-foot b{color:#fff;font-weight:700;}
+.wf-nav-sub.mg a.btn-glow{display:flex;align-items:center;height:2.75rem;padding:0 .35rem 0 1.15rem;border-radius:999px;font-size:.85rem;color:#fff;white-space:nowrap;}
+.wf-nav-sub.mg a.btn-glow:hover{background:rgba(255,255,255,.12);color:#fff;}
+.wf-nav-sub.mg .btn-glow-seta{width:2.05rem;height:2.05rem;}
+.wf-nav-sub.mg .btn-glow-seta svg{width:.9rem;height:.9rem;}
+/* landing */
+.mgl{text-align:center;padding:1.3rem 1.1rem 1.1rem;}
+.mgl-badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--acid);background:rgba(201,255,65,.1);border:1px solid rgba(201,255,65,.35);border-radius:999px;padding:.25rem .65rem;}
+.mgl-badge i{width:.4rem;height:.4rem;border-radius:50%;background:var(--acid);}
+.mgl-h{font-size:1.6rem;font-weight:900;letter-spacing:-.04em;line-height:1.05;margin:.75rem 0 .45rem;}
+.mgl-h em{font-style:normal;color:var(--acid);}
+.mgl-sub{display:block;color:rgba(255,255,255,.5);font-size:.68rem;margin-bottom:.9rem;}
+.mgl-timer{display:flex;justify-content:center;gap:.5rem;margin-bottom:1rem;}
+.mgl-timer>div{background:#1a1b22;border:1px solid rgba(255,255,255,.07);border-radius:.7rem;padding:.45rem .2rem;width:3.6rem;}
+.mgl-timer b{display:block;font-size:1.2rem;font-weight:900;}
+.mgl-timer small{font-size:.55rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.06em;}
+.mgl-cta{display:flex;align-items:center;justify-content:center;gap:.4rem;background:var(--acid);color:var(--acid-fg);border-radius:999px;padding:.65rem;font-weight:900;font-size:.78rem;}
+.mgl-cta svg{width:.85rem;height:.85rem;}
+.mgl-proof{display:block;margin-top:.8rem;color:rgba(255,255,255,.55);font-size:.64rem;}
+/* automação */
+.mga-bar{gap:.6rem;}
+.mga-av{width:1.9rem;height:1.9rem;border-radius:50%;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;}
+.mga-av svg{width:1rem;height:1rem;}
+.mga-bar b{display:block;font-size:.76rem;}
+.mga-bar small{display:flex;align-items:center;gap:.3rem;font-size:.6rem;color:rgba(255,255,255,.5);}
+.mga-bar small i{width:.4rem;height:.4rem;border-radius:50%;background:#28c840;}
+.mga{gap:.45rem;background:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/16px 16px;}
+.mga-m{max-width:78%;padding:.5rem .7rem;border-radius:.85rem;font-size:.7rem;line-height:1.4;}
+.mga-m.cli{align-self:flex-start;background:#22232b;border-bottom-left-radius:.25rem;}
+.mga-m.bot{align-self:flex-end;background:var(--acid);color:var(--acid-fg);font-weight:600;border-bottom-right-radius:.25rem;}
+.mga-pay{display:flex;align-items:center;gap:.45rem;margin-top:.4rem;background:rgba(0,0,0,.12);border-radius:.55rem;padding:.35rem .5rem;font-weight:800;}
+.mga-pay svg{width:.85rem;height:.85rem;}
+/* app */
+.mgp-wrap{position:relative;display:flex;justify-content:center;padding:.5rem 0;}
+.mgp{width:186px;aspect-ratio:9/19.5;display:flex;background:#0b0c10;border:1px solid rgba(255,255,255,.14);border-radius:2.2rem;padding:.45rem;box-shadow:0 30px 70px rgba(0,0,0,.55),inset 0 0 0 2px #1d1f26;color:#eeeae3;font-size:.68rem;line-height:1.35;}
+.mgp-scr{position:relative;flex:1;display:flex;flex-direction:column;background:#13141a;border-radius:1.8rem;padding:2rem .65rem .7rem;}
+.mgp-tab{margin-top:auto;display:flex;justify-content:space-around;padding-top:.55rem;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.35);}
+.mgp-tab svg{width:.85rem;height:.85rem;}
+.mgp-tab span:first-child{color:var(--acid);}
+.mgp-notch{position:absolute;top:.5rem;left:50%;translate:-50% 0;width:4.4rem;height:1.05rem;border-radius:999px;background:#0b0c10;}
+.mgp-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem;}
+.mgp-top small{display:block;font-size:.58rem;color:rgba(255,255,255,.45);}
+.mgp-top b{font-size:.9rem;font-weight:900;}
+.mgp-av{width:1.8rem;height:1.8rem;border-radius:50%;background:linear-gradient(135deg,#c9ff41,#5a7a10);}
+.mgp-card{background:var(--acid);color:var(--acid-fg);border-radius:.9rem;padding:.7rem;margin-bottom:.7rem;}
+.mgp-card small{display:block;font-size:.58rem;font-weight:700;opacity:.7;}
+.mgp-card b{display:block;font-size:1.2rem;font-weight:900;letter-spacing:-.03em;margin:.1rem 0 .45rem;}
+.mgp-prog{display:block;height:.3rem;border-radius:999px;background:rgba(0,0,0,.15);overflow:hidden;}
+.mgp-prog i{display:block;height:100%;width:72%;border-radius:inherit;background:var(--acid-fg);}
+.mgp-acts{display:grid;grid-template-columns:repeat(4,1fr);gap:.3rem;margin-bottom:.7rem;text-align:center;}
+.mgp-acts>span{display:flex;flex-direction:column;align-items:center;gap:.2rem;font-size:.52rem;color:rgba(255,255,255,.6);}
+.mgp-acts>span>i{width:2rem;height:2rem;border-radius:.65rem;background:#1f2028;display:grid;place-items:center;color:var(--acid);}
+.mgp-acts svg{width:.85rem;height:.85rem;}
+.mgp-row{display:flex;align-items:center;gap:.5rem;background:#1a1b22;border-radius:.7rem;padding:.45rem .55rem;margin-top:.35rem;}
+.mgp-row>span:first-child{width:1.5rem;height:1.5rem;border-radius:.45rem;background:#0f1015;display:grid;place-items:center;color:var(--acid);}
+.mgp-row svg{width:.75rem;height:.75rem;}
+.mgp-row b{display:block;font-size:.62rem;}
+.mgp-row small{font-size:.54rem;color:rgba(255,255,255,.45);}
+.mgp-row em{margin-left:auto;font-style:normal;font-weight:800;font-size:.62rem;color:var(--acid);}
+.mgp-row>span:nth-child(2){flex:1;min-width:0;}.mgp-row b,.mgp-row small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.mgp-row em{white-space:nowrap;}
+.mgp-chip{position:absolute;right:30px;top:80px;display:flex;align-items:center;gap:.55rem;background:rgba(19,20,26,.92);border:1px solid rgba(201,255,65,.35);border-radius:.9rem;padding:.55rem .8rem .55rem .55rem;color:#fff;font-size:.72rem;font-weight:700;line-height:1.25;box-shadow:0 18px 44px rgba(0,0,0,.5);}
+.mgp-chip>span:first-child{width:1.8rem;height:1.8rem;border-radius:.6rem;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;}
+.mgp-chip svg{width:.9rem;height:.9rem;}
+.mgp-chip small{display:block;font-size:.6rem;font-weight:500;color:rgba(255,255,255,.5);}
+
+</style>
 </head>
 <body>
 
@@ -255,19 +496,29 @@ svg{display:block;}
     <a href="/sobre" class="ativo">Sobre</a>
     <div class="wf-nav-grupo">
       <button aria-haspopup="true">Serviços <i data-lucide="chevron-down" class="wf-nav-caret"></i></button>
-      <div class="wf-nav-sub" role="menu">
-        <div class="wf-nav-col">
+      <div class="wf-nav-sub mg" role="menu">
+        <div class="mg-list">
           <p class="wf-nav-col-tit">Sites & Lojas</p>
-          <a href="/servico-site"><span class="wf-nav-ico"><i data-lucide="globe"></i></span><span><span class="wf-nav-nome">Site institucional</span><span class="wf-nav-desc">Presença profissional que converte</span></span></a>
-          <a href="/servico-loja"><span class="wf-nav-ico"><i data-lucide="shopping-bag"></i></span><span><span class="wf-nav-nome">Loja virtual</span><span class="wf-nav-desc">E-commerce completo com checkout</span></span></a>
-          <a href="/servico-landing"><span class="wf-nav-ico"><i data-lucide="zap"></i></span><span><span class="wf-nav-nome">Landing page</span><span class="wf-nav-desc">Alta conversão para campanhas</span></span></a>
-        </div>
-        <div class="wf-nav-col">
+          <a href="/servico-site" data-mg="0" class="on"><span class="mg-ico"><i data-lucide="globe"></i></span><span class="mg-txt"><span class="mg-nome">Site institucional</span><span class="mg-desc">Presença profissional que converte</span></span><span class="mg-tag">R$ 1.500</span></a>
+          <a href="/servico-loja" data-mg="1"><span class="mg-ico"><i data-lucide="shopping-bag"></i></span><span class="mg-txt"><span class="mg-nome">Loja virtual</span><span class="mg-desc">E-commerce completo com checkout</span></span><span class="mg-tag">R$ 2.000</span></a>
+          <a href="/servico-landing" data-mg="2"><span class="mg-ico"><i data-lucide="zap"></i></span><span class="mg-txt"><span class="mg-nome">Landing page</span><span class="mg-desc">Alta conversão para campanhas</span></span><span class="mg-tag">R$ 750</span></a>
           <p class="wf-nav-col-tit">Tecnologia</p>
-          <a href="/servico-sistema"><span class="wf-nav-ico"><i data-lucide="layout-dashboard"></i></span><span><span class="wf-nav-nome">Sistema sob medida</span><span class="wf-nav-desc">Plataformas para seu processo</span></span></a>
-          <a href="/servico-automacao"><span class="wf-nav-ico"><i data-lucide="bot"></i></span><span><span class="wf-nav-nome">Automação & IA</span><span class="wf-nav-desc">Reduza o trabalho manual</span></span></a>
-          <a href="/servico-app"><span class="wf-nav-ico"><i data-lucide="smartphone"></i></span><span><span class="wf-nav-nome">Aplicativo</span><span class="wf-nav-desc">PWA e nativo para seus clientes</span></span></a>
+          <a href="/servico-sistema" data-mg="3"><span class="mg-ico"><i data-lucide="layout-dashboard"></i></span><span class="mg-txt"><span class="mg-nome">Sistema sob medida</span><span class="mg-desc">Plataformas para seu processo</span></span><span class="mg-tag">Sob consulta</span></a>
+          <a href="/servico-automacao" data-mg="4"><span class="mg-ico"><i data-lucide="bot"></i></span><span class="mg-txt"><span class="mg-nome">Automação & IA</span><span class="mg-desc">Reduza o trabalho manual da equipe</span></span><span class="mg-tag">Sob consulta</span></a>
+          <a href="/servico-app" data-mg="5"><span class="mg-ico"><i data-lucide="smartphone"></i></span><span class="mg-txt"><span class="mg-nome">Aplicativo</span><span class="mg-desc">PWA e nativo para seus clientes</span></span><span class="mg-tag">Sob consulta</span></a>
         </div>
+        <div class="mg-prev" aria-hidden="true">
+          <div class="mg-stage">
+            <div class="mg-shot on"><div class="mg-inner"><div class="mg-win"><div class="hx-bar"><span class="hx-dots"><i></i><i></i><i></i></span><span class="hx-url"><i data-lucide="lock"></i>suaempresa.com.br</span></div><div class="mg-body"><div class="hs-nav"><span class="hs-logo">Clínica<b>Sol</b></span><i class="hx-sk"></i><i class="hx-sk"></i><i class="hx-sk"></i><span class="hs-btn">Agendar</span></div><div class="hs-banner"><div class="hs-banner-txt"><span class="hx-eb">Saúde & bem-estar</span><div class="hs-h">Cuidado que<br><em>transforma.</em></div><span class="hs-sub">Consultas, exames e retorno em um só lugar, com agenda online.</span><span class="hs-ctas"><span class="hx-cta">Agendar consulta <i data-lucide="arrow-right"></i></span></span></div><div class="hs-trust"><span><i data-lucide="star"></i>4,9 no Google</span><span><i data-lucide="users"></i>+2.000 pacientes</span></div></div><div class="hx-kpis"><div><small>Visitas/dia</small><b>127</b><em>+34%</em></div><div><small>Contatos</small><b>18</b><em>+22%</em></div><div><small>Avaliação</small><b>4,9</b><em>Google</em></div></div></div></div></div></div>
+            <div class="mg-shot"><div class="mg-inner"><div class="mg-win"><div class="hx-bar"><span class="hx-dots"><i></i><i></i><i></i></span><span class="hx-url"><i data-lucide="lock"></i>sualoja.com.br</span></div><div class="mg-body"><div class="hl-head"><span class="hl-logo"><i data-lucide="shopping-bag"></i>moda<b>ária</b></span><span class="hl-search"><i data-lucide="search"></i>Buscar produtos</span><span class="hl-cart"><i data-lucide="shopping-cart"></i><b>3</b></span></div><div class="hl-cats"><span class="on">Novidades</span><span>Roupas</span><span>Calçados</span><span>Acessórios</span></div><div class="hl-grid"><div class="hl-prod"><div class="hl-img"><i data-lucide="footprints"></i></div><span>Tênis Runner</span><b>R$ 399,90</b><span class="hl-btn">Comprar</span></div><div class="hl-prod"><div class="hl-img"><i data-lucide="watch"></i></div><span>Smartwatch</span><b>R$ 1.299</b><span class="hl-btn">Comprar</span></div><div class="hl-prod"><div class="hl-img"><i data-lucide="backpack"></i></div><span>Mochila</span><b>R$ 349,90</b><span class="hl-btn">Comprar</span></div></div></div></div></div></div>
+            <div class="mg-shot"><div class="mg-inner"><div class="mg-win"><div class="hx-bar"><span class="hx-dots"><i></i><i></i><i></i></span><span class="hx-url"><i data-lucide="lock"></i>oferta.suamarca.com.br</span></div><div class="mg-body"><div class="mgl"><span class="mgl-badge"><i></i>Oferta por tempo limitado</span><div class="mgl-h">Garanta sua vaga<br><em>com 40% OFF</em></div><span class="mgl-sub">Últimas vagas da turma de novembro</span><div class="mgl-timer"><div><b>02</b><small>horas</small></div><div><b>47</b><small>min</small></div><div><b>19</b><small>seg</small></div></div><span class="mgl-cta">Quero garantir minha vaga <i data-lucide="arrow-right"></i></span><span class="mgl-proof">+1.200 pessoas já garantiram</span></div></div></div></div></div>
+            <div class="mg-shot"><div class="mg-inner"><div class="mg-win"><div class="hx-bar"><span class="hx-dots"><i></i><i></i><i></i></span><span class="hx-url"><i data-lucide="lock"></i>app.suaempresa.com.br</span></div><div class="mg-body"><div class="hy"><div class="hy-side"><span class="on"><i data-lucide="layout-dashboard"></i></span><span><i data-lucide="users"></i></span><span><i data-lucide="package"></i></span><span><i data-lucide="file-text"></i></span></div><div class="hy-main"><div class="hx-kpis"><div><small>Faturamento</small><b>R$ 84,2k</b><em>+12%</em></div><div><small>Pedidos</small><b>1.284</b><em>+8%</em></div><div><small>Clientes</small><b>342</b><em>+5%</em></div></div><div class="hy-chart"><small>Vendas · últimos 7 dias</small><div class="hy-bars"><i style="--h:45%;--d:0"></i><i style="--h:62%;--d:1"></i><i style="--h:38%;--d:2"></i><i style="--h:74%;--d:3"></i><i style="--h:58%;--d:4"></i><i style="--h:85%;--d:5"></i><i style="--h:100%;--d:6"></i></div></div><div class="hy-duo"><div class="hy-donut"><svg viewBox="0 0 36 36"><circle class="t" cx="18" cy="18" r="15.915"/><circle class="v" cx="18" cy="18" r="15.915"/></svg><span><b>78%</b><small>Meta do mês</small></span></div><div class="hy-src"><small>Origem das vendas</small><div class="hy-stack"><i style="--w:52%"></i><i style="--w:31%"></i><i style="--w:17%"></i></div><div class="hy-leg"><span><i></i>Site 52%</span><span><i></i>WhatsApp 31%</span><span><i></i>Loja 17%</span></div></div></div></div></div></div></div></div></div>
+            <div class="mg-shot"><div class="mg-inner"><div class="mg-win"><div class="hx-bar mga-bar"><span class="mga-av"><i data-lucide="bot"></i></span><span><b>Assistente virtual</b><small><i></i>online · responde em segundos</small></span></div><div class="mg-body mga"><div class="mga-m cli">Oi! Vocês entregam em Joinville?</div><div class="mga-m bot">Olá! Entregamos sim, em até 2 dias úteis.</div><div class="mga-m cli">Quero fazer um pedido do kit completo</div><div class="mga-m bot">Perfeito! Seu link de pagamento:<span class="mga-pay"><i data-lucide="credit-card"></i>Pedido #2087 · R$ 249,00</span></div><div class="mga-m cli">Pago! Muito rápido, obrigado</div></div></div></div></div>
+            <div class="mg-shot"><div class="mg-inner"><div class="mgp-wrap"><div class="mgp"><div class="mgp-scr"><span class="mgp-notch"></span><div class="mgp-top"><div><small>Olá, Marina</small><b>Seu resumo</b></div><span class="mgp-av"></span></div><div class="mgp-card"><small>Pontos de fidelidade</small><b>2.450 pts</b><span class="mgp-prog"><i></i></span></div><div class="mgp-acts"><span><i><i data-lucide="calendar"></i></i>Agendar</span><span><i><i data-lucide="shopping-bag"></i></i>Pedidos</span><span><i><i data-lucide="gift"></i></i>Prêmios</span><span><i><i data-lucide="message-circle"></i></i>Suporte</span></div><div class="mgp-row"><span><i data-lucide="calendar-check"></i></span><span><b>Corte + barba</b><small>Amanhã · 14:30</small></span><em>R$ 75</em></div><div class="mgp-row"><span><i data-lucide="package"></i></span><span><b>Pedido #318</b><small>Saiu para entrega</small></span><em>R$ 129</em></div><div class="mgp-row"><span><i data-lucide="gift"></i></span><span><b>Cupom liberado</b><small>Próxima visita</small></span><em>-10%</em></div><div class="mgp-tab"><span><i data-lucide="home"></i></span><span><i data-lucide="search"></i></span><span><i data-lucide="heart"></i></span><span><i data-lucide="user"></i></span></div></div></div><div class="mgp-chip"><span><i data-lucide="bell"></i></span><span><b>Novo agendamento</b><small>notificação em tempo real</small></span></div></div></div></div>
+          </div>
+          <div class="mg-cap"><span class="mg-cap-t" id="mgCapT">Site institucional</span><span class="mg-cap-m" id="mgCapM">A partir de R$ 1.500 · ~3 semanas</span></div>
+        </div>
+        <div class="mg-foot"><span><b>Não sabe qual escolher?</b> Conte sua ideia e a gente indica o melhor caminho.</span><a href="https://wa.me/5547997618824" class="btn-glow" target="_blank" rel="noopener"><span>Falar com especialista</span><span class="btn-glow-seta"><i data-lucide="arrow-right"></i></span></a></div>
       </div>
     </div>
     <a href="/projetos">Projetos</a>
@@ -594,6 +845,28 @@ document.addEventListener('DOMContentLoaded', function() {
   m.addEventListener('toggle',function(){document.documentElement.style.overflow=m.open?'hidden':'';});
   p.addEventListener('click',function(e){if(e.target===p||e.target.closest('a'))m.open=false;});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.open)m.open=false;});
+})();
+</script>
+<script>
+(function(){
+  var p=document.querySelector('.wf-nav-sub.mg');if(!p)return;
+  var links=[].slice.call(p.querySelectorAll('.mg-list a[data-mg]')),shots=[].slice.call(p.querySelectorAll('.mg-shot')),stage=p.querySelector('.mg-stage');
+  var capT=document.getElementById('mgCapT'),capM=document.getElementById('mgCapM');
+  var meta=[["Site institucional","A partir de R$ 1.500 · ~3 semanas"],["Loja virtual","A partir de R$ 2.000 + R$ 250/mês · ~5 semanas"],["Landing page","A partir de R$ 750 · ~2 semanas"],["Sistema sob medida","Sob consulta · proposta sob medida"],["Automação & IA","Sob consulta · proposta sob medida"],["Aplicativo","Sob consulta · proposta sob medida"]];
+  function fit(){
+    var w=stage.clientWidth,h=stage.clientHeight;if(!w)return;
+    shots.forEach(function(s){var inn=s.firstElementChild;var sc=Math.min((w-28)/520,(h-24)/(inn.offsetHeight||1));inn.style.setProperty('--mg-s',sc.toFixed(3));});
+  }
+  function show(i){
+    links.forEach(function(l,j){l.classList.toggle('on',j===i);});
+    shots.forEach(function(s,j){s.classList.toggle('on',j===i);});
+    capT.textContent=meta[i][0];capM.textContent=meta[i][1];
+  }
+  links.forEach(function(l,i){l.addEventListener('mouseenter',function(){show(i);});l.addEventListener('focus',function(){show(i);});});
+  var g=p.closest('.wf-nav-grupo');
+  g.addEventListener('mouseenter',function(){requestAnimationFrame(fit);});
+  g.addEventListener('focusin',function(){requestAnimationFrame(fit);});
+  window.addEventListener('resize',fit);
 })();
 </script>
 </body>
