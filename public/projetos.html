@@ -546,6 +546,12 @@ html.hdr-light .wf-menu>summary span{background:#17181b!important;}
 .btn-acid:hover .seta svg,.wf-topo-cta:hover .seta-sm svg,.btn-glow:hover .btn-glow-seta svg,.svc-card:hover .svc-arrow svg,.btn-form-next:hover .seta-sm svg,.form-send-btn:hover .seta svg,.svc-card:hover .svc-cta .cta-ico svg,.p-card:hover .p-link .cta-ico svg,a.ct-li:hover .cta-ico svg{transform:translateX(2.6rem)!important;}
 @media (prefers-reduced-motion:reduce){.btn-acid .seta svg,.wf-topo-cta .seta-sm svg,.btn-glow-seta svg,.svc-arrow svg,.btn-form-next .seta-sm svg,.form-send-btn .seta svg,.cta-ico svg{transition:none!important;}}
 </style>
+<style id="pcard-spot">
+.p-card{position:relative;transition:transform .2s,border-color .3s;}
+.p-card:hover{border-color:rgba(201,255,65,.35);}
+.p-card::before{content:'';position:absolute;inset:0;z-index:2;padding:1px;border-radius:inherit;pointer-events:none;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),var(--acid),transparent 65%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;transition:opacity .35s;}
+.p-card:hover::before{opacity:1;}
+</style>
 </head>
 <body>
 
@@ -973,6 +979,14 @@ document.addEventListener('DOMContentLoaded', function() {
   new MutationObserver(req).observe(html,{attributes:true,attributeFilter:['data-theme']});
   var m=document.querySelector('.wf-menu');if(m)m.addEventListener('toggle',req);
   upd();setTimeout(upd,700);
+})();
+</script>
+<script id="pcard-spot-js">
+(function(){
+  if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+  document.querySelectorAll('.p-card').forEach(function(c){
+    c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});
+  });
 })();
 </script>
 </body>
