@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" id="metaTheme" content="#13141a">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Serviços — Webfun</title>
 <meta name="description" content="Do site institucional ao sistema sob medida: conheça todos os serviços da Webfun e encontre o que o seu negócio precisa.">
@@ -817,6 +818,18 @@ html.hdr-acid .wf-topo-cta::before{background:linear-gradient(100deg,rgba(255,25
   .hero-svc-img.or-wrap{margin-top:3.75rem!important;}
 }
 </style>
+<style id="rodape-wm3">
+html{background:var(--bg);}
+.rodape-wm{color:transparent!important;background:linear-gradient(180deg,rgba(201,255,65,.38) 0%,rgba(201,255,65,.16) 45%,rgba(201,255,65,.04) 80%,rgba(201,255,65,0) 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;}
+.rodape-wm::after{display:none!important;}
+</style>
+<script id="theme-color-js">
+(function(){
+  var m=document.getElementById('metaTheme'),h=document.documentElement;if(!m)return;
+  function upd(){m.setAttribute('content',h.getAttribute('data-theme')==='light'?'#f0efe9':'#13141a');}
+  upd();new MutationObserver(upd).observe(h,{attributes:true,attributeFilter:['data-theme']});
+})();
+</script>
 </head>
 <body>
 
