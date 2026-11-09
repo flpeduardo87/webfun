@@ -1074,7 +1074,7 @@ html.hdr-acid .wf-topo-cta::before{background:linear-gradient(100deg,rgba(255,25
         </div></div>
       <div class="rodape-col"><p class="rodape-col-tit">Serviços</p><a href="/servico-site">Site institucional</a><a href="/servico-loja">Loja virtual</a><a href="/servico-landing">Landing page</a><a href="/servico-sistema">Sistemas</a><a href="/servico-automacao">Automação & IA</a><a href="/servico-app">Aplicativo</a></div>
       <div class="rodape-col"><p class="rodape-col-tit">Empresa</p><a href="/sobre">Sobre a Webfun</a><a href="/projetos">Projetos</a><a href="/blog">Blog</a><a href="/contato">Contato</a></div>
-      <div class="rodape-col"><p class="rodape-col-tit">Contato</p><a href="mailto:contato@webfun.com.br">contato@webfun.com.br</a><a href="https://wa.me/5547997618824" target="_blank" rel="noopener">WhatsApp</a><span class="rodape-txt">Canoinhas, SC — Brasil</span><span class="rodape-status" id="rodapeStatus"><i></i><span>Online agora · resposta em minutos</span></span></div>
+      <div class="rodape-col"><p class="rodape-col-tit">Contato</p><a href="mailto:contato@webfun.com.br">contato@webfun.com.br</a><a href="https://wa.me/5547997618824" target="_blank" rel="noopener">WhatsApp</a><span class="rodape-txt">Canoinhas, SC — Brasil</span><span class="rodape-status" id="rodapeStatus"><i></i><span>Online agora · respondemos em minutos</span></span></div>
     </div>
     <div class="rodape-bottom"><p class="rodape-copy">© 2026 Webfun. Todos os direitos reservados.</p><p class="rodape-love">Feito com <span class="rodape-heart" aria-label="amor">♥</span> em Canoinhas</p><button type="button" class="rodape-top" id="rodapeTop" aria-label="Voltar ao topo"><i data-lucide="arrow-up"></i></button></div>
   </div>
@@ -1305,13 +1305,6 @@ document.addEventListener('DOMContentLoaded', function() {
 (function(){
   var t=document.getElementById('rodapeTop');
   if(t)t.addEventListener('click',function(){window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
-  var st=document.getElementById('rodapeStatus');if(!st)return;
-  try{
-    var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short',hour:'numeric',hour12:false}).formatToParts(new Date());
-    var wd=p.find(function(x){return x.type==='weekday';}).value,h=parseInt(p.find(function(x){return x.type==='hour';}).value,10)%24;
-    var on=(['Mon','Tue','Wed','Thu','Fri'].indexOf(wd)>-1&&h>=9&&h<18)||(wd==='Sat'&&h>=9&&h<12);
-    if(!on){st.classList.add('off');st.lastElementChild.textContent='Respondemos a partir das 9h';}
-  }catch(e){}
 })();
 </script>
 </body>
