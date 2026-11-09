@@ -1121,6 +1121,20 @@ html.hdr-acid .wf-logo{background:rgba(255,255,255,.55)!important;box-shadow:0 0
 .pq-proof-txt{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.45;margin-top:.2rem;}
 @media(max-width:900px){.pq-proof{order:4;margin-top:1.75rem;}}
 </style>
+<style id="rv-spot">
+.rv-card{position:relative;transition:transform .2s,border-color .3s;}
+.rv-card:hover{border-color:rgba(201,255,65,.35);}
+.rv-card::before{content:'';position:absolute;inset:0;z-index:2;padding:1px;border-radius:inherit;pointer-events:none;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),var(--acid),transparent 65%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;transition:opacity .35s;}
+.rv-card:hover::before{opacity:1;}
+</style>
+<style id="faq-acid">
+.faq-icon{background:rgba(201,255,65,.12);color:var(--acid);box-shadow:inset 0 0 0 1px rgba(201,255,65,.25);transition:background .2s,color .2s,box-shadow .2s,rotate .25s;}
+[data-theme="light"] .faq-icon{background:rgba(30,39,0,.07);color:var(--acid-fg);box-shadow:inset 0 0 0 1px rgba(30,39,0,.14);}
+details.faq-item summary:hover .faq-icon{background:rgba(201,255,65,.22);}
+[data-theme="light"] details.faq-item summary:hover .faq-icon{background:rgba(30,39,0,.12);}
+details.faq-item[open] .faq-icon,[data-theme="light"] details.faq-item[open] .faq-icon{background:var(--acid);color:var(--acid-fg);box-shadow:0 0 0 4px rgba(201,255,65,.15);}
+details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
+</style>
 </head>
 <body>
 
@@ -2091,6 +2105,14 @@ document.addEventListener('DOMContentLoaded', function() {
 (function(){
   if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches)return;
   document.querySelectorAll('.p-card').forEach(function(c){
+    c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});
+  });
+})();
+</script>
+<script id="rv-spot-js">
+(function(){
+  if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+  document.querySelectorAll('.rv-card').forEach(function(c){
     c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});
   });
 })();

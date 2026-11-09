@@ -610,6 +610,12 @@ html.hdr-light .wf-menu>summary span{background:#17181b!important;}
 html.hdr-acid .wf-topo .wf-logo-icon{fill:#1e2700!important;}
 html.hdr-acid .wf-logo{background:rgba(255,255,255,.55)!important;box-shadow:0 0 0 1px rgba(30,39,0,.14),inset 0 1px 0 rgba(255,255,255,.8),0 8px 24px rgba(30,39,0,.1)!important;color:#17181b!important;}
 </style>
+<style id="rv-spot">
+.sb-rv-card{position:relative;transition:transform .2s,border-color .3s;}
+.sb-rv-card:hover{border-color:rgba(201,255,65,.35);}
+.sb-rv-card::before{content:'';position:absolute;inset:0;z-index:2;padding:1px;border-radius:inherit;pointer-events:none;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),var(--acid),transparent 65%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;transition:opacity .35s;}
+.sb-rv-card:hover::before{opacity:1;}
+</style>
 </head>
 <body>
 
@@ -1055,6 +1061,14 @@ document.addEventListener('DOMContentLoaded', function() {
   new MutationObserver(req).observe(html,{attributes:true,attributeFilter:['data-theme']});
   var m=document.querySelector('.wf-menu');if(m)m.addEventListener('toggle',req);
   upd();setTimeout(upd,700);
+})();
+</script>
+<script id="rv-spot-js">
+(function(){
+  if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+  document.querySelectorAll('.sb-rv-card').forEach(function(c){
+    c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});
+  });
 })();
 </script>
 </body>
