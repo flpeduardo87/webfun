@@ -1309,6 +1309,29 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
   .proc-dots{display:none!important;}
 }
 </style>
+<style id="est-quote">
+@media(min-width:901px){
+  .est-layout{grid-template-rows:auto 1fr;row-gap:1.25rem;}
+  .est-layout>.est-form{grid-column:1;grid-row:1;}
+  .est-layout>.est-result{grid-column:2;grid-row:1 / span 2;align-self:stretch;position:relative;top:auto;}.est-layout>.est-result .est-save{margin-top:auto;}.est-layout>.est-result .est-cta{margin-top:0;}
+  .est-layout>.est-quote{grid-column:1;grid-row:2;align-self:end;}
+}
+@media(max-width:900px){.est-layout>.est-quote{order:3;}}
+.est-quote{position:relative;margin:0;padding:1.2rem 1.4rem 1.1rem;border-radius:var(--r);background:var(--win-2);border:1px solid var(--win-line);overflow:hidden;}
+[data-theme="dark"] .est-quote{background:var(--bg2);border-color:rgba(255,255,255,.08);}
+.est-quote-mark{position:absolute;top:-.9rem;right:1.1rem;font-size:7rem;line-height:1;font-weight:800;color:var(--acid);opacity:.35;pointer-events:none;}
+[data-theme="light"] .est-quote-mark{color:#7fa800;opacity:.25;}
+.est-quote blockquote{margin:0 0 .85rem;max-width:30rem;font-size:1rem;font-weight:600;line-height:1.5;letter-spacing:-.01em;color:var(--win-txt);}
+[data-theme="dark"] .est-quote blockquote{color:var(--ink);}
+.est-quote figcaption{display:flex;align-items:center;gap:.75rem;}
+.est-quote img{width:2.6rem;height:2.6rem;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--acid);}
+.est-quote figcaption b{display:block;font-size:.88rem;color:var(--win-txt);}
+[data-theme="dark"] .est-quote figcaption b{color:var(--ink);}
+.est-quote figcaption small{font-size:.76rem;color:var(--win-muted);}
+[data-theme="dark"] .est-quote figcaption small{color:var(--muted);}
+.est-quote-stars{margin-left:auto;font-size:.85rem;letter-spacing:.1em;color:var(--acid);}
+[data-theme="light"] .est-quote-stars{color:#7fa800;}
+</style>
 </head>
 <body>
 
@@ -1920,10 +1943,6 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
           </div>
         </div>
 
-        <div class="est-rv">
-          <p class="est-rv-txt">"Atendimento excelente, entrega rápida e resultado acima do esperado."</p>
-          <p class="est-rv-autor">— Flávia Sussenbach · Site + SEO</p>
-        </div>
 
         <div class="est-cta">
           <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener" id="estLink" style="width:100%;justify-content:space-between;height:3.2rem">
@@ -1939,6 +1958,12 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
           </div>
         </div>
       </div>
+      <figure class="est-quote">
+        <span class="est-quote-mark" aria-hidden="true">“</span>
+        <blockquote>Atendimento excelente, entrega rápida e resultado acima do esperado.</blockquote>
+        <figcaption><img src="media/pessoas/clientes/flavia.webp" alt="" width="80" height="80" loading="lazy"><span><b>Flávia Sussenbach</b><small>Site + SEO</small></span><span class="est-quote-stars" role="img" aria-label="5 de 5 estrelas">★★★★★</span></figcaption>
+      </figure>
+
     </div>
   </div>
 </section>
