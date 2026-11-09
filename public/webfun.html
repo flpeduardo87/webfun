@@ -1093,6 +1093,17 @@ html.hdr-acid .wf-logo{background:rgba(255,255,255,.55)!important;box-shadow:0 0
 .pq-item{transition:border-color .2s,transform .2s;}
 [data-theme="dark"] .pq-item:hover{border-color:rgba(201,255,65,.45);transform:translateY(-2px);}
 </style>
+<style id="pq-links">
+.pq-n,[data-theme="light"] .pq-n,[data-theme="dark"] .pq-n{background:var(--acid)!important;color:var(--acid-fg)!important;}
+.pq-n svg{width:1rem;height:1rem;stroke-width:2.2;}
+.pq-link{display:inline-flex;align-items:center;gap:.45rem;margin-top:1rem;font-size:.85rem;font-weight:700;color:var(--acid);text-decoration:none;}
+.pq-link::after{content:'';position:absolute;inset:0;border-radius:inherit;}
+.pq-link .cta-ico svg{width:.95rem;height:.95rem;}
+.pq-item:hover .pq-link .cta-ico svg{transform:translateX(2.6rem)!important;}
+.pq-item,[data-theme="light"] .pq-item,[data-theme="dark"] .pq-item{transition:border-color .2s,transform .2s;}
+.pq-item:hover,[data-theme="light"] .pq-item:hover,[data-theme="dark"] .pq-item:hover{border-color:rgba(201,255,65,.45);transform:translateY(-2px);}
+.pq-link:focus-visible{outline:2px solid var(--acid);outline-offset:3px;border-radius:.3rem;}
+</style>
 </head>
 <body>
 
@@ -1518,9 +1529,9 @@ html.hdr-acid .wf-logo{background:rgba(255,255,255,.55)!important;box-shadow:0 0
         </div>
       </div>
       <div class="pq-items">
-        <div class="pq-item"><span class="pq-n">01</span><div><p class="pq-item-titulo">Meu site ficou para trás.</p><p class="pq-item-desc">A empresa evoluiu, mas a presença digital já não transmite o nível atual do negócio. O site parece amador diante do que você entrega.</p></div></div>
-        <div class="pq-item"><span class="pq-n">02</span><div><p class="pq-item-titulo">A operação virou retrabalho.</p><p class="pq-item-desc">Planilhas, mensagens e tarefas manuais começaram a consumir tempo demais da equipe. O que deveria ser simples se tornou um gargalo diário.</p></div></div>
-        <div class="pq-item"><span class="pq-n">03</span><div><p class="pq-item-titulo">Tenho uma ideia para tirar do papel.</p><p class="pq-item-desc">Existe um produto, sistema ou experiência que precisa virar algo funcional e bem apresentado. Você sabe o que quer — falta quem saiba como fazer.</p></div></div>
+        <div class="pq-item"><span class="pq-n" aria-hidden="true"><i data-lucide="monitor-smartphone"></i></span><div><p class="pq-item-titulo">Meu site ficou para trás.</p><p class="pq-item-desc">A empresa evoluiu, mas a presença digital já não transmite o nível atual do negócio. O site parece amador diante do que você entrega.</p><a class="pq-link" href="/servico-site">Conhecer o site institucional <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
+        <div class="pq-item"><span class="pq-n" aria-hidden="true"><i data-lucide="repeat"></i></span><div><p class="pq-item-titulo">A operação virou retrabalho.</p><p class="pq-item-desc">Planilhas, mensagens e tarefas manuais começaram a consumir tempo demais da equipe. O que deveria ser simples se tornou um gargalo diário.</p><a class="pq-link" href="/servico-automacao">Conhecer Automação & IA <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
+        <div class="pq-item"><span class="pq-n" aria-hidden="true"><i data-lucide="lightbulb"></i></span><div><p class="pq-item-titulo">Tenho uma ideia para tirar do papel.</p><p class="pq-item-desc">Existe um produto, sistema ou experiência que precisa virar algo funcional e bem apresentado. Você sabe o que quer — falta quem saiba como fazer.</p><a class="pq-link" href="/servico-sistema">Conhecer sistemas sob medida <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
     </div>
   </div>
