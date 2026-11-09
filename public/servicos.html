@@ -727,6 +727,11 @@ html.hdr-light .wf-menu>summary span{background:#17181b!important;}
 .btn-acid:hover .seta svg,.wf-topo-cta:hover .seta-sm svg,.btn-glow:hover .btn-glow-seta svg,.svc-card:hover .svc-arrow svg,.btn-form-next:hover .seta-sm svg,.form-send-btn:hover .seta svg,.svc-card:hover .svc-cta .cta-ico svg,.p-card:hover .p-link .cta-ico svg,a.ct-li:hover .cta-ico svg{transform:translateX(2.6rem)!important;}
 @media (prefers-reduced-motion:reduce){.btn-acid .seta svg,.wf-topo-cta .seta-sm svg,.btn-glow-seta svg,.svc-arrow svg,.btn-form-next .seta-sm svg,.form-send-btn .seta svg,.cta-ico svg{transition:none!important;}}
 </style>
+<style id="hdr-acid">
+.wf-logo-icon{transition:fill .35s;}
+html.hdr-acid .wf-logo-icon{fill:#1e2700!important;}
+html.hdr-acid .wf-logo{background:rgba(255,255,255,.55)!important;box-shadow:0 0 0 1px rgba(30,39,0,.14),inset 0 1px 0 rgba(255,255,255,.8),0 8px 24px rgba(30,39,0,.1)!important;color:#17181b!important;}
+</style>
 </head>
 <body>
 
@@ -1273,8 +1278,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script id="hdr-glass-js">
 (function(){
-  var html=document.documentElement,hdr=document.querySelector('.wf-topo');if(!hdr||!document.elementsFromPoint)return;
-  function lum(c){var m=c.match(/[\d.]+/g);if(!m)return null;var a=m.length>3?+m[3]:1;if(a<.5)return null;return(.2126*m[0]+.7152*m[1]+.0722*m[2])/255;}
+  var last=null,html=document.documentElement,hdr=document.querySelector('.wf-topo');if(!hdr||!document.elementsFromPoint)return;
+  function lum(c){var m=c.match(/[\d.]+/g);if(!m)return null;var a=m.length>3?+m[3]:1;if(a<.5)return null;last=[+m[0],+m[1],+m[2]];return(.2126*m[0]+.7152*m[1]+.0722*m[2])/255;}
   function bgAt(x,y){
     var els=document.elementsFromPoint(x,y);
     for(var i=0;i<els.length;i++){var el=els[i];if(hdr.contains(el))continue;
@@ -1284,12 +1289,13 @@ document.addEventListener('DOMContentLoaded', function() {
   var t=false;
   function upd(){
     t=false;
-    if(document.querySelector('.wf-menu[open]')){html.classList.remove('hdr-dark','hdr-light');return;}
+    if(document.querySelector('.wf-menu[open]')){html.classList.remove('hdr-dark','hdr-light','hdr-acid');return;}
     var r=hdr.getBoundingClientRect(),y=r.top+r.height/2,L=bgAt(Math.max(4,innerWidth*.06),y);
     if(L===null)return;
     var dark=html.getAttribute('data-theme')==='dark',bgDark=L<.45;
     html.classList.toggle('hdr-dark',!dark&&bgDark);
     html.classList.toggle('hdr-light',dark&&!bgDark);
+    html.classList.toggle('hdr-acid',!!last&&last[1]>200&&last[0]>150&&last[2]<130);
   }
   function req(){if(!t){t=true;requestAnimationFrame(upd);}}
   addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
