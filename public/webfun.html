@@ -1301,6 +1301,14 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 </style>
 <style id="no-xscroll">html,body{overflow-x:clip;}@supports not (overflow:clip){html,body{overflow-x:hidden;}}</style>
 <style id="fit-320">@media(max-width:900px){.hero-inner,.est-layout{grid-template-columns:minmax(0,1fr)!important;}.hero-left,.hero-right,.est-form,.est-result{min-width:0;}}</style>
+<style id="proc-stack">
+@media (max-width:800px){
+  .steps{flex-direction:column;overflow:visible;scroll-snap-type:none;margin-inline:0;padding-inline:0;padding-bottom:1rem;gap:.75rem;}
+  .step{flex:none;max-width:none;position:sticky!important;top:calc(5.4rem + var(--i,0) * 1rem)!important;scroll-snap-align:none;box-shadow:0 -14px 30px rgba(0,0,0,.18);}
+  .step h3{font-size:1.45rem;}
+  .proc-dots{display:none!important;}
+}
+</style>
 </head>
 <body>
 
@@ -1752,11 +1760,9 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
       </div>
       <ol class="steps">
         <li class="step" style="--i:0"><div class="step-top"><span class="step-n">Etapa 01 · Diagnóstico</span><span class="step-dur">30–60 min</span></div><h3>Entender o negócio.</h3><p class="step-desc">Objetivos, público, concorrência, oferta e o que a experiência precisa resolver. Nenhum template, nenhum achismo.</p></li>
-        <li class="step" style="--i:1"><div class="step-top"><span class="step-n">Etapa 02 · Estrutura</span><span class="step-dur">24–48h</span></div><h3>Desenhar a jornada.</h3><p class="step-desc">Arquitetura das páginas, hierarquia, fluxos e funcionalidades definidas antes do acabamento visual.</p></li>
-        <li class="step" style="--i:2"><div class="step-top"><span class="step-n">Etapa 03 · Direção Visual</span><span class="step-dur">Você aprova tudo</span></div><h3>Criar percepção.</h3><p class="step-desc">Cores, tipografia, imagens e componentes. O que você vê é o que vai ao ar — sem surpresa no final.</p></li>
-        <li class="step" style="--i:3"><div class="step-top"><span class="step-n">Etapa 04 · Desenvolvimento</span><span class="step-dur">Semanas</span></div><h3>Transformar em produto.</h3><p class="step-desc">Código limpo, rápido e testado. Responsividade, interações, performance e integrações.</p></li>
-        <li class="step" style="--i:4"><div class="step-top"><span class="step-n">Etapa 05 · Validação</span><span class="step-dur">Antes do lançamento</span></div><h3>Testar os detalhes.</h3><p class="step-desc">Desktop, mobile, formulários, links, legibilidade e experiência final. Nada vai ao ar sem passar por isso.</p></li>
-        <li class="step" style="--i:5"><div class="step-top"><span class="step-n">Etapa 06 · Evolução</span><span class="step-dur">Contínuo</span></div><h3>Continuar melhorando.</h3><p class="step-desc">SEO, tráfego, manutenção e novas funcionalidades conforme o negócio cresce. Entregar é o começo da parceria.</p></li>
+        <li class="step" style="--i:1"><div class="step-top"><span class="step-n">Etapa 02 · Planejamento e design</span><span class="step-dur">Você aprova tudo</span></div><h3>Desenhar a experiência.</h3><p class="step-desc">Jornada, páginas e visual definidos antes do código. Você aprova cada tela e o que vê é o que vai ao ar.</p></li>
+        <li class="step" style="--i:2"><div class="step-top"><span class="step-n">Etapa 03 · Desenvolvimento</span><span class="step-dur">Semanas</span></div><h3>Transformar em produto.</h3><p class="step-desc">Código limpo, rápido e testado em celular e computador. Nada vai ao ar sem passar pela validação.</p></li>
+        <li class="step" style="--i:3"><div class="step-top"><span class="step-n">Etapa 04 · Lançamento e evolução</span><span class="step-dur">Contínuo</span></div><h3>Ir ao ar e continuar crescendo.</h3><p class="step-desc">Publicamos, acompanhamos os primeiros resultados e evoluímos com SEO, manutenção e novas funcionalidades. Entregar é o começo da parceria.</p></li>
       </ol>
       <div class="proc-dots" aria-hidden="true"></div>
     </div>
