@@ -745,6 +745,16 @@ html.hdr-acid .wf-logo{background:rgba(255,255,255,.55)!important;box-shadow:0 0
 ::view-transition-new(root){z-index:2;}
 html.vt-sem-trans *,html.vt-sem-trans *::before,html.vt-sem-trans *::after{transition:none!important;}
 </style>
+<style id="cta-final-preto">
+.cta-final .btn-acid{background:#000!important;color:#fff!important;opacity:1!important;position:relative;isolation:isolate;overflow:hidden;}
+.cta-final .btn-acid:hover{background:#111!important;}
+.cta-final .btn-acid::before{content:'';position:absolute;z-index:-1;top:-30%;bottom:-30%;left:0;width:58%;pointer-events:none;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.06) 30%,rgba(255,255,255,.32) 50%,rgba(255,255,255,.06) 70%,rgba(255,255,255,0) 100%);transform:translateX(-160%) skewX(-20deg);animation:ctaShine 6.5s cubic-bezier(.45,0,.25,1) infinite;}
+@media (prefers-reduced-motion:reduce){.cta-final .btn-acid::before{display:none;}}
+/* header sobre secao lime: CTA do topo vira preto para nao sumir no fundo */
+html.hdr-acid .wf-topo-cta{background:#000!important;color:#fff!important;box-shadow:0 8px 24px rgba(0,0,0,.18)!important;transition:background .35s,color .35s;}
+html.hdr-acid .wf-topo-cta .seta-sm{background:var(--acid)!important;color:var(--acid-fg)!important;}
+html.hdr-acid .wf-topo-cta::before{background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.06) 30%,rgba(255,255,255,.32) 50%,rgba(255,255,255,.06) 70%,rgba(255,255,255,0) 100%)!important;}
+</style>
 </head>
 <body>
 
