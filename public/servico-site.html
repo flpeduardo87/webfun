@@ -718,6 +718,13 @@ html.hdr-light .wf-menu>summary span{background:#17181b!important;}
 @keyframes ctaShineOnce{from{transform:translateX(-160%) skewX(-20deg);}to{transform:translateX(340%) skewX(-20deg);}}
 @media (prefers-reduced-motion:reduce){.btn-acid:hover .seta svg,.wf-topo-cta:hover .seta-sm svg,.btn-glow:hover .btn-glow-seta svg,.svc-card:hover .svc-arrow svg,.btn-form-next:hover .seta-sm svg,.form-send-btn:hover .seta svg,.svc-card:hover .svc-cta svg{animation:none;}.svc-cta::before{display:none;}}
 </style>
+<style id="cta-arrow2">
+/* seta: sai e a nova fica enquanto o mouse estiver em cima; volta ao sair */
+.cta-ico{display:inline-grid;place-items:center;overflow:hidden;vertical-align:middle;flex-shrink:0;}
+.btn-acid .seta svg,.wf-topo-cta .seta-sm svg,.btn-glow-seta svg,.svc-arrow svg,.btn-form-next .seta-sm svg,.form-send-btn .seta svg,.cta-ico svg{animation:none!important;filter:drop-shadow(-2.6rem 0 0 currentColor);transition:transform .5s cubic-bezier(.65,0,.35,1)!important;}
+.btn-acid:hover .seta svg,.wf-topo-cta:hover .seta-sm svg,.btn-glow:hover .btn-glow-seta svg,.svc-card:hover .svc-arrow svg,.btn-form-next:hover .seta-sm svg,.form-send-btn:hover .seta svg,.svc-card:hover .svc-cta .cta-ico svg,.p-card:hover .p-link .cta-ico svg,a.ct-li:hover .cta-ico svg{transform:translateX(2.6rem)!important;}
+@media (prefers-reduced-motion:reduce){.btn-acid .seta svg,.wf-topo-cta .seta-sm svg,.btn-glow-seta svg,.svc-arrow svg,.btn-form-next .seta-sm svg,.form-send-btn .seta svg,.cta-ico svg{transition:none!important;}}
+</style>
 </head>
 <body>
 

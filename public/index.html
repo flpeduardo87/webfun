@@ -1007,6 +1007,13 @@ html.hdr-light .wf-menu>summary span{background:#17181b!important;}
 @keyframes ctaShineOnce{from{transform:translateX(-160%) skewX(-20deg);}to{transform:translateX(340%) skewX(-20deg);}}
 @media (prefers-reduced-motion:reduce){.btn-acid:hover .seta svg,.wf-topo-cta:hover .seta-sm svg,.btn-glow:hover .btn-glow-seta svg,.svc-card:hover .svc-arrow svg,.btn-form-next:hover .seta-sm svg,.form-send-btn:hover .seta svg,.svc-card:hover .svc-cta svg{animation:none;}.svc-cta::before{display:none;}}
 </style>
+<style id="cta-arrow2">
+/* seta: sai e a nova fica enquanto o mouse estiver em cima; volta ao sair */
+.cta-ico{display:inline-grid;place-items:center;overflow:hidden;vertical-align:middle;flex-shrink:0;}
+.btn-acid .seta svg,.wf-topo-cta .seta-sm svg,.btn-glow-seta svg,.svc-arrow svg,.btn-form-next .seta-sm svg,.form-send-btn .seta svg,.cta-ico svg{animation:none!important;filter:drop-shadow(-2.6rem 0 0 currentColor);transition:transform .5s cubic-bezier(.65,0,.35,1)!important;}
+.btn-acid:hover .seta svg,.wf-topo-cta:hover .seta-sm svg,.btn-glow:hover .btn-glow-seta svg,.svc-card:hover .svc-arrow svg,.btn-form-next:hover .seta-sm svg,.form-send-btn:hover .seta svg,.svc-card:hover .svc-cta .cta-ico svg,.p-card:hover .p-link .cta-ico svg,a.ct-li:hover .cta-ico svg{transform:translateX(2.6rem)!important;}
+@media (prefers-reduced-motion:reduce){.btn-acid .seta svg,.wf-topo-cta .seta-sm svg,.btn-glow-seta svg,.svc-arrow svg,.btn-form-next .seta-sm svg,.form-send-btn .seta svg,.cta-ico svg{transition:none!important;}}
+</style>
 </head>
 <body>
 
@@ -1213,7 +1220,7 @@ html.hdr-light .wf-menu>summary span{background:#17181b!important;}
           <div><span class="svc-from">A partir de</span><span class="svc-val">R$ 1.500</span></div>
           <span class="svc-tempo">~3 semanas</span>
         </div>
-        <div class="svc-cta">Criar meu site <i data-lucide="arrow-right"></i></div>
+        <div class="svc-cta">Criar meu site <span class="cta-ico"><i data-lucide="arrow-right"></i></span></div>
       </a>
 
       <a href="/servico-loja" class="svc-card">
@@ -1228,7 +1235,7 @@ html.hdr-light .wf-menu>summary span{background:#17181b!important;}
           <div><span class="svc-from">A partir de</span><span class="svc-val">R$ 2.000</span></div>
           <span class="svc-tempo">+R$ 250/mês</span>
         </div>
-        <div class="svc-cta">Montar minha loja <i data-lucide="arrow-right"></i></div>
+        <div class="svc-cta">Montar minha loja <span class="cta-ico"><i data-lucide="arrow-right"></i></span></div>
       </a>
 
       <a href="/servico-landing" class="svc-card">
@@ -1243,7 +1250,7 @@ html.hdr-light .wf-menu>summary span{background:#17181b!important;}
           <div><span class="svc-from">A partir de</span><span class="svc-val">R$ 750</span></div>
           <span class="svc-tempo">~2 semanas</span>
         </div>
-        <div class="svc-cta">Criar minha landing <i data-lucide="arrow-right"></i></div>
+        <div class="svc-cta">Criar minha landing <span class="cta-ico"><i data-lucide="arrow-right"></i></span></div>
       </a>
 
       <a href="/servico-sistema" class="svc-card">
@@ -1258,7 +1265,7 @@ html.hdr-light .wf-menu>summary span{background:#17181b!important;}
           <div><span class="svc-val">Sob consulta</span></div>
           <span class="svc-tempo">Proposta sob medida</span>
         </div>
-        <div class="svc-cta">Desenvolver sistema <i data-lucide="arrow-right"></i></div>
+        <div class="svc-cta">Desenvolver sistema <span class="cta-ico"><i data-lucide="arrow-right"></i></span></div>
       </a>
 
       <a href="/servico-automacao" class="svc-card">
@@ -1273,7 +1280,7 @@ html.hdr-light .wf-menu>summary span{background:#17181b!important;}
           <div><span class="svc-val">Sob consulta</span></div>
           <span class="svc-tempo">Proposta sob medida</span>
         </div>
-        <div class="svc-cta">Automatizar agora <i data-lucide="arrow-right"></i></div>
+        <div class="svc-cta">Automatizar agora <span class="cta-ico"><i data-lucide="arrow-right"></i></span></div>
       </a>
 
       <a href="/servico-app" class="svc-card">
@@ -1288,7 +1295,7 @@ html.hdr-light .wf-menu>summary span{background:#17181b!important;}
           <div><span class="svc-val">Sob consulta</span></div>
           <span class="svc-tempo">Proposta sob medida</span>
         </div>
-        <div class="svc-cta">Criar meu app <i data-lucide="arrow-right"></i></div>
+        <div class="svc-cta">Criar meu app <span class="cta-ico"><i data-lucide="arrow-right"></i></span></div>
       </a>
 
     </div>
@@ -1318,47 +1325,47 @@ html.hdr-light .wf-menu>summary span{background:#17181b!important;}
 
       <div class="p-card" data-cat="loja" data-tipo="cliente">
         <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/azaff.webp') center/contain no-repeat"></div></div>
-        <div class="p-info"><p class="p-ey">Loja virtual · Moda</p><p class="p-nome">AZAFF</p><p class="p-desc">E-commerce de moda feminina com identidade minimalista, catálogo e checkout otimizado.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://lojasazaff.com.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto AZAFF">Ver projeto <i data-lucide="arrow-right"></i></a></div></div>
+        <div class="p-info"><p class="p-ey">Loja virtual · Moda</p><p class="p-nome">AZAFF</p><p class="p-desc">E-commerce de moda feminina com identidade minimalista, catálogo e checkout otimizado.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://lojasazaff.com.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto AZAFF">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
       <div class="p-card" data-cat="sistema" data-tipo="cliente">
         <div class="p-thumb"><div class="p-thumb-bg" style="background:url('media/portfolio/canoinhas-tenis-clube.webp') center/contain no-repeat"></div></div>
-        <div class="p-info"><p class="p-ey">Sistema · Clube esportivo</p><p class="p-nome">Canoinhas Tênis Clube</p><p class="p-desc">Site institucional + sistema de reservas de quadras, churrasqueiras e gestão de sócios.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://canoinhas-tenis-clube.vercel.app/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Canoinhas Tênis Clube">Ver projeto <i data-lucide="arrow-right"></i></a></div></div>
+        <div class="p-info"><p class="p-ey">Sistema · Clube esportivo</p><p class="p-nome">Canoinhas Tênis Clube</p><p class="p-desc">Site institucional + sistema de reservas de quadras, churrasqueiras e gestão de sócios.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://canoinhas-tenis-clube.vercel.app/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Canoinhas Tênis Clube">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
       <div class="p-card" data-cat="site" data-tipo="cliente">
         <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/mielke-energia-solar.webp') center/contain no-repeat"></div></div>
-        <div class="p-info"><p class="p-ey">Site · Energia solar</p><p class="p-nome">Mielke Energia Solar</p><p class="p-desc">Site de geração de leads para instaladora solar com portfólio de projetos entregues.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://mielkeenergiasolar.com.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Mielke Energia Solar">Ver projeto <i data-lucide="arrow-right"></i></a></div></div>
+        <div class="p-info"><p class="p-ey">Site · Energia solar</p><p class="p-nome">Mielke Energia Solar</p><p class="p-desc">Site de geração de leads para instaladora solar com portfólio de projetos entregues.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://mielkeenergiasolar.com.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Mielke Energia Solar">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
       <div class="p-card" data-cat="loja" data-tipo="cliente">
         <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/wasabi.webp') center/contain no-repeat"></div></div>
-        <div class="p-info"><p class="p-ey">Loja virtual · Delivery</p><p class="p-nome">Wasabi Sushi Bar</p><p class="p-desc">Delivery online para restaurante japonês em Dublin, com cardápio digital e pedidos pelo site.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://wasabisushibar.ie/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Wasabi Sushi Bar">Ver projeto <i data-lucide="arrow-right"></i></a></div></div>
+        <div class="p-info"><p class="p-ey">Loja virtual · Delivery</p><p class="p-nome">Wasabi Sushi Bar</p><p class="p-desc">Delivery online para restaurante japonês em Dublin, com cardápio digital e pedidos pelo site.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://wasabisushibar.ie/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Wasabi Sushi Bar">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
       <div class="p-card" data-cat="site" data-tipo="cliente">
         <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/flavia-sussenbach.webp') center/contain no-repeat"></div></div>
-        <div class="p-info"><p class="p-ey">Site · Advocacia</p><p class="p-nome">Flávia Sussenbach</p><p class="p-desc">Site para escritório de advocacia com foco em autoridade, credibilidade e captação de consultas.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://flaviasussenbachadvogados.com.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Flávia Sussenbach">Ver projeto <i data-lucide="arrow-right"></i></a></div></div>
+        <div class="p-info"><p class="p-ey">Site · Advocacia</p><p class="p-nome">Flávia Sussenbach</p><p class="p-desc">Site para escritório de advocacia com foco em autoridade, credibilidade e captação de consultas.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://flaviasussenbachadvogados.com.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Flávia Sussenbach">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
       <div class="p-card" data-cat="landing" data-tipo="cliente">
         <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/elisangela-pontes.webp') center/contain no-repeat"></div></div>
-        <div class="p-info"><p class="p-ey">Landing page · Advocacia</p><p class="p-nome">Elisangela Pontes</p><p class="p-desc">Landing page para advocacia especializada em blindagem jurídica e riscos.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://elisangelapontes.adv.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Elisangela Pontes">Ver projeto <i data-lucide="arrow-right"></i></a></div></div>
+        <div class="p-info"><p class="p-ey">Landing page · Advocacia</p><p class="p-nome">Elisangela Pontes</p><p class="p-desc">Landing page para advocacia especializada em blindagem jurídica e riscos.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://elisangelapontes.adv.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Elisangela Pontes">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
       <div class="p-card" data-cat="landing" data-tipo="cliente">
         <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/com-cristo-kids.webp') center/contain no-repeat"></div></div>
-        <div class="p-info"><p class="p-ey">Landing page · Educação</p><p class="p-nome">Com Cristo Kids</p><p class="p-desc">Landing page de alta conversão para biblioteca cristã infantil digital com checkout integrado.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://comcristokids.com.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Com Cristo Kids">Ver projeto <i data-lucide="arrow-right"></i></a></div></div>
+        <div class="p-info"><p class="p-ey">Landing page · Educação</p><p class="p-nome">Com Cristo Kids</p><p class="p-desc">Landing page de alta conversão para biblioteca cristã infantil digital com checkout integrado.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://comcristokids.com.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Com Cristo Kids">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
       <div class="p-card" data-cat="site" data-tipo="conceito">
         <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/lume.webp') center/contain no-repeat"></div></div>
-        <div class="p-info"><p class="p-ey">Site · Odontologia</p><p class="p-nome">LUME Odontologia</p><p class="p-desc">Site de alta conversão para clínica odontológica com agendamento online e área do paciente.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Projeto conceito</span><a href="https://webfun.com.br/modelos/lume/index.html" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto LUME Odontologia">Ver projeto <i data-lucide="arrow-right"></i></a></div></div>
+        <div class="p-info"><p class="p-ey">Site · Odontologia</p><p class="p-nome">LUME Odontologia</p><p class="p-desc">Site de alta conversão para clínica odontológica com agendamento online e área do paciente.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Projeto conceito</span><a href="https://webfun.com.br/modelos/lume/index.html" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto LUME Odontologia">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
       <div class="p-card" data-cat="sistema" data-tipo="conceito">
         <div class="p-thumb"><div class="p-thumb-bg" style="background:url('media/portfolio/match.webp') center/contain no-repeat"></div></div>
-        <div class="p-info"><p class="p-ey">Sistema · Clube de raquete</p><p class="p-nome">MATCH Racquet Club</p><p class="p-desc">Plataforma completa para clube de raquete com reservas, planos de sócios e agenda de eventos.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Projeto conceito</span><a href="https://webfun.com.br/modelos/match/index.html" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto MATCH Racquet Club">Ver projeto <i data-lucide="arrow-right"></i></a></div></div>
+        <div class="p-info"><p class="p-ey">Sistema · Clube de raquete</p><p class="p-nome">MATCH Racquet Club</p><p class="p-desc">Plataforma completa para clube de raquete com reservas, planos de sócios e agenda de eventos.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Projeto conceito</span><a href="https://webfun.com.br/modelos/match/index.html" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto MATCH Racquet Club">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
     </div>
