@@ -702,6 +702,23 @@ html.hdr-acid .wf-topo-cta{background:#000!important;color:#fff!important;box-sh
 html.hdr-acid .wf-topo-cta .seta-sm{background:var(--acid)!important;color:var(--acid-fg)!important;}
 html.hdr-acid .wf-topo-cta::before{background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.06) 30%,rgba(255,255,255,.32) 50%,rgba(255,255,255,.06) 70%,rgba(255,255,255,0) 100%)!important;}
 </style>
+<style id="ct-hero2">
+.ct-ctas{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-top:2rem;}
+.ct-ctas .btn-acid{height:3rem;}
+.ct-ctas .btn-acid .seta{width:2.3rem;height:2.3rem;border-radius:50%;display:grid;place-items:center;background:var(--acid-fg);color:var(--acid);}
+.ct-ctas .btn-acid .seta svg{width:1rem;height:1rem;}
+.ct-btn-ghost{display:inline-flex;align-items:center;height:3rem;padding:0 1.4rem;border-radius:999px;border:1px solid var(--line);font-size:.92rem;font-weight:600;color:var(--ink);text-decoration:none;transition:border-color .2s,color .2s;}
+.ct-btn-ghost:hover{border-color:var(--acid);color:var(--acid);}
+[data-theme="light"] .ct-btn-ghost:hover{border-color:var(--ink);color:var(--ink);}
+#formCard{scroll-margin-top:6.5rem;}
+/* lateral termina junto com o formulario: o card do WhatsApp cresce e o horario desce para a base */
+@media(min-width:901px){.ct-wcard{flex:1;display:flex;flex-direction:column;}.ct-wcard>.ct-hours{margin-top:auto;}}
+@media(min-width:901px){
+  .ct-stage{max-width:540px!important;}
+  .ct-chip-a{top:42%!important;left:-2.4rem!important;}
+}
+@media(max-width:500px){.ct-ctas .btn-acid,.ct-btn-ghost{width:100%;justify-content:space-between;}.ct-btn-ghost{justify-content:center;}}
+</style>
 </head>
 <body>
 
@@ -780,6 +797,10 @@ html.hdr-acid .wf-topo-cta::before{background:linear-gradient(100deg,rgba(255,25
       <span class="pg-tag"><i data-lucide="message-circle"></i> Contato</span>
       <h1>Vamos conversar<br>sobre o seu projeto.</h1>
       <p>Conte o que precisa. Respondemos em até 1 dia útil com uma análise honesta do que faz sentido para o seu momento.</p>
+      <div class="hero-ctas ct-ctas">
+        <a href="https://wa.me/5547997618824?text=Oi!%20Vim%20pelo%20site%20e%20quero%20conversar%20sobre%20um%20projeto." class="btn-acid" target="_blank" rel="noopener">Chamar no WhatsApp <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+        <a href="#formCard" class="ct-btn-ghost">Preencher formulário</a>
+      </div>
     </div>
     <div class="ct-vis" aria-hidden="true"><div class="ct-glow"></div><div class="ct-stage">
       <div class="ct-chat">

@@ -643,6 +643,32 @@ html.hdr-acid .wf-topo-cta{background:#000!important;color:#fff!important;box-sh
 html.hdr-acid .wf-topo-cta .seta-sm{background:var(--acid)!important;color:var(--acid-fg)!important;}
 html.hdr-acid .wf-topo-cta::before{background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.06) 30%,rgba(255,255,255,.32) 50%,rgba(255,255,255,.06) 70%,rgba(255,255,255,0) 100%)!important;}
 </style>
+<style id="sb-bento">
+.sb-stage{display:grid!important;grid-template-columns:1.35fr 1fr;grid-template-rows:1fr 1fr;gap:.85rem;height:24rem;}
+.sb-tile{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;width:auto!important;height:auto!important;transform:none!important;animation:sbUp .8s cubic-bezier(.16,1,.3,1) both!important;min-height:0;}
+.sb-main{grid-row:1 / span 2;animation-delay:.25s!important;}
+.sb-tr{grid-column:2;grid-row:1;animation-delay:.4s!important;}
+.sb-bl{grid-column:2;grid-row:2;animation-delay:.55s!important;}
+.sb-tr .sb-cap{left:.75rem!important;right:auto!important;}
+.sb-img{transition:transform .6s cubic-bezier(.16,1,.3,1);}
+.sb-tile:hover .sb-img{transform:scale(1.05);}
+.sb-tile{transition:border-color .3s;}
+.sb-tile:hover{border-color:rgba(201,255,65,.35);}
+@keyframes sbUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+/* chips nos cantos de fora da grade */
+.sb-chip-a{top:-1.3rem!important;left:-1.2rem!important;bottom:auto!important;}
+.sb-chip-b{top:-1.3rem!important;right:0!important;bottom:auto!important;}
+@media(max-width:900px){
+  .sb-stage{grid-template-columns:1fr 1fr;grid-template-rows:1.4fr 1fr;height:22rem;max-width:520px;}
+  .sb-main{grid-column:1 / span 2;grid-row:1;}
+  .sb-tr{grid-column:1;grid-row:2;}
+  .sb-bl{grid-column:2;grid-row:2;}
+  .sb-chip-a{left:-.3rem!important;top:-1rem!important;}
+  .sb-chip-b{right:-.3rem!important;top:-1rem!important;bottom:auto!important;}
+}
+@media(max-width:600px){.sb-stage{height:19rem;gap:.6rem;}.sb-img{inset:.45rem .45rem 2rem;}.sb-cap{left:.6rem!important;bottom:.55rem;}}
+@media(prefers-reduced-motion:reduce){.sb-tile{animation:none!important;}}
+</style>
 </head>
 <body>
 
