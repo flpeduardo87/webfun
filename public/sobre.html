@@ -626,6 +626,11 @@ html.hdr-acid .wf-logo{background:rgba(255,255,255,.55)!important;box-shadow:0 0
 .hx-phone,.hx-chip,.vchip,.sb-chip,.ct-chip,.pj-chip,.bl-chip,.or-chip{transform:none!important;}
 @media(min-width:901px){.vchip-a,.ct-chip-b,.pj-chip-b,.bl-chip-b,.sb-chip-b{right:0!important;}}
 </style>
+<style id="theme-vt">
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal;}
+::view-transition-new(root){z-index:2;}
+html.vt-sem-trans *,html.vt-sem-trans *::before,html.vt-sem-trans *::after{transition:none!important;}
+</style>
 </head>
 <body>
 
@@ -1079,6 +1084,26 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.sb-rv-card').forEach(function(c){
     c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});
   });
+})();
+</script>
+<script id="theme-vt-js">
+(function(){
+  var btn=document.getElementById('themeToggle');if(!btn)return;
+  var orig=btn.onclick;if(typeof orig!=='function')return;
+  btn.onclick=function(e){
+    var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!document.startViewTransition||rm)return orig.call(btn,e);
+    var r=btn.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
+    var R=Math.hypot(Math.max(x,innerWidth-x),Math.max(y,innerHeight-y));
+    var html=document.documentElement;
+    html.classList.add('vt-sem-trans');
+    var t=document.startViewTransition(function(){orig.call(btn,e);});
+    t.ready.then(function(){
+      html.animate({clipPath:['circle(0px at '+x+'px '+y+'px)','circle('+R+'px at '+x+'px '+y+'px)']},
+        {duration:700,easing:'cubic-bezier(.65,0,.35,1)',pseudoElement:'::view-transition-new(root)'});
+    }).catch(function(){});
+    t.finished.finally(function(){html.classList.remove('vt-sem-trans');});
+  };
 })();
 </script>
 </body>
