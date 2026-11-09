@@ -573,6 +573,15 @@ html.hdr-light .wf-logo,html.hdr-light .wf-theme-btn,html.hdr-light .wf-theme-bt
 html.hdr-light .wf-nav>a:not(.ativo):hover,html.hdr-light .wf-nav-grupo>a:not(.ativo):hover{background:#17181b!important;color:#fff!important;}
 html.hdr-light .wf-menu>summary span{background:#17181b!important;}
 </style>
+<style id="pg-tag-css">
+.pg-tag{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:.4rem;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acid);background:rgba(201,255,65,.1);border:1px solid rgba(201,255,65,.3);border-radius:999px;padding:.28rem .85rem;margin-bottom:1.1rem;animation:pgTagIn .5s .05s both;}
+.pg-tag svg{width:.75rem;height:.75rem;stroke-width:2.5;pointer-events:none;}
+.pg-tag::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(201,255,65,.2),transparent);border-radius:inherit;animation:pgTagShimmer 4s ease-in-out 1.5s infinite;pointer-events:none;}
+[data-theme="light"] .pg-tag{color:var(--acid-fg);background:rgba(30,39,0,.07);border-color:rgba(30,39,0,.15);}
+@keyframes pgTagShimmer{0%{transform:translateX(-200%);}100%{transform:translateX(300%);}}
+@keyframes pgTagIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+@media(prefers-reduced-motion:reduce){.pg-tag,.pg-tag::after{animation:none;}}
+</style>
 </head>
 <body>
 
@@ -649,7 +658,7 @@ html.hdr-light .wf-menu>summary span{background:#17181b!important;}
 <section class="page-hero">
   <div class="wrap sb-grid">
     <div class="sb-txt">
-      <span class="eyebrow">Sobre a Webfun</span>
+      <span class="pg-tag"><i data-lucide="info"></i> Sobre a Webfun</span>
       <h1>Design que pensa.<br>Código que funciona.</h1>
       <p>Serviços digitais sob medida — da definição da solução até a publicação. Cada projeto tem um responsável único do início ao fim.</p>
     </div>
