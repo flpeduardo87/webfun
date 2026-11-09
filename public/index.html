@@ -1164,6 +1164,20 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 @media(max-width:900px){.stats-bento.sb2{grid-template-columns:1fr 1fr;}.sb2 .st-proj,.sb2 .st-rate{grid-column:span 2;}.sb2 .st-map,.sb2 .st-anos{grid-column:auto;}}
 @media(max-width:500px){.stats-bento.sb2{grid-template-columns:1fr;}.sb2 .st-proj,.sb2 .st-rate,.sb2 .st-map,.sb2 .st-anos{grid-column:auto;}.st-map .stat-ctx,.st-anos .stat-ctx{min-height:0;}}
 </style>
+<style id="stats-bento3">
+.stats-bento.sb2{grid-template-columns:repeat(10,1fr);}
+.sb2 .st-proj{grid-column:span 6;}
+.sb2 .st-rate{grid-column:span 4;}
+.sb2 .st-map,.sb2 .st-anos{grid-column:span 5;}
+/* 50+ e 4,8 na mesma altura: numero logo abaixo do titulo, sobra vai para baixo */
+.sb2 .st-proj,.sb2 .st-rate{justify-content:flex-start!important;}
+.st-proj>div:not(.st-mq){margin-top:0!important;}
+.st-proj .st-mq{margin-top:auto;padding-top:1.75rem;}
+.st-rate-body{flex:1;margin-top:0!important;justify-content:flex-start;}
+.st-rate-side{margin-top:auto;}
+@media(max-width:900px){.stats-bento.sb2{grid-template-columns:1fr 1fr;}.sb2 .st-proj,.sb2 .st-rate{grid-column:span 2;}.sb2 .st-map,.sb2 .st-anos{grid-column:auto;}}
+@media(max-width:500px){.stats-bento.sb2{grid-template-columns:1fr;}.sb2 .st-proj,.sb2 .st-rate,.sb2 .st-map,.sb2 .st-anos{grid-column:auto;}}
+</style>
 </head>
 <body>
 
@@ -1616,7 +1630,7 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
         </svg>
         <div>
           <p class="stat-num" data-target="8" data-suffix="+">0</p>
-          <p class="stat-ctx">De SC ao exterior, atendemos todo o Brasil.</p>
+          <p class="stat-ctx">Atendemos todo o Brasil, de SC ao exterior.</p>
         </div>
       </div>
       <div class="stat-card st-anos">
