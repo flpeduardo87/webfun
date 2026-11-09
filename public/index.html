@@ -1242,6 +1242,7 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 @media (prefers-reduced-motion:reduce){#estLink::before{display:none;}}
 </style>
 <style id="hx-n-mob">@media(max-width:600px){.hx-scr{padding-top:1.45rem;}.hx-lock{margin-bottom:.4rem;}.hx-lock b{font-size:1.25rem;}.hx-lock small{font-size:.44rem;}.hx-notifs{gap:.22rem;}.hx-n>span:last-child{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}}@media(max-width:380px){.hx-phone{width:45%;}.hx-n{font-size:.44rem;padding:.3rem;}.hx-n b{font-size:.48rem;}.hx-n-ico{width:1.05rem;height:1.05rem;border-radius:.3rem;}.hx-lock b{font-size:1.1rem;}}</style>
+<style id="no-xscroll">html,body{overflow-x:clip;}@supports not (overflow:clip){html,body{overflow-x:hidden;}}</style>
 </head>
 <body>
 
@@ -2155,7 +2156,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var d=new Date(),p=function(n){return(n<10?'0':'')+n;};
   document.getElementById('hxTime').textContent=d.getHours()+':'+p(d.getMinutes());
   document.getElementById('hxDate').textContent=d.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});
-  var nT=[];function notify(i){nT.forEach(clearTimeout);nT=[];box.innerHTML='';var g=tpl.filter(function(n){return n.getAttribute('data-g')==String(i);}).reverse();g.forEach(function(src,k){nT.push(setTimeout(function(){var n=src.cloneNode(true);box.insertBefore(n,box.firstChild);if(rm){n.classList.add('in');return;}requestAnimationFrame(function(){requestAnimationFrame(function(){n.classList.add('in');});});},rm?0:180+k*420));});}
+  var nT=[];function notify(i){nT.forEach(clearTimeout);nT=[];box.innerHTML='';var g=tpl.filter(function(n){return n.getAttribute('data-g')==String(i);}).reverse();g.forEach(function(src,k){nT.push(setTimeout(function(){var n=src.cloneNode(true);box.insertBefore(n,box.firstChild);if(rm){n.classList.add('in');return;}requestAnimationFrame(function(){requestAnimationFrame(function(){n.classList.add('in');});});},rm?0:300+k*2000));});}
   function go(i){
     if(i===cur)return;
     tabs[cur].classList.remove('on');scenes[cur].classList.remove('on');
