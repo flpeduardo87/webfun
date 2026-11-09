@@ -1275,6 +1275,15 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 .est-quote-stars{margin-left:auto;font-size:.85rem;letter-spacing:.1em;color:var(--acid);}
 [data-theme="light"] .est-quote-stars{color:#7fa800;}
 </style>
+<style id="width-fix">
+/* mesma largura do menu em todo o site: 1320px de conteudo + margens laterais */
+.wrap{max-width:calc(var(--max) + 2 * var(--gutter));}
+.hero-svc-inner{max-width:var(--max);margin-inline:auto;}
+.page-hero>.wrap,.svc-hero>.wrap,.newsletter>.wrap{padding-inline:0;max-width:var(--max);}
+/* sem profundidade 3D sobrando no hero: celular e chips dentro da borda */
+.hx-phone,.hx-chip,.vchip,.sb-chip,.ct-chip,.pj-chip,.bl-chip,.or-chip{transform:none!important;}
+@media(min-width:901px){.vchip-a,.ct-chip-b,.pj-chip-b,.bl-chip-b,.sb-chip-b{right:0!important;}}
+</style>
 </head>
 <body>
 
