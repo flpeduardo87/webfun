@@ -1147,6 +1147,23 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 @media(prefers-reduced-motion:reduce){.st-mq-track,.st-ring{animation:none;}}
 </style>
 <style id="st-ext-lbl">.st-ext-lbl{font-size:2.6px;font-weight:700;letter-spacing:.04em;fill:var(--acid);opacity:.85;}[data-theme="light"] .st-ext-lbl{fill:var(--acid-fg);}.st-ext{fill:var(--acid);fill-opacity:.25;}</style>
+<style id="stats-bento2">
+.stats-bento.sb2{grid-template-columns:repeat(5,1fr);grid-template-rows:auto;}
+.sb2 .st-proj{grid-row:auto;grid-column:span 3;}
+.sb2 .st-rate{grid-column:span 2;}
+.sb2 .st-map{grid-column:span 2;}
+.sb2 .st-anos{grid-column:span 3;}
+.st-proj .st-mq{margin-top:1.75rem;}
+.st-rate-body{flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:1.4rem;}
+.st-rate-side{max-width:none;display:flex;align-items:center;gap:.85rem;}
+.st-rate-side .st-avs{margin-bottom:0;flex-shrink:0;}
+.st-rate-side .stat-ctx{margin-top:0;}
+.st-anos .st-tl{margin-top:2.4rem;max-width:30rem;}
+.st-map>div:last-child,.st-anos>div:last-child{margin-top:auto;}
+.st-map .stat-ctx,.st-anos .stat-ctx{min-height:3.1em;}
+@media(max-width:900px){.stats-bento.sb2{grid-template-columns:1fr 1fr;}.sb2 .st-proj,.sb2 .st-rate{grid-column:span 2;}.sb2 .st-map,.sb2 .st-anos{grid-column:auto;}}
+@media(max-width:500px){.stats-bento.sb2{grid-template-columns:1fr;}.sb2 .st-proj,.sb2 .st-rate,.sb2 .st-map,.sb2 .st-anos{grid-column:auto;}.st-map .stat-ctx,.st-anos .stat-ctx{min-height:0;}}
+</style>
 </head>
 <body>
 
@@ -1604,12 +1621,12 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
       </div>
       <div class="stat-card st-anos">
         <span class="stat-ey">anos no mercado</span>
+        <div class="st-tl" aria-hidden="true">
+          <div class="st-tl-bar"><i></i></div>
+          <div class="st-tl-ticks"><span>2021</span><span></span><span></span><span></span><span></span><span>Hoje</span></div>
+        </div>
         <div>
           <p class="stat-num" data-target="5" data-suffix="+">0</p>
-          <div class="st-tl" aria-hidden="true">
-            <div class="st-tl-bar"><i></i></div>
-            <div class="st-tl-ticks"><span>2021</span><span></span><span></span><span></span><span></span><span>Hoje</span></div>
-          </div>
           <p class="stat-ctx">Desenvolvendo soluções digitais de impacto desde 2021.</p>
         </div>
       </div>
