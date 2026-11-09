@@ -1178,6 +1178,43 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 @media(max-width:900px){.stats-bento.sb2{grid-template-columns:1fr 1fr;}.sb2 .st-proj,.sb2 .st-rate{grid-column:span 2;}.sb2 .st-map,.sb2 .st-anos{grid-column:auto;}}
 @media(max-width:500px){.stats-bento.sb2{grid-template-columns:1fr;}.sb2 .st-proj,.sb2 .st-rate,.sb2 .st-map,.sb2 .st-anos{grid-column:auto;}}
 </style>
+<style id="est-v2">
+.est-add[hidden],.est-adicionais[hidden]{display:none!important;}
+.est-add-preco{margin-left:auto;font-size:.74rem;font-weight:700;color:var(--win-muted);font-variant-numeric:tabular-nums;white-space:nowrap;transition:color .15s;}
+[data-theme="dark"] .est-add-preco{color:var(--muted);}
+.est-add.ativo .est-add-preco{color:var(--acid);}
+[data-theme="light"] .est-add.ativo .est-add-preco{color:var(--acid-fg);}
+.est-adds-nota{display:flex;gap:.6rem;align-items:flex-start;margin-top:1rem;padding:1rem 1.1rem;border-radius:.85rem;border:1px dashed rgba(201,255,65,.35);background:rgba(201,255,65,.05);font-size:.88rem;line-height:1.55;color:var(--win-txt);}
+[data-theme="dark"] .est-adds-nota{color:var(--ink);}
+[data-theme="light"] .est-adds-nota{border-color:rgba(30,39,0,.25);background:rgba(30,39,0,.04);}
+.est-adds-nota svg{width:1.05rem;height:1.05rem;color:var(--acid);flex-shrink:0;margin-top:.15rem;}
+[data-theme="light"] .est-adds-nota svg{color:var(--acid-fg);}
+.est-adds-nota[hidden]{display:none;}
+/* painel sob consulta */
+.est-consulta{list-style:none;margin:0 0 1.25rem;padding:0;display:flex;flex-direction:column;gap:.85rem;}
+.est-consulta[hidden]{display:none;}
+.est-consulta li{display:flex;gap:.75rem;align-items:flex-start;}
+.est-consulta svg{width:2rem;height:2rem;padding:.45rem;border-radius:.6rem;background:rgba(201,255,65,.12);color:var(--acid);flex-shrink:0;}
+.est-consulta b{display:block;font-size:.88rem;color:var(--ink);margin-bottom:.15rem;}
+[data-theme="light"] .est-consulta b{color:rgba(255,255,255,.9);}
+.est-consulta span{font-size:.8rem;line-height:1.5;color:var(--muted);}
+[data-theme="light"] .est-consulta span{color:rgba(255,255,255,.5);}
+.est-result.consulta .est-incl{display:none;}
+.est-result.consulta .est-total-val{font-size:2.6rem;}
+/* valor animado */
+.est-total-val{font-variant-numeric:tabular-nums;display:inline-block;transform-origin:left center;}
+.est-total-val.bump{animation:estBump .55s cubic-bezier(.16,1,.3,1);}
+@keyframes estBump{0%{transform:scale(1);}35%{transform:scale(1.06);text-shadow:0 0 24px rgba(201,255,65,.45);}100%{transform:scale(1);}}
+@media(prefers-reduced-motion:reduce){.est-total-val.bump{animation:none;}}
+/* depoimento escuro */
+[data-theme="dark"] .est-rv{background:var(--bg);border-color:rgba(255,255,255,.08);}
+.est-rv{border-left:3px solid var(--acid)!important;}
+[data-theme="dark"] .est-rv-txt{color:var(--ink);}
+[data-theme="dark"] .est-rv-autor{color:var(--muted);}
+/* aviso mais visível */
+.est-aviso{display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:.8rem!important;font-weight:600;}
+.est-aviso svg{width:.95rem;height:.95rem;color:var(--acid);}
+</style>
 </head>
 <body>
 
@@ -1691,21 +1728,22 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
       <div class="est-form">
         <p class="est-label">O que você precisa?</p>
         <div class="est-opcoes" id="estOpcoes">
-          <label class="est-opcao"><input type="radio" name="svc" value="750" data-nome="Landing page"><span class="est-ico"><i data-lucide="zap"></i></span><span class="est-opcao-nome">Landing page</span><span class="est-opcao-preco">R$ 750</span><span class="est-radio"></span></label>
-          <label class="est-opcao"><input type="radio" name="svc" value="1500" data-nome="Site institucional"><span class="est-ico"><i data-lucide="globe"></i></span><span class="est-opcao-nome">Site institucional</span><span class="est-opcao-preco">R$ 1.500</span><span class="est-radio"></span></label>
-          <label class="est-opcao"><input type="radio" name="svc" value="2000" data-nome="Loja virtual"><span class="est-ico"><i data-lucide="shopping-bag"></i></span><span class="est-opcao-nome">Loja virtual</span><span class="est-opcao-preco">R$ 2.000</span><span class="est-radio"></span></label>
+          <label class="est-opcao"><input type="radio" name="svc" value="750" data-nome="Landing page" data-k="landing"><span class="est-ico"><i data-lucide="zap"></i></span><span class="est-opcao-nome">Landing page</span><span class="est-opcao-preco">R$ 750</span><span class="est-radio"></span></label>
+          <label class="est-opcao"><input type="radio" name="svc" value="1500" data-nome="Site institucional" data-k="site"><span class="est-ico"><i data-lucide="globe"></i></span><span class="est-opcao-nome">Site institucional</span><span class="est-opcao-preco">R$ 1.500</span><span class="est-radio"></span></label>
+          <label class="est-opcao"><input type="radio" name="svc" value="2000" data-nome="Loja virtual" data-k="loja"><span class="est-ico"><i data-lucide="shopping-bag"></i></span><span class="est-opcao-nome">Loja virtual</span><span class="est-opcao-preco">R$ 2.000</span><span class="est-radio"></span></label>
           <label class="est-opcao"><input type="radio" name="svc" value="0" data-consulta="true" data-nome="Automação & IA"><span class="est-ico"><i data-lucide="bot"></i></span><span class="est-opcao-nome">Automação & IA</span><span class="est-opcao-preco">Sob consulta</span><span class="est-radio"></span></label>
           <label class="est-opcao"><input type="radio" name="svc" value="0" data-consulta="true" data-nome="Sistema sob medida"><span class="est-ico"><i data-lucide="layout-dashboard"></i></span><span class="est-opcao-nome">Sistema sob medida</span><span class="est-opcao-preco">Sob consulta</span><span class="est-radio"></span></label>
           <label class="est-opcao"><input type="radio" name="svc" value="0" data-consulta="true" data-nome="Aplicativo"><span class="est-ico"><i data-lucide="smartphone"></i></span><span class="est-opcao-nome">Aplicativo</span><span class="est-opcao-preco">Sob consulta</span><span class="est-radio"></span></label>
         </div>
-        <p class="est-label" style="margin-top:1.75rem">Adicionar ao projeto</p>
+        <p class="est-label" id="estAddsLabel" style="margin-top:1.75rem">Adicionar ao projeto</p>
+        <p class="est-adds-nota" id="estAddsNota" hidden><i data-lucide="message-circle"></i> Num projeto sob medida, os detalhes a gente define juntos na conversa.</p>
         <div class="est-adicionais" id="estAdds">
-          <label class="est-add"><input type="checkbox" value="300"><span class="est-check"></span><span class="est-add-nome">Blog / Notícias</span></label>
-          <label class="est-add"><input type="checkbox" value="800"><span class="est-check"></span><span class="est-add-nome">Área do cliente</span></label>
-          <label class="est-add"><input type="checkbox" value="600"><span class="est-check"></span><span class="est-add-nome">Múltiplos idiomas</span></label>
-          <label class="est-add"><input type="checkbox" value="500"><span class="est-check"></span><span class="est-add-nome">Integrações externas</span></label>
-          <label class="est-add"><input type="checkbox" value="250"><span class="est-check"></span><span class="est-add-nome">Chat / WhatsApp</span></label>
-          <label class="est-add"><input type="checkbox" value="450"><span class="est-check"></span><span class="est-add-nome">SEO avançado</span></label>
+          <label class="est-add" data-svcs="site loja"><input type="checkbox" value="300"><span class="est-check"></span><span class="est-add-nome">Blog / Notícias</span><span class="est-add-preco">+R$ 300</span></label>
+          <label class="est-add" data-svcs="site"><input type="checkbox" value="800"><span class="est-check"></span><span class="est-add-nome">Área do cliente</span><span class="est-add-preco">+R$ 800</span></label>
+          <label class="est-add" data-svcs="landing site loja"><input type="checkbox" value="600"><span class="est-check"></span><span class="est-add-nome">Múltiplos idiomas</span><span class="est-add-preco">+R$ 600</span></label>
+          <label class="est-add" data-svcs="landing site loja"><input type="checkbox" value="500"><span class="est-check"></span><span class="est-add-nome">Integrações externas</span><span class="est-add-preco">+R$ 500</span></label>
+          <label class="est-add" data-svcs="landing site loja"><input type="checkbox" value="250"><span class="est-check"></span><span class="est-add-nome">Chat / WhatsApp</span><span class="est-add-preco">+R$ 250</span></label>
+          <label class="est-add" data-svcs="landing site loja"><input type="checkbox" value="450"><span class="est-check"></span><span class="est-add-nome">SEO avançado</span><span class="est-add-preco">+R$ 450</span></label>
         </div>
       </div>
 
@@ -1726,6 +1764,12 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
           </ul>
         </div>
 
+        <ul class="est-consulta" id="estConsulta" hidden>
+          <li><i data-lucide="search"></i><span><b>Diagnóstico do seu processo</b>Entendemos como sua operação funciona antes de propor qualquer coisa.</span></li>
+          <li><i data-lucide="file-text"></i><span><b>Escopo e prazos definidos com você</b>Nada de pacote fechado: o projeto nasce do que você precisa.</span></li>
+          <li><i data-lucide="handshake"></i><span><b>Proposta personalizada</b>Sem compromisso, com investimento claro antes de começar.</span></li>
+        </ul>
+
         <div class="est-prazo">
           <i data-lucide="calendar-clock"></i>
           <div>
@@ -1741,10 +1785,10 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 
         <div class="est-cta">
           <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener" id="estLink" style="width:100%;justify-content:space-between;height:3.2rem">
-            Quero um orçamento <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+            <span id="estCtaTxt">Receber proposta no WhatsApp</span> <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
           </a>
         </div>
-        <p class="est-aviso">Sem compromisso · Resposta em até 24h</p>
+        <p class="est-aviso"><i data-lucide="shield-check"></i> Sem compromisso · Resposta em até 24h</p>
       </div>
     </div>
   </div>
@@ -1838,6 +1882,21 @@ var sg = document.getElementById('statsGrid');
 if (sg) statsObs.observe(sg);
 
 /* ── Estimador ── */
+var estAtual = null, estRaf = 0;
+function estAnim(total) {
+  var el = document.getElementById('estTotal');
+  cancelAnimationFrame(estRaf);
+  if (total === null) { estAtual = null; return; }
+  var de = estAtual === null ? total : estAtual; estAtual = total;
+  if (de === total || window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = 'R$ ' + total.toLocaleString('pt-BR'); return; }
+  var t0 = performance.now(), dur = 550;
+  el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump');
+  (function step(now) {
+    var p = Math.min((now - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+    el.textContent = 'R$ ' + Math.round(de + (total - de) * e).toLocaleString('pt-BR');
+    if (p < 1) estRaf = requestAnimationFrame(step);
+  })(t0);
+}
 var prazos = { 'Site institucional':'~3 semanas','Landing page':'~2 semanas','Loja virtual':'~5 semanas','Automação & IA':'~3 semanas' };
 
 function updateEst() {
@@ -1845,10 +1904,20 @@ function updateEst() {
   var inp = ativo ? ativo.querySelector('input') : document.querySelector('#estOpcoes input');
   var nome = inp ? (inp.dataset.nome || 'Site institucional') : 'Site institucional';
   var isConsulta = inp && inp.dataset.consulta === 'true';
+  var k = inp ? inp.dataset.k : '';
+  document.querySelectorAll('#estAdds .est-add').forEach(function(a){
+    var ok = !isConsulta && (' ' + (a.dataset.svcs || '') + ' ').indexOf(' ' + k + ' ') > -1;
+    a.hidden = !ok; if (!ok) a.classList.remove('ativo');
+  });
+  var addsEl = document.getElementById('estAdds');
+  addsEl.hidden = isConsulta; document.getElementById('estAddsNota').hidden = !isConsulta;
+  document.getElementById('estConsulta').hidden = !isConsulta;
+  document.querySelector('.est-result').classList.toggle('consulta', isConsulta); document.querySelector('.est-result-label').textContent = isConsulta ? 'Investimento' : 'Estimativa a partir de';
   if (isConsulta) {
+    estAnim(null);
     document.getElementById('estTotal').textContent = 'Sob consulta';
     document.getElementById('estSub').textContent = nome + ' · proposta personalizada';
-    document.getElementById('estPrazo').textContent = 'A definir';
+    document.getElementById('estPrazo').textContent = 'Definido no escopo';
     var msg = encodeURIComponent('Olá! Tenho interesse em: ' + nome + '. Podemos conversar?');
     document.getElementById('estLink').href = 'https://wa.me/5547997618824?text=' + msg;
     return;
@@ -1865,7 +1934,7 @@ function updateEst() {
     }
   });
   var total = base + adds;
-  document.getElementById('estTotal').textContent = 'R$ ' + total.toLocaleString('pt-BR');
+  estAnim(total);
   document.getElementById('estSub').textContent = nome + (addNames.length ? ' · ' + addNames.join(', ') : ' · sem adicionais');
   document.getElementById('estPrazo').textContent = prazos[nome] || '~4 semanas';
   var msg = encodeURIComponent('Olá! Interesse em: ' + nome + (addNames.length ? ' + ' + addNames.join(', ') : '') + '. Estimativa: R$' + total.toLocaleString('pt-BR') + '. Podemos conversar?');
