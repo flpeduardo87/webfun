@@ -25,6 +25,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script id="font-test">
+(function(){
+  var F={
+    jakarta:{nome:'Plus Jakarta Sans',css:'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap',fam:'"Plus Jakarta Sans"'},
+    satoshi:{nome:'Satoshi',css:'https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap',fam:'"Satoshi"'},
+    manrope:{nome:'Manrope',css:'',fam:'"Manrope"'}
+  };
+  var k=null;
+  try{var q=new URLSearchParams(location.search).get('fonte');
+    if(q==='off'){sessionStorage.removeItem('wfFonte');}
+    else if(q&&F[q]){k=q;sessionStorage.setItem('wfFonte',q);}
+    else{k=sessionStorage.getItem('wfFonte');if(!F[k])k=null;}
+  }catch(e){}
+  if(!k)return;
+  window.__wfFonte={atual:k,fontes:F};
+  if(F[k].css){var l=document.createElement('link');l.rel='stylesheet';l.href=F[k].css;document.head.appendChild(l);}
+  var s=document.createElement('style');
+  s.textContent=':root{--f:'+F[k].fam+',ui-sans-serif,system-ui,sans-serif!important;}body,button,input,textarea,select{font-family:var(--f)!important;}';
+  document.head.appendChild(s);
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
 <style>
@@ -2413,6 +2434,23 @@ document.addEventListener('DOMContentLoaded', function() {
     new IntersectionObserver(function(e){e.forEach(function(x){vr=x.intersectionRatio>.25;});upd();},{threshold:[0,.25]}).observe(res);
     document.getElementById('estBarBtn').addEventListener('click',function(){res.scrollIntoView({behavior:'smooth',block:'start'});});
   }
+})();
+</script>
+<script id="font-test-ui">
+(function(){
+  var T=window.__wfFonte;if(!T)return;
+  var box=document.createElement('div');
+  box.setAttribute('style','position:fixed;left:50%;bottom:calc(5.2rem + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:9999;display:flex;gap:.25rem;padding:.3rem;border-radius:999px;background:rgba(19,20,26,.92);box-shadow:0 0 0 1px rgba(255,255,255,.14),0 12px 32px rgba(0,0,0,.4);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);font-size:12px;');
+  Object.keys(T.fontes).forEach(function(k){
+    var b=document.createElement('a');var u=new URL(location.href);u.searchParams.set('fonte',k);b.href=u.toString();
+    b.textContent=T.fontes[k].nome;
+    b.setAttribute('style','padding:.45rem .8rem;border-radius:999px;text-decoration:none;font-weight:700;white-space:nowrap;font-family:'+T.fontes[k].fam+',system-ui,sans-serif;'+(k===T.atual?'background:#c9ff41;color:#1e2700;':'color:rgba(255,255,255,.75);'));
+    box.appendChild(b);
+  });
+  var x=document.createElement('a');var u=new URL(location.href);u.searchParams.set('fonte','off');x.href=u.toString();x.textContent='×';x.title='Sair do teste';
+  x.setAttribute('style','padding:.45rem .7rem;border-radius:999px;text-decoration:none;font-weight:700;color:rgba(255,255,255,.5);');
+  box.appendChild(x);
+  document.body.appendChild(box);
 })();
 </script>
 </body>
