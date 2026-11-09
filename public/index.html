@@ -1215,6 +1215,26 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 .est-aviso{display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:.8rem!important;font-weight:600;}
 .est-aviso svg{width:.95rem;height:.95rem;color:var(--acid);}
 </style>
+<style id="est-78">
+.est-save{margin-top:1.25rem;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.08);text-align:center;}
+.est-save-tit{font-size:.8rem;color:var(--muted);margin-bottom:.6rem;}
+[data-theme="light"] .est-save-tit{color:rgba(255,255,255,.5);}
+.est-save-btns{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;}
+.est-save-btns a{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:700;text-decoration:none;color:var(--ink);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:.5rem .9rem;transition:border-color .2s,color .2s;}
+[data-theme="light"] .est-save-btns a{color:rgba(255,255,255,.88);}
+.est-save-btns a:hover{border-color:var(--acid);color:var(--acid);}
+.est-save-btns svg{width:.9rem;height:.9rem;}
+.est-bar{display:none;}
+@media(max-width:900px){
+  .est-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:60;padding:.6rem .6rem .6rem 1.1rem;border-radius:999px;background:rgba(19,20,26,.88);-webkit-backdrop-filter:blur(16px) saturate(1.6);backdrop-filter:blur(16px) saturate(1.6);box-shadow:0 0 0 1px rgba(255,255,255,.1),0 12px 32px rgba(0,0,0,.35);transform:translateY(160%);transition:transform .4s cubic-bezier(.16,1,.3,1);}
+  .est-bar.on{transform:none;}
+  .est-bar>div{display:flex;flex-direction:column;line-height:1.15;}
+  .est-bar-lbl{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+  .est-bar-val{font-size:1.1rem;font-weight:900;letter-spacing:-.03em;color:var(--acid);}
+  .est-bar button{display:inline-flex;align-items:center;gap:.4rem;border:0;border-radius:999px;background:var(--acid);color:var(--acid-fg);font:inherit;font-size:.85rem;font-weight:800;padding:.7rem 1rem;cursor:pointer;}
+  .est-bar button svg{width:1rem;height:1rem;}
+}
+</style>
 </head>
 <body>
 
@@ -1789,6 +1809,13 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
           </a>
         </div>
         <p class="est-aviso"><i data-lucide="shield-check"></i> Sem compromisso · Resposta em até 24h</p>
+        <div class="est-save">
+          <p class="est-save-tit">Ainda não é a hora? Guarde esta estimativa.</p>
+          <div class="est-save-btns">
+            <a id="estSaveWa" href="#" target="_blank" rel="noopener"><i data-lucide="message-circle"></i> No meu WhatsApp</a>
+            <a id="estSaveMail" href="#"><i data-lucide="mail"></i> No meu e-mail</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -2334,6 +2361,52 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.sb2 .stat-card').forEach(function(c){
     c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});
   });
+})();
+</script>
+<div class="est-bar" id="estBar" aria-hidden="true">
+  <div><span class="est-bar-lbl">Sua estimativa</span><span class="est-bar-val" id="estBarVal">R$ 750</span></div>
+  <button type="button" id="estBarBtn" tabindex="-1">Ver estimativa <i data-lucide="arrow-down"></i></button>
+</div>
+<script id="est-78-js">
+(function(){
+  var opcoes=[].slice.call(document.querySelectorAll('#estOpcoes .est-opcao'));
+  var adds=[].slice.call(document.querySelectorAll('#estAdds .est-add'));
+  if(!opcoes.length||typeof updateEst!=='function')return;
+  /* restaura estimativa salva (?est=indice-valor-valor) */
+  try{
+    var q=new URLSearchParams(location.search).get('est');
+    if(q){var p=q.split('-'),i=parseInt(p[0],10);
+      if(opcoes[i]){opcoes.forEach(function(o){o.classList.remove('ativo');});opcoes[i].classList.add('ativo');updateEst();
+        p.slice(1).forEach(function(v){adds.forEach(function(a){if(!a.hidden&&a.querySelector('input').value===v)a.classList.add('ativo');});});updateEst();}}
+  }catch(e){}
+  function estado(){
+    var i=opcoes.findIndex(function(o){return o.classList.contains('ativo');});if(i<0)i=0;
+    var vs=adds.filter(function(a){return a.classList.contains('ativo')&&!a.hidden;}).map(function(a){return a.querySelector('input').value;});
+    return {i:i,vs:vs};
+  }
+  var bar=document.getElementById('estBar'),barVal=document.getElementById('estBarVal');
+  function refresh(){
+    var s=estado(),url='https://webfun.com.br/?est='+[s.i].concat(s.vs).join('-')+'#contato';
+    var total=(typeof estAtual==='number')?'R$ '+estAtual.toLocaleString('pt-BR'):document.getElementById('estTotal').textContent,sub=document.getElementById('estSub').textContent;
+    var consulta=document.querySelector('.est-result').classList.contains('consulta');
+    var nome=sub.split(' · ')[0];
+    var txt=consulta?('Minha ideia de projeto na Webfun: '+nome+' (sob consulta).\nRetomar: '+url)
+      :('Minha estimativa na Webfun: '+sub.replace(' · sem adicionais','').replace(' · ',' + ')+', a partir de '+total+'.\nRetomar: '+url);
+    document.getElementById('estSaveWa').href='https://wa.me/?text='+encodeURIComponent(txt);
+    document.getElementById('estSaveMail').href='mailto:?subject='+encodeURIComponent('Minha estimativa Webfun')+'&body='+encodeURIComponent(txt);
+    if(barVal)barVal.textContent=consulta?'Sob consulta':(estAtual!==null?'R$ '+estAtual.toLocaleString('pt-BR'):total);
+  }
+  var orig=updateEst;updateEst=function(){orig.apply(this,arguments);refresh();};
+  refresh();
+  if(window.lucide&&lucide.createIcons)lucide.createIcons();
+  /* barra fixa no mobile: aparece com as opções na tela e o resultado fora dela */
+  if(bar&&'IntersectionObserver' in window){
+    var form=document.querySelector('.est-form'),res=document.querySelector('.est-result'),vf=false,vr=false;
+    function upd(){var on=vf&&!vr;bar.classList.toggle('on',on);bar.setAttribute('aria-hidden',on?'false':'true');document.getElementById('estBarBtn').tabIndex=on?0:-1;}
+    new IntersectionObserver(function(e){e.forEach(function(x){if(x.target===form)vf=x.isIntersecting;else vr=x.intersectionRatio>.25;});upd();},{threshold:[0,.25]}).observe(form);
+    new IntersectionObserver(function(e){e.forEach(function(x){vr=x.intersectionRatio>.25;});upd();},{threshold:[0,.25]}).observe(res);
+    document.getElementById('estBarBtn').addEventListener('click',function(){res.scrollIntoView({behavior:'smooth',block:'start'});});
+  }
 })();
 </script>
 </body>
