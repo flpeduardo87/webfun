@@ -1417,6 +1417,25 @@ details.faq-item[open] summary{color:var(--acid)!important;}
 [data-theme="light"] details.faq-item[open] summary{color:#4d6600!important;}
 details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 </style>
+<style id="port-mais">
+.portfolio-mais{margin-top:3rem!important;}
+.pm-link{display:inline-flex;flex-direction:column;align-items:center;gap:.85rem;text-decoration:none;color:inherit;}
+.pm-thumbs{display:flex;}
+.pm-thumbs img{width:2.6rem;height:2.6rem;border-radius:.7rem;object-fit:cover;background:var(--surface);border:2px solid var(--bg);margin-left:-.7rem;box-shadow:0 6px 18px rgba(0,0,0,.25);transition:transform .35s cubic-bezier(.16,1,.3,1);}
+.pm-thumbs img:first-child{margin-left:0;transform:rotate(-6deg);}
+.pm-thumbs img:last-child{transform:rotate(6deg);}
+.pm-txt{font-size:.82rem;color:var(--muted);}
+.pm-btn{display:inline-flex;align-items:center;gap:.75rem;height:3rem;padding:0 .35rem 0 1.4rem;border-radius:999px;border:1px solid var(--line);font-size:.92rem;font-weight:700;color:var(--ink);transition:border-color .25s,box-shadow .25s,color .25s;}
+.pm-btn .cta-ico{width:2.3rem;height:2.3rem;border-radius:50%;background:var(--acid);color:var(--acid-fg);}
+.pm-btn .cta-ico svg{width:1rem;height:1rem;}
+@media(hover:hover) and (pointer:fine){
+  .pm-link:hover .pm-btn{border-color:var(--acid);box-shadow:0 0 0 4px rgba(201,255,65,.08),0 10px 30px rgba(201,255,65,.12);}
+  .pm-link:hover .pm-btn .cta-ico svg{transform:translateX(2.6rem)!important;}
+  .pm-link:hover .pm-thumbs img:first-child{transform:rotate(-12deg) translateX(-4px);}
+  .pm-link:hover .pm-thumbs img:last-child{transform:rotate(12deg) translateX(4px);}
+}
+[data-theme="light"] .pm-link:hover .pm-btn{border-color:var(--acid-fg);box-shadow:0 0 0 4px rgba(30,39,0,.05);}
+</style>
 </head>
 <body>
 
@@ -1780,7 +1799,11 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
     </div>
     <div class="port-dots" aria-hidden="true"></div>
     <div class="portfolio-mais">
-      <a href="/projetos" class="btn-outline">Ver todos os projetos →</a>
+      <a href="/projetos" class="pm-link">
+        <span class="pm-thumbs" aria-hidden="true"><img src="media/portfolio/frigorifico-tres-reis.webp" alt="" width="64" height="64" loading="lazy"><img src="media/portfolio/elite-tenis-clube.webp" alt="" width="64" height="64" loading="lazy"><img src="media/portfolio/farina84.webp" alt="" width="64" height="64" loading="lazy"></span>
+        <span class="pm-txt">Mais projetos no portfólio</span>
+        <span class="pm-btn">Explorar portfólio completo <span class="cta-ico"><i data-lucide="arrow-right"></i></span></span>
+      </a>
     </div>
   </div>
 </section>
