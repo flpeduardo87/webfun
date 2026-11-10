@@ -1485,6 +1485,20 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 }
 [data-theme="light"] .pm-link:hover .pm-btn{border-color:var(--acid-fg);box-shadow:0 0 0 4px rgba(30,39,0,.05);}
 </style>
+<style id="pm-thumbs2">
+/* miniaturas maiores, em formato de tela, com zoom no conteudo do mockup */
+.pm-thumbs{gap:0;}
+.pm-thumbs img{width:5.4rem!important;height:3.5rem!important;border-radius:.75rem!important;object-fit:cover!important;object-position:50% 45%;border:1px solid rgba(255,255,255,.14)!important;outline:3px solid var(--bg);background:#121211!important;margin-left:-1.4rem!important;box-shadow:0 10px 28px rgba(0,0,0,.45)!important;}
+.pm-thumbs img:first-child{margin-left:0!important;transform:rotate(-7deg) translateY(4px)!important;}
+.pm-thumbs img:nth-child(2){position:relative;z-index:2;transform:translateY(-2px) scale(1.06)!important;}
+.pm-thumbs img:last-child{transform:rotate(7deg) translateY(4px)!important;}
+[data-theme="light"] .pm-thumbs img{border-color:rgba(0,0,0,.1)!important;}
+@media(hover:hover) and (pointer:fine){
+  .pm-link:hover .pm-thumbs img:first-child{transform:rotate(-12deg) translate(-10px,6px)!important;}
+  .pm-link:hover .pm-thumbs img:nth-child(2){transform:translateY(-6px) scale(1.1)!important;}
+  .pm-link:hover .pm-thumbs img:last-child{transform:rotate(12deg) translate(10px,6px)!important;}
+}
+</style>
 </head>
 <body>
 
