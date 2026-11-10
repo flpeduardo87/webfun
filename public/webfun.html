@@ -1419,6 +1419,11 @@ html{background:var(--bg);}
 .est-bar{visibility:hidden;}
 .est-bar.on{visibility:visible;}
 </style>
+<style id="faq-on">
+@media (hover:none){details.faq-item summary:hover .faq-icon{background:rgba(201,255,65,.12)!important;}[data-theme="light"] details.faq-item summary:hover .faq-icon{background:rgba(30,39,0,.07)!important;}}
+details.faq-item[open] .faq-icon,details.faq-item[open] summary:hover .faq-icon,[data-theme="light"] details.faq-item[open] .faq-icon,[data-theme="light"] details.faq-item[open] summary:hover .faq-icon{background:var(--acid)!important;color:var(--acid-fg)!important;box-shadow:0 0 0 4px rgba(201,255,65,.18),0 0 22px rgba(201,255,65,.45)!important;}
+details.faq-item[open] .faq-icon svg{stroke-width:3;}
+</style>
 </head>
 <body>
 
