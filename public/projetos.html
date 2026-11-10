@@ -657,6 +657,44 @@ html{background:var(--bg);}
 .rodape-wm>span{color:transparent;white-space:nowrap;}
 @media(max-width:600px){.rodape-wm{font-size:clamp(2.1rem,11vw,3.2rem)!important;flex-direction:column;align-items:center;}}
 </style>
+<style id="proj-v2">
+.p-ey{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--acid);margin-bottom:.4rem;}
+[data-theme="light"] .p-ey{color:#4d6600;}
+.p-tipo{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:700;color:var(--win-muted);border:1px solid var(--win-line);border-radius:999px;padding:.24rem .65rem;white-space:nowrap;}
+.p-tipo i{width:.45rem;height:.45rem;border-radius:50%;background:#28c840;box-shadow:0 0 0 3px rgba(40,200,64,.18);}
+.p-tipo.conceito i{background:transparent;border:1.5px solid currentColor;box-shadow:none;}
+[data-theme="dark"] .p-tipo{color:var(--muted);border-color:rgba(255,255,255,.12);}
+.p-link .cta-ico{width:1.9rem;height:1.9rem;border-radius:50%;background:var(--acid);color:var(--acid-fg);}
+.p-link .cta-ico svg{width:.85rem;height:.85rem;}
+.p-soon{font-size:.78rem;font-weight:600;color:var(--muted);}
+.p-meta{gap:.75rem;}
+/* filtro clientes / conceitos */
+.portfolio-header{flex-wrap:wrap;gap:1rem;}
+.tipo-sw{display:inline-flex;padding:.25rem;border-radius:999px;border:1px solid var(--line);gap:.2rem;}
+.tipo-sw button{border:0;background:none;padding:.4rem .9rem;border-radius:999px;font:inherit;font-size:.82rem;font-weight:700;color:var(--muted);cursor:pointer;transition:background .2s,color .2s;}
+.tipo-sw button.ativo{background:var(--ink);color:var(--bg);}
+/* case em destaque */
+.p-feat{grid-column:1 / -1;display:grid!important;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);border-color:rgba(201,255,65,.3)!important;}
+.p-feat .p-thumb{aspect-ratio:auto;min-height:100%;}
+.p-feat .p-info{padding:2rem 2rem 1.75rem;display:flex;flex-direction:column;}
+.p-feat .p-nome{font-size:1.6rem;letter-spacing:-.03em;}
+.p-feat-badge{position:absolute;left:1rem;top:1rem;z-index:2;display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:800;color:var(--acid-fg);background:var(--acid);border-radius:999px;padding:.35rem .75rem;}
+.p-feat-badge svg{width:.85rem;height:.85rem;}
+.p-feat-num{margin:.5rem 0 1.1rem;font-size:.95rem;color:var(--win-muted);}
+[data-theme="dark"] .p-feat-num{color:var(--muted);}
+.p-feat-num b{display:block;font-size:2.4rem;font-weight:800;letter-spacing:-.04em;line-height:1.05;color:var(--acid);}
+[data-theme="light"] .p-feat-num b{color:#4d6600;}
+.p-case{list-style:none;margin:0 0 1.25rem;padding:0;display:grid;gap:.7rem;}
+.p-case li{font-size:.86rem;line-height:1.55;color:var(--win-muted);padding-left:.9rem;border-left:2px solid rgba(201,255,65,.35);}
+[data-theme="dark"] .p-case li{color:var(--muted);}
+.p-case span{display:block;font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--win-txt);margin-bottom:.1rem;}
+[data-theme="dark"] .p-case span{color:var(--ink);}
+.p-feat .p-meta{margin-top:auto;}
+.p-card.hidden{display:none!important;}
+/* portfolio: lista vertical no celular (sem carrossel) */
+@media(max-width:900px){.p-grid{display:grid!important;grid-template-columns:1fr 1fr!important;overflow:visible!important;margin-inline:0!important;padding-inline:0!important;}.p-card{max-width:none!important;flex:none!important;}.p-feat{grid-template-columns:1fr;}.p-feat .p-thumb{aspect-ratio:16/10;min-height:0;}}
+@media(max-width:600px){.p-grid{grid-template-columns:1fr!important;}.p-feat .p-info{padding:1.4rem 1.25rem 1.3rem;}.p-feat-num b{font-size:2rem;}}
+</style>
 </head>
 <body>
 
@@ -746,7 +784,7 @@ html{background:var(--bg);}
         <div class="pj-card" data-pos="5"><div class="pj-img" style="background-image:url('https://webfun.com.br/media/portfolio/com-cristo-kids.webp')"></div><div class="pj-info"><span class="pj-ey">Landing page · Educação</span><span class="pj-nome">Com Cristo Kids</span></div><span class="pj-tag"><i></i>Cliente</span></div>
       </div>
       <div class="pj-chip pj-chip-a"><span class="pj-chip-ico"><i data-lucide="rocket"></i></span><span>50+ projetos entregues<small>sites, lojas e sistemas</small></span></div>
-      <div class="pj-chip pj-chip-b"><span class="pj-chip-ico"><i data-lucide="map-pin"></i></span><span>8+ estados atendidos<small>de SC ao exterior</small></span></div>
+      <div class="pj-chip pj-chip-b"><span class="pj-chip-ico"><i data-lucide="map-pin"></i></span><span>Brasil e exterior<small>atendimento 100% online</small></span></div>
     </div></div>
   </div>
 </section>
@@ -761,110 +799,118 @@ html{background:var(--bg);}
         <button class="filtro-btn" data-filtro="sistema">Sistema</button>
         <button class="filtro-btn" data-filtro="landing">Landing page</button>
       </div>
-      <p class="p-counter" id="pCounter">17 projetos</p>
+      <div class="tipo-sw" role="group" aria-label="Filtrar por tipo"><button class="ativo" data-tipo="todos">Todos</button><button data-tipo="cliente">Clientes</button><button data-tipo="conceito">Conceitos</button></div>
+      <p class="p-counter" id="pCounter">20 projetos</p>
     </div>
     <div class="p-grid" id="pgrid">
-
-      <div class="p-card" data-cat="site">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/lume.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
-        <div class="p-info"><p class="p-nome">LUME Odontologia</p><p class="p-desc">Site de alta conversão para clínica odontológica com agendamento online e área do paciente.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">UX/UI</span><span class="p-tag">Agendamento</span></div><a href="https://webfun.com.br/modelos/lume/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card p-feat" data-cat="loja" data-tipo="cliente">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/wasabi.webp') center/contain no-repeat"></div><span class="p-feat-badge"><i data-lucide="trophy"></i> Case em destaque</span></div>
+        <div class="p-info">
+          <p class="p-ey">Loja virtual · Delivery</p><p class="p-nome">Wasabi Sushi Bar</p>
+          <p class="p-feat-num"><b>+€60 mil</b> em vendas em pouco mais de 1 mês no ar</p>
+          <ul class="p-case">
+            <li><span>Desafio</span>Ter um canal próprio de vendas online, com pedidos e pagamento direto no site.</li>
+            <li><span>Solução</span>Loja de delivery com cardápio completo, carrinho e checkout integrado, pensada para o celular.</li>
+            <li><span>Resultado</span>Mais de 60 mil euros faturados em pouco mais de um mês de operação.</li>
+          </ul>
+          <div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://wasabisushibar.ie/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Wasabi Sushi Bar">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div>
+        </div>
       </div>
 
-      <div class="p-card" data-cat="loja">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/azaff.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Loja virtual</span></div></div>
-        <div class="p-info"><p class="p-nome">AZAFF</p><p class="p-desc">E-commerce de moda feminina com identidade minimalista, catálogo e checkout otimizado.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">E-commerce</span><span class="p-tag">Moda</span></div><a href="https://lojasazaff.com.br/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="loja" data-tipo="cliente">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/azaff.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Loja virtual · Moda</p><p class="p-nome">AZAFF</p><p class="p-desc">E-commerce de moda feminina com identidade minimalista, catálogo e checkout otimizado.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://lojasazaff.com.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto AZAFF">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="site">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/aura.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
-        <div class="p-info"><p class="p-nome">AURA Estética</p><p class="p-desc">Site premium para clínica estética avançada com foco em conversão e identidade visual sofisticada.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Premium</span><span class="p-tag">UX/UI</span></div><a href="https://webfun.com.br/modelos/aura/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="sistema" data-tipo="cliente">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('media/portfolio/canoinhas-tenis-clube.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Sistema · Clube esportivo</p><p class="p-nome">Canoinhas Tênis Clube</p><p class="p-desc">Site institucional + sistema de reservas de quadras, churrasqueiras e gestão de sócios.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://canoinhas-tenis-clube.vercel.app/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Canoinhas Tênis Clube">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="sistema">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('media/portfolio/canoinhas-tenis-clube.webp') center/contain no-repeat"></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div>
-        <div class="p-info"><p class="p-nome">Canoinhas Tênis Clube</p><p class="p-desc">Site institucional + sistema de reservas de quadras, churrasqueiras e gestão de sócios.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Reservas</span><span class="p-tag">Sócios</span></div><a href="https://canoinhas-tenis-clube.vercel.app/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="site" data-tipo="cliente">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/mielke-energia-solar.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Site · Energia solar</p><p class="p-nome">Mielke Energia Solar</p><p class="p-desc">Site de geração de leads para instaladora solar com portfólio de projetos entregues.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://mielkeenergiasolar.com.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Mielke Energia Solar">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="site">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/casa-serena.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
-        <div class="p-info"><p class="p-nome">Casa Serena</p><p class="p-desc">Hotel boutique na Serra da Mantiqueira com sistema de reservas integrado e identidade visual premium.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Reservas</span><span class="p-tag">Hospitalidade</span></div><a href="https://webfun.com.br/modelos/casa-serena/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="landing" data-tipo="cliente">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/com-cristo-kids.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Landing page · Infantil</p><p class="p-nome">Com Cristo Kids</p><p class="p-desc">Landing page de alta conversão para biblioteca cristã infantil digital com checkout integrado.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://comcristokids.com.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Com Cristo Kids">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="sistema">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('media/portfolio/match.webp') center/contain no-repeat"></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div>
-        <div class="p-info"><p class="p-nome">MATCH Racquet Club</p><p class="p-desc">Plataforma completa para clube de raquete com reservas, planos de sócios e agenda de eventos.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Agenda</span><span class="p-tag">Área do sócio</span></div><a href="https://webfun.com.br/modelos/match/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="site" data-tipo="cliente">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('undefined') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Site · Engenharia</p><p class="p-nome">Perform Engenharia</p><p class="p-desc">Site institucional para empresa de engenharia e manutenções industriais com foco em autoridade técnica.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://perform.ind.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Perform Engenharia">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="site">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/mielke-energia-solar.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
-        <div class="p-info"><p class="p-nome">Mielke Energia Solar</p><p class="p-desc">Site de geração de leads para instaladora solar com portfólio de projetos entregues.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Leads</span><span class="p-tag">SEO</span></div><a href="https://mielkeenergiasolar.com.br/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="landing" data-tipo="cliente">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/elisangela-pontes.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Landing page · Jurídico</p><p class="p-nome">Elisangela Pontes</p><p class="p-desc">Landing page para advocacia especializada em blindagem jurídica e riscos.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://elisangelapontes.adv.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Elisangela Pontes">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="site">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/nexo.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
-        <div class="p-info"><p class="p-nome">NEXO Estratégia</p><p class="p-desc">Site institucional para consultoria B2B com foco em diagnóstico executivo e autoridade de marca.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">B2B</span><span class="p-tag">Autoridade</span></div><a href="https://webfun.com.br/modelos/nexo/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="loja" data-tipo="cliente">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/frigorifico-tres-reis.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Loja virtual · Agro B2B</p><p class="p-nome">Frigorífico Três Reis</p><p class="p-desc">Site institucional para frigorífico com portfólio de cortes, diferenciais e captação de clientes B2B.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://frigorificotresreis.com.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Frigorífico Três Reis">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="landing">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/com-cristo-kids.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Landing page</span></div></div>
-        <div class="p-info"><p class="p-nome">Com Cristo Kids</p><p class="p-desc">Landing page de alta conversão para biblioteca cristã infantil digital com checkout integrado.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">CRO</span><span class="p-tag">Checkout</span></div><a href="https://comcristokids.com.br/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="site" data-tipo="cliente">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/flavia-sussenbach.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Site · Advocacia</p><p class="p-nome">Flávia Sussenbach</p><p class="p-desc">Site para escritório de advocacia com foco em autoridade, credibilidade e captação de consultas.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://flaviasussenbachadvogados.com.br/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Flávia Sussenbach">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="site">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/farina84.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
-        <div class="p-info"><p class="p-nome">Farina 84</p><p class="p-desc">Site com identidade marcante para restaurante contemporâneo com foco em experiência e reservas.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Restaurante</span><span class="p-tag">UX/UI</span></div><a href="https://webfun.com.br/modelos/farina84/index.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="landing" data-tipo="cliente">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/flavia-sussenbach-lp.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Landing page · E-book</p><p class="p-nome">Flávia Sussenbach — Ebook</p><p class="p-desc">Landing page de conversão para ebook guia definitivo sobre direito médico, voltado a médicos e especialistas jurídicos.</p><div class="p-meta"><span class="p-tipo cliente"><i></i>Cliente</span><a href="https://flaviasussenbachadvogados.com.br/ebook-abuso-de-direito/" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Flávia Sussenbach — Ebook">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="site">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/pulse.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
-        <div class="p-info"><p class="p-nome">Pulse</p><p class="p-desc">Site premium para academia com foco em conversão, planos de treino e captação de novos alunos.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Fitness</span><span class="p-tag">Conversão</span></div><a href="https://webfun.com.br/projetos/pulse" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="site" data-tipo="conceito">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/lume.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Site · Odontologia</p><p class="p-nome">LUME Odontologia</p><p class="p-desc">Site de alta conversão para clínica odontológica com agendamento online e área do paciente.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Conceito</span><a href="https://webfun.com.br/modelos/lume/index.html" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto LUME Odontologia">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="sistema">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/cardapio-digital.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Sistema</span></div></div>
-        <div class="p-info"><p class="p-nome">Forno Alto Pizzaria</p><p class="p-desc">Cardápio digital com pedido online, controle de horário e integração direta com a cozinha.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Delivery</span><span class="p-tag">Pedidos</span></div><span class="p-ano">2025</span></div></div>
+      <div class="p-card" data-cat="site" data-tipo="conceito">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/aura.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Site · Estética</p><p class="p-nome">AURA Estética</p><p class="p-desc">Site premium para clínica estética avançada com foco em conversão e identidade visual sofisticada.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Conceito</span><a href="https://webfun.com.br/modelos/aura/index.html" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto AURA Estética">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="site">
-        <div class="p-thumb"><div class="p-thumb-bg"><span class="p-thumb-letra">P</span></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
-        <div class="p-info"><p class="p-nome">Perform Engenharia</p><p class="p-desc">Site institucional para empresa de engenharia e manutenções industriais com foco em autoridade técnica.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">B2B</span><span class="p-tag">Industrial</span></div><a href="https://perform.ind.br/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="site" data-tipo="conceito">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/casa-serena.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Site · Hospitalidade</p><p class="p-nome">Casa Serena</p><p class="p-desc">Hotel boutique na Serra da Mantiqueira com sistema de reservas integrado e identidade visual premium.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Conceito</span><a href="https://webfun.com.br/modelos/casa-serena/index.html" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Casa Serena">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="landing">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/elisangela-pontes.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Landing page</span></div></div>
-        <div class="p-info"><p class="p-nome">Elisangela Pontes</p><p class="p-desc">Landing page para advocacia especializada em blindagem jurídica e riscos.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Jurídico</span><span class="p-tag">Conversão</span></div><a href="https://elisangelapontes.adv.br/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="sistema" data-tipo="conceito">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('media/portfolio/match.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Sistema · Clube de raquete</p><p class="p-nome">MATCH Racquet Club</p><p class="p-desc">Plataforma completa para clube de raquete com reservas, planos de sócios e agenda de eventos.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Conceito</span><a href="https://webfun.com.br/modelos/match/index.html" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto MATCH Racquet Club">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="loja">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/wasabi.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Loja virtual</span></div></div>
-        <div class="p-info"><p class="p-nome">Wasabi Sushi Bar</p><p class="p-desc">Site para restaurante japonês em Dublin com cardápio digital, reservas e identidade visual marcante.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Restaurante</span><span class="p-tag">Exterior</span></div><a href="https://wasabisushibar.ie/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="site" data-tipo="conceito">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/nexo.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Site · Consultoria B2B</p><p class="p-nome">NEXO Estratégia</p><p class="p-desc">Site institucional para consultoria B2B com foco em diagnóstico executivo e autoridade de marca.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Conceito</span><a href="https://webfun.com.br/modelos/nexo/index.html" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto NEXO Estratégia">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="loja">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/frigorifico-tres-reis.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Loja virtual</span></div></div>
-        <div class="p-info"><p class="p-nome">Frigorífico Três Reis</p><p class="p-desc">Site institucional para frigorífico com portfólio de cortes, diferenciais e captação de clientes B2B.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">B2B</span><span class="p-tag">Agro</span></div><a href="https://frigorificotresreis.com.br/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="site" data-tipo="conceito">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/farina84.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Site · Restaurante</p><p class="p-nome">Farina 84</p><p class="p-desc">Site com identidade marcante para restaurante contemporâneo com foco em experiência e reservas.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Conceito</span><a href="https://webfun.com.br/modelos/farina84/index.html" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Farina 84">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="site">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/flavia-sussenbach.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
-        <div class="p-info"><p class="p-nome">Flávia Sussenbach</p><p class="p-desc">Site para escritório de advocacia com foco em autoridade, credibilidade e captação de consultas.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Jurídico</span><span class="p-tag">Leads</span></div><a href="https://flaviasussenbachadvogados.com.br/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="site" data-tipo="conceito">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/pulse.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Site · Fitness</p><p class="p-nome">Pulse</p><p class="p-desc">Site premium para academia com foco em conversão, planos de treino e captação de novos alunos.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Conceito</span><a href="https://webfun.com.br/projetos/pulse" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Pulse">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="landing">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/flavia-sussenbach-lp.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Landing page</span></div></div>
-        <div class="p-info"><p class="p-nome">Flávia Sussenbach — Ebook</p><p class="p-desc">Landing page de conversão para ebook guia definitivo sobre direito médico, voltado a médicos e especialistas jurídicos.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Jurídico</span><span class="p-tag">Ebook</span></div><a href="https://flaviasussenbachadvogados.com.br/ebook-abuso-de-direito/" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="sistema" data-tipo="conceito">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/cardapio-digital.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Sistema · Delivery</p><p class="p-nome">Forno Alto Pizzaria</p><p class="p-desc">Cardápio digital com pedido online, controle de horário e integração direta com a cozinha.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Conceito</span><span class="p-soon">Em breve</span></div></div>
       </div>
 
-      <div class="p-card" data-cat="site">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/noma.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Site</span></div></div>
-        <div class="p-info"><p class="p-nome">Noma Imóveis</p><p class="p-desc">Template premium para imobiliárias com listagem de imóveis, captação de leads e identidade visual sofisticada.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Imóveis</span><span class="p-tag">UX/UI</span></div><a href="https://webfun.com.br/modelos/noma/imoveis.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="site" data-tipo="conceito">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/noma.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Site · Imobiliária</p><p class="p-nome">Noma Imóveis</p><p class="p-desc">Template premium para imobiliárias com listagem de imóveis, captação de leads e identidade visual sofisticada.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Conceito</span><a href="https://webfun.com.br/modelos/noma/imoveis.html" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Noma Imóveis">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
 
-      <div class="p-card" data-cat="loja">
-        <div class="p-thumb"><div class="p-thumb-bg" style="background-image:url('https://webfun.com.br/media/portfolio/prisma.webp');background-size:contain;background-repeat:no-repeat;background-position:center"></div><div class="p-thumb-content"><span class="p-thumb-tag">Loja virtual</span></div></div>
-        <div class="p-info"><p class="p-nome">Prisma</p><p class="p-desc">Template multinicho de alta conversão com vitrine de produtos, adaptável a qualquer segmento de mercado.</p><div class="p-meta"><div class="p-tags"><span class="p-tag">Multinicho</span><span class="p-tag">Vitrine</span></div><a href="https://webfun.com.br/modelos/prisma/vitrine.html" class="p-link" target="_blank" rel="noopener">Ver projeto →</a></div></div>
+      <div class="p-card" data-cat="loja" data-tipo="conceito">
+        <div class="p-thumb"><div class="p-thumb-bg" style="background:url('https://webfun.com.br/media/portfolio/prisma.webp') center/contain no-repeat"></div></div>
+        <div class="p-info"><p class="p-ey">Loja virtual · Multinicho</p><p class="p-nome">Prisma</p><p class="p-desc">Template multinicho de alta conversão com vitrine de produtos, adaptável a qualquer segmento de mercado.</p><div class="p-meta"><span class="p-tipo conceito"><i></i>Conceito</span><a href="https://webfun.com.br/modelos/prisma/vitrine.html" class="p-link" target="_blank" rel="noopener" aria-label="Ver projeto Prisma">Ver projeto <span class="cta-ico"><i data-lucide="arrow-right"></i></span></a></div></div>
       </div>
-
     </div>
   </div>
 </section>
@@ -914,14 +960,7 @@ document.querySelectorAll('.filtro-btn').forEach(function(fbtn) {
   fbtn.addEventListener('click', function() {
     document.querySelectorAll('.filtro-btn').forEach(function(b) { b.classList.remove('ativo'); });
     fbtn.classList.add('ativo');
-    var f = fbtn.dataset.filtro;
-    var visible = 0;
-    document.querySelectorAll('.p-card').forEach(function(card) {
-      var show = f === 'todos' || card.dataset.cat === f;
-      card.classList.toggle('hidden', !show);
-      if (show) visible++;
-    });
-    document.getElementById('pCounter').textContent = visible + (visible === 1 ? ' projeto' : ' projetos');
+    window.__pf = fbtn.dataset.filtro; window.__pAplicar && window.__pAplicar();
   });
 });
 
@@ -1137,6 +1176,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     var c=s.querySelector('.mm-caret');if(c){c.setAttribute('role','button');c.setAttribute('aria-label','Mostrar serviços');}
   });
+})();
+</script>
+<script id="proj-v2-js">
+(function(){
+  window.__pf='todos';var tipo='todos';
+  window.__pAplicar=function(){var v=0;document.querySelectorAll('#pgrid .p-card').forEach(function(c){
+    var ok=(window.__pf==='todos'||c.dataset.cat===window.__pf)&&(tipo==='todos'||c.dataset.tipo===tipo);
+    c.classList.toggle('hidden',!ok);if(ok)v++;});
+    var el=document.getElementById('pCounter');if(el)el.textContent=v+(v===1?' projeto':' projetos');};
+  document.querySelectorAll('.tipo-sw button').forEach(function(b){b.addEventListener('click',function(){
+    document.querySelectorAll('.tipo-sw button').forEach(function(x){x.classList.remove('ativo');});b.classList.add('ativo');tipo=b.dataset.tipo;window.__pAplicar();});});
+  window.__pAplicar();
 })();
 </script>
 </body>
