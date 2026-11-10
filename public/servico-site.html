@@ -803,6 +803,11 @@ html{background:var(--bg);}
   upd();new MutationObserver(upd).observe(h,{attributes:true,attributeFilter:['data-theme']});
 })();
 </script>
+<style id="mm-svc-link">
+.mm-svc>summary .mm-caret{width:2.4rem;height:2.4rem;margin:-.45rem -.35rem -.45rem auto;border-radius:50%;background:rgba(128,128,128,.12);}
+.mm-svc[open]>summary .mm-caret{background:rgba(201,255,65,.16);color:var(--acid);}
+[data-theme="light"] .mm-svc[open]>summary .mm-caret{background:rgba(30,39,0,.08);color:var(--acid-fg);}
+</style>
 </head>
 <body>
 
@@ -1349,6 +1354,18 @@ document.addEventListener('DOMContentLoaded', function() {
 (function(){
   var t=document.getElementById('rodapeTop');
   if(t)t.addEventListener('click',function(){window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
+})();
+</script>
+<script id="mm-svc-link-js">
+(function(){
+  /* "Servicos" no menu mobile: o texto abre a pagina, so a setinha abre a lista */
+  document.querySelectorAll('.mm-svc>summary').forEach(function(s){
+    s.addEventListener('click',function(e){
+      if(e.target.closest('.mm-caret'))return;
+      e.preventDefault();window.location.href='/servicos';
+    });
+    var c=s.querySelector('.mm-caret');if(c){c.setAttribute('role','button');c.setAttribute('aria-label','Mostrar serviços');}
+  });
 })();
 </script>
 </body>
