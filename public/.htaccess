@@ -1,4 +1,5 @@
 Options -MultiViews
+ErrorDocument 404 /404.html
 RewriteEngine On
 
 # Redireciona acessos com .html para URL limpa
