@@ -35,8 +35,11 @@ http.createServer((req, res) => {
   }
 
   if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
-    res.writeHead(404, { 'Content-Type': 'text/html' });
-    res.end('<h1>404 Not Found</h1>');
+    // Página 404 personalizada (public/404.html), com fallback simples
+    fs.readFile(path.join(ROOT, '404.html'), (err, data) => {
+      res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+      res.end(err ? '<h1>404 Not Found</h1>' : data);
+    });
     return;
   }
 
