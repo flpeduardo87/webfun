@@ -805,6 +805,18 @@ html{background:var(--bg);}
 .rodape-wm>span{color:transparent;white-space:nowrap;}
 @media(max-width:600px){.rodape-wm{font-size:clamp(2.1rem,11vw,3.2rem)!important;flex-direction:column;align-items:center;}}
 </style>
+<style id="faq-std">
+/* FAQ padrao do site (modelo da Home) */
+.faq-list{display:flex!important;flex-direction:column!important;gap:0!important;}
+details.faq-item{border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;background:none!important;overflow:visible!important;}
+details.faq-item summary{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:1rem!important;padding:1.25rem 0!important;cursor:pointer;list-style:none;font-family:var(--f);font-size:.95rem!important;font-weight:700!important;line-height:1.4;color:var(--ink);text-align:left;background:none!important;border:0!important;width:100%;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{display:none!important;content:none!important;}
+.faq-icon{width:1.6rem!important;height:1.6rem!important;border-radius:999px!important;display:grid!important;place-items:center;flex-shrink:0;border:0!important;transition:background .2s,color .2s,box-shadow .2s,rotate .25s!important;}
+.faq-icon svg{width:.75rem;height:.75rem;stroke-width:2.5;pointer-events:none;}
+details.faq-item[open] .faq-icon{rotate:45deg;transform:none!important;}
+details.faq-item .faq-body{padding:0 0 1.25rem!important;font-size:.88rem;color:var(--muted);line-height:1.7;}
+</style>
 <style id="faq-v3">
 .faq-icon,[data-theme="light"] .faq-icon{background:rgba(128,128,128,.14)!important;color:var(--muted)!important;box-shadow:none!important;}
 @media(hover:hover) and (pointer:fine){details.faq-item summary:hover .faq-icon{background:rgba(128,128,128,.24)!important;color:var(--ink)!important;}}
@@ -1051,23 +1063,23 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
     <h2>Perguntas sobre landing page.</h2>
     <div class="faq-list">
       <details class="faq-item">
-        <summary>Preciso de um domínio próprio?</summary>
+        <summary>Preciso de um domínio próprio? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Recomendamos ter. Um domínio próprio transmite mais credibilidade e é essencial se você vai rodar anúncios de marca. Se não tiver, ajudamos a registrar — o custo é baixo (aprox. R$ 40/ano para .com.br).</div>
       </details>
       <details class="faq-item">
-        <summary>Como vejo quantas pessoas converteram?</summary>
+        <summary>Como vejo quantas pessoas converteram? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Via Google Analytics e painel do Facebook/Google Ads. Configuramos os eventos de conversão para você ver em tempo real: visitantes, leads, custo por lead e taxa de conversão.</div>
       </details>
       <details class="faq-item">
-        <summary>Funciona com Google Ads e Meta Ads?</summary>
+        <summary>Funciona com Google Ads e Meta Ads? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Sim — é exatamente para isso que a landing page é construída. Configuramos o pixel do Facebook, Google Tag Manager e as conversões para que seus anúncios saibam quem converteu e otimizem para mais conversões.</div>
       </details>
       <details class="faq-item">
-        <summary>Posso fazer A/B test depois?</summary>
+        <summary>Posso fazer A/B test depois? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Sim. A landing page pode ser duplicada e conectada a ferramentas de A/B testing (Google Optimize, VWO). Se quiser testar headlines ou CTAs diferentes, conversamos sobre como estruturar isso.</div>
       </details>
       <details class="faq-item">
-        <summary>Posso atualizar os textos e imagens depois?</summary>
+        <summary>Posso atualizar os textos e imagens depois? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Sim. Entregamos com CMS simples para edições básicas. Ajustes maiores de design e estrutura podem ser cotados separadamente — geralmente rápidos e com custo baixo.</div>
       </details>
     </div>

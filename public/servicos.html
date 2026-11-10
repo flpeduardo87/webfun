@@ -851,6 +851,18 @@ html{background:var(--bg);}
 .rodape-wm>span{color:transparent;white-space:nowrap;}
 @media(max-width:600px){.rodape-wm{font-size:clamp(2.1rem,11vw,3.2rem)!important;flex-direction:column;align-items:center;}}
 </style>
+<style id="faq-std">
+/* FAQ padrao do site (modelo da Home) */
+.faq-list{display:flex!important;flex-direction:column!important;gap:0!important;}
+details.faq-item{border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;background:none!important;overflow:visible!important;}
+details.faq-item summary{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:1rem!important;padding:1.25rem 0!important;cursor:pointer;list-style:none;font-family:var(--f);font-size:.95rem!important;font-weight:700!important;line-height:1.4;color:var(--ink);text-align:left;background:none!important;border:0!important;width:100%;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{display:none!important;content:none!important;}
+.faq-icon{width:1.6rem!important;height:1.6rem!important;border-radius:999px!important;display:grid!important;place-items:center;flex-shrink:0;border:0!important;transition:background .2s,color .2s,box-shadow .2s,rotate .25s!important;}
+.faq-icon svg{width:.75rem;height:.75rem;stroke-width:2.5;pointer-events:none;}
+details.faq-item[open] .faq-icon{rotate:45deg;transform:none!important;}
+details.faq-item .faq-body{padding:0 0 1.25rem!important;font-size:.88rem;color:var(--muted);line-height:1.7;}
+</style>
 <style id="faq-v3">
 .faq-icon,[data-theme="light"] .faq-icon{background:rgba(128,128,128,.14)!important;color:var(--muted)!important;box-shadow:none!important;}
 @media(hover:hover) and (pointer:fine){details.faq-item summary:hover .faq-icon{background:rgba(128,128,128,.24)!important;color:var(--ink)!important;}}
@@ -1181,28 +1193,28 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
       <h2 class="faq-h2" id="faq-h2">Qual serviço faz sentido para o seu cenário?</h2>
       <div class="faq-list">
         <details class="faq-item">
-          <summary class="faq-q">Quero aparecer no Google e ter contato profissional online. O que eu preciso? <span class="faq-ico"><i data-lucide="plus"></i></span></summary>
-          <p class="faq-a">Um <strong>site institucional</strong> resolve isso. Ele estabelece presença, transmite credibilidade e aparece nas buscas. Já inclui SEO técnico, formulário de contato e WhatsApp. Se tiver campanha ativa, uma <strong>landing page</strong> pode complementar bem.</p>
+          <summary>Quero aparecer no Google e ter contato profissional online. O que eu preciso? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
+          <p class="faq-body">Um <strong>site institucional</strong> resolve isso. Ele estabelece presença, transmite credibilidade e aparece nas buscas. Já inclui SEO técnico, formulário de contato e WhatsApp. Se tiver campanha ativa, uma <strong>landing page</strong> pode complementar bem.</p>
         </details>
         <details class="faq-item">
-          <summary class="faq-q">Tenho produtos físicos e quero vender pela internet. Qual serviço é o certo? <span class="faq-ico"><i data-lucide="plus"></i></span></summary>
-          <p class="faq-a">Uma <strong>loja virtual</strong> completa — com catálogo, checkout, Pix e cartão, gestão de pedidos e integração com frete. A diferença de uma loja bem-feita para uma genérica é a taxa de abandono: boas lojas convertem até 3× mais.</p>
+          <summary>Tenho produtos físicos e quero vender pela internet. Qual serviço é o certo? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
+          <p class="faq-body">Uma <strong>loja virtual</strong> completa — com catálogo, checkout, Pix e cartão, gestão de pedidos e integração com frete. A diferença de uma loja bem-feita para uma genérica é a taxa de abandono: boas lojas convertem até 3× mais.</p>
         </details>
         <details class="faq-item">
-          <summary class="faq-q">Uso planilha para controlar clientes ou pedidos. Quando vale um sistema? <span class="faq-ico"><i data-lucide="plus"></i></span></summary>
-          <p class="faq-a">Quando o retrabalho manual começa a custar tempo real. Um <strong>sistema sob medida</strong> centraliza o que hoje está espalhado em planilhas, WhatsApp e e-mail — com controle de acesso, dashboard e histórico. A maioria dos clientes que migram não volta para a planilha.</p>
+          <summary>Uso planilha para controlar clientes ou pedidos. Quando vale um sistema? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
+          <p class="faq-body">Quando o retrabalho manual começa a custar tempo real. Um <strong>sistema sob medida</strong> centraliza o que hoje está espalhado em planilhas, WhatsApp e e-mail — com controle de acesso, dashboard e histórico. A maioria dos clientes que migram não volta para a planilha.</p>
         </details>
         <details class="faq-item">
-          <summary class="faq-q">Preciso chegar com o projeto totalmente definido antes de entrar em contato? <span class="faq-ico"><i data-lucide="plus"></i></span></summary>
-          <p class="faq-a">Não. O briefing faz parte do processo. Basta ter clareza sobre o <em>problema que você quer resolver</em> — a solução técnica e o escopo constroem juntos na conversa. Quanto menos você souber, mais perguntas fazemos para chegar no caminho certo.</p>
+          <summary>Preciso chegar com o projeto totalmente definido antes de entrar em contato? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
+          <p class="faq-body">Não. O briefing faz parte do processo. Basta ter clareza sobre o <em>problema que você quer resolver</em> — a solução técnica e o escopo constroem juntos na conversa. Quanto menos você souber, mais perguntas fazemos para chegar no caminho certo.</p>
         </details>
         <details class="faq-item">
-          <summary class="faq-q">Faço tarefas repetitivas que tomam horas por semana. Tem como automatizar? <span class="faq-ico"><i data-lucide="plus"></i></span></summary>
-          <p class="faq-a">Sim — é exatamente para isso que existe a <strong>Automação & IA</strong>. Disparo de mensagens, criação de documentos, extração de dados, notificações automáticas e resumo com IA. Se você consegue descrever a rotina, dá para automatizar boa parte dela.</p>
+          <summary>Faço tarefas repetitivas que tomam horas por semana. Tem como automatizar? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
+          <p class="faq-body">Sim — é exatamente para isso que existe a <strong>Automação & IA</strong>. Disparo de mensagens, criação de documentos, extração de dados, notificações automáticas e resumo com IA. Se você consegue descrever a rotina, dá para automatizar boa parte dela.</p>
         </details>
         <details class="faq-item">
-          <summary class="faq-q">O SEO já vem incluído nos projetos ou é um serviço separado? <span class="faq-ico"><i data-lucide="plus"></i></span></summary>
-          <p class="faq-a">O <strong>SEO técnico</strong> está incluso em todos os projetos de site e loja: estrutura de URLs, meta tags, velocidade, sitemap, robots.txt e Search Console configurado. SEO de conteúdo (produção contínua de texto) é um trabalho separado e contínuo.</p>
+          <summary>O SEO já vem incluído nos projetos ou é um serviço separado? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
+          <p class="faq-body">O <strong>SEO técnico</strong> está incluso em todos os projetos de site e loja: estrutura de URLs, meta tags, velocidade, sitemap, robots.txt e Search Console configurado. SEO de conteúdo (produção contínua de texto) é um trabalho separado e contínuo.</p>
         </details>
       </div>
     </div>

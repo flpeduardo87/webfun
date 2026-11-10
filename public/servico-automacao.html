@@ -799,6 +799,18 @@ html{background:var(--bg);}
 .rodape-wm>span{color:transparent;white-space:nowrap;}
 @media(max-width:600px){.rodape-wm{font-size:clamp(2.1rem,11vw,3.2rem)!important;flex-direction:column;align-items:center;}}
 </style>
+<style id="faq-std">
+/* FAQ padrao do site (modelo da Home) */
+.faq-list{display:flex!important;flex-direction:column!important;gap:0!important;}
+details.faq-item{border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;background:none!important;overflow:visible!important;}
+details.faq-item summary{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:1rem!important;padding:1.25rem 0!important;cursor:pointer;list-style:none;font-family:var(--f);font-size:.95rem!important;font-weight:700!important;line-height:1.4;color:var(--ink);text-align:left;background:none!important;border:0!important;width:100%;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{display:none!important;content:none!important;}
+.faq-icon{width:1.6rem!important;height:1.6rem!important;border-radius:999px!important;display:grid!important;place-items:center;flex-shrink:0;border:0!important;transition:background .2s,color .2s,box-shadow .2s,rotate .25s!important;}
+.faq-icon svg{width:.75rem;height:.75rem;stroke-width:2.5;pointer-events:none;}
+details.faq-item[open] .faq-icon{rotate:45deg;transform:none!important;}
+details.faq-item .faq-body{padding:0 0 1.25rem!important;font-size:.88rem;color:var(--muted);line-height:1.7;}
+</style>
 <style id="faq-v3">
 .faq-icon,[data-theme="light"] .faq-icon{background:rgba(128,128,128,.14)!important;color:var(--muted)!important;box-shadow:none!important;}
 @media(hover:hover) and (pointer:fine){details.faq-item summary:hover .faq-icon{background:rgba(128,128,128,.24)!important;color:var(--ink)!important;}}
@@ -1044,23 +1056,23 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
     <h2>Perguntas sobre automação e IA.</h2>
     <div class="faq-list">
       <details class="faq-item">
-        <summary>Vou precisar cancelar as ferramentas que já uso?</summary>
+        <summary>Vou precisar cancelar as ferramentas que já uso? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Na maioria dos casos não — a automação conecta as ferramentas que você já usa, sem substituí-las. A ideia é fazer elas se conversarem, não começar do zero.</div>
       </details>
       <details class="faq-item">
-        <summary>O que acontece se um fluxo der erro?</summary>
+        <summary>O que acontece se um fluxo der erro? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Todos os fluxos têm tratamento de erro configurado — alertas automáticos quando algo falha. Você é notificado imediatamente e, dentro do período de suporte, corrijo sem custo adicional.</div>
       </details>
       <details class="faq-item">
-        <summary>O chatbot pode parecer humano?</summary>
+        <summary>O chatbot pode parecer humano? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Pode ser configurado assim, com respostas naturais e personalizadas. Mas recomendamos transparência com o cliente — a maioria prefere saber que está falando com um bot e ser encaminhado ao humano quando necessário.</div>
       </details>
       <details class="faq-item">
-        <summary>Funciona com meu CRM ou sistema atual?</summary>
+        <summary>Funciona com meu CRM ou sistema atual? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Depende do CRM. Os mais populares (HubSpot, RD Station, Salesforce, Pipedrive) têm integração nativa. Para sistemas proprietários, avaliamos via API durante o mapeamento inicial.</div>
       </details>
       <details class="faq-item">
-        <summary>Posso adicionar novos fluxos depois?</summary>
+        <summary>Posso adicionar novos fluxos depois? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Sim — e é o mais comum. Começamos com os 2 ou 3 processos de maior impacto e expandimos depois. Novos fluxos são cotados separadamente, geralmente mais baratos por já termos a base configurada.</div>
       </details>
     </div>

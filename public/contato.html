@@ -792,6 +792,18 @@ html{background:var(--bg);}
 .rodape-wm>span{color:transparent;white-space:nowrap;}
 @media(max-width:600px){.rodape-wm{font-size:clamp(2.1rem,11vw,3.2rem)!important;flex-direction:column;align-items:center;}}
 </style>
+<style id="faq-std">
+/* FAQ padrao do site (modelo da Home) */
+.faq-list{display:flex!important;flex-direction:column!important;gap:0!important;}
+details.faq-item{border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;background:none!important;overflow:visible!important;}
+details.faq-item summary{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:1rem!important;padding:1.25rem 0!important;cursor:pointer;list-style:none;font-family:var(--f);font-size:.95rem!important;font-weight:700!important;line-height:1.4;color:var(--ink);text-align:left;background:none!important;border:0!important;width:100%;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{display:none!important;content:none!important;}
+.faq-icon{width:1.6rem!important;height:1.6rem!important;border-radius:999px!important;display:grid!important;place-items:center;flex-shrink:0;border:0!important;transition:background .2s,color .2s,box-shadow .2s,rotate .25s!important;}
+.faq-icon svg{width:.75rem;height:.75rem;stroke-width:2.5;pointer-events:none;}
+details.faq-item[open] .faq-icon{rotate:45deg;transform:none!important;}
+details.faq-item .faq-body{padding:0 0 1.25rem!important;font-size:.88rem;color:var(--muted);line-height:1.7;}
+</style>
 <style id="faq-v3">
 .faq-icon,[data-theme="light"] .faq-icon{background:rgba(128,128,128,.14)!important;color:var(--muted)!important;box-shadow:none!important;}
 @media(hover:hover) and (pointer:fine){details.faq-item summary:hover .faq-icon{background:rgba(128,128,128,.24)!important;color:var(--ink)!important;}}
@@ -1090,28 +1102,28 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
       <div class="faq-list">
 
         <details class="faq-item">
-          <summary class="faq-q">Vocês atendem empresas de fora de Canoinhas? <span class="faq-ico"><i data-lucide="plus"></i></span></summary>
-          <p class="faq-a">Sim. O atendimento é 100% remoto e já trabalhei com clientes em SP, RJ, RS, PR e outros estados. A distância não muda nada na qualidade do projeto.</p>
+          <summary>Vocês atendem empresas de fora de Canoinhas? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
+          <p class="faq-body">Sim. O atendimento é 100% remoto e já trabalhei com clientes em SP, RJ, RS, PR e outros estados. A distância não muda nada na qualidade do projeto.</p>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-q">Qual o prazo médio para entregar um projeto? <span class="faq-ico"><i data-lucide="plus"></i></span></summary>
-          <p class="faq-a">Depende do escopo. Um site institucional leva em torno de 3 semanas. Uma loja virtual, 5 semanas. Sistemas sob medida podem levar de 6 a 12 semanas. Tudo alinhado antes de começar.</p>
+          <summary>Qual o prazo médio para entregar um projeto? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
+          <p class="faq-body">Depende do escopo. Um site institucional leva em torno de 3 semanas. Uma loja virtual, 5 semanas. Sistemas sob medida podem levar de 6 a 12 semanas. Tudo alinhado antes de começar.</p>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-q">Como funciona o pagamento? <span class="faq-ico"><i data-lucide="plus"></i></span></summary>
-          <p class="faq-a">Geralmente 50% na aprovação da proposta e 50% na entrega final. Projetos maiores têm marcos intermediários combinados no contrato.</p>
+          <summary>Como funciona o pagamento? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
+          <p class="faq-body">Geralmente 50% na aprovação da proposta e 50% na entrega final. Projetos maiores têm marcos intermediários combinados no contrato.</p>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-q">O cliente precisa ter ideia de como quer o site? <span class="faq-ico"><i data-lucide="plus"></i></span></summary>
-          <p class="faq-a">Não precisa. O briefing faz parte do processo. Começo entendendo o negócio, os objetivos e o público — o design e a estrutura surgem a partir disso.</p>
+          <summary>O cliente precisa ter ideia de como quer o site? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
+          <p class="faq-body">Não precisa. O briefing faz parte do processo. Começo entendendo o negócio, os objetivos e o público — o design e a estrutura surgem a partir disso.</p>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-q">Há suporte depois da entrega? <span class="faq-ico"><i data-lucide="plus"></i></span></summary>
-          <p class="faq-a">Sim. Todo projeto inclui 30 dias de suporte para ajustes e dúvidas. Depois disso, há planos de manutenção e suporte contínuo disponíveis.</p>
+          <summary>Há suporte depois da entrega? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
+          <p class="faq-body">Sim. Todo projeto inclui 30 dias de suporte para ajustes e dúvidas. Depois disso, há planos de manutenção e suporte contínuo disponíveis.</p>
         </details>
 
       </div>

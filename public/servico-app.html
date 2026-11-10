@@ -824,6 +824,18 @@ html{background:var(--bg);}
 .rodape-wm>span{color:transparent;white-space:nowrap;}
 @media(max-width:600px){.rodape-wm{font-size:clamp(2.1rem,11vw,3.2rem)!important;flex-direction:column;align-items:center;}}
 </style>
+<style id="faq-std">
+/* FAQ padrao do site (modelo da Home) */
+.faq-list{display:flex!important;flex-direction:column!important;gap:0!important;}
+details.faq-item{border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;background:none!important;overflow:visible!important;}
+details.faq-item summary{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:1rem!important;padding:1.25rem 0!important;cursor:pointer;list-style:none;font-family:var(--f);font-size:.95rem!important;font-weight:700!important;line-height:1.4;color:var(--ink);text-align:left;background:none!important;border:0!important;width:100%;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{display:none!important;content:none!important;}
+.faq-icon{width:1.6rem!important;height:1.6rem!important;border-radius:999px!important;display:grid!important;place-items:center;flex-shrink:0;border:0!important;transition:background .2s,color .2s,box-shadow .2s,rotate .25s!important;}
+.faq-icon svg{width:.75rem;height:.75rem;stroke-width:2.5;pointer-events:none;}
+details.faq-item[open] .faq-icon{rotate:45deg;transform:none!important;}
+details.faq-item .faq-body{padding:0 0 1.25rem!important;font-size:.88rem;color:var(--muted);line-height:1.7;}
+</style>
 <style id="faq-v3">
 .faq-icon,[data-theme="light"] .faq-icon{background:rgba(128,128,128,.14)!important;color:var(--muted)!important;box-shadow:none!important;}
 @media(hover:hover) and (pointer:fine){details.faq-item summary:hover .faq-icon{background:rgba(128,128,128,.24)!important;color:var(--ink)!important;}}
@@ -1109,23 +1121,23 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
     <h2>Perguntas sobre aplicativos.</h2>
     <div class="faq-list">
       <details class="faq-item">
-        <summary>Qual a diferença entre PWA e app nativo na prática?</summary>
+        <summary>Qual a diferença entre PWA e app nativo na prática? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">PWA é um site que se comporta como app — sem passar pelas lojas, sem custo de aprovação, atualização instantânea. App nativo fica na App Store e no Google Play, tem acesso a recursos do dispositivo (câmera, GPS, biometria) e parece mais familiar ao usuário. Para a maioria dos casos de uso comerciais, o PWA resolve com muito menos custo.</div>
       </details>
       <details class="faq-item">
-        <summary>Preciso de conta de desenvolvedor nas lojas?</summary>
+        <summary>Preciso de conta de desenvolvedor nas lojas? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Sim, para apps React Native. Google Play custa US$ 25 (taxa única). Apple Developer Program custa US$ 99/ano. Cuidamos de todo o processo de submissão, mas as contas ficam no seu nome para você ter controle total do app.</div>
       </details>
       <details class="faq-item">
-        <summary>O app vai funcionar sem internet?</summary>
+        <summary>O app vai funcionar sem internet? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Depende do que o app faz. Recursos que exigem dados em tempo real (pedidos, chat) precisam de conexão. Mas conteúdo cacheado, modo offline básico e indicação de "sem conexão" são implementados por padrão.</div>
       </details>
       <details class="faq-item">
-        <summary>Posso alterar o conteúdo do app depois?</summary>
+        <summary>Posso alterar o conteúdo do app depois? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Sim, esse é o propósito do painel admin. Textos, imagens, produtos, usuários, notificações — você gerencia sem depender do desenvolvedor. Para mudanças estruturais (novas telas, funcionalidades), cotamos separadamente.</div>
       </details>
       <details class="faq-item">
-        <summary>Como funciona o suporte de 60 dias?</summary>
+        <summary>Como funciona o suporte de 60 dias? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Cobre bugs, ajustes de comportamento e suporte para uso do painel. Não cobre desenvolvimento de novas funcionalidades. Após os 60 dias, oferecemos contrato mensal de manutenção ou cotação por demanda.</div>
       </details>
     </div>

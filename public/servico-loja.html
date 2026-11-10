@@ -807,6 +807,18 @@ html{background:var(--bg);}
 .rodape-wm>span{color:transparent;white-space:nowrap;}
 @media(max-width:600px){.rodape-wm{font-size:clamp(2.1rem,11vw,3.2rem)!important;flex-direction:column;align-items:center;}}
 </style>
+<style id="faq-std">
+/* FAQ padrao do site (modelo da Home) */
+.faq-list{display:flex!important;flex-direction:column!important;gap:0!important;}
+details.faq-item{border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;background:none!important;overflow:visible!important;}
+details.faq-item summary{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:1rem!important;padding:1.25rem 0!important;cursor:pointer;list-style:none;font-family:var(--f);font-size:.95rem!important;font-weight:700!important;line-height:1.4;color:var(--ink);text-align:left;background:none!important;border:0!important;width:100%;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{display:none!important;content:none!important;}
+.faq-icon{width:1.6rem!important;height:1.6rem!important;border-radius:999px!important;display:grid!important;place-items:center;flex-shrink:0;border:0!important;transition:background .2s,color .2s,box-shadow .2s,rotate .25s!important;}
+.faq-icon svg{width:.75rem;height:.75rem;stroke-width:2.5;pointer-events:none;}
+details.faq-item[open] .faq-icon{rotate:45deg;transform:none!important;}
+details.faq-item .faq-body{padding:0 0 1.25rem!important;font-size:.88rem;color:var(--muted);line-height:1.7;}
+</style>
 <style id="faq-v3">
 .faq-icon,[data-theme="light"] .faq-icon{background:rgba(128,128,128,.14)!important;color:var(--muted)!important;box-shadow:none!important;}
 @media(hover:hover) and (pointer:fine){details.faq-item summary:hover .faq-icon{background:rgba(128,128,128,.24)!important;color:var(--ink)!important;}}
@@ -1070,23 +1082,23 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
     <h2>Perguntas sobre a loja virtual.</h2>
     <div class="faq-list">
       <details class="faq-item">
-        <summary>Preciso de CNPJ para ter uma loja virtual?</summary>
+        <summary>Preciso de CNPJ para ter uma loja virtual? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Não para criar a loja. Para receber pagamentos via gateway, algumas plataformas aceitam CPF (MEI ou pessoa física). Para emitir nota fiscal, é necessário CNPJ. Conversamos sobre isso no briefing e encontramos a melhor solução para o seu caso.</div>
       </details>
       <details class="faq-item">
-        <summary>Como o dinheiro das vendas chega até mim?</summary>
+        <summary>Como o dinheiro das vendas chega até mim? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">O gateway de pagamento (Mercado Pago, Pagar.me ou Stripe) deposita diretamente na sua conta bancária — conforme o prazo do meio de pagamento (Pix é instantâneo, cartão em D+2 ou D+30). Você tem visibilidade total do saldo no painel.</div>
       </details>
       <details class="faq-item">
-        <summary>Posso cadastrar os produtos sozinho depois?</summary>
+        <summary>Posso cadastrar os produtos sozinho depois? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">Sim, e é simples. Entregamos a loja com um painel intuitivo e um vídeo de treinamento. Você cadastra produtos, edita preços e gerencia estoque sem precisar de conhecimento técnico.</div>
       </details>
       <details class="faq-item">
-        <summary>E se eu quiser adicionar mais funcionalidades depois?</summary>
+        <summary>E se eu quiser adicionar mais funcionalidades depois? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">A loja é projetada para crescer. Funcionalidades extras (programa de fidelidade, área de membros, integração com ERP) são cotadas à parte e adicionadas sem necessidade de refazer tudo.</div>
       </details>
       <details class="faq-item">
-        <summary>A loja funciona bem no celular?</summary>
+        <summary>A loja funciona bem no celular? <span class="faq-icon"><i data-lucide="plus"></i></span></summary>
         <div class="faq-body">É a prioridade. Mais de 75% das compras online acontecem via celular. Todo o design e o checkout são otimizados para mobile — da vitrine ao pagamento — sem redirecionamentos ou telas quebradas.</div>
       </details>
     </div>
