@@ -1353,6 +1353,15 @@ html{background:var(--bg);}
 [data-theme="light"] .mm-svc[open]>summary .mm-caret{background:rgba(30,39,0,.08);color:var(--acid-fg);}
 </style>
 <style id="est-anchor">#contato{scroll-margin-top:4.5rem;}#orcamento{scroll-margin-top:7.5rem;}</style>
+<style id="touch-fix">
+/* toque: sem estado de hover preso (seta sumia depois do clique) */
+@media (hover:none){.btn-acid:hover .seta svg,.wf-topo-cta:hover .seta-sm svg,.btn-glow:hover .btn-glow-seta svg,.svc-card:hover .svc-arrow svg,.btn-form-next:hover .seta-sm svg,.form-send-btn:hover .seta svg,.svc-card:hover .svc-cta .cta-ico svg,.p-card:hover .p-link .cta-ico svg,a.ct-li:hover .cta-ico svg,.pq-item:hover .pq-link .cta-ico svg{transform:none!important;}.btn-acid:hover .seta{transform:none!important;}}
+/* elementos fixos escondidos nao tingem a barra do Safari */
+#wppModal{visibility:hidden;transition:opacity .25s,visibility 0s linear .25s!important;}
+#wppModal.wpp-open{visibility:visible;transition:opacity .25s,visibility 0s!important;}
+.est-bar{visibility:hidden;}
+.est-bar.on{visibility:visible;}
+</style>
 </head>
 <body>
 
