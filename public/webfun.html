@@ -1518,7 +1518,7 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 /* faixas fixas nas bordas: o Safari (iOS 26) pinta as barras com a cor delas */
 .edge-top,.edge-bot{position:fixed;left:0;right:0;z-index:250;pointer-events:none;background:var(--bg);transition:background .3s;}
 .edge-top{top:0;height:2px;background:transparent!important;}
-.edge-bot{display:none!important;}
+.edge-bot,.edge-tint{position:fixed;left:0;right:0;height:3px;z-index:249;pointer-events:none;background:var(--bg);opacity:0;}.edge-bot{bottom:0;top:auto;}.edge-tint{top:0;}
 .edge-top i{position:absolute;inset:0;background:linear-gradient(90deg,#1e2700,#6f8f1a 45%,var(--acid));transform-origin:0 50%;transform:scaleX(var(--p,0));}
 .mo-prog{display:none!important;}
 </style>
@@ -1529,7 +1529,7 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 </style>
 </head>
 <body>
-<div class="edge-top" aria-hidden="true"><i id="edgeProg"></i></div><div class="edge-bot" aria-hidden="true"></div>
+<div class="edge-top" aria-hidden="true"><i id="edgeProg"></i></div><div class="edge-bot" aria-hidden="true"></div><div class="edge-tint" aria-hidden="true"></div>
 
 <!-- ── Header ─────────────────────────────────────────────────────────── -->
 <header class="wf-topo" id="topo">
