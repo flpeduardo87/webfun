@@ -1468,11 +1468,12 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 [data-theme="light"]{color-scheme:light;}
 /* faixas fixas nas bordas: o Safari (iOS 26) pinta as barras com a cor delas */
 .edge-top,.edge-bot{position:fixed;left:0;right:0;z-index:250;pointer-events:none;background:var(--bg);transition:background .3s;}
-.edge-top{top:0;height:2px;background:transparent!important;}
+.edge-top{top:0;height:1px;overflow:visible;}.edge-top i{height:2px;bottom:auto;}
 .edge-bot{bottom:0;height:2px;}
 .edge-top i{position:absolute;inset:0;background:linear-gradient(90deg,#7fd8be,var(--acid));transform-origin:0 50%;transform:scaleX(var(--p,0));}
 .mo-prog{display:none!important;}
 </style>
+<style id="step-sticky-gate">@media(max-width:800px){.steps.st-off .step{position:relative!important;top:auto!important;}}</style>
 </head>
 <body>
 <div class="edge-top" aria-hidden="true"><i id="edgeProg"></i></div><div class="edge-bot" aria-hidden="true"></div>
@@ -2713,6 +2714,13 @@ document.addEventListener('DOMContentLoaded', function() {
   var b=document.getElementById('edgeProg');if(!b)return;var t=0;
   function u(){t=0;var h=document.documentElement.scrollHeight-innerHeight;b.style.setProperty('--p',h>0?Math.min(1,scrollY/h):0);}
   addEventListener('scroll',function(){if(!t)t=requestAnimationFrame(u);},{passive:true});addEventListener('resize',u);u();
+})();
+</script>
+<script id="step-sticky-gate-js">
+(function(){
+  var s=document.querySelector('.steps');if(!s||!('IntersectionObserver' in window))return;
+  s.classList.add('st-off');
+  new IntersectionObserver(function(e){s.classList.toggle('st-off',!e[0].isIntersecting);},{rootMargin:'200px 0px'}).observe(s);
 })();
 </script>
 </body>
