@@ -1463,8 +1463,19 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 [data-theme="dark"] .paraquem{background:radial-gradient(110% 55% at 50% 0%,rgba(201,255,65,.035),transparent 60%),#111111!important;}
 [data-theme="dark"] .incl-sec,[data-theme="dark"] .inv-sec{background:radial-gradient(110% 55% at 50% 0%,rgba(201,255,65,.035),transparent 60%),#111111!important;}
 </style>
+<style id="edge-bars">
+[data-theme="dark"]{color-scheme:dark;}
+[data-theme="light"]{color-scheme:light;}
+/* faixas fixas nas bordas: o Safari (iOS 26) pinta as barras com a cor delas */
+.edge-top,.edge-bot{position:fixed;left:0;right:0;z-index:250;pointer-events:none;background:var(--bg);transition:background .3s;}
+.edge-top{top:0;height:3px;}
+.edge-bot{bottom:0;height:2px;}
+.edge-top i{position:absolute;inset:0;background:linear-gradient(90deg,#7fd8be,var(--acid));transform-origin:0 50%;transform:scaleX(var(--p,0));}
+.mo-prog{display:none!important;}
+</style>
 </head>
 <body>
+<div class="edge-top" aria-hidden="true"><i id="edgeProg"></i></div><div class="edge-bot" aria-hidden="true"></div>
 
 <!-- ── Header ─────────────────────────────────────────────────────────── -->
 <header class="wf-topo" id="topo">
@@ -2695,6 +2706,13 @@ document.addEventListener('DOMContentLoaded', function() {
 (function(){
   var it=[].slice.call(document.querySelectorAll('details.faq-item'));
   it.forEach(function(d){d.addEventListener('toggle',function(){if(d.open)it.forEach(function(o){if(o!==d&&o.open)o.open=false;});});});
+})();
+</script>
+<script id="edge-bars-js">
+(function(){
+  var b=document.getElementById('edgeProg');if(!b)return;var t=0;
+  function u(){t=0;var h=document.documentElement.scrollHeight-innerHeight;b.style.setProperty('--p',h>0?Math.min(1,scrollY/h):0);}
+  addEventListener('scroll',function(){if(!t)t=requestAnimationFrame(u);},{passive:true});addEventListener('resize',u);u();
 })();
 </script>
 </body>
