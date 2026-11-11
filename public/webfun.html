@@ -1517,12 +1517,15 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 [data-theme="light"]{color-scheme:light;}
 /* faixas fixas nas bordas: o Safari (iOS 26) pinta as barras com a cor delas */
 .edge-top,.edge-bot{position:fixed;left:0;right:0;z-index:250;pointer-events:none;background:var(--bg);transition:background .3s;}
-.edge-top{top:0;height:1px;overflow:visible;}.edge-top i{height:2px;bottom:auto;}
+.edge-top{top:0;height:2px;background:transparent!important;}
 .edge-bot{bottom:0;height:2px;}
 .edge-top i{position:absolute;inset:0;background:linear-gradient(90deg,#7fd8be,var(--acid));transform-origin:0 50%;transform:scaleX(var(--p,0));}
 .mo-prog{display:none!important;}
 </style>
-<style id="step-sticky-gate">@media(max-width:800px){.steps.st-off .step{position:relative!important;top:auto!important;}}</style>
+<style id="step-stack-js">
+/* empilhamento das etapas sem position:sticky (o Safari copiava a cor dos cards para as barras) */
+@media(max-width:800px){.steps{position:relative;}.steps .step{position:relative!important;top:auto!important;will-change:translate;}}
+</style>
 </head>
 <body>
 <div class="edge-top" aria-hidden="true"><i id="edgeProg"></i></div><div class="edge-bot" aria-hidden="true"></div>
@@ -2682,11 +2685,20 @@ document.addEventListener('DOMContentLoaded', function() {
   addEventListener('scroll',function(){if(!t)t=requestAnimationFrame(u);},{passive:true});addEventListener('resize',u);u();
 })();
 </script>
-<script id="step-sticky-gate-js">
+<script id="step-stack-js-js">
 (function(){
-  var s=document.querySelector('.steps');if(!s||!('IntersectionObserver' in window))return;
-  s.classList.add('st-off');
-  new IntersectionObserver(function(e){s.classList.toggle('st-off',!e[0].isIntersecting);},{rootMargin:'200px 0px'}).observe(s);
+  var s=document.querySelector('.steps');if(!s)return;
+  var cards=[].slice.call(s.children),mq=matchMedia('(max-width:800px)'),tk=0,top0=0,box=[],bottom=0;
+  function measure(){top0=s.getBoundingClientRect().top+scrollY;bottom=top0+s.offsetHeight;box=cards.map(function(c){return{t:top0+c.offsetTop,h:c.offsetHeight};});}
+  function upd(){tk=0;
+    if(!mq.matches){cards.forEach(function(c){c.style.translate='';});return;}
+    var y=scrollY,rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16;
+    cards.forEach(function(c,i){var b=box[i],st=5.4*rem+i*rem,d=Math.max(0,Math.min(y+st-b.t,bottom-(b.t+b.h)));c.style.translate=d?'0 '+d+'px':'';});
+  }
+  function all(){measure();upd();}
+  all();addEventListener('scroll',function(){if(!tk)tk=requestAnimationFrame(upd);},{passive:true});
+  addEventListener('resize',all);addEventListener('load',all);
+  if('ResizeObserver' in window)new ResizeObserver(all).observe(s);
 })();
 </script>
 </body>
