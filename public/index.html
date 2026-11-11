@@ -1473,9 +1473,10 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 .edge-top i{position:absolute;inset:0;background:linear-gradient(90deg,#1e2700,#6f8f1a 45%,var(--acid));transform-origin:0 50%;transform:scaleX(var(--p,0));}
 .mo-prog{display:none!important;}
 </style>
-<style id="step-stack-js">
-/* empilhamento das etapas sem position:sticky (o Safari copiava a cor dos cards para as barras) */
-@media(max-width:800px){.steps{position:relative;}.steps .step{position:relative!important;top:auto!important;will-change:translate;}}
+<style id="step-bg-layer">
+/* sticky nativo (fluido); o fundo vai para uma camada interna para o Safari nao copiar a cor do card nas barras */
+.steps .step.bgm{background:transparent!important;isolation:isolate;}
+.steps .step.bgm::before{content:'';position:absolute;inset:-1px;border-radius:inherit;background:var(--sbg);z-index:-1;pointer-events:none;}
 </style>
 </head>
 <body>
@@ -2719,20 +2720,16 @@ document.addEventListener('DOMContentLoaded', function() {
   addEventListener('scroll',function(){if(!t)t=requestAnimationFrame(u);},{passive:true});addEventListener('resize',u);u();
 })();
 </script>
-<script id="step-stack-js-js">
+<script id="step-bg-layer-js">
 (function(){
-  var s=document.querySelector('.steps');if(!s)return;
-  var cards=[].slice.call(s.children),mq=matchMedia('(max-width:800px)'),tk=0,top0=0,box=[],bottom=0;
-  function measure(){top0=s.getBoundingClientRect().top+scrollY;bottom=top0+s.offsetHeight;box=cards.map(function(c){return{t:top0+c.offsetTop,h:c.offsetHeight};});}
-  function upd(){tk=0;
-    if(!mq.matches){cards.forEach(function(c){c.style.translate='';});return;}
-    var y=scrollY,rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16;
-    cards.forEach(function(c,i){var b=box[i],st=5.4*rem+i*rem,d=Math.max(0,Math.min(y+st-b.t,bottom-(b.t+b.h)));c.style.translate=d?'0 '+d+'px':'';});
+  var st=[].slice.call(document.querySelectorAll('.steps .step'));if(!st.length)return;
+  function aplicar(){
+    st.forEach(function(s){s.style.transition='none';s.classList.remove('bgm');s.style.removeProperty('--sbg');});
+    var v=st.map(function(s){var c=getComputedStyle(s);return (c.backgroundImage&&c.backgroundImage!=='none'?c.backgroundImage+',':'')+c.backgroundColor;});
+    st.forEach(function(s,i){s.style.setProperty('--sbg',v[i]);s.classList.add('bgm');s.style.transition='';});
   }
-  function all(){measure();upd();}
-  all();addEventListener('scroll',function(){if(!tk)tk=requestAnimationFrame(upd);},{passive:true});
-  addEventListener('resize',all);addEventListener('load',all);
-  if('ResizeObserver' in window)new ResizeObserver(all).observe(s);
+  aplicar();
+  new MutationObserver(aplicar).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
 })();
 </script>
 </body>
