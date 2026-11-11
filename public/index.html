@@ -649,6 +649,7 @@ svg { display: block; }
 .band-track { display: flex; gap: 3rem; align-items: center; animation: marquee 75s linear infinite; width: max-content; }
 .band-logo { height: 28px; width: auto; display: block; filter: grayscale(1) opacity(0.45); }
 [data-theme="dark"] .band-logo { filter: grayscale(1) invert(1) opacity(0.45); }
+@media (pointer:coarse) { .band { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; } .band::-webkit-scrollbar { display: none; } .band-track { animation: none; } }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* ── Serviços ────────────────────────────────────────────────────────── */
@@ -2736,6 +2737,35 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   aplicar();
   new MutationObserver(aplicar).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+})();
+</script>
+<script>
+(function(){
+  if(!window.matchMedia('(pointer:coarse)').matches)return;
+  var band=document.querySelector('.band'),track=document.querySelector('.band-track');
+  if(!band||!track)return;
+  var SPEED=55,RESUME=1500,still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pos=0,half=0,touching=false,lastUser=0,last=0,started=false;
+  function measure(){half=track.scrollWidth/2;if(half&&!started){started=true;pos=half*0.5;band.scrollLeft=pos;}}
+  band.addEventListener('touchstart',function(){touching=true;lastUser=performance.now();},{passive:true});
+  band.addEventListener('touchend',function(){touching=false;lastUser=performance.now();},{passive:true});
+  band.addEventListener('touchcancel',function(){touching=false;lastUser=performance.now();},{passive:true});
+  band.addEventListener('scroll',function(){if(Math.abs(band.scrollLeft-pos)>2){pos=band.scrollLeft;lastUser=performance.now();}},{passive:true});
+  window.addEventListener('resize',measure);window.addEventListener('load',measure);
+  function tick(t){
+    var dt=Math.min((t-last)/1000,0.1);last=t;
+    if(!half)measure();
+    if(half&&!touching&&t-lastUser>RESUME&&!document.hidden&&!still){
+      pos+=SPEED*dt;
+      if(pos>=half*1.5)pos-=half;
+      band.scrollLeft=pos;
+    }else if(half&&!touching){
+      if(pos>=half*1.5){pos-=half;band.scrollLeft=pos;}
+      else if(pos<=half*0.25){pos+=half;band.scrollLeft=pos;}
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(function(t){last=t;tick(t);});
 })();
 </script>
 </body>
