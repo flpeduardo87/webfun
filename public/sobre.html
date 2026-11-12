@@ -118,9 +118,10 @@ svg{display:block;}
 
 /* Band */
 .band{padding:1.5rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);overflow:hidden;}
-.band-track{display:flex;gap:3rem;align-items:center;animation:marquee 22s linear infinite;width:max-content;}
-.band-item{font-size:.88rem;font-weight:700;letter-spacing:.04em;color:var(--muted);white-space:nowrap;text-transform:uppercase;}
-.band-sep{color:var(--line);}
+.band-track{display:flex;gap:3rem;align-items:center;animation:marquee 50s linear infinite;width:max-content;}
+.band-logo{height:28px;width:auto;display:block;filter:grayscale(1) opacity(0.45);}
+[data-theme="dark"] .band-logo{filter:grayscale(1) invert(1) opacity(0.45);}
+@media (pointer:coarse){.band{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;}.band::-webkit-scrollbar{display:none;}.band-track{animation:none;}}
 @keyframes marquee{to{transform:translateX(-50%);}}
 /* Footer */
 .rodape{background:var(--win);border-top:1px solid var(--win-line);padding:4rem 0 2.5rem;transition:background .3s,border-color .3s;}
@@ -790,7 +791,7 @@ html{background:var(--bg);}
             <div class="mg-shot"><div class="mg-inner"><div class="mg-win"><div class="hx-bar mga-bar"><span class="mga-av"><i data-lucide="bot"></i></span><span><b>Assistente virtual</b><small><i></i>online · responde em segundos</small></span></div><div class="mg-body mga"><div class="mga-m cli">Oi! Vocês entregam em Joinville?</div><div class="mga-m bot">Olá! Entregamos sim, em até 2 dias úteis.</div><div class="mga-m cli">Quero fazer um pedido do kit completo</div><div class="mga-m bot">Perfeito! Seu link de pagamento:<span class="mga-pay"><i data-lucide="credit-card"></i>Pedido #2087 · R$ 249,00</span></div><div class="mga-m cli">Pago! Muito rápido, obrigado</div></div></div></div></div>
             <div class="mg-shot"><div class="mg-inner"><div class="mgp-wrap"><div class="mgp"><div class="mgp-scr"><span class="mgp-notch"></span><div class="mgp-top"><div><small>Olá, Marina</small><b>Seu resumo</b></div><span class="mgp-av"></span></div><div class="mgp-card"><small>Pontos de fidelidade</small><b>2.450 pts</b><span class="mgp-prog"><i></i></span></div><div class="mgp-acts"><span><i><i data-lucide="calendar"></i></i>Agendar</span><span><i><i data-lucide="shopping-bag"></i></i>Pedidos</span><span><i><i data-lucide="gift"></i></i>Prêmios</span><span><i><i data-lucide="message-circle"></i></i>Suporte</span></div><div class="mgp-row"><span><i data-lucide="calendar-check"></i></span><span><b>Corte + barba</b><small>Amanhã · 14:30</small></span><em>R$ 75</em></div><div class="mgp-row"><span><i data-lucide="package"></i></span><span><b>Pedido #318</b><small>Saiu para entrega</small></span><em>R$ 129</em></div><div class="mgp-row"><span><i data-lucide="gift"></i></span><span><b>Cupom liberado</b><small>Próxima visita</small></span><em>-10%</em></div><div class="mgp-tab"><span><i data-lucide="home"></i></span><span><i data-lucide="search"></i></span><span><i data-lucide="heart"></i></span><span><i data-lucide="user"></i></span></div></div></div><div class="mgp-chip"><span><i data-lucide="bell"></i></span><span><b>Novo agendamento</b><small>notificação em tempo real</small></span></div></div></div></div>
           </div>
-          <div class="mg-cap"><span class="mg-cap-t" id="mgCapT">Site institucional</span><span class="mg-cap-m" id="mgCapM">A partir de R$ 1.500 · ~3 semanas</span></div>
+          <div class="mg-cap"><span class="mg-cap-t" id="mgCapT">Site institucional</span><span class="mg-cap-m" id="mgCapM">A partir de R$ 1.500 · ~2 semanas</span></div>
         </div>
         <div class="mg-foot"><span><b>Não sabe qual escolher?</b> Conte sua ideia e a gente indica o melhor caminho.</span><a href="https://wa.me/5547997618824" class="btn-glow" target="_blank" rel="noopener"><span>Falar com especialista</span><span class="btn-glow-seta"><i data-lucide="arrow-right"></i></span></a></div>
       </div>
@@ -853,22 +854,28 @@ html{background:var(--bg);}
 <!-- Banda -->
 <div class="band" aria-label="Clientes">
   <div class="band-track" aria-hidden="true">
-    <span class="band-item">Frigorífico Três Reis</span><span class="band-sep">·</span>
-    <span class="band-item">Mielke Energia Solar</span><span class="band-sep">·</span>
-    <span class="band-item">Canoinhas TC</span><span class="band-sep">·</span>
-    <span class="band-item">Flávia Sussenbach</span><span class="band-sep">·</span>
-    <span class="band-item">AZAFF</span><span class="band-sep">·</span>
-    <span class="band-item">Wasabi Sushi Bar</span><span class="band-sep">·</span>
-    <span class="band-item">Perform Engenharia</span><span class="band-sep">·</span>
-    <span class="band-item">Com Cristo Kids</span><span class="band-sep">·</span>
-    <span class="band-item">Frigorífico Três Reis</span><span class="band-sep">·</span>
-    <span class="band-item">Mielke Energia Solar</span><span class="band-sep">·</span>
-    <span class="band-item">Canoinhas TC</span><span class="band-sep">·</span>
-    <span class="band-item">Flávia Sussenbach</span><span class="band-sep">·</span>
-    <span class="band-item">AZAFF</span><span class="band-sep">·</span>
-    <span class="band-item">Wasabi Sushi Bar</span><span class="band-sep">·</span>
-    <span class="band-item">Perform Engenharia</span><span class="band-sep">·</span>
-    <span class="band-item">Com Cristo Kids</span><span class="band-sep">·</span>
+    <img class="band-logo" src="media/logos/logo-ftr.svg" alt="Frigorífico Três Reis">
+    <img class="band-logo" src="media/logos/logo-mielke.svg" alt="Mielke Energia Solar">
+    <img class="band-logo" src="media/logos/logo-ctc.svg" alt="Canoinhas Tênis Clube">
+    <img class="band-logo" src="media/logos/logo-fvs.svg" alt="Flávia Sussenbach">
+    <img class="band-logo" src="media/logos/logo-azaff.svg" alt="AZAFF">
+    <img class="band-logo" src="media/logos/logo-wasabi.svg" alt="Wasabi Sushi Bar">
+    <img class="band-logo" src="media/logos/logo-perform.svg" alt="Perform Engenharia">
+    <img class="band-logo" src="media/logos/logo-planta-da-cerveja.svg" alt="Planta da Cerveja">
+    <img class="band-logo" src="media/logos/logo-brasileirinho.svg" alt="Brasileirinho">
+    <img class="band-logo" src="media/logos/logo-keepclean.svg" alt="Keepclean">
+    <img class="band-logo" src="media/logos/logo-paulista-pizzas.svg" alt="Paulista Pizzas">
+    <img class="band-logo" src="media/logos/logo-ftr.svg" alt="Frigorífico Três Reis" aria-hidden="true">
+    <img class="band-logo" src="media/logos/logo-mielke.svg" alt="Mielke Energia Solar" aria-hidden="true">
+    <img class="band-logo" src="media/logos/logo-ctc.svg" alt="Canoinhas Tênis Clube" aria-hidden="true">
+    <img class="band-logo" src="media/logos/logo-fvs.svg" alt="Flávia Sussenbach" aria-hidden="true">
+    <img class="band-logo" src="media/logos/logo-azaff.svg" alt="AZAFF" aria-hidden="true">
+    <img class="band-logo" src="media/logos/logo-wasabi.svg" alt="Wasabi Sushi Bar" aria-hidden="true">
+    <img class="band-logo" src="media/logos/logo-perform.svg" alt="Perform Engenharia" aria-hidden="true">
+    <img class="band-logo" src="media/logos/logo-planta-da-cerveja.svg" alt="Planta da Cerveja" aria-hidden="true">
+    <img class="band-logo" src="media/logos/logo-brasileirinho.svg" alt="Brasileirinho" aria-hidden="true">
+    <img class="band-logo" src="media/logos/logo-keepclean.svg" alt="Keepclean" aria-hidden="true">
+    <img class="band-logo" src="media/logos/logo-paulista-pizzas.svg" alt="Paulista Pizzas" aria-hidden="true">
   </div>
 </div>
 
@@ -1159,7 +1166,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var p=document.querySelector('.wf-nav-sub.mg');if(!p)return;
   var links=[].slice.call(p.querySelectorAll('.mg-list a[data-mg]')),shots=[].slice.call(p.querySelectorAll('.mg-shot')),stage=p.querySelector('.mg-stage');
   var capT=document.getElementById('mgCapT'),capM=document.getElementById('mgCapM');
-  var meta=[["Site institucional","A partir de R$ 1.500 · ~3 semanas"],["Loja virtual","A partir de R$ 2.000 + R$ 250/mês · ~5 semanas"],["Landing page","A partir de R$ 750 · ~2 semanas"],["Sistema sob medida","Sob consulta · proposta sob medida"],["Automação & IA","Sob consulta · proposta sob medida"],["Aplicativo","Sob consulta · proposta sob medida"]];
+  var meta=[["Site institucional","A partir de R$ 1.500 · ~2 semanas"],["Loja virtual","A partir de R$ 2.000 + R$ 250/mês · ~3 semanas"],["Landing page","A partir de R$ 750 · ~1 semana"],["Sistema sob medida","Sob consulta · proposta sob medida"],["Automação & IA","Sob consulta · proposta sob medida"],["Aplicativo","Sob consulta · proposta sob medida"]];
   function fit(){
     var w=stage.clientWidth,h=stage.clientHeight;if(!w)return;
     shots.forEach(function(s){var inn=s.firstElementChild;var sc=Math.min((w-28)/520,(h-24)/(inn.offsetHeight||1));inn.style.setProperty('--mg-s',sc.toFixed(3));});
@@ -1264,6 +1271,35 @@ document.addEventListener('DOMContentLoaded', function() {
   var b=document.getElementById('edgeProg');if(!b)return;var t=0;
   function u(){t=0;var h=document.documentElement.scrollHeight-innerHeight;b.style.setProperty('--p',h>0?Math.min(1,scrollY/h):0);}
   addEventListener('scroll',function(){if(!t)t=requestAnimationFrame(u);},{passive:true});addEventListener('resize',u);u();
+})();
+</script>
+<script>
+(function(){
+  if(!window.matchMedia('(pointer:coarse)').matches)return;
+  var band=document.querySelector('.band'),track=document.querySelector('.band-track');
+  if(!band||!track)return;
+  var SPEED=55,RESUME=1500,still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pos=0,half=0,touching=false,lastUser=0,last=0,started=false;
+  function measure(){half=track.scrollWidth/2;if(half&&!started){started=true;pos=half*0.5;band.scrollLeft=pos;}}
+  band.addEventListener('touchstart',function(){touching=true;lastUser=performance.now();},{passive:true});
+  band.addEventListener('touchend',function(){touching=false;lastUser=performance.now();},{passive:true});
+  band.addEventListener('touchcancel',function(){touching=false;lastUser=performance.now();},{passive:true});
+  band.addEventListener('scroll',function(){if(Math.abs(band.scrollLeft-pos)>2){pos=band.scrollLeft;lastUser=performance.now();}},{passive:true});
+  window.addEventListener('resize',measure);window.addEventListener('load',measure);
+  function tick(t){
+    var dt=Math.min((t-last)/1000,0.1);last=t;
+    if(!half)measure();
+    if(half&&!touching&&t-lastUser>RESUME&&!document.hidden&&!still){
+      pos+=SPEED*dt;
+      if(pos>=half*1.5)pos-=half;
+      band.scrollLeft=pos;
+    }else if(half&&!touching){
+      if(pos>=half*1.5){pos-=half;band.scrollLeft=pos;}
+      else if(pos<=half*0.25){pos+=half;band.scrollLeft=pos;}
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(function(t){last=t;tick(t);});
 })();
 </script>
 </body>

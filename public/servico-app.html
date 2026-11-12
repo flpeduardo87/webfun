@@ -1329,7 +1329,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var p=document.querySelector('.wf-nav-sub.mg');if(!p)return;
   var links=[].slice.call(p.querySelectorAll('.mg-list a[data-mg]')),shots=[].slice.call(p.querySelectorAll('.mg-shot')),stage=p.querySelector('.mg-stage');
   var capT=document.getElementById('mgCapT'),capM=document.getElementById('mgCapM');
-  var meta=[["Site institucional","A partir de R$ 1.500 · ~3 semanas"],["Loja virtual","A partir de R$ 2.000 + R$ 250/mês · ~5 semanas"],["Landing page","A partir de R$ 750 · ~2 semanas"],["Sistema sob medida","Sob consulta · proposta sob medida"],["Automação & IA","Sob consulta · proposta sob medida"],["Aplicativo","Sob consulta · proposta sob medida"]];
+  var meta=[["Site institucional","A partir de R$ 1.500 · ~2 semanas"],["Loja virtual","A partir de R$ 2.000 + R$ 250/mês · ~3 semanas"],["Landing page","A partir de R$ 750 · ~1 semana"],["Sistema sob medida","Sob consulta · proposta sob medida"],["Automação & IA","Sob consulta · proposta sob medida"],["Aplicativo","Sob consulta · proposta sob medida"]];
   function fit(){
     var w=stage.clientWidth,h=stage.clientHeight;if(!w)return;
     shots.forEach(function(s){var inn=s.firstElementChild;var sc=Math.min((w-28)/520,(h-24)/(inn.offsetHeight||1));inn.style.setProperty('--mg-s',sc.toFixed(3));});
