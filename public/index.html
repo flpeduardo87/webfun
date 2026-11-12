@@ -564,6 +564,9 @@ svg { display: block; }
 .hy-side span{width:1.7rem;height:1.7rem;border-radius:.5rem;display:grid;place-items:center;color:rgba(255,255,255,.4);}
 .hy-side span.on{background:var(--acid);color:var(--acid-fg);}
 .hy-side svg{width:.8rem;height:.8rem;}
+.hy-side span.hy-user{margin-top:auto;position:relative;overflow:visible;width:1.7rem;height:1.7rem;border-radius:50%;padding:0;background:#0f1015;box-shadow:0 0 0 1.5px rgba(201,255,65,.6);}
+.hy-user img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;}
+.hy-user::after{content:"";position:absolute;right:-1px;bottom:-1px;width:.45rem;height:.45rem;border-radius:50%;background:var(--acid);box-shadow:0 0 0 1.5px #0f1015;}
 .hy-main{display:flex;flex-direction:column;gap:.55rem;}
 .hy-chart{background:#111111;border:1px solid rgba(255,255,255,.06);border-radius:.7rem;padding:.55rem .65rem;}
 .hy-chart small{font-size:.56rem;color:rgba(255,255,255,.45);}
@@ -1614,7 +1617,7 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
             </div>
             <div class="hx-scene">
               <div class="hy">
-                <div class="hy-side"><span class="on"><i data-lucide="layout-dashboard"></i></span><span><i data-lucide="users"></i></span><span><i data-lucide="package"></i></span><span><i data-lucide="file-text"></i></span></div>
+                <div class="hy-side"><span class="on"><i data-lucide="layout-dashboard"></i></span><span><i data-lucide="users"></i></span><span><i data-lucide="package"></i></span><span><i data-lucide="file-text"></i></span><span class="hy-user"><img src="media/pessoas/felipe-avatar.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span></div>
                 <div class="hy-main">
                   <div class="hx-kpis"><div><small>Faturamento</small><b>R$ 84,2k</b><em>+12%</em></div><div><small>Pedidos</small><b>1.284</b><em>+8%</em></div><div><small>Clientes</small><b>342</b><em>+5%</em></div></div>
                   <div class="hy-chart"><small>Vendas · últimos 7 dias</small><div class="hy-bars"><i style="--h:45%;--d:0"></i><i style="--h:62%;--d:1"></i><i style="--h:38%;--d:2"></i><i style="--h:74%;--d:3"></i><i style="--h:58%;--d:4"></i><i style="--h:85%;--d:5"></i><i style="--h:100%;--d:6"></i></div></div>
