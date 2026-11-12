@@ -2710,7 +2710,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if(!window.matchMedia('(pointer:coarse)').matches)return;
   var band=document.querySelector('.band'),track=document.querySelector('.band-track');
   if(!band||!track)return;
-  var SPEED=55,RESUME=1500,still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var SPEED=35,RESUME=1500,still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var pos=0,half=0,touching=false,lastUser=0,last=0,started=false;
   function measure(){half=track.scrollWidth/2;if(half&&!started){started=true;pos=half*0.5;band.scrollLeft=pos;}}
   band.addEventListener('touchstart',function(){touching=true;lastUser=performance.now();},{passive:true});
