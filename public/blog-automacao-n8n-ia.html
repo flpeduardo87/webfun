@@ -1096,7 +1096,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function bgAt(x,y){
     var els=document.elementsFromPoint(x,y);
     for(var i=0;i<els.length;i++){var el=els[i];if(hdr.contains(el))continue;
-      for(var n=el;n&&n!==html;n=n.parentElement){var L=lum(getComputedStyle(n).backgroundColor);if(L!==null)return L;}}
+      for(var n=el;n&&n!==html;n=n.parentElement){var rr=n.getBoundingClientRect();if(rr.width<innerWidth*.5||rr.height<90)continue;var L=lum(getComputedStyle(n).backgroundColor);if(L!==null)return L;}}
     return lum(getComputedStyle(document.body).backgroundColor);
   }
   var t=false;
@@ -1219,7 +1219,7 @@ body:has(.est-bar.on) .mbn,body:has(.wf-menu[open]) .mbn{transform:translate(-50
   function bgAtPoint(x,y){
     var els=document.elementsFromPoint(x,y);
     for(var i=0;i<els.length;i++){var el=els[i];if(nav.contains(el))continue;
-      for(var n=el;n&&n!==htmlEl;n=n.parentElement){var L=lumOf(getComputedStyle(n).backgroundColor);if(L!==null)return L;}}
+      for(var n=el;n&&n!==htmlEl;n=n.parentElement){var rr=n.getBoundingClientRect();if(rr.width<innerWidth*.5||rr.height<90)continue;var L=lumOf(getComputedStyle(n).backgroundColor);if(L!==null)return L;}}
     return lumOf(getComputedStyle(document.body).backgroundColor);
   }
   var at=false;
