@@ -5,6 +5,7 @@ const url = require('url');
 
 const PORT = process.env.PORT || 3000;
 const ROOT = path.join(__dirname, 'public');
+const PAGES = path.join(__dirname, 'pages');
 const HOST = 'webfun.com.br';
 
 const MIME = {
@@ -38,26 +39,23 @@ http.createServer((req, res) => {
 
   /* ── Redirecionamentos 301 ── */
   const host = String(req.headers['x-forwarded-host'] || req.headers.host || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
-  let clean = pathname;
-  if (clean === '/index.html' || clean === '/index') clean = '/';
-  else if (/\.html$/i.test(clean)) clean = clean.replace(/\.html$/i, '');
-  if (clean.length > 1 && clean.endsWith('/')) clean = clean.replace(/\/+$/, '');
+  /* URL limpa: só para páginas do site (pages/); arquivos de public/ (ex.: /modelos/...) ficam como estão */
+  let base = pathname.replace(/\/+$/, '').replace(/\.html$/i, '');
+  if (base === '' || base === '/index') base = '/';
+  const isPage = base === '/' || (base.indexOf('..') < 0 && fs.existsSync(path.join(PAGES, base + '.html')));
+  const clean = isPage ? base : pathname;
   if (host === 'www.' + HOST) return redirect(res, 'https://' + HOST + clean + search);
   if (clean !== pathname) return redirect(res, clean + search);
 
-  if (pathname === '/') pathname = '/index.html';
+  if (pathname.indexOf('..') >= 0 || pathname.indexOf('\0') >= 0) { res.writeHead(400); res.end('Bad Request'); return; }
 
-  let filePath = path.join(ROOT, pathname);
-  if (!filePath.startsWith(ROOT)) { res.writeHead(400); res.end('Bad Request'); return; }
-
-  // Clean URLs: try adding .html if file doesn't exist
-  if (!fs.existsSync(filePath) && fs.existsSync(filePath + '.html')) {
-    filePath = filePath + '.html';
-  }
+  /* página (pages/<nome>.html) ou, se não for página, arquivo estático de public/ */
+  const pageFile = path.join(PAGES, (pathname === '/' ? '/index' : pathname) + '.html');
+  let filePath = fs.existsSync(pageFile) ? pageFile : path.join(ROOT, pathname);
 
   if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
     // Página 404 personalizada (public/404.html), com fallback simples
-    fs.readFile(path.join(ROOT, '404.html'), (err, data) => {
+    fs.readFile(path.join(PAGES, '404.html'), (err, data) => {
       res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-cache' });
       res.end(err ? '<h1>404 Not Found</h1>' : data);
     });
