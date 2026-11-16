@@ -971,7 +971,7 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
 /* app */
 .mgp-wrap{position:relative;display:flex;justify-content:center;padding:.5rem 0;}
 .mgp{width:186px;aspect-ratio:9/19.5;display:flex;background:#0b0c10;border:1px solid rgba(255,255,255,.14);border-radius:2.2rem;padding:.45rem;box-shadow:0 30px 70px rgba(0,0,0,.55),inset 0 0 0 2px #1d1f26;color:#eeeae3;font-size:.68rem;line-height:1.35;}
-.mgp-scr{position:relative;flex:1;display:flex;flex-direction:column;background:#080808;border-radius:1.8rem;padding:2rem .65rem .7rem;}
+.mgp-scr{position:relative;flex:1;min-width:0;overflow:hidden;display:flex;flex-direction:column;background:#080808;border-radius:1.8rem;padding:2rem .5rem .7rem;}
 .mgp-tab{margin-top:auto;display:flex;justify-content:space-around;padding-top:.55rem;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.35);}
 .mgp-tab svg{width:.85rem;height:.85rem;}
 .mgp-tab span:first-child{color:var(--acid);}
@@ -989,8 +989,8 @@ details.faq-item[open] .faq-icon { background: var(--ink); color: var(--bg); rot
 .mgp-acts>span{display:flex;flex-direction:column;align-items:center;gap:.2rem;font-size:.52rem;color:rgba(255,255,255,.6);}
 .mgp-acts>span>i{width:2rem;height:2rem;border-radius:.65rem;background:#1d1d1d;display:grid;place-items:center;color:var(--acid);}
 .mgp-acts svg{width:.85rem;height:.85rem;}
-.mgp-row{display:flex;align-items:center;gap:.5rem;background:#111111;border-radius:.7rem;padding:.45rem .55rem;margin-top:.35rem;}
-.mgp-row>span:first-child{width:1.5rem;height:1.5rem;border-radius:.45rem;background:#0f1015;display:grid;place-items:center;color:var(--acid);}
+.mgp-row{display:flex;align-items:center;gap:.4rem;background:#111111;border-radius:.7rem;padding:.45rem .4rem;margin-top:.35rem;}
+.mgp-row>span:first-child{width:1.35rem;height:1.35rem;flex-shrink:0;border-radius:.45rem;background:#0f1015;display:grid;place-items:center;color:var(--acid);}
 .mgp-row svg{width:.75rem;height:.75rem;}
 .mgp-row b{display:block;font-size:.62rem;}
 .mgp-row small{font-size:.54rem;color:rgba(255,255,255,.45);}
