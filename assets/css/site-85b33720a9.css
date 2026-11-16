@@ -262,7 +262,7 @@ svg { display: block; }
 .mgl-timer>div{background:#111111;border:1px solid rgba(255,255,255,.07);border-radius:.7rem;padding:.45rem .2rem;width:3.6rem;}
 .mgl-timer b{display:block;font-size:1.2rem;font-weight:900;}
 .mgl-timer small{font-size:.55rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.06em;}
-.mgl-cta{display:flex;align-items:center;justify-content:center;gap:.4rem;background:var(--acid);color:var(--acid-fg);border-radius:999px;padding:.65rem;font-weight:900;font-size:.78rem;}
+.mgl-cta{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;background:var(--acid);color:var(--acid-fg);border-radius:999px;padding:.65rem 1.5rem;font-weight:900;font-size:.78rem;}
 .mgl-cta svg{width:.85rem;height:.85rem;}
 .mgl-proof{display:block;margin-top:.8rem;color:rgba(255,255,255,.55);font-size:.64rem;}
 /* automação */
