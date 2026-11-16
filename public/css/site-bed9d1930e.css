@@ -1105,7 +1105,7 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 .st-rate-side .stat-ctx{margin-top:0;}
 .st-anos .st-tl{margin-top:2.4rem;max-width:30rem;}
 .st-map>div:last-child,.st-anos>div:last-child{margin-top:auto;}
-.st-map .stat-ctx,.st-anos .stat-ctx{min-height:3.1em;}
+.st-map .stat-ctx,.st-anos .stat-ctx{min-height:0;}
 @media(max-width:900px){.stats-bento.sb2{grid-template-columns:1fr 1fr;}.sb2 .st-proj,.sb2 .st-rate{grid-column:span 2;}.sb2 .st-map,.sb2 .st-anos{grid-column:auto;}}
 @media(max-width:500px){.stats-bento.sb2{grid-template-columns:1fr;}.sb2 .st-proj,.sb2 .st-rate,.sb2 .st-map,.sb2 .st-anos{grid-column:auto;}.st-map .stat-ctx,.st-anos .stat-ctx{min-height:0;}}
 .stats-bento.sb2{grid-template-columns:repeat(10,1fr);}
@@ -1189,7 +1189,13 @@ html,body{overflow-x:clip;}@supports not (overflow:clip){html,body{overflow-x:hi
 @media(min-width:901px){
   .est-layout{grid-template-rows:auto 1fr;row-gap:1.25rem;}
   .est-layout>.est-form{grid-column:1;grid-row:1;}
-  .est-layout>.est-result{grid-column:2;grid-row:1 / span 2;align-self:stretch;position:relative;top:auto;}.est-layout>.est-result .est-save{margin-top:auto;}.est-layout>.est-result .est-cta{margin-top:0;}
+  .est-layout>.est-result{grid-column:2;grid-row:1 / span 2;align-self:stretch;position:relative;top:auto;}.est-layout>.est-result .est-cta{margin-top:0;}
+  /* a sobra de altura do card é repartida entre os itens da lista, em vez de virar um vão acima de "Guarde esta estimativa" */
+  .est-layout>.est-result:not(.consulta) .est-incl{flex:1 0 auto;display:flex;flex-direction:column;}
+  .est-layout>.est-result .est-incl ul{flex:1;gap:0;}
+  .est-layout>.est-result .est-incl li{flex:1;padding:.4rem 0;border-top:1px solid rgba(255,255,255,.07);}
+  .est-layout>.est-result .est-incl li:last-child{border-bottom:1px solid rgba(255,255,255,.07);}
+  .est-layout>.est-result .est-consulta:not([hidden]){flex:1 0 auto;justify-content:space-around;}
   .est-layout>.est-quote{grid-column:1;grid-row:2;align-self:end;}
 }
 @media(max-width:900px){.est-layout>.est-quote{order:3;}}

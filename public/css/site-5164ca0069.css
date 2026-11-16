@@ -1163,7 +1163,7 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 .st-rate-side .stat-ctx{margin-top:0;}
 .st-anos .st-tl{margin-top:2.4rem;max-width:30rem;}
 .st-map>div:last-child,.st-anos>div:last-child{margin-top:auto;}
-.st-map .stat-ctx,.st-anos .stat-ctx{min-height:3.1em;}
+.st-map .stat-ctx,.st-anos .stat-ctx{min-height:0;}
 @media(max-width:900px){.stats-bento.sb2{grid-template-columns:1fr 1fr;}.sb2 .st-proj,.sb2 .st-rate{grid-column:span 2;}.sb2 .st-map,.sb2 .st-anos{grid-column:auto;}}
 @media(max-width:500px){.stats-bento.sb2{grid-template-columns:1fr;}.sb2 .st-proj,.sb2 .st-rate,.sb2 .st-map,.sb2 .st-anos{grid-column:auto;}.st-map .stat-ctx,.st-anos .stat-ctx{min-height:0;}}
 .stats-bento.sb2{grid-template-columns:repeat(10,1fr);}
