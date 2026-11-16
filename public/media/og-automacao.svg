@@ -31,7 +31,7 @@
 
   <!-- Tag pill -->
   <rect x="72" y="420" width="194" height="40" rx="20" fill="rgba(198,241,53,0.12)" stroke="rgba(198,241,53,0.25)" stroke-width="1"/>
-  <text x="169" y="445" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#c6f135" text-anchor="middle" letter-spacing="1">AUTOMAÇÃO & IA</text>
+  <text x="169" y="445" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#c6f135" text-anchor="middle" letter-spacing="1">AUTOMAÇÃO &amp; IA</text>
 
   <!-- URL bottom-right -->
   <rect x="960" y="570" width="168" height="36" rx="18" fill="#c6f135"/>

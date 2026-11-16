@@ -18,13 +18,13 @@
 <meta property="og:title" content="Contato — Webfun">
 <meta property="og:description" content="Entre em contato com a Webfun. Fale pelo WhatsApp ou envie uma mensagem e receba uma proposta clara sem compromisso.">
 <meta property="og:url" content="https://webfun.com.br/contato">
-<meta property="og:image" content="https://webfun.com.br/media/og-contato.svg">
+<meta property="og:image" content="https://webfun.com.br/media/og-contato.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contato — Webfun">
 <meta name="twitter:description" content="Entre em contato com a Webfun. Fale pelo WhatsApp ou envie uma mensagem e receba uma proposta clara sem compromisso.">
-<meta name="twitter:image" content="https://webfun.com.br/media/og-contato.svg">
+<meta name="twitter:image" content="https://webfun.com.br/media/og-contato.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -840,6 +840,17 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 .edge-top i{position:absolute;inset:0;background:linear-gradient(90deg,#1e2700,#6f8f1a 45%,var(--acid));transform-origin:0 50%;transform:scaleX(var(--p,0));}
 .mo-prog{display:none!important;}
 </style>
+<style id="form-envio-css">
+.hp-field{position:absolute!important;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+.form-erro{font-size:.78rem;font-weight:600;color:#c0392b;margin-top:.35rem;line-height:1.4;}
+[data-theme="dark"] .form-erro{color:#ff8a80;}
+.form-field input[aria-invalid="true"]{border-color:#c0392b;}
+[data-theme="dark"] .form-field input[aria-invalid="true"]{border-color:#ff8a80;}
+.form-falha{border:1px solid #c0392b;border-radius:.75rem;padding:.8rem 1rem;font-size:.85rem;line-height:1.5;color:var(--ink);background:rgba(192,57,43,.08);}
+[data-theme="dark"] .form-falha{border-color:#ff8a80;background:rgba(255,138,128,.08);}
+.form-falha a{font-weight:700;text-decoration:underline;}
+.form-send-btn[disabled]{opacity:.65;cursor:progress;}
+</style>
 </head>
 <body>
 <div class="edge-top" aria-hidden="true"><i id="edgeProg"></i></div><div class="edge-bot" aria-hidden="true"></div><div class="edge-tint" aria-hidden="true"></div>
@@ -1012,7 +1023,7 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
           <h3>Fale mais sobre o projeto</h3>
           <p>Quanto mais você contar, melhor conseguimos orientar a conversa.</p>
           <div class="form-row">
-            <div class="form-field"><label>Nome</label><input type="text" id="nome" placeholder="Felipe" autocomplete="given-name"></div>
+            <div class="form-field"><label for="nome">Nome</label><input type="text" id="nome" placeholder="Seu nome" autocomplete="name" aria-describedby="erroNome"><p class="form-erro" id="erroNome" role="alert" hidden></p></div>
             <div class="form-field"><label>Empresa (opcional)</label><input type="text" id="empresa" placeholder="Minha Empresa"></div>
           </div>
           <div class="form-field"><label>Descreva o projeto</label><textarea id="desc" placeholder="Conte o que precisa, o problema que quer resolver, quem vai usar..."></textarea></div>
@@ -1040,7 +1051,7 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
           </div>
           <div class="form-nav">
             <button type="button" class="btn-form-back" onclick="goStep(1)"><i data-lucide="arrow-left"></i> Voltar</button>
-            <button type="button" class="btn-form-next" onclick="goStep(3)">Próximo <span class="seta-sm"><i data-lucide="arrow-right"></i></span></button>
+            <button type="button" class="btn-form-next" onclick="validarPasso2()">Próximo <span class="seta-sm"><i data-lucide="arrow-right"></i></span></button>
           </div>
         </div>
 
@@ -1048,7 +1059,8 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
         <div class="form-step" id="step3">
           <h3>Como falamos com você?</h3>
           <p>Escolha o canal preferido para entrarmos em contato.</p>
-          <div class="form-field"><label>E-mail</label><input type="email" id="email" placeholder="voce@empresa.com" autocomplete="email"></div>
+          <div class="form-field"><label for="email">E-mail</label><input type="email" id="email" placeholder="voce@empresa.com" autocomplete="email" aria-describedby="erroEmail"><p class="form-erro" id="erroEmail" role="alert" hidden></p></div>
+          <div class="hp-field" aria-hidden="true"><label>Não preencha este campo<input type="text" id="site_url" name="site_url" tabindex="-1" autocomplete="off"></label></div>
           <div class="form-field"><label>WhatsApp (opcional)</label><input type="tel" id="tel" placeholder="(42) 9 9999-9999" autocomplete="tel"></div>
           <div class="form-field">
             <label>Canal preferido</label>
@@ -1059,7 +1071,8 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
             </select>
           </div>
           <div class="form-nav" style="flex-direction:column;gap:.65rem;align-items:stretch;">
-            <button type="button" class="form-send-btn" onclick="enviarForm()">Enviar mensagem <span class="seta"><i data-lucide="arrow-right"></i></span></button>
+            <div class="form-falha" id="formFalha" role="alert" hidden></div>
+            <button type="button" class="form-send-btn" id="formEnviar" onclick="enviarForm()"><span id="formEnviarTxt">Enviar mensagem</span> <span class="seta"><i data-lucide="arrow-right"></i></span></button>
             <p class="form-aviso">Ao enviar, você concorda em ser contactado pela Webfun sobre o projeto descrito. Sem spam.</p>
           </div>
           <div style="margin-top:.5rem;"><button type="button" class="btn-form-back" onclick="goStep(2)"><i data-lucide="arrow-left"></i> Voltar</button></div>
@@ -1175,7 +1188,7 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
   </div>
   <div class="rodape-wm" aria-hidden="true"><span>webfun.com.br</span></div>
 </footer>
-<div id="cookie" role="region" style="display:none" aria-label="Aviso de cookies"><p>Usamos cookies para melhorar sua experiência. <a href="#">Saiba mais</a>.</p><div class="row"><button class="btn-cookie accept" onclick="hideCookie()">Aceitar</button><button class="btn-cookie reject" onclick="hideCookie()">Recusar</button></div></div>
+<div id="cookie" role="region" style="display:none" aria-label="Aviso de cookies"><p>Usamos cookies de medição (Google Analytics) para entender como o site é usado. <a href="#">Saiba mais</a>.</p><div class="row"><button class="btn-cookie accept" onclick="hideCookie()">Aceitar</button><button class="btn-cookie reject" onclick="hideCookie()">Recusar</button></div></div>
 <script>
 try { lucide.createIcons(); } catch(e) { console.warn('Lucide:', e); }
 document.getElementById('themeToggle').onclick = function() {
@@ -1212,13 +1225,80 @@ function selectTipo(btn) {
   btn.classList.add('sel');
   lucide.createIcons();
 }
-function enviarForm() {
-  var email = document.getElementById('email').value.trim();
-  if (!email) { document.getElementById('email').focus(); return; }
+/* Chave de acesso do Web3Forms (pública por desenho). Vazia = envio desligado. */
+var WEB3FORMS_KEY = 'c718888f-6eed-4e44-a842-1b53ead5e015';
+var formTs = Date.now();
+function erroCampo(id, erroId, texto) {
+  var el = document.getElementById(id), er = document.getElementById(erroId);
+  if (texto) { el.setAttribute('aria-invalid', 'true'); er.textContent = texto; er.hidden = false; }
+  else { el.removeAttribute('aria-invalid'); er.textContent = ''; er.hidden = true; }
+}
+function nomeValido() { return document.getElementById('nome').value.trim().length >= 2; }
+function emailValido() { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(document.getElementById('email').value.trim()); }
+function validarPasso2() {
+  if (!nomeValido()) { erroCampo('nome', 'erroNome', 'Informe seu nome.'); document.getElementById('nome').focus(); return; }
+  erroCampo('nome', 'erroNome', '');
+  goStep(3);
+}
+function mostrarOk() {
   document.getElementById('step3').classList.remove('ativo');
   document.getElementById('stepOk').classList.add('ativo');
   document.getElementById('formProgress').style.display = 'none';
   lucide.createIcons();
+}
+function falhaEnvio() {
+  var f = document.getElementById('formFalha');
+  f.innerHTML = 'Não foi possível enviar agora. Tente de novo em instantes ou <a href="https://wa.me/5547997618824?text=' + encodeURIComponent('Olá! Tentei enviar o formulário do site e não consegui. Quero conversar sobre um projeto.') + '" target="_blank" rel="noopener">fale com a gente no WhatsApp</a>.';
+  f.hidden = false;
+}
+function optTxt(id) { var s = document.getElementById(id); return s.options[s.selectedIndex] ? s.options[s.selectedIndex].text : ''; }
+function enviarForm() {
+  var btn = document.getElementById('formEnviar'), txt = document.getElementById('formEnviarTxt'), falha = document.getElementById('formFalha');
+  if (btn.disabled) return;
+  falha.hidden = true;
+  if (!nomeValido()) { goStep(2); erroCampo('nome', 'erroNome', 'Informe seu nome.'); document.getElementById('nome').focus(); return; }
+  if (!emailValido()) { erroCampo('email', 'erroEmail', 'Informe um e-mail válido, como voce@empresa.com.'); document.getElementById('email').focus(); return; }
+  erroCampo('email', 'erroEmail', '');
+  /* anti-spam: campo-isca preenchido ou envio rápido demais = robô; finge sucesso e não envia */
+  if (document.getElementById('site_url').value || Date.now() - formTs < 3000) { mostrarOk(); return; }
+  if (!WEB3FORMS_KEY) { falhaEnvio(); return; }
+  var sel = document.querySelector('.tipo-btn.sel .tipo-btn-nome');
+  var nome = document.getElementById('nome').value.trim();
+  var dados = {
+    access_key: WEB3FORMS_KEY,
+    subject: 'Novo contato pelo site — ' + nome,
+    from_name: 'Site Webfun',
+    replyto: document.getElementById('email').value.trim(),
+    botcheck: '',
+    'Nome': nome,
+    'E-mail': document.getElementById('email').value.trim(),
+    'WhatsApp': document.getElementById('tel').value.trim() || '(não informado)',
+    'Empresa': document.getElementById('empresa').value.trim() || '(não informada)',
+    'Tipo de projeto': sel ? sel.textContent.trim() : '(não selecionado)',
+    'Descrição': document.getElementById('desc').value.trim() || '(sem descrição)',
+    'Orçamento estimado': optTxt('orcamento'),
+    'Prazo desejado': optTxt('prazo'),
+    'Canal preferido': optTxt('canal'),
+    'Página': location.href
+  };
+  btn.disabled = true; txt.textContent = 'Enviando…';
+  var ctrl = window.AbortController ? new AbortController() : null;
+  var to = setTimeout(function() { if (ctrl) ctrl.abort(); }, 15000);
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(dados),
+    signal: ctrl ? ctrl.signal : undefined
+  }).then(function(r) { return r.json().then(function(j) { return r.ok && j && j.success === true; }); })
+    .catch(function() { return false; })
+    .then(function(ok) {
+      clearTimeout(to);
+      btn.disabled = false; txt.textContent = 'Enviar mensagem';
+      if (ok) {
+        if (window.wfTrack) window.wfTrack('generate_lead', { metodo: 'formulario_contato', tipo: dados['Tipo de projeto'] });
+        mostrarOk();
+      } else { falhaEnvio(); }
+    });
 }
 
 /* ── Modal WhatsApp ── */
@@ -1233,7 +1313,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var svc = '';
   function openModal() { modal.classList.add('wpp-open'); document.body.style.overflow = 'hidden'; setTimeout(function() { nomeEl.focus(); }, 100); }
   function closeModal() { modal.classList.remove('wpp-open'); document.body.style.overflow = ''; }
-  document.querySelectorAll('a[href*="wa.me"]').forEach(function(a) { a.addEventListener('click', function(e) { e.preventDefault(); openModal(); }); });
+
   document.getElementById('wppClose').onclick = closeModal;
   overlay.onclick = closeModal;
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
@@ -1518,6 +1598,78 @@ body:has(.est-bar.on) .mbn,body:has(.wf-menu[open]) .mbn{transform:translate(-50
   var idle;
   window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(update);}clearTimeout(idle);idle=setTimeout(function(){if(mq.matches&&window.scrollY>=window.innerHeight*.55&&!blocked())nav.classList.add('on');},450);},{passive:true});
   mq.addEventListener&&mq.addEventListener('change',update);
+})();
+</script>
+<script id="wf-core-js">
+(function(){
+  /* Configuração: ID de medição do GA4 (formato G-XXXXXXXXXX). Vazio = analytics desligado. */
+  var GA_ID='G-VWK8WJR69W';
+  var WA='5547997618824',KEY='wf-consent';
+  var path=location.pathname.replace(/\.html$/,'').replace(/\/$/,'')||'/';
+
+  /* ── Analytics (só carrega depois do "Aceitar") ── */
+  var gaOn=false;
+  function loadGA(){
+    if(gaOn||!/^G-[A-Z0-9]{6,}$/.test(GA_ID))return;
+    gaOn=true;
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){window.dataLayer.push(arguments);};
+    window.gtag('js',new Date());
+    window.gtag('config',GA_ID,{anonymize_ip:true});
+    var s=document.createElement('script');s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(GA_ID);
+    document.head.appendChild(s);
+  }
+  window.wfTrack=function(nome,params){if(gaOn&&window.gtag)window.gtag('event',nome,params||{});};
+
+  /* ── Consentimento de cookies ── */
+  var consent=null;try{consent=localStorage.getItem(KEY);}catch(e){}
+  var banner=document.getElementById('cookie');
+  function decide(v){
+    consent=v;try{localStorage.setItem(KEY,v);}catch(e){}
+    if(banner)banner.style.display='none';
+    if(v==='accept')loadGA();
+  }
+  if(consent==='accept')loadGA();
+  if(banner){
+    banner.style.display=(consent==='accept'||consent==='reject')?'none':'flex';
+    var ac=banner.querySelector('.btn-cookie.accept'),rj=banner.querySelector('.btn-cookie.reject');
+    if(ac)ac.addEventListener('click',function(){decide('accept');});
+    if(rj)rj.addEventListener('click',function(){decide('reject');});
+  }
+
+  /* ── WhatsApp direto, com mensagem pronta por página ── */
+  var msgs={
+    '/':'Olá! Vim pelo site da Webfun e quero conversar sobre um projeto.',
+    '/servicos':'Olá! Vi os serviços no site da Webfun e quero um orçamento.',
+    '/servico-site':'Olá! Quero um orçamento de site institucional.',
+    '/servico-loja':'Olá! Quero um orçamento de loja virtual.',
+    '/servico-landing':'Olá! Quero um orçamento de landing page.',
+    '/servico-sistema':'Olá! Quero conversar sobre um sistema sob medida.',
+    '/servico-automacao':'Olá! Quero conversar sobre automação e IA para o meu negócio.',
+    '/servico-app':'Olá! Quero conversar sobre um aplicativo.',
+    '/projetos':'Olá! Vi os projetos no site da Webfun e quero conversar sobre o meu.',
+    '/sobre':'Olá! Conheci a Webfun pelo site e quero conversar sobre um projeto.',
+    '/contato':'Olá! Vim pela página de contato da Webfun e quero conversar sobre um projeto.'
+  };
+  var msg=msgs[path]||(path.indexOf('/blog')===0?'Olá! Li o blog da Webfun e quero conversar sobre um projeto.':msgs['/']);
+  var waLinks=document.querySelectorAll('a[href*="wa.me/'+WA+'"]');
+  for(var i=0;i<waLinks.length;i++){
+    var a=waLinks[i];
+    if(a.getAttribute('href').indexOf('text=')<0)a.setAttribute('href','https://wa.me/'+WA+'?text='+encodeURIComponent(msg));
+  }
+
+  /* ── Eventos ── */
+  document.addEventListener('click',function(e){
+    var el=e.target&&e.target.closest?e.target.closest('a[href*="wa.me"]'):null;
+    if(!el)return;
+    var local=el.closest('.mbn')?'barra_inferior':el.closest('.wf-topo')?'header':el.closest('.rodape')?'rodape':el.id==='estLink'?'simulador':'pagina';
+    window.wfTrack('whatsapp_click',{pagina:path,local:local});
+  },true);
+  document.addEventListener('change',function(e){
+    var t=e.target;
+    if(t&&t.name==='svc'&&t.checked)window.wfTrack('simulador_orcamento',{servico:t.getAttribute('data-nome')||'',valor:t.value||''});
+  });
 })();
 </script>
 </body>

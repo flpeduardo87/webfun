@@ -18,13 +18,13 @@
 <meta property="og:title" content="Serviços — Webfun">
 <meta property="og:description" content="Do site institucional ao sistema sob medida: conheça todos os serviços da Webfun e encontre o que o seu negócio precisa.">
 <meta property="og:url" content="https://webfun.com.br/servicos">
-<meta property="og:image" content="https://webfun.com.br/media/og-servicos.svg">
+<meta property="og:image" content="https://webfun.com.br/media/og-servicos.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Serviços — Webfun">
 <meta name="twitter:description" content="Do site institucional ao sistema sob medida: conheça todos os serviços da Webfun e encontre o que o seu negócio precisa.">
-<meta name="twitter:image" content="https://webfun.com.br/media/og-servicos.svg">
+<meta name="twitter:image" content="https://webfun.com.br/media/og-servicos.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1279,7 +1279,7 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
   </div>
   <div class="rodape-wm" aria-hidden="true"><span>webfun.com.br</span></div>
 </footer>
-<div id="cookie"><p>Usamos cookies para melhorar sua experiência. <a href="#">Saiba mais</a>.</p><div class="row"><button class="btn-cookie accept" onclick="hideCookie()">Aceitar</button><button class="btn-cookie reject" onclick="hideCookie()">Recusar</button></div></div>
+<div id="cookie"><p>Usamos cookies de medição (Google Analytics) para entender como o site é usado. <a href="#">Saiba mais</a>.</p><div class="row"><button class="btn-cookie accept" onclick="hideCookie()">Aceitar</button><button class="btn-cookie reject" onclick="hideCookie()">Recusar</button></div></div>
 
 <script>
 try { lucide.createIcons(); } catch(e) { console.warn('Lucide:', e); }
@@ -1318,7 +1318,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var svc = '';
   function openModal() { modal.classList.add('wpp-open'); document.body.style.overflow = 'hidden'; setTimeout(function() { nomeEl.focus(); }, 100); }
   function closeModal() { modal.classList.remove('wpp-open'); document.body.style.overflow = ''; }
-  document.querySelectorAll('a[href*="wa.me"]').forEach(function(a) { a.addEventListener('click', function(e) { e.preventDefault(); openModal(); }); });
+
   document.getElementById('wppClose').onclick = closeModal;
   overlay.onclick = closeModal;
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
@@ -1619,6 +1619,78 @@ body:has(.est-bar.on) .mbn,body:has(.wf-menu[open]) .mbn{transform:translate(-50
   var idle;
   window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(update);}clearTimeout(idle);idle=setTimeout(function(){if(mq.matches&&window.scrollY>=window.innerHeight*.55&&!blocked())nav.classList.add('on');},450);},{passive:true});
   mq.addEventListener&&mq.addEventListener('change',update);
+})();
+</script>
+<script id="wf-core-js">
+(function(){
+  /* Configuração: ID de medição do GA4 (formato G-XXXXXXXXXX). Vazio = analytics desligado. */
+  var GA_ID='G-VWK8WJR69W';
+  var WA='5547997618824',KEY='wf-consent';
+  var path=location.pathname.replace(/\.html$/,'').replace(/\/$/,'')||'/';
+
+  /* ── Analytics (só carrega depois do "Aceitar") ── */
+  var gaOn=false;
+  function loadGA(){
+    if(gaOn||!/^G-[A-Z0-9]{6,}$/.test(GA_ID))return;
+    gaOn=true;
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){window.dataLayer.push(arguments);};
+    window.gtag('js',new Date());
+    window.gtag('config',GA_ID,{anonymize_ip:true});
+    var s=document.createElement('script');s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(GA_ID);
+    document.head.appendChild(s);
+  }
+  window.wfTrack=function(nome,params){if(gaOn&&window.gtag)window.gtag('event',nome,params||{});};
+
+  /* ── Consentimento de cookies ── */
+  var consent=null;try{consent=localStorage.getItem(KEY);}catch(e){}
+  var banner=document.getElementById('cookie');
+  function decide(v){
+    consent=v;try{localStorage.setItem(KEY,v);}catch(e){}
+    if(banner)banner.style.display='none';
+    if(v==='accept')loadGA();
+  }
+  if(consent==='accept')loadGA();
+  if(banner){
+    banner.style.display=(consent==='accept'||consent==='reject')?'none':'flex';
+    var ac=banner.querySelector('.btn-cookie.accept'),rj=banner.querySelector('.btn-cookie.reject');
+    if(ac)ac.addEventListener('click',function(){decide('accept');});
+    if(rj)rj.addEventListener('click',function(){decide('reject');});
+  }
+
+  /* ── WhatsApp direto, com mensagem pronta por página ── */
+  var msgs={
+    '/':'Olá! Vim pelo site da Webfun e quero conversar sobre um projeto.',
+    '/servicos':'Olá! Vi os serviços no site da Webfun e quero um orçamento.',
+    '/servico-site':'Olá! Quero um orçamento de site institucional.',
+    '/servico-loja':'Olá! Quero um orçamento de loja virtual.',
+    '/servico-landing':'Olá! Quero um orçamento de landing page.',
+    '/servico-sistema':'Olá! Quero conversar sobre um sistema sob medida.',
+    '/servico-automacao':'Olá! Quero conversar sobre automação e IA para o meu negócio.',
+    '/servico-app':'Olá! Quero conversar sobre um aplicativo.',
+    '/projetos':'Olá! Vi os projetos no site da Webfun e quero conversar sobre o meu.',
+    '/sobre':'Olá! Conheci a Webfun pelo site e quero conversar sobre um projeto.',
+    '/contato':'Olá! Vim pela página de contato da Webfun e quero conversar sobre um projeto.'
+  };
+  var msg=msgs[path]||(path.indexOf('/blog')===0?'Olá! Li o blog da Webfun e quero conversar sobre um projeto.':msgs['/']);
+  var waLinks=document.querySelectorAll('a[href*="wa.me/'+WA+'"]');
+  for(var i=0;i<waLinks.length;i++){
+    var a=waLinks[i];
+    if(a.getAttribute('href').indexOf('text=')<0)a.setAttribute('href','https://wa.me/'+WA+'?text='+encodeURIComponent(msg));
+  }
+
+  /* ── Eventos ── */
+  document.addEventListener('click',function(e){
+    var el=e.target&&e.target.closest?e.target.closest('a[href*="wa.me"]'):null;
+    if(!el)return;
+    var local=el.closest('.mbn')?'barra_inferior':el.closest('.wf-topo')?'header':el.closest('.rodape')?'rodape':el.id==='estLink'?'simulador':'pagina';
+    window.wfTrack('whatsapp_click',{pagina:path,local:local});
+  },true);
+  document.addEventListener('change',function(e){
+    var t=e.target;
+    if(t&&t.name==='svc'&&t.checked)window.wfTrack('simulador_orcamento',{servico:t.getAttribute('data-nome')||'',valor:t.value||''});
+  });
 })();
 </script>
 </body>
