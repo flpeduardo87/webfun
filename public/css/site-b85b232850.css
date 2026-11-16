@@ -530,11 +530,11 @@ svg{display:block;}
 .ct-chip small{display:block;font-size:.66rem;font-weight:500;color:rgba(255,255,255,.5);}
 .ct-chip-ico{width:2rem;height:2rem;border-radius:.65rem;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;flex-shrink:0;}
 .ct-chip-ico svg{width:1rem;height:1rem;stroke-width:2.4;}
-.ct-chip-a{top:-1.4rem;left:-2.2rem;}
-.ct-chip-b{bottom:-1.6rem;right:-1.4rem;animation-delay:-2.5s;}
+.ct-chip-a{top:-2.5rem;left:-1.5rem;}
+.ct-chip-b{bottom:-2.3rem;right:-1.4rem;animation-delay:-2.5s;}
 @keyframes ctFloat{0%,100%{translate:0 0;}50%{translate:0 -8px;}}
 @media(max-width:900px){.ct-grid{grid-template-columns:1fr;gap:3.5rem;}.ct-stage{transform:none;margin:0 auto;}.ct-vis{padding:0 .75rem;}}
-@media(max-width:600px){.ct-chip{font-size:.68rem;padding:.45rem .7rem .45rem .45rem;}.ct-chip-ico{width:1.7rem;height:1.7rem;}.ct-chip-a{left:-.3rem;}.ct-chip-b{right:-.3rem;}.ct-body{min-height:15rem;}}
+@media(max-width:600px){.ct-chip{font-size:.68rem;padding:.45rem .7rem .45rem .45rem;}.ct-chip-ico{width:1.7rem;height:1.7rem;}.ct-chip-a{top:-2.1rem;left:-.3rem;}.ct-chip-b{right:-.3rem;}.ct-body{min-height:15rem;}}
 @media(prefers-reduced-motion:reduce){.ct-vis,.ct-vis *{animation:none!important;transition:none!important;}.ct-m{opacity:1;transform:none;}}
 /* opções do formulário */
 .tipo-btn-ico{width:2.4rem;height:2.4rem;border-radius:.7rem;background:#171717;color:var(--acid);}
@@ -663,7 +663,7 @@ html.hdr-acid .wf-topo-cta::before{background:linear-gradient(100deg,rgba(255,25
 @media(min-width:901px){.ct-wcard{flex:1;display:flex;flex-direction:column;}.ct-wcard>.ct-hours{margin-top:auto;}}
 @media(min-width:901px){
   .ct-stage{max-width:540px!important;}
-  .ct-chip-a{top:42%!important;left:-2.4rem!important;}
+  .ct-chip-a{top:-2.5rem!important;left:-1.5rem!important;}
 }
 .pg-tag{background:none!important;border:0!important;padding:0!important;border-radius:0!important;gap:.5rem!important;font-size:.78rem!important;letter-spacing:.12em!important;color:var(--acid)!important;overflow:visible!important;}
 .pg-tag::after{display:none!important;}
