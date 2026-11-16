@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="/assets/js/icones-5c8467a5.js"></script>
+<script src="/assets/js/icones-18f15424.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
 <link rel="stylesheet" href="/assets/css/site-08caf0eb10.css">
 <script id="theme-color-js">
@@ -794,6 +794,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if(!el)return;
     var local=el.closest('.mbn')?'barra_inferior':el.closest('.wf-topo')?'header':el.closest('.rodape')?'rodape':el.id==='estLink'?'simulador':'pagina';
     window.wfTrack('whatsapp_click',{pagina:path,local:local});
+    if(el.hasAttribute('data-diag'))window.wfTrack('diagnostico_click',{pagina:path});
   },true);
   document.addEventListener('change',function(e){
     var t=e.target;

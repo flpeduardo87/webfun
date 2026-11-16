@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="/assets/js/icones-5c8467a5.js"></script>
+<script src="/assets/js/icones-18f15424.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
 <link rel="stylesheet" href="/assets/css/site-6b20ce1bca.css">
 <script id="theme-color-js">
@@ -144,11 +144,11 @@
       <p class="art-note">Boa parte dos projetos de automação nasce de uma pergunta simples: “o que a gente faz de novo todo dia sem precisar pensar?”. Se a resposta for longa, há bastante o que automatizar.</p>
     </article>
 
-    <aside class="art-cta" aria-label="Fale com a Webfun">
-      <h2>Quer aplicar isso no seu negócio?</h2>
-      <p>Conte o que você precisa. A gente entende o contexto, sugere o caminho e apresenta uma proposta clara, sem compromisso.</p>
+    <aside class="art-cta" aria-label="Diagnóstico gratuito do seu site">
+      <h2>Ainda não sabe se precisa de um site novo?</h2>
+      <p>Me mande o endereço do seu site. Em até 1 dia útil eu respondo com um vídeo curto mostrando os 3 pontos que mais estão custando clientes. Gratuito e sem compromisso.</p>
       <div class="art-cta-btns">
-        <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">Falar no WhatsApp <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+        <a href="https://wa.me/5547997618824?text=Oi!%20Quero%20o%20diagn%C3%B3stico%20gratuito%20do%20meu%20site%3A%20" data-diag class="btn-acid" target="_blank" rel="noopener">Quero meu diagnóstico gratuito <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
         <a href="/servico-automacao" class="btn-outline">Conhecer Automação & IA</a>
       </div>
     </aside>
@@ -546,6 +546,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if(!el)return;
     var local=el.closest('.mbn')?'barra_inferior':el.closest('.wf-topo')?'header':el.closest('.rodape')?'rodape':el.id==='estLink'?'simulador':'pagina';
     window.wfTrack('whatsapp_click',{pagina:path,local:local});
+    if(el.hasAttribute('data-diag'))window.wfTrack('diagnostico_click',{pagina:path});
   },true);
   document.addEventListener('change',function(e){
     var t=e.target;

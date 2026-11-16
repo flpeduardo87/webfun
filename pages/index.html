@@ -29,9 +29,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="/assets/js/icones-5c8467a5.js"></script>
+<script src="/assets/js/icones-18f15424.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
-<link rel="stylesheet" href="/assets/css/site-a4403803f1.css">
+<link rel="stylesheet" href="/assets/css/site-259df773f0.css">
 <script id="theme-color-js">
 (function(){
   var m=document.getElementById('metaTheme'),h=document.documentElement;if(!m)return;
@@ -550,6 +550,25 @@
       <div class="rv-card"><div class="rv-top"><div class="rv-avatar"><img src="media/pessoas/clientes/karen.webp" alt="Karen Hames" width="80" height="80" loading="lazy"></div><div><p class="rv-nome">Karen Hames</p><p class="rv-proj">Loja virtual</p></div></div><p class="rv-stars">★★★★★</p><p class="rv-txt">Perfeito, muito obrigada por todo o trabalho. Nós gostamos muito do resultado e já estamos vendendo!</p><p class="rv-date">junho de 2024</p></div>
       <div class="rv-card"><div class="rv-top"><div class="rv-avatar"><img src="media/pessoas/clientes/nicole.webp" alt="Nicole Zanellato" width="80" height="80" loading="lazy"></div><div><p class="rv-nome">Nicole Zanellato</p><p class="rv-proj">Sistema web</p></div></div><p class="rv-stars">★★★★★</p><p class="rv-txt">Testei a calculadora e parece perfeita! Obrigada pelo ótimo trabalho. Superou as expectativas.</p><p class="rv-date">setembro de 2024</p></div>
       <div class="rv-card"><div class="rv-top"><div class="rv-avatar"><img src="media/pessoas/clientes/wesley.webp" alt="Weslley" width="80" height="80" loading="lazy"></div><div><p class="rv-nome">Weslley</p><p class="rv-proj">Delivery + Sistema</p></div></div><p class="rv-stars">★★★★★</p><p class="rv-txt">O site de delivery da Paulista ficou muito bom! Era exatamente o que precisávamos no momento.</p><p class="rv-date">2024</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Diagnóstico gratuito ────────────────────────────────────────────── -->
+<section class="diag-sec" id="diagnostico" aria-labelledby="diag-h">
+  <div class="wrap">
+    <div class="diag-card">
+      <div>
+        <span class="diag-ey">Diagnóstico gratuito</span>
+        <h2 class="diag-h" id="diag-h">Ainda não sabe se precisa de um site novo?</h2>
+        <p class="diag-txt">Me mande o endereço do seu site. Em até 1 dia útil eu respondo com um vídeo curto mostrando os 3 pontos que mais estão custando clientes. Gratuito e sem compromisso.</p>
+        <a class="diag-btn" data-diag href="https://wa.me/5547997618824?text=Oi!%20Quero%20o%20diagn%C3%B3stico%20gratuito%20do%20meu%20site%3A%20" target="_blank" rel="noopener">Quero meu diagnóstico gratuito <span aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+      </div>
+      <div class="diag-vid" aria-hidden="true">
+        <div class="diag-vid-top"><i></i><i></i><i></i><span>seusite.com.br</span></div>
+        <div class="diag-vid-scr"><span class="diag-play"><i data-lucide="play"></i></span></div>
+        <div class="diag-pts"><div><b>1</b><i></i></div><div><b>2</b><i></i></div><div><b>3</b><i></i></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1431,6 +1450,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if(!el)return;
     var local=el.closest('.mbn')?'barra_inferior':el.closest('.wf-topo')?'header':el.closest('.rodape')?'rodape':el.id==='estLink'?'simulador':'pagina';
     window.wfTrack('whatsapp_click',{pagina:path,local:local});
+    if(el.hasAttribute('data-diag'))window.wfTrack('diagnostico_click',{pagina:path});
   },true);
   document.addEventListener('change',function(e){
     var t=e.target;
