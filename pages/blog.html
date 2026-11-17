@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="/assets/js/icones-79093c78.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
-<link rel="stylesheet" href="/assets/css/site-455ff33798.css">
+<link rel="stylesheet" href="/assets/css/site-ad6913c715.css">
 <script id="theme-color-js">
 (function(){
   var m=document.getElementById('metaTheme'),h=document.documentElement;if(!m)return;
@@ -71,7 +71,7 @@
           </div>
           <div class="mg-cap"><span class="mg-cap-t" id="mgCapT">Site institucional</span><span class="mg-cap-m" id="mgCapM">A partir de R$ 1.500 · 5 a 10 dias úteis</span></div>
         </div>
-        <div class="mg-foot"><span><b>Não sabe qual escolher?</b> Conte sua ideia e eu indico o melhor caminho.</span><a href="https://wa.me/5547997618824" class="btn-glow" target="_blank" rel="noopener"><span>Falar comigo</span><span class="btn-glow-seta"><i data-lucide="arrow-right"></i></span></a></div>
+        <div class="mg-foot"><span><b>Não sabe qual escolher?</b> Conte sua ideia e indicamos o melhor caminho.</span><a href="https://wa.me/5547997618824" class="btn-glow" target="_blank" rel="noopener"><span>Fale com a Webfun</span><span class="btn-glow-seta"><i data-lucide="arrow-right"></i></span></a></div>
       </div>
     </div>
     <a href="/projetos">Projetos</a>
@@ -104,7 +104,7 @@
       </nav>
       <div class="mm-cta">
         <p class="mm-cta-t">Vamos conversar?</p>
-        <p class="mm-cta-s">Conte sua ideia e eu te ajudo a escolher o melhor caminho, sem compromisso.</p>
+        <p class="mm-cta-s">Conte sua ideia e ajudamos você a escolher o melhor caminho, sem compromisso.</p>
         <a href="https://wa.me/5547997618824" class="btn-glow" target="_blank" rel="noopener"><span>Começar projeto</span><span class="btn-glow-seta"><i data-lucide="arrow-right"></i></span></a>
       </div>
     </div>
@@ -231,10 +231,38 @@
       <span class="nl-eyebrow">Newsletter</span>
       <h2 class="nl-h2" id="nl-h2">Receba novos artigos direto no e-mail.</h2>
       <p class="nl-desc">Sem spam. Apenas conteúdo sobre design, tecnologia e negócios digitais — quando tiver algo que vale a leitura.</p>
-      <div class="nl-form">
-        <input type="email" placeholder="seu@email.com.br" aria-label="E-mail">
-        <button type="button">Quero receber <i data-lucide="arrow-right" style="width:.85rem;height:.85rem;stroke-width:2.5;pointer-events:none"></i></button>
-      </div>
+      <form class="nl-form" id="nlForm" novalidate>
+        <input type="email" name="email" id="nlEmail" placeholder="seu@email.com.br" aria-label="E-mail" autocomplete="email" required>
+        <input type="checkbox" name="botcheck" id="nlBot" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none">
+        <button type="submit" id="nlBtn"><span id="nlTxt">Quero receber</span> <i data-lucide="arrow-right" style="width:.85rem;height:.85rem;stroke-width:2.5;pointer-events:none"></i></button>
+      </form>
+      <p class="nl-msg" id="nlMsg" role="status" aria-live="polite" hidden></p>
+            <script>
+(function(){
+  var f=document.getElementById('nlForm');if(!f)return;
+  var em=document.getElementById('nlEmail'),bot=document.getElementById('nlBot'),btn=document.getElementById('nlBtn'),txt=document.getElementById('nlTxt'),msg=document.getElementById('nlMsg');
+  function diz(t,erro){msg.textContent=t;msg.hidden=false;msg.className='nl-msg'+(erro?' erro':'');}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=em.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){diz('Digite um e-mail válido, como nome@empresa.com.br.',true);em.focus();return;}
+    if(bot.checked)return;
+    btn.disabled=true;txt.textContent='Enviando…';msg.hidden=true;
+    var ctrl=window.AbortController?new AbortController():null;
+    var to=setTimeout(function(){if(ctrl)ctrl.abort();},15000);
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({access_key:'c718888f-6eed-4e44-a842-1b53ead5e015',subject:'Nova inscrição na newsletter',from_name:'Site Webfun',email:v,'Página':location.href,botcheck:''}),
+      signal:ctrl?ctrl.signal:undefined})
+    .then(function(r){return r.json().then(function(j){return r.ok&&j&&j.success===true;});})
+    .catch(function(){return false;})
+    .then(function(ok){
+      clearTimeout(to);btn.disabled=false;txt.textContent='Quero receber';
+      if(ok){f.reset();diz('Inscrição confirmada. Os próximos artigos chegam no seu e-mail.');if(window.wfTrack)window.wfTrack('newsletter_signup',{pagina:location.pathname});}
+      else diz('Não foi possível enviar agora. Tente de novo em instantes.',true);
+    });
+  });
+})();
+      </script>
       <p class="nl-aviso">Sem spam. Cancele quando quiser.</p>
     </div>
   </div>
@@ -245,7 +273,7 @@
   <div class="wrap" style="max-width:900px">
     <span class="eyebrow">Pronto para começar?</span>
     <h2 id="cta-h2">Seu próximo projeto<br>começa aqui.</h2>
-    <p>Conte o que precisa. Eu entendo o contexto, sugiro o caminho e apresento uma proposta clara antes de qualquer compromisso.</p>
+    <p>Conte o que precisa. Entendemos o contexto, sugerimos o caminho e apresentamos uma proposta clara antes de qualquer compromisso.</p>
     <div class="cta-final-btns">
       <a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">Falar no WhatsApp <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
       <a href="/contato" class="btn-outline">Enviar mensagem</a>
@@ -264,7 +292,7 @@
         </div></div>
       <div class="rodape-col"><p class="rodape-col-tit">Serviços</p><a href="/servico-site">Site institucional</a><a href="/servico-loja">Loja virtual</a><a href="/servico-landing">Landing page</a><a href="/servico-sistema">Sistemas</a><a href="/servico-automacao">Automação & IA</a><a href="/servico-app">Aplicativo</a></div>
       <div class="rodape-col"><p class="rodape-col-tit">Empresa</p><a href="/sobre">Sobre a Webfun</a><a href="/projetos">Projetos</a><a href="/blog">Blog</a><a href="/contato">Contato</a></div>
-      <div class="rodape-col"><p class="rodape-col-tit">Contato</p><a href="mailto:contato@webfun.com.br">contato@webfun.com.br</a><a href="https://wa.me/5547997618824" target="_blank" rel="noopener">WhatsApp</a><span class="rodape-txt">Canoinhas, SC — Brasil</span><span class="rodape-status" id="rodapeStatus"><i></i><span>Respondo em até 1 dia útil</span></span></div>
+      <div class="rodape-col"><p class="rodape-col-tit">Contato</p><a href="mailto:contato@webfun.com.br">contato@webfun.com.br</a><a href="https://wa.me/5547997618824" target="_blank" rel="noopener">WhatsApp</a><span class="rodape-txt">Canoinhas, SC — Brasil</span><span class="rodape-status" id="rodapeStatus"><i></i><span>Respondemos em até 1 dia útil</span></span></div>
     </div>
     <div class="rodape-bottom"><p class="rodape-copy">© 2026 Webfun · CNPJ 53.281.332/0001-58. Todos os direitos reservados. · <a href="/privacidade" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Política de Privacidade</a></p><p class="rodape-love">Feito com <span class="rodape-heart" aria-label="amor">♥</span> em Canoinhas</p><button type="button" class="rodape-top" id="rodapeTop" aria-label="Voltar ao topo"><i data-lucide="arrow-up"></i></button></div>
   </div>
@@ -329,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <span class="wpp-eyebrow"><span class="wpp-dot"></span>Fale com a Webfun</span>
       <button class="wpp-close" id="wppClose" aria-label="Fechar">✕</button>
     </div>
-    <h2 class="wpp-title" id="wppTitle">Antes de abrir o WhatsApp,<br><span>como te chamo?</span></h2>
+    <h2 class="wpp-title" id="wppTitle">Antes de abrir o WhatsApp,<br><span>como podemos te chamar?</span></h2>
     <span class="wpp-label">Seu nome</span>
     <input id="wppNome" class="wpp-input" type="text" placeholder="João Silva" autocomplete="given-name">
     <span class="wpp-label">Seu WhatsApp, com DDD</span>
