@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="/assets/js/icones-79093c78.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
-<link rel="stylesheet" href="/assets/css/site-d8095f9608.css">
+<link rel="stylesheet" href="/assets/css/site-2888683cc2.css">
 
 <!-- ── Hero visual upgrade ──────────────────────────────────────────────── -->
 <script id="theme-color-js">
@@ -136,7 +136,7 @@
       <div class="svc-meta-item"><span class="svc-meta-val">30 dias</span><span class="svc-meta-lbl">suporte incluído</span></div>
     </div>
     </div>
-    <div class="svc-vis" aria-hidden="true"><div class="svc-vis-glow"></div><div class="svc-vis-stage">
+    <div class="svc-vis" aria-hidden="true"><div class="svc-vis-glow"></div><div class="svc-vis-stage mg-hero"><template id="svc-vis-old">
 <div class="vw"><div class="vw-bar"><i class="vw-dot"></i><i class="vw-dot"></i><i class="vw-dot"></i><span class="vw-url"><i data-lucide="lock"></i>suaempresa.com.br</span></div><div class="vw-body">
   <div class="vs-nav"><span class="vs-logo"></span><i class="sk"></i><i class="sk"></i><i class="sk"></i><span class="vs-btn">Contato</span></div>
   <div class="vs-hero">
@@ -148,7 +148,7 @@
     <div><span class="vs-ci"><i data-lucide="users"></i></span><i class="sk"></i><i class="sk" style="width:60%"></i></div>
     <div><span class="vs-ci"><i data-lucide="map-pin"></i></span><i class="sk"></i><i class="sk" style="width:60%"></i></div>
   </div>
-</div></div><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="search"></i></span><span>1ª página do Google<small>busca local otimizada</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="mail"></i></span><span>Novo contato recebido<small>via formulário do site</small></span></div>
+</div></div></template><div class="svc-mg"><div class="mg-shot on"><div class="mg-inner"><div class="mg-win"><div class="hx-bar"><span class="hx-dots"><i></i><i></i><i></i></span><span class="hx-url"><i data-lucide="lock"></i>suaempresa.com.br</span></div><div class="mg-body"><div class="hs-nav"><span class="hs-logo">Clínica<b>Sol</b></span><i class="hx-sk"></i><i class="hx-sk"></i><i class="hx-sk"></i><span class="hs-btn">Agendar</span></div><div class="hs-banner"><div class="hs-banner-txt"><span class="hx-eb">Saúde & bem-estar</span><div class="hs-h">Cuidado que<br><em>transforma.</em></div><span class="hs-sub">Consultas, exames e retorno em um só lugar, com agenda online.</span><span class="hs-ctas"><span class="hx-cta">Agendar consulta <i data-lucide="arrow-right"></i></span></span></div><div class="hs-trust"><span><i data-lucide="star"></i>4,9 no Google</span><span><i data-lucide="users"></i>+2.000 pacientes</span></div></div><div class="hx-kpis"><div><small>Visitas/dia</small><b>127</b><em>+34%</em></div><div><small>Contatos</small><b>18</b><em>+22%</em></div><div><small>Avaliação</small><b>4,9</b><em>Google</em></div></div></div></div></div></div></div><!--/svc-mg--><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="search"></i></span><span>1ª página do Google<small>busca local otimizada</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="mail"></i></span><span>Novo contato recebido<small>via formulário do site</small></span></div>
     </div></div>
     </div>
   </div>
@@ -752,6 +752,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if(t&&t.name==='svc'&&t.checked)window.wfTrack('simulador_orcamento',{servico:t.getAttribute('data-nome')||'',valor:t.value||''});
   });
 })();
+</script>
+<script id="hero-mg-js">
+(function(){var b=document.querySelector('.svc-mg');if(!b)return;var i=b.querySelector('.mg-inner');
+function z(){b.style.setProperty('--mg-z',Math.min(1,b.clientWidth/520).toFixed(3));}
+z();if('ResizeObserver' in window)new ResizeObserver(z).observe(b);else addEventListener('resize',z);})();
 </script>
 </body>
 </html>

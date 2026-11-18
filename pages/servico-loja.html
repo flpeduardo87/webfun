@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="/assets/js/icones-79093c78.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
-<link rel="stylesheet" href="/assets/css/site-8c10324da7.css">
+<link rel="stylesheet" href="/assets/css/site-3588f148c3.css">
 
 <!-- ── Hero visual upgrade ──────────────────────────────────────────────── -->
 <script id="theme-color-js">
@@ -132,7 +132,7 @@
       <div class="svc-meta-item"><span class="svc-meta-val">30 dias</span><span class="svc-meta-lbl">suporte incluído</span></div>
     </div>
     </div>
-    <div class="svc-vis" aria-hidden="true"><div class="svc-vis-glow"></div><div class="svc-vis-stage">
+    <div class="svc-vis" aria-hidden="true"><div class="svc-vis-glow"></div><div class="svc-vis-stage mg-hero"><template id="svc-vis-old">
 <div class="vw"><div class="vw-bar"><i class="vw-dot"></i><i class="vw-dot"></i><i class="vw-dot"></i><span class="vw-url"><i data-lucide="lock"></i>sualoja.com.br</span></div><div class="vw-body">
   <div class="vl-head"><span class="vl-logo"><i data-lucide="shopping-bag"></i>Sua Loja</span><span class="vl-search"><i data-lucide="search"></i>O que você procura?</span><span class="vl-cart"><i data-lucide="shopping-cart"></i><b id="vlCount">2</b></span></div>
   <div class="vl-grid">
@@ -141,7 +141,7 @@
     <div class="vl-prod"><div class="vl-img"><i data-lucide="watch"></i></div><span>Smartwatch</span><b>R$ 1.299,00</b><span class="vl-btn">Comprar</span></div>
     <div class="vl-prod"><div class="vl-img"><i data-lucide="backpack"></i></div><span>Mochila Urbana</span><b>R$ 349,90</b><span class="vl-btn">Comprar</span></div>
   </div>
-</div></div><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="shopping-cart"></i></span><span>Novo pedido <span id="vlPed">#1042</span><small>R$ 399,90 · pagamento aprovado</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="trending-up"></i></span><span>+38% em vendas<small>comparado ao mês anterior</small></span></div>
+</div></div></template><div class="svc-mg"><div class="mg-shot on"><div class="mg-inner"><div class="mg-win"><div class="hx-bar"><span class="hx-dots"><i></i><i></i><i></i></span><span class="hx-url"><i data-lucide="lock"></i>sualoja.com.br</span></div><div class="mg-body"><div class="hl-head"><span class="hl-logo"><i data-lucide="shopping-bag"></i><span>Sua<b>Loja</b></span></span><span class="hl-search"><i data-lucide="search"></i>Buscar produtos</span><span class="hl-cart"><i data-lucide="shopping-cart"></i><b>3</b></span></div><div class="hl-cats"><span class="on">Novidades</span><span>Roupas</span><span>Calçados</span><span>Acessórios</span></div><div class="hl-grid"><div class="hl-prod"><div class="hl-img"><img src="/media/loja/tenis.webp" alt="Tênis Runner" width="320" height="320" loading="lazy" decoding="async"></div><span>Tênis Runner</span><b>R$ 399,90</b><span class="hl-btn">Comprar</span></div><div class="hl-prod"><div class="hl-img"><img src="/media/loja/smartwatch.webp" alt="Smartwatch" width="320" height="320" loading="lazy" decoding="async"></div><span>Smartwatch</span><b>R$ 1.299</b><span class="hl-btn">Comprar</span></div><div class="hl-prod"><div class="hl-img"><img src="/media/loja/mochila.webp" alt="Mochila" width="320" height="320" loading="lazy" decoding="async"></div><span>Mochila</span><b>R$ 349,90</b><span class="hl-btn">Comprar</span></div></div></div></div></div></div></div><!--/svc-mg--><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="shopping-cart"></i></span><span>Novo pedido <span id="vlPed">#1042</span><small>R$ 399,90 · pagamento aprovado</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="trending-up"></i></span><span>+38% em vendas<small>comparado ao mês anterior</small></span></div>
     </div></div>
     </div>
   </div>
@@ -724,6 +724,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if(t&&t.name==='svc'&&t.checked)window.wfTrack('simulador_orcamento',{servico:t.getAttribute('data-nome')||'',valor:t.value||''});
   });
 })();
+</script>
+<script id="hero-mg-js">
+(function(){var b=document.querySelector('.svc-mg');if(!b)return;var i=b.querySelector('.mg-inner');
+function z(){b.style.setProperty('--mg-z',Math.min(1,b.clientWidth/520).toFixed(3));}
+z();if('ResizeObserver' in window)new ResizeObserver(z).observe(b);else addEventListener('resize',z);})();
 </script>
 </body>
 </html>

@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="/assets/js/icones-79093c78.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
-<link rel="stylesheet" href="/assets/css/site-cfaccd8a83.css">
+<link rel="stylesheet" href="/assets/css/site-6b18b53e91.css">
 
 <!-- ── Hero visual upgrade ──────────────────────────────────────────────── -->
 <script id="theme-color-js">
@@ -132,7 +132,7 @@
       <div class="svc-meta-item"><span class="svc-meta-val">60 dias</span><span class="svc-meta-lbl">suporte incluído</span></div>
     </div>
     </div>
-    <div class="svc-vis" aria-hidden="true"><div class="svc-vis-glow"></div><div class="svc-vis-stage">
+    <div class="svc-vis" aria-hidden="true"><div class="svc-vis-glow"></div><div class="svc-vis-stage mg-hero"><template id="svc-vis-old">
 <div class="vw"><div class="vw-bar"><i class="vw-dot"></i><i class="vw-dot"></i><i class="vw-dot"></i><span class="vw-url"><i data-lucide="lock"></i>app.suaempresa.com.br/painel</span></div><div class="vw-body vsy">
   <div class="vsy-side"><span class="on"><i data-lucide="layout-dashboard"></i></span><span><i data-lucide="users"></i></span><span><i data-lucide="package"></i></span><span><i data-lucide="file-text"></i></span><span><i data-lucide="settings"></i></span></div>
   <div>
@@ -144,7 +144,7 @@
       <div><span class="vsy-av"></span><i class="sk"></i><span class="vsy-st pend">Pendente</span></div>
     </div>
   </div>
-</div></div><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="file-check"></i></span><span>Relatório gerado<small>em 2 segundos</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="zap"></i></span><span>Processos 3x mais rápidos<small>sem planilha, sem retrabalho</small></span></div>
+</div></div></template><div class="svc-mg"><div class="mg-shot on"><div class="mg-inner"><div class="mg-win"><div class="hx-bar"><span class="hx-dots"><i></i><i></i><i></i></span><span class="hx-url"><i data-lucide="lock"></i>app.suaempresa.com.br</span></div><div class="mg-body"><div class="hy"><div class="hy-side"><span class="on"><i data-lucide="layout-dashboard"></i></span><span><i data-lucide="users"></i></span><span><i data-lucide="package"></i></span><span><i data-lucide="file-text"></i></span></div><div class="hy-main"><div class="hx-kpis"><div><small>Faturamento</small><b>R$ 84,2k</b><em>+12%</em></div><div><small>Pedidos</small><b>1.284</b><em>+8%</em></div><div><small>Clientes</small><b>342</b><em>+5%</em></div></div><div class="hy-chart"><small>Vendas · últimos 7 dias</small><div class="hy-bars"><i style="--h:45%;--d:0"></i><i style="--h:62%;--d:1"></i><i style="--h:38%;--d:2"></i><i style="--h:74%;--d:3"></i><i style="--h:58%;--d:4"></i><i style="--h:85%;--d:5"></i><i style="--h:100%;--d:6"></i></div></div><div class="hy-duo"><div class="hy-donut"><svg viewBox="0 0 36 36"><circle class="t" cx="18" cy="18" r="15.915"/><circle class="v" cx="18" cy="18" r="15.915"/></svg><span><b>78%</b><small>Meta do mês</small></span></div><div class="hy-src"><small>Origem das vendas</small><div class="hy-stack"><i style="--w:52%"></i><i style="--w:31%"></i><i style="--w:17%"></i></div><div class="hy-leg"><span><i></i>Site 52%</span><span><i></i>WhatsApp 31%</span><span><i></i>Loja 17%</span></div></div></div></div></div></div></div></div></div></div><!--/svc-mg--><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="file-check"></i></span><span>Relatório gerado<small>em 2 segundos</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="zap"></i></span><span>Processos 3x mais rápidos<small>sem planilha, sem retrabalho</small></span></div>
     </div></div>
     </div>
   </div>
@@ -712,6 +712,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if(t&&t.name==='svc'&&t.checked)window.wfTrack('simulador_orcamento',{servico:t.getAttribute('data-nome')||'',valor:t.value||''});
   });
 })();
+</script>
+<script id="hero-mg-js">
+(function(){var b=document.querySelector('.svc-mg');if(!b)return;var i=b.querySelector('.mg-inner');
+function z(){b.style.setProperty('--mg-z',Math.min(1,b.clientWidth/520).toFixed(3));}
+z();if('ResizeObserver' in window)new ResizeObserver(z).observe(b);else addEventListener('resize',z);})();
 </script>
 </body>
 </html>

@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="/assets/js/icones-79093c78.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
-<link rel="stylesheet" href="/assets/css/site-4b0778ebba.css">
+<link rel="stylesheet" href="/assets/css/site-5fcf115b28.css">
 
 <!-- ── Hero visual upgrade ──────────────────────────────────────────────── -->
 <script id="theme-color-js">
@@ -132,14 +132,14 @@
       <div class="svc-meta-item"><span class="svc-meta-val">30 dias</span><span class="svc-meta-lbl">suporte incluído</span></div>
     </div>
     </div>
-    <div class="svc-vis" aria-hidden="true"><div class="svc-vis-glow"></div><div class="svc-vis-stage">
+    <div class="svc-vis" aria-hidden="true"><div class="svc-vis-glow"></div><div class="svc-vis-stage mg-hero"><template id="svc-vis-old">
 <div class="vw"><div class="vw-bar va-bar"><span class="va-av"><i data-lucide="bot"></i></span><span><b>Assistente virtual</b><small><i class="va-on"></i>online · responde em segundos</small></span></div><div class="vw-body va">
   <div class="va-m cli">Oi! Vocês entregam em Joinville?<span class="va-t">22:41</span></div>
   <div class="va-m bot">Olá! Entregamos sim, em até 2 dias úteis.<span class="va-t">22:41</span></div>
   <div class="va-m cli">Quero fazer um pedido do kit completo<span class="va-t">22:42</span></div>
   <div class="va-m bot">Perfeito! Seu link de pagamento:<span class="va-pay"><i data-lucide="credit-card"></i>Pedido #2087 · R$ 249,00</span><span class="va-t">22:42</span></div>
   <div class="va-m cli">Pago! Muito rápido, obrigado<span class="va-t">22:43</span></div>
-</div></div><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="bot"></i></span><span>Respondido em 3s<small>atendimento 24h por dia</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="refresh-cw"></i></span><span>128 tarefas automatizadas<small>só hoje, sem ninguém tocar</small></span></div>
+</div></div></template><div class="svc-mg"><div class="mg-shot on"><div class="mg-inner"><div class="mg-win"><div class="hx-bar mga-bar"><span class="mga-av"><i data-lucide="bot"></i></span><span><b>Assistente virtual</b><small><i></i>online · responde em segundos</small></span></div><div class="mg-body mga"><div class="mga-m cli">Oi! Vocês entregam em Joinville?</div><div class="mga-m bot">Olá! Entregamos sim, em até 2 dias úteis.</div><div class="mga-m cli">Quero fazer um pedido do kit completo</div><div class="mga-m bot">Perfeito! Seu link de pagamento:<span class="mga-pay"><i data-lucide="credit-card"></i>Pedido #2087 · R$ 249,00</span></div><div class="mga-m cli">Pago! Muito rápido, obrigado</div></div></div></div></div></div><!--/svc-mg--><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="bot"></i></span><span>Respondido em 3s<small>atendimento 24h por dia</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="refresh-cw"></i></span><span>128 tarefas automatizadas<small>só hoje, sem ninguém tocar</small></span></div>
     </div></div>
     </div>
   </div>
@@ -684,6 +684,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if(t&&t.name==='svc'&&t.checked)window.wfTrack('simulador_orcamento',{servico:t.getAttribute('data-nome')||'',valor:t.value||''});
   });
 })();
+</script>
+<script id="hero-mg-js">
+(function(){var b=document.querySelector('.svc-mg');if(!b)return;var i=b.querySelector('.mg-inner');
+function z(){b.style.setProperty('--mg-z',Math.min(1,b.clientWidth/520).toFixed(3));}
+z();if('ResizeObserver' in window)new ResizeObserver(z).observe(b);else addEventListener('resize',z);})();
 </script>
 </body>
 </html>

@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="/assets/js/icones-79093c78.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
-<link rel="stylesheet" href="/assets/css/site-45615c9625.css">
+<link rel="stylesheet" href="/assets/css/site-b2785178c2.css">
 
 <!-- ── Hero visual upgrade ──────────────────────────────────────────────── -->
 <script id="theme-color-js">
@@ -132,7 +132,7 @@
       <div class="svc-meta-item"><span class="svc-meta-val">30 dias</span><span class="svc-meta-lbl">suporte incluído</span></div>
     </div>
     </div>
-    <div class="svc-vis" aria-hidden="true"><div class="svc-vis-glow"></div><div class="svc-vis-stage">
+    <div class="svc-vis" aria-hidden="true"><div class="svc-vis-glow"></div><div class="svc-vis-stage mg-hero"><template id="svc-vis-old">
 <div class="vw"><div class="vw-bar"><i class="vw-dot"></i><i class="vw-dot"></i><i class="vw-dot"></i><span class="vw-url"><i data-lucide="lock"></i>oferta.suamarca.com.br</span></div><div class="vw-body vlp">
   <span class="vlp-badge"><i class="live"></i>Oferta por tempo limitado</span>
   <div class="vlp-h">Garanta sua vaga<br><em>com 40% OFF</em></div>
@@ -140,7 +140,7 @@
   <div class="vlp-timer"><div><b id="vlpH">02</b><small>horas</small></div><div><b id="vlpM">47</b><small>min</small></div><div><b id="vlpS">19</b><small>seg</small></div></div>
   <span class="vlp-cta">Quero garantir minha vaga <i data-lucide="arrow-right"></i></span>
   <div class="vlp-proof"><span class="vlp-avs"><i></i><i></i><i></i></span>+1.200 pessoas já garantiram</div>
-</div></div><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="mouse-pointer-click"></i></span><span>Conversão de 12,4%<small>acima da média do mercado</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="user-plus"></i></span><span>+87 leads hoje<small>direto no seu WhatsApp</small></span></div>
+</div></div></template><div class="svc-mg"><div class="mg-shot on"><div class="mg-inner"><div class="mg-win"><div class="hx-bar"><span class="hx-dots"><i></i><i></i><i></i></span><span class="hx-url"><i data-lucide="lock"></i>oferta.suamarca.com.br</span></div><div class="mg-body"><div class="mgl"><span class="mgl-badge"><i></i>Oferta por tempo limitado</span><div class="mgl-h">Garanta sua vaga<br><em>com 40% OFF</em></div><span class="mgl-sub">Últimas vagas da turma de novembro</span><div class="mgl-timer"><div><b>02</b><small>horas</small></div><div><b>47</b><small>min</small></div><div><b>19</b><small>seg</small></div></div><span class="mgl-cta">Quero garantir minha vaga <i data-lucide="arrow-right"></i></span><span class="mgl-proof">+1.200 pessoas já garantiram</span></div></div></div></div></div></div><!--/svc-mg--><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="mouse-pointer-click"></i></span><span>Conversão de 12,4%<small>acima da média do mercado</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="user-plus"></i></span><span>+87 leads hoje<small>direto no seu WhatsApp</small></span></div>
     </div></div>
     </div>
   </div>
@@ -703,6 +703,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if(t&&t.name==='svc'&&t.checked)window.wfTrack('simulador_orcamento',{servico:t.getAttribute('data-nome')||'',valor:t.value||''});
   });
 })();
+</script>
+<script id="hero-mg-js">
+(function(){var b=document.querySelector('.svc-mg');if(!b)return;var i=b.querySelector('.mg-inner');
+function z(){b.style.setProperty('--mg-z',Math.min(1,b.clientWidth/520).toFixed(3));}
+z();if('ResizeObserver' in window)new ResizeObserver(z).observe(b);else addEventListener('resize',z);})();
 </script>
 </body>
 </html>

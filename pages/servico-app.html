@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="/assets/js/icones-79093c78.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
-<link rel="stylesheet" href="/assets/css/site-c0954fc3ed.css">
+<link rel="stylesheet" href="/assets/css/site-58fab0b63c.css">
 
 <!-- ── Hero visual upgrade ──────────────────────────────────────────────── -->
 <script id="theme-color-js">
@@ -132,7 +132,7 @@
       <div class="svc-meta-item"><span class="svc-meta-val">60 dias</span><span class="svc-meta-lbl">suporte incluído</span></div>
     </div>
     </div>
-    <div class="svc-vis" aria-hidden="true"><div class="svc-vis-glow"></div><div class="svc-vis-stage">
+    <div class="svc-vis" aria-hidden="true"><div class="svc-vis-glow"></div><div class="svc-vis-stage mg-hero"><template id="svc-vis-old">
 <div class="vph"><div class="vph-scr"><span class="vph-notch"></span>
   <div class="vph-top"><div><small>Olá, Marina</small><b>Seu resumo</b></div><span class="vph-av"></span></div>
   <div class="vph-card"><small>Pontos de fidelidade</small><b>2.450 pts</b><span class="vph-prog"><i></i></span></div>
@@ -144,7 +144,7 @@
     <div><span class="ic"><i data-lucide="message-circle"></i></span><span><b>Suporte respondeu</b><small>Agora mesmo</small></span><em>Novo</em></div>
   </div>
   <div class="vph-tab"><span><i data-lucide="home"></i></span><span><i data-lucide="search"></i></span><span><i data-lucide="heart"></i></span><span><i data-lucide="user"></i></span></div>
-</div></div><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="bell"></i></span><span>Novo agendamento<small>notificação em tempo real</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="smartphone"></i></span><span>Android e iPhone<small>um app para os dois</small></span></div>
+</div></div></template><div class="svc-mg"><div class="mg-shot on"><div class="mg-inner"><div class="mgp-wrap"><div class="mgp"><div class="mgp-scr"><span class="mgp-notch"></span><div class="mgp-top"><div><small>Olá, Marina</small><b>Seu resumo</b></div><span class="mgp-av"></span></div><div class="mgp-card"><small>Pontos de fidelidade</small><b>2.450 pts</b><span class="mgp-prog"><i></i></span></div><div class="mgp-acts"><span><i><i data-lucide="calendar"></i></i>Agendar</span><span><i><i data-lucide="shopping-bag"></i></i>Pedidos</span><span><i><i data-lucide="gift"></i></i>Prêmios</span><span><i><i data-lucide="message-circle"></i></i>Suporte</span></div><div class="mgp-row"><span><i data-lucide="calendar-check"></i></span><span><b>Corte + barba</b><small>Amanhã · 14:30</small></span><em>R$ 75</em></div><div class="mgp-row"><span><i data-lucide="package"></i></span><span><b>Pedido #318</b><small>Saiu para entrega</small></span><em>R$ 129</em></div><div class="mgp-row"><span><i data-lucide="gift"></i></span><span><b>Cupom liberado</b><small>Próxima visita</small></span><em>-10%</em></div><div class="mgp-tab"><span><i data-lucide="home"></i></span><span><i data-lucide="search"></i></span><span><i data-lucide="heart"></i></span><span><i data-lucide="user"></i></span></div></div></div><div class="mgp-chip"><span><i data-lucide="bell"></i></span><span><b>Novo agendamento</b><small>notificação em tempo real</small></span></div></div></div></div></div><!--/svc-mg--><div class="vchip vchip-a"><span class="vchip-ico"><i data-lucide="bell"></i></span><span>Novo agendamento<small>notificação em tempo real</small></span></div><div class="vchip vchip-b"><span class="vchip-ico"><i data-lucide="smartphone"></i></span><span>Android e iPhone<small>um app para os dois</small></span></div>
     </div></div>
     </div>
   </div>
@@ -723,6 +723,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if(t&&t.name==='svc'&&t.checked)window.wfTrack('simulador_orcamento',{servico:t.getAttribute('data-nome')||'',valor:t.value||''});
   });
 })();
+</script>
+<script id="hero-mg-js">
+(function(){var b=document.querySelector('.svc-mg');if(!b)return;var i=b.querySelector('.mg-inner');
+function z(){b.style.setProperty('--mg-z',Math.min(1,b.clientWidth/520).toFixed(3));}
+z();if('ResizeObserver' in window)new ResizeObserver(z).observe(b);else addEventListener('resize',z);})();
 </script>
 </body>
 </html>
