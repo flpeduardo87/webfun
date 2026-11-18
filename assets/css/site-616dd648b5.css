@@ -1444,7 +1444,7 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 @media(prefers-reduced-motion:reduce){.diag-btn .diag-seta svg{transition:none;}}
 .diag-box{background:#111111;border-radius:1.25rem;color:#fff;box-shadow:0 24px 60px rgba(30,39,0,.3);padding:1.4rem 1.5rem 1.25rem;}
 .diag-box-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-bottom:1rem;margin-bottom:.4rem;border-bottom:1px solid rgba(255,255,255,.08);}
-.diag-box-top span{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.diag-box-top span{white-space:nowrap;font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);}
 .diag-box-top em{font-style:normal;font-size:.72rem;font-weight:800;color:var(--acid-fg);background:var(--acid);border-radius:999px;padding:.3rem .7rem;white-space:nowrap;}
 .diag-who{display:flex;align-items:center;gap:.75rem;margin-top:.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.08);}
 .diag-who img{width:2.4rem;height:2.4rem;border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 0 0 2px var(--acid);}
@@ -1457,7 +1457,8 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 .diag-steps b{position:relative;z-index:1;box-shadow:0 0 0 5px #111111;width:2.1rem;height:2.1rem;border-radius:.7rem;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;font-size:.95rem;font-weight:900;flex-shrink:0;}
 .diag-steps strong{display:block;font-size:1rem;font-weight:800;letter-spacing:-.01em;color:#fff;margin-bottom:.15rem;}
 .diag-steps span span{display:block;font-size:.88rem;line-height:1.5;color:rgba(255,255,255,.6);}
-@media(max-width:860px){.diag-sec{padding-bottom:4.5rem;}.diag-card{grid-template-columns:minmax(0,1fr);}.diag-btn{font-size:.9rem;padding-left:1.15rem;}}
+@media(max-width:860px){.diag-sec{padding-bottom:4.5rem;}.diag-btn{white-space:nowrap;}.diag-card{grid-template-columns:minmax(0,1fr);}.diag-btn{font-size:.9rem;padding-left:1.15rem;}}
+@media(max-width:420px){.diag-btn-x{display:none;}}
 #wppModal{position:fixed;inset:0;z-index:1000;display:flex;align-items:flex-end;justify-content:center;pointer-events:none;opacity:0;transition:opacity .25s;}
 #wppModal.wpp-open{pointer-events:all;opacity:1;}
 #wppOverlay{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);}
