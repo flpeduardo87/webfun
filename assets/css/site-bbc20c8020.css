@@ -46,7 +46,7 @@ img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}ul,ol{li
 .wf-nav-ico svg{width:.9rem;height:.9rem;stroke-width:2;pointer-events:none;}[data-theme="light"] .wf-nav-ico{background:#171717;}
 .wf-nav-nome{font-size:.88rem;font-weight:600;color:var(--ink);display:block;}
 .wf-nav-desc{font-size:.82rem;color:var(--muted);line-height:1.35;display:block;margin-top:.05rem;}
-.wf-topo-cta{display:none;height:2.9rem;padding:0 .45rem 0 1rem;border-radius:999px;background:var(--ink);color:var(--bg);font-size:.88rem;font-weight:700;align-items:center;gap:.55rem;}
+.wf-topo-cta{display:none;height:2.9rem;padding:0 .45rem 0 1rem;border-radius:999px;background:var(--acid);color:var(--acid-fg);font-size:.88rem;font-weight:700;align-items:center;gap:.55rem;transition:background .18s,color .18s;}
 .wf-topo-cta:hover{opacity:.88;}
 .wf-topo-cta .seta-sm{display:grid;place-items:center;width:2rem;height:2rem;border-radius:999px;background:var(--bg);color:var(--ink);transition:transform .4s var(--ease);}
 .wf-topo-cta .seta-sm svg{width:.8rem;height:.8rem;stroke-width:2.5;pointer-events:none;}
