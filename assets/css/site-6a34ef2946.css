@@ -1436,14 +1436,25 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 .diag-ey{display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--acid-fg);opacity:.7;}
 .diag-h{font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:900;letter-spacing:-.04em;line-height:1.08;margin:.6rem 0 1rem;color:var(--acid-fg);text-wrap:balance;}
 .diag-txt{font-size:1.02rem;line-height:1.65;color:var(--acid-fg);opacity:.82;max-width:36rem;margin-bottom:1.75rem;}
-.diag-btn{display:inline-flex;align-items:center;gap:.7rem;background:var(--acid-fg);color:var(--acid);border-radius:999px;padding:.4rem .4rem .4rem 1.4rem;font-size:.95rem;font-weight:800;transition:transform .25s var(--ease),box-shadow .25s;}
-.diag-btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(30,39,0,.28);}
-.diag-btn span{width:2.3rem;height:2.3rem;border-radius:50%;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;flex-shrink:0;}
-.diag-btn svg{width:1rem;height:1rem;stroke-width:2.5;}
-.diag-steps{list-style:none;margin:0;padding:1.5rem;background:#111111;border-radius:1.25rem;color:#fff;box-shadow:0 24px 60px rgba(30,39,0,.3);display:grid;gap:0;}
-.diag-steps li{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 0;border-top:1px solid rgba(255,255,255,.08);}
-.diag-steps li:first-child{border-top:0;padding-top:.25rem;}.diag-steps li:last-child{padding-bottom:.25rem;}
-.diag-steps b{width:2.1rem;height:2.1rem;border-radius:.7rem;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;font-size:.95rem;font-weight:900;flex-shrink:0;}
+.diag-btn{display:inline-flex;align-items:center;gap:.75rem;background:#000;color:#fff;border-radius:999px;padding:.35rem .35rem .35rem 1.4rem;font-size:.95rem;font-weight:800;transition:transform .25s var(--ease),box-shadow .25s;}
+.diag-btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(30,39,0,.3);color:#fff;}
+.diag-btn .diag-seta{width:2.3rem;height:2.3rem;border-radius:50%;background:var(--acid);color:#000;display:grid;place-items:center;flex-shrink:0;overflow:hidden;}
+.diag-btn .diag-seta svg{width:1rem;height:1rem;stroke-width:2.5;filter:drop-shadow(-2.6rem 0 0 currentColor);transition:transform .5s cubic-bezier(.65,0,.35,1);}
+.diag-btn:hover .diag-seta svg{transform:translateX(2.6rem);}
+@media(prefers-reduced-motion:reduce){.diag-btn .diag-seta svg{transition:none;}}
+.diag-box{background:#111111;border-radius:1.25rem;color:#fff;box-shadow:0 24px 60px rgba(30,39,0,.3);padding:1.4rem 1.5rem 1.25rem;}
+.diag-box-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-bottom:1rem;margin-bottom:.4rem;border-bottom:1px solid rgba(255,255,255,.08);}
+.diag-box-top span{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.diag-box-top em{font-style:normal;font-size:.72rem;font-weight:800;color:var(--acid-fg);background:var(--acid);border-radius:999px;padding:.3rem .7rem;white-space:nowrap;}
+.diag-who{display:flex;align-items:center;gap:.75rem;margin-top:.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.08);}
+.diag-who img{width:2.4rem;height:2.4rem;border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 0 0 2px var(--acid);}
+.diag-who b{display:block;font-size:.86rem;font-weight:800;color:#fff;}
+.diag-who small{display:block;font-size:.76rem;color:rgba(255,255,255,.55);}
+.diag-steps{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:0;}
+.diag-steps:before{content:'';position:absolute;left:1.05rem;top:2rem;bottom:2rem;border-left:2px dashed rgba(201,255,65,.35);}
+.diag-steps li{position:relative;display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 0;border-top:1px solid rgba(255,255,255,.08);}
+.diag-steps li:first-child{border-top:0;}
+.diag-steps b{position:relative;z-index:1;box-shadow:0 0 0 5px #111111;width:2.1rem;height:2.1rem;border-radius:.7rem;background:var(--acid);color:var(--acid-fg);display:grid;place-items:center;font-size:.95rem;font-weight:900;flex-shrink:0;}
 .diag-steps strong{display:block;font-size:1rem;font-weight:800;letter-spacing:-.01em;color:#fff;margin-bottom:.15rem;}
 .diag-steps span span{display:block;font-size:.88rem;line-height:1.5;color:rgba(255,255,255,.6);}
 @media(max-width:860px){.diag-sec{padding-bottom:4.5rem;}.diag-card{grid-template-columns:minmax(0,1fr);}.diag-btn{font-size:.9rem;padding-left:1.15rem;}}
