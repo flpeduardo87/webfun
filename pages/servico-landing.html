@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="/assets/js/icones-79093c78.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
-<link rel="stylesheet" href="/assets/css/site-1cc18634ba.css">
+<link rel="stylesheet" href="/assets/css/site-1d9c9a7e5b.css">
 
 <!-- ── Hero visual upgrade ──────────────────────────────────────────────── -->
 <script id="theme-color-js">
@@ -444,7 +444,7 @@ document.addEventListener('DOMContentLoaded', function() {
   hero.addEventListener('mouseleave',function(){st.style.transform='';});
 })();
 </script>
-<script>(function(){var t=2*3600+47*60+19,h=document.getElementById('vlpH'),m=document.getElementById('vlpM'),s=document.getElementById('vlpS'),p=function(n){return(n<10?'0':'')+n;};setInterval(function(){t=t>0?t-1:3*3600;h.textContent=p(Math.floor(t/3600));m.textContent=p(Math.floor(t%3600/60));s.textContent=p(t%60);},1000);})();</script>
+<script>(function(){var t=2*3600+47*60+19,h=document.getElementById('vlpH'),m=document.getElementById('vlpM'),s=document.getElementById('vlpS');if(!h||!m||!s)return;var p=function(n){return(n<10?'0':'')+n;};setInterval(function(){t=t>0?t-1:3*3600;h.textContent=p(Math.floor(t/3600));m.textContent=p(Math.floor(t%3600/60));s.textContent=p(t%60);},1000);})();</script>
 <script>
 (function(){
   var m=document.querySelector('.wf-menu');if(!m)return;
@@ -704,9 +704,17 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 })();
 </script>
+<script id="menu-rapido-js">
+(function(){
+  var m=document.querySelector('.wf-menu');if(!m)return;
+  var s=m.querySelector('summary'),html=document.documentElement,t=0;
+  s.addEventListener('click',function(e){var n=Date.now();if(n-t<450){e.preventDefault();return;}t=n;});
+  m.addEventListener('toggle',function(){html.classList.toggle('mm-aberto',m.open);});
+})();
+</script>
 <script id="hero-mg-js">
 (function(){var b=document.querySelector('.svc-mg');if(!b)return;var i=b.querySelector('.mg-inner');
-function z(){b.style.setProperty('--mg-z',Math.min(1,b.clientWidth/520).toFixed(3));}
+function z(){b.style.setProperty('--mg-z',Math.min(1,b.clientWidth/(b.classList.contains('app')?340:520)).toFixed(3));}
 z();if('ResizeObserver' in window)new ResizeObserver(z).observe(b);else addEventListener('resize',z);})();
 </script>
 </body>

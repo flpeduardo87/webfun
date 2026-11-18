@@ -32,7 +32,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="/assets/js/icones-79093c78.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
-<link rel="stylesheet" href="/assets/css/site-6b20ce1bca.css">
+<link rel="stylesheet" href="/assets/css/site-ff63535b2d.css">
 <script id="theme-color-js">
 (function(){
   var m=document.getElementById('metaTheme'),h=document.documentElement;if(!m)return;
@@ -551,6 +551,14 @@ document.addEventListener('DOMContentLoaded', function() {
     var t=e.target;
     if(t&&t.name==='svc'&&t.checked)window.wfTrack('simulador_orcamento',{servico:t.getAttribute('data-nome')||'',valor:t.value||''});
   });
+})();
+</script>
+<script id="menu-rapido-js">
+(function(){
+  var m=document.querySelector('.wf-menu');if(!m)return;
+  var s=m.querySelector('summary'),html=document.documentElement,t=0;
+  s.addEventListener('click',function(e){var n=Date.now();if(n-t<450){e.preventDefault();return;}t=n;});
+  m.addEventListener('toggle',function(){html.classList.toggle('mm-aberto',m.open);});
 })();
 </script>
 </body>
