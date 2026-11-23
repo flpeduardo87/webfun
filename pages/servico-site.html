@@ -28,9 +28,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="/assets/js/icones-79093c78.js"></script>
+<script src="/assets/js/icones-95e7cef6.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
-<link rel="stylesheet" href="/assets/css/site-39d5fb870f.css">
+<link rel="stylesheet" href="/assets/css/site-36ec22d6d6.css">
 
 <!-- ── Hero visual upgrade ──────────────────────────────────────────────── -->
 <script id="theme-color-js">
@@ -162,7 +162,7 @@
         <span class="eyebrow">Para quem é</span>
         <h2 class="pqe-label">Feito para quem precisa ser levado a sério online.</h2>
         <p class="pqe-sub">Se seu cliente pesquisa seu nome no Google antes de ligar — e encontra nada, ou algo desatualizado — este serviço é para você.</p>
-        <p class="nicho-links">Veja também: <a href="/site-para-advogados">site para advogados</a> e <a href="/site-para-clinicas">site para clínicas</a>.</p>
+        <p class="nicho-links">Veja também: <a href="/site-para-advogados">site para advogados</a> e <a href="/site-para-clinicas">site para clínicas</a>. Atendimento online também para <a href="/criacao-de-sites-criciuma">Criciúma</a> e <a href="/criacao-de-sites-tubarao">Tubarão</a>.</p>
         <div class="pqe-cta"><span class="pqe-cta-t">Se identificou? Mostramos o caminho.</span><a href="https://wa.me/5547997618824" class="btn-acid" target="_blank" rel="noopener">Falar no WhatsApp <span class="seta" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a></div>
       </div>
       <div class="pqe-list">
@@ -753,6 +753,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 })();
 </script>
+<script id="hero-mg-js">
+(function(){var b=document.querySelector('.svc-mg');if(!b)return;var i=b.querySelector('.mg-inner');
+function z(){b.style.setProperty('--mg-z',Math.min(1,b.clientWidth/(b.classList.contains('app')?340:520)).toFixed(3));}
+z();if('ResizeObserver' in window)new ResizeObserver(z).observe(b);else addEventListener('resize',z);})();
+</script>
 <script id="menu-rapido-js">
 (function(){
   var m=document.querySelector('.wf-menu');if(!m)return;
@@ -760,11 +765,6 @@ document.addEventListener('DOMContentLoaded', function() {
   s.addEventListener('click',function(e){var n=Date.now();if(n-t<450){e.preventDefault();return;}t=n;});
   m.addEventListener('toggle',function(){html.classList.toggle('mm-aberto',m.open);});
 })();
-</script>
-<script id="hero-mg-js">
-(function(){var b=document.querySelector('.svc-mg');if(!b)return;var i=b.querySelector('.mg-inner');
-function z(){b.style.setProperty('--mg-z',Math.min(1,b.clientWidth/(b.classList.contains('app')?340:520)).toFixed(3));}
-z();if('ResizeObserver' in window)new ResizeObserver(z).observe(b);else addEventListener('resize',z);})();
 </script>
 </body>
 </html>
