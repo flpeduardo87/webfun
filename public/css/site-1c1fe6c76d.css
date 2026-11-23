@@ -842,6 +842,8 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 .svc-mg.app .mg-inner{width:340px;}
 .rodape-pol{color:rgba(255,255,255,.82);text-decoration:none;transition:color .2s;}.rodape-pol:hover,.rodape-pol:focus-visible{color:var(--acid);text-decoration:underline;text-underline-offset:3px;}@media(max-width:600px){.rodape-dir{display:block;margin-top:.2rem;}}
 a.rodape-marca{width:fit-content;text-decoration:none;transition:opacity .2s;}a.rodape-marca:hover{opacity:.8;}
+.dl-stage{position:relative;display:block;}
+.dl-img{display:block;width:100%;height:auto;border-radius:var(--r);-webkit-mask-image:linear-gradient(90deg,#000 70%,transparent);mask-image:linear-gradient(90deg,#000 70%,transparent);}
 .wf-menu>summary{touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;}
 @media(max-width:899px){
 .wf-menu-painel{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(240,239,233,.98)!important;animation-duration:.1s!important;}
