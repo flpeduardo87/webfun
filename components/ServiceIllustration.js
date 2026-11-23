@@ -1,0 +1,13 @@
+import { Mail, Database, Users, ArrowRight, Search, Gauge, ShoppingBag, Shirt, Check, LayoutGrid, ListChecks, Menu } from 'lucide-react';
+
+/** Decorative product previews: no fictional claims and no interactive controls. */
+export default function ServiceIllustration({slug}){
+ return <div className={`wf-preview wf-preview-${slug}`} aria-hidden="true">
+ {slug==='sites-e-experiencias-digitais' && <div className="wf-mini-site"><div className="wf-mini-bar"><b>webfun</b><Menu size={15}/></div><div className="wf-mini-site-content"><div><strong>Sua marca<br/>em destaque.</strong><div className="wf-ui-line"/><div className="wf-ui-line short"/></div><div className="wf-site-panel"><LayoutGrid size={48} strokeWidth={1.2}/></div></div></div>}
+ {slug==='e-commerce' && <div className="wf-mini-shop"><div className="wf-product-photo"><Shirt size={87} strokeWidth={1}/></div><div className="wf-product-info"><span>COLEÇÃO ESSENCIAL</span><strong>Seu produto.<br/>Em destaque.</strong><div className="wf-ui-line"/><div className="wf-swatch-row"><i/><i/><i/></div><ShoppingBag size={29} strokeWidth={1.5}/></div></div>}
+ {slug==='sistemas-e-plataformas' && <div className="wf-mini-dashboard"><aside><LayoutGrid size={18}/><Users size={18}/><ListChecks size={18}/></aside><div><strong>Sua operação,<br/>organizada.</strong>{['Novos clientes','Tarefas do dia','Processos'].map((text,i)=><div className="wf-task" key={text}><i className={`tone-${i}`}/><span>{text}</span><span className="wf-task-line"/></div>)}</div></div>}
+ {slug==='automacao-e-ia' && <div className="wf-flow">{[{Icon:Mail,title:'Contato'},{Icon:Database,title:'Cadastro'},{Icon:Users,title:'Equipe'}].map(({Icon,title},i)=><div className="wf-flow-step" key={title}><div><Icon size={32} strokeWidth={1.5}/><b>{title}</b></div>{i<2&&<ArrowRight className="wf-flow-arrow" size={19}/>}</div>)}</div>}
+ {slug==='seo-performance' && <div className="wf-mini-search"><div className="wf-search-field"><Search size={20}/><strong>Sua empresa</strong></div><div className="wf-result-title"/><div className="wf-ui-line"/><div className="wf-ui-line short"/><div className="wf-gauge"><Gauge size={45} strokeWidth={1.5}/></div></div>}
+ {slug==='ux-ui-produto-digital' && <div className="wf-mini-journey"><div className="wf-mini-phone"><span className="wf-phone-speaker"/><strong>Agendar</strong><div className="wf-week">D S T Q Q S S</div><div className="wf-calendar">{Array.from({length:28},(_,i)=><span key={i} className={i===11?'selected':''}/>)}</div></div><div className="wf-confirmation"><span><Check size={24}/></span><strong>Tudo certo</strong><div className="wf-ui-line"/><div className="wf-ui-line short"/></div></div>}
+ </div>;
+}

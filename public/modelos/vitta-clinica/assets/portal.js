@@ -1,0 +1,7 @@
+const $=(q,s=document)=>s.querySelector(q), $$=(q,s=document)=>[...s.querySelectorAll(q)], D=window.VITTA_DATA;
+function toast(m){const t=$('.toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+$$('.side-nav button[data-view]').forEach(b=>b.onclick=()=>{$$('.side-nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');$$('.app-section').forEach(s=>s.classList.remove('active'));$('#'+b.dataset.view).classList.add('active');$('.topbar h2').textContent=b.textContent.trim()});
+const cards=$('#consultCards');if(cards)cards.innerHTML=D.consultas.slice(0,3).map(c=>`<article class="case-card"><span class="status-pill ${c.status==='Confirmada'?'status-green':'status-amber'}">${c.status}</span><h3>${c.especialidade}</h3><p>${c.profissional}</p><div class="case-meta"><span>${c.data}</span></div><button class="btn btn-soft" style="margin-top:14px" data-action>Ver detalhes</button></article>`).join('');
+const docs=$('#examList');if(docs)docs.innerHTML=D.exames.map(e=>`<div class="doc"><div><b>${e.nome}</b><small>${e.tipo} · ${e.data}</small></div><button class="btn btn-soft" data-action>Visualizar</button></div>`).join('');
+$$('[data-action]').forEach(b=>b.onclick=()=>toast('Ação simulada nesta demonstração.'));
+$('#sendMessage')?.addEventListener('submit',e=>{e.preventDefault();toast('Mensagem enviada para a clínica.');e.currentTarget.reset()});

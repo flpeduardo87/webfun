@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101010">
+  <title>Entrar no painel — Core Multinicho V2.4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <main class="login-shell">
+    <section class="login-aside">
+      <a class="login-brand" href="../vitrine.html"><span>CM</span><div><strong>Core Multinicho</strong><small>PAINEL DO NEGÓCIO</small></div></a>
+      <div class="login-copy">
+        <span class="eyebrow">SUA OPERAÇÃO NA NUVEM</span>
+        <h1>Gerencie sua vitrine de qualquer lugar.</h1>
+        <p>Produtos, identidade e regras de conversão sincronizados no Supabase, com login individual e isolamento por negócio.</p>
+        <div class="feature-list">
+          <span>✓ Login com e-mail e senha</span>
+          <span>✓ Banco de dados por negócio</span>
+          <span>✓ Upload real de imagens</span>
+          <span>✓ Estrutura multinichos</span>
+        </div>
+      </div>
+      <small>Core V1 • Multinichos</small>
+    </section>
+
+    <section class="login-panel">
+      <div class="login-card">
+        <div class="login-card__head">
+          <span class="eyebrow">ACESSO ADMINISTRATIVO</span>
+          <h2 id="formTitle">Entrar no painel</h2>
+          <p id="formCopy">Use sua conta para acessar os negócios vinculados a você.</p>
+        </div>
+
+        <div id="notConfigured" class="config-warning" hidden>
+          <strong>Supabase ainda não configurado.</strong>
+          <p>Preencha <code>supabase-config.js</code> para ativar login e sincronização. Enquanto isso você pode abrir o painel no modo demonstração local.</p>
+          <a href="index.html?demo=1">Abrir painel de demonstração</a>
+        </div>
+
+        <div id="authArea">
+          <div class="auth-tabs" role="tablist">
+            <button id="loginTab" class="is-active" type="button">Entrar</button>
+            <button id="registerTab" type="button">Criar conta</button>
+          </div>
+
+          <form id="authForm" class="auth-form">
+            <label id="nameField" hidden>Seu nome<input name="fullName" autocomplete="name" placeholder="Ex.: Felipe Eduardo"></label>
+            <label>E-mail<input name="email" type="email" autocomplete="email" required placeholder="voce@empresa.com.br"></label>
+            <label>Senha<input name="password" type="password" minlength="6" autocomplete="current-password" required placeholder="••••••••"></label>
+            <button id="authSubmit" type="submit">Entrar <span>→</span></button>
+            <div id="authMessage" class="auth-message" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+      <a class="back-link" href="../vitrine.html">← Voltar à vitrine</a>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../supabase-config.js"></script>
+  <script src="../supabase-client.js"></script>
+  <script src="../data.js"></script>
+  <script src="../backend.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

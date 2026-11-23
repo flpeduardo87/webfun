@@ -1,0 +1,31 @@
+{
+  "name": "webfun-site",
+  "version": "7.99.48",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "check": "node scripts/check-project.mjs",
+    "audit:prod": "npm audit --omit=dev",
+    "preflight": "node scripts/preflight.mjs",
+    "validate": "npm run check && npm run preflight",
+    "release": "npm run check && npm run preflight:prod && npm run build",
+    "lighthouse": "node scripts/lighthouse.mjs",
+    "preflight:prod": "node scripts/preflight-prod.mjs"
+  },
+  "dependencies": {
+    "framer-motion": "^12.0.0",
+    "lucide-react": "^0.468.0",
+    "next": "^15.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "engines": {
+    "node": ">=20 <25",
+    "npm": ">=10"
+  },
+  "overrides": {
+    "postcss": "8.5.26"
+  }
+}
