@@ -76,6 +76,16 @@ http.createServer((req, res) => {
       res.end('Server Error');
       return;
     }
+    /* Safari (e todo navegador do iPhone/iPad) recebe o favicon quadrado: com cantos transparentes ele
+       põe uma moldura branca em volta. Os outros navegadores ficam com o arredondado. */
+    if (ext === '.html') {
+      const ua = String(req.headers['user-agent'] || '');
+      const safari = /iPhone|iPad|iPod/.test(ua) || (/Safari\//.test(ua) && !/Chrome|Chromium|Edg|OPR|Firefox|SamsungBrowser/.test(ua));
+      if (safari) data = Buffer.from(String(data).split('favicon.svg?v=').join('favicon-sq.svg?v='));
+      res.writeHead(200, { 'Content-Type': contentType, 'Cache-Control': cache, 'Vary': 'Accept-Encoding, User-Agent' });
+      res.end(data);
+      return;
+    }
     res.writeHead(200, { 'Content-Type': contentType, 'Cache-Control': cache });
     res.end(data);
   });
