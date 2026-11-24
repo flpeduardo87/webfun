@@ -1108,7 +1108,7 @@ details.faq-item[open]{border-bottom-color:rgba(201,255,65,.35);}
 .st-stars{position:relative;display:inline-block;font-size:1.15rem;letter-spacing:.18em;line-height:1;margin-top:.7rem;}
 .st-stars-base{color:rgba(255,255,255,.14);}
 .st-stars-fill{position:absolute;left:0;top:0;width:0;overflow:hidden;white-space:nowrap;color:var(--acid);transition:width 1.4s cubic-bezier(.16,1,.3,1) .2s;}
-#statsGrid.on .st-stars-fill{width:96%;}
+#statsGrid.on .st-stars-fill{width:100%;}
 .st-rate-side{max-width:15rem;}
 .st-avs{display:flex;margin-bottom:.7rem;}
 .st-avs img{width:2.3rem;height:2.3rem;border-radius:50%;object-fit:cover;border:2px solid var(--win-2);margin-left:-.55rem;}

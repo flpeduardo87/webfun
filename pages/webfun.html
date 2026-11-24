@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="/assets/js/icones-8662fae1.js"></script>
 <script>document.documentElement.dataset.theme = localStorage.getItem('wf-theme') || 'dark';</script>
-<link rel="stylesheet" href="/assets/css/site-11a2492ba0.css">
+<link rel="stylesheet" href="/assets/css/site-140543fc73.css">
 <script id="theme-color-js">
 (function(){
   var m=document.getElementById('metaTheme'),h=document.documentElement;if(!m)return;
@@ -133,7 +133,7 @@
       <div class="hero-trust">
         <span class="hero-stars">★★★★★</span>
         <span class="hero-trust-sep" aria-hidden="true"></span>
-        <span class="hero-trust-txt"><a href="https://share.google/PzpoaAIZrlCFxPgD0" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--acid);text-decoration-thickness:2px;text-underline-offset:3px" aria-label="Nota 4,8 no Google. Ver avaliações">4,8</a> · +50 projetos entregues</span>
+        <span class="hero-trust-txt"><a href="https://share.google/PzpoaAIZrlCFxPgD0" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--acid);text-decoration-thickness:2px;text-underline-offset:3px" aria-label="Nota 5,0 no Google. Ver avaliações">5,0</a> · +50 projetos entregues</span>
       </div>
       <h1 id="hero-h1">Seu negócio<br>merece mais<br><em>do que um site.</em></h1>
       <p class="hero-sub">Criamos sites, lojas e sistemas que trabalham por você, mesmo quando você não está olhando.</p>
@@ -476,7 +476,7 @@
         </div>
         <div class="pq-proof">
           <div class="pq-avs" aria-hidden="true"><img src="media/pessoas/clientes/flavia.webp" alt="" width="40" height="40" loading="lazy"><img src="media/pessoas/clientes/jean.webp" alt="" width="40" height="40" loading="lazy"><img src="media/pessoas/clientes/nicole.webp" alt="" width="40" height="40" loading="lazy"><img src="media/pessoas/clientes/joao.webp" alt="" width="40" height="40" loading="lazy"></div>
-          <div><p class="pq-proof-stars" aria-label="Nota 4,8 de 5">★★★★★ <b><a href="https://share.google/PzpoaAIZrlCFxPgD0" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--acid);text-decoration-thickness:2px;text-underline-offset:3px" aria-label="Nota 4,8 no Google. Ver avaliações">4,8</a></b></p><p class="pq-proof-txt">+50 projetos entregues para empresas que decidiram resolver.</p></div>
+          <div><p class="pq-proof-stars" aria-label="Nota 5,0 de 5">★★★★★ <b><a href="https://share.google/PzpoaAIZrlCFxPgD0" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--acid);text-decoration-thickness:2px;text-underline-offset:3px" aria-label="Nota 5,0 no Google. Ver avaliações">5,0</a></b></p><p class="pq-proof-txt">+50 projetos entregues para empresas que decidiram resolver.</p></div>
         </div>
       </div>
       <div class="pq-items">
@@ -527,8 +527,8 @@
         <span class="stat-ey">avaliação média</span>
         <div class="st-rate-body">
           <div>
-            <p class="stat-num" data-target="4.8" data-suffix="">0</p>
-            <div class="st-stars" role="img" aria-label="4,8 de 5 estrelas"><span class="st-stars-base">★★★★★</span><span class="st-stars-fill">★★★★★</span></div>
+            <p class="stat-num" data-target="5.0" data-suffix="">0</p>
+            <div class="st-stars" role="img" aria-label="5,0 de 5 estrelas"><span class="st-stars-base">★★★★★</span><span class="st-stars-fill">★★★★★</span></div>
           </div>
           <div class="st-rate-side">
             <div class="st-avs" aria-hidden="true"><img src="media/pessoas/clientes/karen.webp" alt="" width="40" height="40" loading="lazy"><img src="media/pessoas/clientes/wesley.webp" alt="" width="40" height="40" loading="lazy"><img src="media/pessoas/clientes/flavia.webp" alt="" width="40" height="40" loading="lazy"></div>
@@ -759,7 +759,7 @@ function animateStats() {
   document.querySelectorAll('.stat-num[data-target]').forEach(function(el) {
     var target = parseFloat(el.dataset.target);
     var suffix = el.dataset.suffix || '';
-    var isDecimal = target % 1 !== 0;
+    var isDecimal = target % 1 !== 0 || el.dataset.target.indexOf(".") >= 0;
     var duration = 1600;
     var start = performance.now();
     function step(now) {
