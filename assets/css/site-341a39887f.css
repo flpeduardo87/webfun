@@ -642,6 +642,13 @@ a.rodape-marca{width:fit-content;text-decoration:none;transition:opacity .2s;}a.
 .hp-checks svg,.hp-checks i{width:1rem;height:1rem;color:var(--acid);stroke-width:2.6;flex:none;}
 [data-theme="light"] .hp-checks svg,[data-theme="light"] .hp-checks i{color:var(--acid-fg);}
 @media(max-width:480px){.hp-ctas a{flex:1 1 100%;justify-content:center;}}
+@media(min-width:901px){
+.pj-vis,.bl-vis{align-self:stretch;margin-top:0!important;display:flex;flex-direction:column;}
+.pj-stage,.bl-stage{flex:1;height:auto!important;min-height:23rem;}
+.pj-deck,.bl-deck{inset:1.4rem 1rem 0 1.5rem!important;}
+.pj-card,.bl-card{height:92%!important;}
+.bl-card{padding-top:3.6rem!important;}
+}
 .wf-menu>summary{touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;}
 @media(max-width:899px){
 .wf-menu-painel{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(240,239,233,.98)!important;animation-duration:.1s!important;}
