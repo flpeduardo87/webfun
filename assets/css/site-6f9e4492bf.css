@@ -687,6 +687,9 @@ html[data-theme="light"] .step.bgm h3{color:var(--ink)!important;}
 html[data-theme="light"] .step.bgm .step-desc{color:rgba(23,24,27,.68)!important;}
 html[data-theme="light"] .step.bgm .step-n,html[data-theme="light"] .step.bgm .step-dur{color:rgba(23,24,27,.5)!important;}
 html[data-theme="light"] .st-mq-track span{color:#3d424a!important;}
+.case-img img.fade-r,.p-feat .p-thumb-bg{-webkit-mask-image:none;mask-image:none;}
+@media(max-width:800px){.case-img img{aspect-ratio:auto;height:auto;padding:3rem .5rem 0;}}
+@media(max-width:900px){.p-feat .p-thumb-bg{top:3.25rem;}}
 #wppModal{position:fixed;inset:0;z-index:1000;display:flex;align-items:flex-end;justify-content:center;pointer-events:none;opacity:0;transition:opacity .25s;}
 #wppModal.wpp-open{pointer-events:all;opacity:1;}
 #wppOverlay{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);}
